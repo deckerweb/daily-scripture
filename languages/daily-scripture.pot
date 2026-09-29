@@ -1,0 +1,1970 @@
+# Copyright (C) 2026 David Decker
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Daily Scripture 0.16.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/daily-scripture\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-29T21:44:06+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: daily-scripture\n"
+
+#. Plugin Name of the plugin
+#: daily-scripture.php
+#: src/Admin/DashboardWidget.php:29
+#: src/Integrations/Bricks/ScriptureElement.php:44
+#: src/Integrations/Elementor/ScriptureWidget.php:31
+msgid "Daily Scripture"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: daily-scripture.php
+msgid "https://github.com/deckerweb/daily-scripture"
+msgstr ""
+
+#. Description of the plugin
+#: daily-scripture.php
+#: src/Core/GitHubUpdates.php:32
+msgid "Daily verses from Die Losungen and Bible 2.0, plus selected passages from four local Bible editions. Includes live previews, ten layouts, flexible typography, Gutenberg, Elementor, Bricks, shortcodes, a compact dashboard widget and JSON settings transfer."
+msgstr ""
+
+#. Author of the plugin
+#: daily-scripture.php
+msgid "David Decker"
+msgstr ""
+
+#. Author URI of the plugin
+#: daily-scripture.php
+msgid "https://github.com/deckerweb"
+msgstr ""
+
+#: src/Admin/Admin.php:47
+msgid "Einstellungen"
+msgstr ""
+
+#: src/Admin/Admin.php:59
+#: src/Admin/Documentation.php:47
+msgid "Keine Berechtigung für diese Aktion."
+msgstr ""
+
+#: src/Admin/Admin.php:70
+#: src/Admin/PageChrome.php:42
+msgid "Datenquellen"
+msgstr ""
+
+#: src/Admin/Admin.php:71
+#: src/Admin/PageChrome.php:44
+msgid "Shortcodes"
+msgstr ""
+
+#: src/Admin/Admin.php:72
+#: src/Admin/PageChrome.php:45
+msgid "Hilfe"
+msgstr ""
+
+#: src/Admin/Admin.php:144
+msgid "Datenquellen und Jahresdaten"
+msgstr ""
+
+#: src/Admin/Admin.php:144
+msgid "Gut versorgt durchs Jahr: Lade neue Tagesverse, behalte deine Quellen im Blick und verwalte deine Jahrespakete."
+msgstr ""
+
+#: src/Admin/Admin.php:148
+msgid "Versdaten werden ausschließlich unter wp-content/uploads/daily-scripture/ gespeichert. Pro Quelle und Jahr wird eine Ausgabe verwaltet. Vorhandene Jahre werden nur nach ausdrücklicher Auswahl ersetzt."
+msgstr ""
+
+#: src/Admin/Admin.php:149
+msgid "Installierte Jahre"
+msgstr ""
+
+#: src/Admin/Admin.php:161
+#: src/Admin/Admin.php:200
+msgid "Jahr"
+msgstr ""
+
+#: src/Admin/Admin.php:161
+msgid "Ausgabe / Tage"
+msgstr ""
+
+#: src/Admin/Admin.php:161
+msgid "Importiert (UTC)"
+msgstr ""
+
+#: src/Admin/Admin.php:161
+msgid "Status"
+msgstr ""
+
+#: src/Admin/Admin.php:161
+msgid "Aktion"
+msgstr ""
+
+#: src/Admin/Admin.php:166
+msgid "Noch keine Jahresdaten installiert."
+msgstr ""
+
+#: src/Admin/Admin.php:170
+msgid "Vollständig / verfügbar"
+msgstr ""
+
+#: src/Admin/Admin.php:170
+msgid "Außerhalb des zulässigen Jahresbereichs; Ausgabe gesperrt. Bitte löschen."
+msgstr ""
+
+#: src/Admin/Admin.php:174
+msgid "Löschen bestätigen"
+msgstr ""
+
+#: src/Admin/Admin.php:175
+msgid "Jahr löschen"
+msgstr ""
+
+#: src/Admin/Admin.php:179
+msgid "Bereit für den Jahreswechsel?"
+msgstr ""
+
+#: src/Admin/Admin.php:187
+msgid "Offizielle Jahresdatei importieren"
+msgstr ""
+
+#: src/Admin/Admin.php:188
+msgid "Download"
+msgstr ""
+
+#: src/Admin/Admin.php:188
+msgid "Bible-2.0-Dateiverzeichnis (Alternative)"
+msgstr ""
+
+#: src/Admin/Admin.php:189
+msgid "Unterstützt: offizielles Losungen-XML/ZIP und Bible-2.0-TWD 1.1/XML/ZIP, maximal 8 MiB. Die gesamte Datei wird vor dem Speichern geprüft. Es werden keine Texte von Bibleserver abgerufen."
+msgstr ""
+
+#: src/Admin/Admin.php:190
+msgid "Die Losungen: nur Originaldateien von losungen.de, unveränderte Verspaare, kostenlose nichtkommerzielle Nutzung und zulässiger Jahresbereich. Die Veröffentlichung ist der Herausgeberin zu melden. Bible 2.0: zusätzlich die Rechte der jeweiligen Bibelausgabe beachten."
+msgstr ""
+
+#: src/Admin/Admin.php:190
+msgid "Losungen-Nutzungsbedingungen"
+msgstr ""
+
+#: src/Admin/Admin.php:190
+msgid "Bible-2.0-Lizenzinformationen"
+msgstr ""
+
+#: src/Admin/Admin.php:194
+msgid "Quelle"
+msgstr ""
+
+#: src/Admin/Admin.php:201
+msgid "Jahresdatei"
+msgstr ""
+
+#: src/Admin/Admin.php:202
+msgid "Die Datei stammt vom offiziellen Anbieter. Ich habe die Nutzungsbedingungen der Quelle und Bibelausgabe geprüft und darf diese Texte hier veröffentlichen."
+msgstr ""
+
+#: src/Admin/Admin.php:203
+msgid "Ein vorhandenes Jahr nach erfolgreicher Prüfung vollständig ersetzen."
+msgstr ""
+
+#: src/Admin/Admin.php:204
+msgid "Prüfen und importieren"
+msgstr ""
+
+#: src/Admin/Admin.php:206
+msgid "Freie Bibelübersetzungen installieren und verwalten"
+msgstr ""
+
+#: src/Admin/Admin.php:219
+#: src/Admin/DataDownloads.php:152
+msgid "Bitte das zugehörige Formular verwenden."
+msgstr ""
+
+#: src/Admin/Admin.php:227
+msgid "Bitte eine vierstellige Jahreszahl angeben."
+msgstr ""
+
+#: src/Admin/Admin.php:246
+msgid "Bitte Herkunft und Nutzungsrechte bestätigen."
+msgstr ""
+
+#: src/Admin/Admin.php:250
+msgid "Upload fehlgeschlagen. Bitte eine Datei auswählen und die PHP-Uploadgrenzen prüfen."
+msgstr ""
+
+#: src/Admin/Admin.php:254
+msgid "Das vollständige Jahr wurde erfolgreich importiert."
+msgstr ""
+
+#: src/Admin/Admin.php:272
+msgid "Bitte das Löschen dieses Jahres bestätigen."
+msgstr ""
+
+#: src/Admin/Admin.php:275
+msgid "Die Jahresdaten wurden gelöscht."
+msgstr ""
+
+#: src/Admin/Changelog.php:78
+#: src/Core/Renderer.php:67
+msgid "Schließen"
+msgstr ""
+
+#: src/Admin/Changelog.php:78
+msgid "Close"
+msgstr ""
+
+#: src/Admin/Changelog.php:79
+#: src/Admin/PageChrome.php:61
+msgid "Changelog"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:94
+msgid "Plugin-Einstellungen"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:96
+msgid "Ansicht anpassen"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:96
+msgid "Dein Dashboard, deine Lesegröße. Diese Auswahl gilt nur für dich auf dieser Website – die öffentliche Versausgabe bleibt unverändert."
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:100
+msgid "Schriftgröße"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:102
+msgid "Sehr kompakt · Verse 14 px"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:103
+msgid "Kompakt · Verse 16 px (empfohlen)"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:104
+msgid "Bequem lesen · Verse 18 px"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:108
+#: src/Admin/DesignStudio.php:253
+msgid "Abstände"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:110
+msgid "Wenig Freiraum"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:111
+msgid "Etwas mehr Luft"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:115
+#: src/Integrations/Bricks/PassageElement.php:67
+#: src/Integrations/Bricks/ScriptureElement.php:67
+#: src/Integrations/Elementor/PassageWidget.php:78
+#: src/Integrations/Elementor/ScriptureWidget.php:78
+#: assets/block.js:48
+#: assets/passage-block.js:32
+msgid "Darstellung"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:117
+msgid "Schlicht ohne Rahmen"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:118
+msgid "Dezente Karten"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:129
+msgid "Meine Ansicht speichern"
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:135
+#: src/Admin/DataDownloads.php:78
+#: src/Admin/DataDownloads.php:150
+#: src/Admin/DesignStudio.php:70
+#: src/Admin/SettingsTransfer.php:97
+msgid "Keine Berechtigung."
+msgstr ""
+
+#: src/Admin/DashboardWidget.php:138
+msgid "Bitte das Formular im Dashboard verwenden."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:22
+#: src/Admin/DataDownloads.php:80
+#: src/Admin/PageChrome.php:43
+msgid "Bibelbibliothek"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:40
+msgid "Jahrespakete direkt vom Anbieter"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:40
+msgid "Ein Klick prüft das offizielle Verzeichnis. Verfügbare Pakete kannst du anschließend direkt laden und importieren. Die Anzeige wird sechs Stunden gespeichert; ein Download kann trotzdem vorübergehend ausfallen. Der manuelle Upload bleibt jederzeit möglich."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:47
+msgid "Noch nicht geprüft / Prüfung abgelaufen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:47
+msgid "Download derzeit nicht verfügbar"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:47
+msgid "Verfügbar im offiziellen Verzeichnis"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:55
+msgid "Downloadquelle prüfen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:59
+msgid "Jahrespaket"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:62
+msgid "Ich habe die Nutzungsbedingungen der Quelle und Bibelausgabe geprüft und darf diese Texte hier veröffentlichen."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:63
+msgid "Nutzungsbedingungen öffnen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:65
+msgid "Herunterladen & importieren"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:68
+msgid "Fehlt das Folgejahr? Sobald es der Anbieter veröffentlicht, erscheint es nach einer erneuten Prüfung."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:73
+msgid "Vorhandene Daten erst nach erfolgreicher Prüfung ersetzen."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:80
+msgid "Installiere historische Übersetzungen und zeige ausgewählte Bibelstellen auf deiner Website."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:82
+msgid "Vier historische, frei nutzbare Textfassungen für deine eigenen Bibelstellen. Sie werden nur auf Wunsch installiert und vollständig lokal gespeichert. Die offiziellen Losungen und Bible-2.0-Tagesverse bleiben unverändert."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:82
+msgid "Enthalten sind jeweils die 66 Bücher des Alten und Neuen Testaments. Zusätzliche Apokryphen und redaktionelle Überschriften werden in dieser Ausgabe nicht importiert. Die Verszählung kann sich zwischen Übersetzungen unterscheiden."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:87
+msgid "Lokal installiert"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:87
+msgid "Noch nicht installiert"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:89
+msgid "Verspositionen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:93
+msgid "Quelle & Paket"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:93
+msgid "Originalpaket herunterladen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:96
+msgid "Diese Quelldatei lässt Matthäus 21,44 leer und kennzeichnet die folgenden Verse mit abweichenden Versnummern. Bei Auswahl der leeren Stelle erscheint ein Hinweis."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:99
+msgid "Diese Textfassung fasst Hesekiel 33,14–15 zusammen. Beide Verse bitte gemeinsam wählen; Teilverse werden vollständig zusammengeführt."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:100
+msgid "Nachweis zur gemeinfreien Zefania-Textfassung"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:100
+msgid "CrossWire: Menge 1939 / gemeinfrei"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:103
+msgid "Optional: Originalpaket manuell hochladen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:103
+msgid "Ohne Datei laden wir direkt von der verlinkten Quelle. ZIP oder darin enthaltene Original-TXT/XML, maximal 10 MB. Nur der geprüfte Textstand wird akzeptiert; andere Revisionen werden sicher abgewiesen."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:105
+msgid "Ausgabe installieren"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:108
+msgid "Löschen dieser lokalen Ausgabe bestätigen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:108
+msgid "Ausgabe löschen"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:110
+msgid "Deine erste Bibelstelle"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:110
+msgid "In Gutenberg, Elementor und Bricks findest du „Bibelstelle · Daily Scripture“. Wähle dort deine Übersetzung und Bibelstelle. Eigene Quellenhinweise bleiben sichtbar; die Gestaltung folgt deinen Vorgaben."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:110
+msgid "Shortcodes & kopierbare Beispiele"
+msgstr ""
+
+#: src/Admin/DataDownloads.php:163
+msgid "Downloadquelle geprüft. Die verfügbaren Pakete stehen zur Auswahl."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:166
+msgid "Bitte die Nutzungsrechte bestätigen."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:168
+msgid "Jahrespaket geprüft und lokal installiert."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:174
+msgid "Dateiupload fehlgeschlagen."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:178
+msgid "Die geprüfte Bibelausgabe ist jetzt lokal verfügbar."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:181
+msgid "Bitte das Löschen bestätigen."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:183
+msgid "Die lokale Bibelausgabe wurde gelöscht."
+msgstr ""
+
+#: src/Admin/DataDownloads.php:185
+msgid "Unbekannte Aktion."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:50
+msgid "Bitte eine positive Größe mit px, em, rem oder % oder var(--name) eingeben."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:51
+msgid "Ungespeicherte Änderungen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:52
+msgid "Bitte die markierten Eingabewerte prüfen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:53
+msgid "Deine Vorschau wird aktualisiert …"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:54
+msgid "Vorschau aktuell. Änderungen werden erst beim Speichern veröffentlicht."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:55
+msgid "Die Vorschau konnte nicht geladen werden. Bitte erneut versuchen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:56
+msgid "Import ins Formular übernommen – noch nicht gespeichert. Bitte Vorschau und Einstellungen prüfen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:57
+msgid "Bitte eine JSON-Datei bis 64 KiB auswählen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:58
+msgid "Niedriger Textkontrast in der Vorschau. Bitte Farben prüfen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:129
+msgid "Gestaltungsbeispiel"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:132
+msgid "Beispieltext – keine Bibelübersetzung"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:133
+msgid "Hier stehen später die vollständigen Copyright- und Lizenzhinweise der importierten Quelle."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:136
+msgid "Ein ruhiger Moment für das Wort des Tages. So wirken längere Zeilen und ihre Abstände in deinem gewählten Layout."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:137
+msgid "Beispiel einer Bibelstellenangabe"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:140
+msgid "Auch der zweite Text hat seinen festen Platz. Beide Texte bleiben als Paar zusammen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:141
+msgid "Zweite Stellenangabe"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:210
+msgid "Ein guter Platz für das tägliche Wort."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:210
+msgid "Wähle einen Stil, gib den Versen Raum und sieh direkt, wie alles zusammenwirkt."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:211
+msgid "Dein tägliches Wort. Dein Stil."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:211
+msgid "Einstellungen speichern"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:213
+msgid "Einstellungsbereiche"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:216
+msgid "Quellen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:217
+#: src/Integrations/BuilderSettings.php:46
+#: src/Integrations/PassageSettings.php:63
+#: assets/block.js:49
+#: assets/passage-block.js:33
+msgid "Layout"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:218
+msgid "Schrift"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:219
+msgid "Farben"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:220
+msgid "Sonstiges"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:221
+msgid "Import / Export"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:229
+msgid "1 · Quellen & Tagesauswahl"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:229
+msgid "Welche Worte begleiten deine Besucher? Die Originaltexte bleiben bei jeder Gestaltung unverändert."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:233
+msgid "Standardquelle"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:237
+#: src/Integrations/BuilderSettings.php:30
+#: assets/block.js:42
+msgid "Beide Quellen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:242
+#: src/Integrations/BuilderSettings.php:36
+#: assets/block.js:45
+msgid "Überschrift für Die Losungen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:243
+#: src/Integrations/BuilderSettings.php:37
+#: assets/block.js:46
+msgid "Überschrift für Bible 2.0"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:244
+msgid "Leer verwendet den angezeigten Standard. Diese Überschriften gelten im Dashboard und als Vorgabe für Gutenberg und Shortcodes. Im Block kannst du eigene Texte wählen. Die Quellen- und Lizenzhinweise bleiben erhalten."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:245
+msgid "Übersetzung beim Öffnen eines Bibleserver-Links"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:246
+msgid "Betrifft nur das Linkziel, niemals den angezeigten Text."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:247
+msgid "Jahresdaten importieren und verwalten →"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:248
+msgid "2 · Ein Layout, das zu dir passt"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:248
+msgid "Von klar und zurückhaltend bis zur markanten Lesekarte. Jede Variante hält beide Verse zusammen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:249
+msgid "Layout auswählen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:254
+msgid "Kompakt reduziert den Freiraum – nicht die Lesbarkeit. Gut für Seitenleiste und Fußbereich. Im Gutenberg-Block kannst du das Layout je Platzierung überschreiben."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:255
+msgid "3 · Schrift mit gutem Rhythmus"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:255
+msgid "Ein Regler, alles im Einklang: Schiebe nach rechts für größere Schrift, nach links für kleinere. Überschrift, Verse und Hinweise wachsen gemeinsam – ihre ausgewogenen Größenverhältnisse bleiben erhalten."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:256
+msgid "Gesamtgröße · 100 % ist die empfohlene Ausgangsgröße"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:257
+msgid "Gesamtgröße stufenlos ausprobieren"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:258
+msgid "Schriftgröße ausprobieren"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:258
+msgid "A · Kleiner"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:258
+msgid "Aa · Ausgewogen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:258
+msgid "Aa · Größer"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:259
+msgid "So einfach geht’s: Größe wählen → Vorschau ansehen → oben speichern. Bei 120 % ist jede Schrift ein Fünftel größer. Du kannst jederzeit zu 100 % zurückkehren."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:260
+msgid "Eigenes Datumsformat (optional)"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:261
+msgid "Leer übernimmt WordPress. Beispiele: d.m.Y oder j. F Y. Die Vorschau zeigt das Ergebnis."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:262
+msgid "Expertenmodus: einzelne Größen und Farben fein abstimmen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:263
+msgid "Hier bestimmst du jede Schrift einzeln. Leer behält deine bisherige Pixelgröße. Beispiele: 28px, 1.75rem, 1.2em, 110% oder var(--text-xxl, 28px). Auch diese Werte werden mit der Gesamtgröße multipliziert. Ein leeres Farbfeld übernimmt das Farbschema."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:266
+#: src/Integrations/BuilderStyles.php:22
+msgid "Überschrift"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:267
+msgid "Bibelvers"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:268
+msgid "Bibelstelle"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:269
+#: src/Integrations/BuilderStyles.php:26
+msgid "Lizenz & Zusatzinfos"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:270
+#: src/Integrations/BuilderStyles.php:23
+msgid "Datum"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:273
+msgid "Größe mit Einheit oder CSS-Variable"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:273
+msgid "Farbe (#RRGGBB oder leer)"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:274
+msgid "Welche Einheit passt zu dir?"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:274
+msgid "px: eine feste Ausgangsgröße – der vertraute Klassiker."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:274
+msgid "rem: folgt der Grundschrift deiner Website. Bei 16 px Grundschrift sind 1.5rem = 24 px."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:274
+msgid "em und %: beziehen sich auf die geerbte Schriftgröße des umgebenden Elements."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:274
+msgid "var(--text-xxl): verwendet eine vorhandene CSS-Variable deines Themes oder Builders. Mit var(--text-xxl, 28px) legst du einen Ersatzwert fest."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:274
+msgid "Die CSS-Variable muss eine gültige Schriftgröße enthalten. Relative Einheiten sind anpassungsfähig, werden aber nicht automatisch je Bildschirmbreite kleiner. Eine responsive CSS-Variable kann das übernehmen. Die isolierte Vorschau lädt keine Bricks- oder Framework-Variablen und zeigt daher deren Ersatzwert. Prüfe solche Werte zusätzlich auf deiner Website. Das Dashboard-Widget verwendet seine eigenen Schriftgrößen."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:275
+msgid "4 · Farben mit Atmosphäre"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:276
+msgid "Farbschema der Website"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:280
+#: src/Integrations/Bricks/BricksStyles.php:63
+#: src/Integrations/Elementor/ElementorStyles.php:92
+msgid "Hintergrund"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:281
+msgid "Text"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:282
+msgid "Links & Akzent"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:287
+msgid "Eigene Farben wirken im gleichnamigen Schema. Automatisch folgt dem hellen oder dunklen Gerätemodus. Im Dashboard bleibt die WordPress-Fläche mit deinem persönlichen Admin-Akzent erhalten."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:288
+msgid "5 · Sonstiges & Datenpflege"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:289
+msgid "Die täglichen Verse auch im Dashboard anzeigen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:290
+msgid "Beim Deinstallieren die Jahresdaten und Bibelausgaben dieser Website löschen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:291
+msgid "Deaktivieren behält die Daten. Der Tages- und Jahreswechsel folgt der WordPress-Zeitzone; neue Jahre importierst du in der Datenverwaltung."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:293
+msgid "Live-Vorschau"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:293
+msgid "So wirken deine Verse"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:294
+msgid "Originaldaten von heute, sofern verfügbar. Sonst ein klar gekennzeichnetes Gestaltungsbeispiel."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:295
+msgid "Breite"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:295
+msgid "Verfügbarer Platz"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:295
+msgid "Mobil · 390 px"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:295
+msgid "Seitenleiste · 300 px"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:296
+msgid "Bereich"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:296
+msgid "Website"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:296
+msgid "Dashboard-Farben"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:297
+msgid "Strenge Theme-Regeln simulieren"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:298
+msgid "Die Vorschau zeigt die Gestaltung des Plugins. Dein Theme kann die verfügbare Breite beeinflussen. Die Simulation prüft typische Abstandsprobleme. Die Dashboard-Vorschau zeigt die Admin-Farben; deine persönliche Lesegröße wählst du direkt im Widget."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:299
+msgid "Vorschau der täglichen Verse"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:300
+msgid "Vorschau aktualisieren"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:301
+msgid "Live-Vorschau und JSON-Übernahme benötigen JavaScript. Die Einstellungen lassen sich auch ohne JavaScript speichern."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:303
+msgid "6 · Mitnehmen, sichern, wiederverwenden"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:303
+msgid "Ein Design enthält Layout, Farben, Schriftgrößen und Datumsformat. Die vollständige Sicherung enthält zusätzlich Quellenwahl und weitere Website-Einstellungen. Bibeltexte, Jahrespakete, persönliche Dashboard-Einstellungen und Builder-Stile sind nicht enthalten."
+msgstr ""
+
+#: src/Admin/DesignStudio.php:305
+msgid "Gespeichertes Design als JSON"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:305
+msgid "Alle gespeicherten Einstellungen als JSON"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:306
+msgid "JSON-Datei übernehmen (bis 64 KiB)"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:306
+msgid "Prüfen & ins Formular übernehmen"
+msgstr ""
+
+#: src/Admin/DesignStudio.php:307
+msgid "Der Import wird zuerst ins Formular geladen. Prüfe ihn in Ruhe und speichere erst danach. Vollständige Importe können auch die Löschoption bei Deinstallation ändern."
+msgstr ""
+
+#: src/Admin/Documentation.php:32
+msgid "Kopiert – bereit zum Einfügen!"
+msgstr ""
+
+#: src/Admin/Documentation.php:33
+msgid "Bitte den markierten Shortcode mit Strg+C oder ⌘C kopieren."
+msgstr ""
+
+#: src/Admin/Documentation.php:57
+msgid "Hilfe, Tipps & gute Ideen"
+msgstr ""
+
+#: src/Admin/Documentation.php:57
+msgid "Einmal einrichten, jeden Tag freuen. Hier findest du die passenden Handgriffe für deine tägliche Versausgabe."
+msgstr ""
+
+#: src/Admin/Documentation.php:59
+msgid "In drei Schritten startklar"
+msgstr ""
+
+#: src/Admin/Documentation.php:59
+msgid "1. Unter Datenquellen die Downloadquelle prüfen und das gewünschte Jahrespaket importieren. Alternativ eine offizielle Jahresdatei hochladen. 2. Unter Gestaltung dein Layout wählen. 3. Den Block oder das Builder-Element „Daily Scripture“ einfügen. Das Dashboard verwendet dieselben Tagesdaten."
+msgstr ""
+
+#: src/Admin/Documentation.php:60
+msgid "Deine eigene Bibelstelle"
+msgstr ""
+
+#: src/Admin/Documentation.php:60
+msgid "Installiere zuerst eine Übersetzung in der Bibelbibliothek. Füge anschließend „Bibelstelle · Daily Scripture“ in Gutenberg, Elementor oder Bricks ein. Wähle Übersetzung, Buch, Kapitel und Versbereich. Bis zu 50 Verse innerhalb eines Kapitels sind möglich. Eine leere Überschrift zeigt die Bibelstellenangabe."
+msgstr ""
+
+#: src/Admin/Documentation.php:61
+msgid "Gestalten mit gutem Gefühl"
+msgstr ""
+
+#: src/Admin/Documentation.php:61
+msgid "Beginne mit einem Layout und passe die Gesamtgröße an: So bleibt die Schrift ausgewogen. Für Seitenleiste und Fußbereich eignet sich die kompakte Ansicht. Prüfe helle und dunkle Flächen in der Vorschau. Im Expertenmodus kannst du die einzelnen Textbereiche genauer abstimmen."
+msgstr ""
+
+#: src/Admin/Documentation.php:62
+msgid "Gestalten mit Elementor und Bricks"
+msgstr ""
+
+#: src/Admin/Documentation.php:62
+msgid "Elementor und Bricks bieten eigene Regler für Schriften, Farben, Rahmen und Abstände. Leere Werte folgen den Plugin-Vorgaben; eigene Werte gelten nur für dieses Element. Nutze die Geräteansichten für responsive Anpassungen. Äußere Abstände stellst du im allgemeinen Layout- oder Erweitert-Bereich ein."
+msgstr ""
+
+#: src/Admin/Documentation.php:63
+msgid "Jeden Morgen die richtigen Verse"
+msgstr ""
+
+#: src/Admin/Documentation.php:63
+msgid "Datum und Jahreswechsel folgen der WordPress-Zeitzone. Prüfe rechtzeitig, ob das nächste Jahr installiert ist. Leere Seiten- und CDN-Caches zum Tageswechsel. Fehlende Daten werden als Hinweis angezeigt, nicht durch alte Verse ersetzt."
+msgstr ""
+
+#: src/Admin/Documentation.php:64
+msgid "Plugin-Updates über GitHub"
+msgstr ""
+
+#: src/Admin/Documentation.php:64
+msgid "Daily Scripture verwendet den deckerweb-Updater. Neue öffentliche GitHub-Releases erscheinen in der normalen WordPress-Updateverwaltung. Automatische Updates werden nicht von selbst aktiviert. Prüfungen werden bis zu 30 Minuten zwischengespeichert, Fehler für 10 Minuten. Ohne verfügbares Release bleibt die installierte Version nutzbar; ein ZIP-Update ist weiterhin möglich."
+msgstr ""
+
+#: src/Admin/Documentation.php:65
+msgid "Texte mit Herkunft"
+msgstr ""
+
+#: src/Admin/Documentation.php:65
+msgid "Losung und Lehrtext gehören zusammen und bleiben unverändert. Quellen- und Lizenzhinweise bleiben zugänglich. Beachte die Bedingungen der jeweiligen Ausgabe. Die freie Bibelbibliothek ist unabhängig von den offiziellen Tagesversen. Bibleserver wird nur verlinkt; seine Zielübersetzung lässt sich separat wählen."
+msgstr ""
+
+#: src/Admin/Documentation.php:70
+msgid "Wenn etwas hakt"
+msgstr ""
+
+#: src/Admin/Documentation.php:72
+msgid "Der Download ist nicht verfügbar"
+msgstr ""
+
+#: src/Admin/Documentation.php:72
+msgid "Prüfe die Quelle später erneut oder verwende den manuellen Upload des verlinkten Originalpakets. Bei Zertifikatsfehlern kann dein Hosting die sichere Verbindung prüfen. Vorhandene Daten bleiben bei einem fehlgeschlagenen Import erhalten."
+msgstr ""
+
+#: src/Admin/Documentation.php:73
+msgid "Die Bibelstelle erscheint nicht"
+msgstr ""
+
+#: src/Admin/Documentation.php:73
+msgid "Ist die gewählte Übersetzung installiert? Stimmen Kapitel und Versbereich? Verszählungen unterscheiden sich. In der Menge-Ausgabe müssen Hesekiel 33,14–15 gemeinsam gewählt werden. Der angezeigte Hinweis hilft dir weiter."
+msgstr ""
+
+#: src/Admin/Documentation.php:74
+msgid "Nach einem Update sieht der Editor anders aus"
+msgstr ""
+
+#: src/Admin/Documentation.php:74
+msgid "Lade den Editor vollständig neu und leere gegebenenfalls Browser- und Builder-Caches. Prüfe anschließend die Vorschau auf der Website. Gespeicherte Blöcke und Einstellungen bleiben bei einem normalen Update erhalten."
+msgstr ""
+
+#: src/Admin/Documentation.php:75
+msgid "Ein gelungenes Design wiederverwenden"
+msgstr ""
+
+#: src/Admin/Documentation.php:75
+msgid "Exportiere dein Design oder die Plugin-Einstellungen im Gestaltungsbereich als JSON. Builder-Stile speicherst du mit den Vorlagen des jeweiligen Builders. Die JSON-Einstellungen enthalten keine Bibeltexte oder Jahrespakete."
+msgstr ""
+
+#: src/Admin/Documentation.php:91
+msgid "Kopieren"
+msgstr ""
+
+#: src/Admin/Documentation.php:99
+msgid "Shortcodes zum Kopieren"
+msgstr ""
+
+#: src/Admin/Documentation.php:99
+msgid "Füge den kopierten Code in einen WordPress-Shortcode-Block oder das Shortcode-Element deines Builders ein. Du kannst ihn auch direkt im Feld markieren und kopieren."
+msgstr ""
+
+#: src/Admin/Documentation.php:100
+msgid "Tägliche Verse"
+msgstr ""
+
+#: src/Admin/Documentation.php:101
+msgid "Die einfache Grundform"
+msgstr ""
+
+#: src/Admin/Documentation.php:101
+msgid "Verwendet die Quelle und Gestaltung aus deinen Plugin-Einstellungen."
+msgstr ""
+
+#: src/Admin/Documentation.php:102
+msgid "Alle Optionen für Tagesverse"
+msgstr ""
+
+#: src/Admin/Documentation.php:102
+msgid "Quelle und Darstellung gezielt für diese Ausgabe festlegen."
+msgstr ""
+
+#: src/Admin/Documentation.php:103
+msgid "Die Losungen kompakt"
+msgstr ""
+
+#: src/Admin/Documentation.php:103
+msgid "Losung und Lehrtext zusammen, mit weniger Abstand – etwa für die Seitenleiste."
+msgstr ""
+
+#: src/Admin/Documentation.php:104
+msgid "Das Wort für heute in Dunkel"
+msgstr ""
+
+#: src/Admin/Documentation.php:104
+msgid "Bible 2.0 mit dunklem Farbschema. Die globale Überschrift wird übernommen."
+msgstr ""
+
+#: src/Admin/Documentation.php:105
+msgid "Eigene Bibelstellen"
+msgstr ""
+
+#: src/Admin/Documentation.php:105
+msgid "Voraussetzung: Die gewünschte Ausgabe ist in der Bibelbibliothek installiert. Maximal 50 Verse innerhalb eines Kapitels."
+msgstr ""
+
+#: src/Admin/Documentation.php:106
+msgid "Die einfache Bibelstellen-Grundform"
+msgstr ""
+
+#: src/Admin/Documentation.php:106
+msgid "Zeigt Johannes 3,16 aus Luther 1912 mit deiner globalen Gestaltung."
+msgstr ""
+
+#: src/Admin/Documentation.php:107
+msgid "Alle Optionen für eine Bibelstelle"
+msgstr ""
+
+#: src/Admin/Documentation.php:107
+msgid "Passe Übersetzung, Stelle, Überschrift und Darstellung nach deinen Wünschen an."
+msgstr ""
+
+#: src/Admin/Documentation.php:108
+msgid "Psalm 23 aus Elberfelder 1905"
+msgstr ""
+
+#: src/Admin/Documentation.php:108
+msgid "Ohne eigenen Titel erscheint die Bibelstelle als Überschrift."
+msgstr ""
+
+#: src/Admin/Documentation.php:109
+msgid "Schlachter 1951 mit Quellenhinweis"
+msgstr ""
+
+#: src/Admin/Documentation.php:109
+msgid "Frei nutzbar unter CC BY 4.0. Urheber-, Quellen- und Lizenzhinweise erscheinen automatisch bei der Ausgabe."
+msgstr ""
+
+#: src/Admin/Documentation.php:110
+msgid "Menge 1939 im Fußbereich"
+msgstr ""
+
+#: src/Admin/Documentation.php:110
+msgid "Ohne „to“ wird nur der unter „from“ gewählte Vers angezeigt."
+msgstr ""
+
+#: src/Admin/Documentation.php:111
+msgid "Parameter auf einen Blick"
+msgstr ""
+
+#: src/Admin/Documentation.php:111
+msgid "Parameter"
+msgstr ""
+
+#: src/Admin/Documentation.php:111
+msgid "Werte und Wirkung"
+msgstr ""
+
+#: src/Admin/Documentation.php:113
+msgid "Nur Tagesverse: herrnhuter = Die Losungen, bible2 = Bible 2.0, both = beide Quellen. Ohne Angabe gilt die Plugin-Einstellung."
+msgstr ""
+
+#: src/Admin/Documentation.php:114
+msgid "Nur Bibelstellen: luther-1912 (Standard), elberfelder-1905, menge-1939 oder schlachter-1951 (CC BY 4.0)."
+msgstr ""
+
+#: src/Admin/Documentation.php:115
+msgid "Nur Bibelstellen: Buchkürzel, Kapitel, erster und letzter Vers. Standard: JOH / 3 / 16 / 16. Ohne „to“ entspricht der letzte dem ersten Vers."
+msgstr ""
+
+#: src/Admin/Documentation.php:116
+msgid "Nur Bibelstellen: eigene Überschrift bis 160 Zeichen. Leer zeigt die Bibelstellenangabe. Tagesverse übernehmen die globalen Quellenüberschriften."
+msgstr ""
+
+#: src/Admin/Documentation.php:117
+msgid "standard oder compact. Ohne Angabe gilt die Website-Einstellung."
+msgstr ""
+
+#: src/Admin/Documentation.php:118
+msgid "light = hell, dark = dunkel, auto = Geräteeinstellung, custom = eigene Farben. Ohne Angabe gilt die Website-Einstellung."
+msgstr ""
+
+#: src/Admin/Documentation.php:123
+msgid "Alle Buchkürzel nachschlagen"
+msgstr ""
+
+#: src/Admin/Documentation.php:126
+msgid "Tipp: Lasse Darstellungsoptionen weg, wenn spätere Änderungen deiner globalen Gestaltung auch hier gelten sollen."
+msgstr ""
+
+#: src/Admin/PageChrome.php:41
+msgid "Gestaltung"
+msgstr ""
+
+#: src/Admin/PageChrome.php:48
+msgid "Daily Scripture – Bereiche"
+msgstr ""
+
+#: src/Admin/PageChrome.php:61
+msgid "Über das Plugin"
+msgstr ""
+
+#: src/Admin/PageChrome.php:61
+msgid "Version"
+msgstr ""
+
+#: src/Admin/PageChrome.php:61
+msgid "Worte, die den Tag erhellen."
+msgstr ""
+
+#: src/Admin/PageChrome.php:61
+msgid "Plugin-Website"
+msgstr ""
+
+#: src/Admin/SettingsTransfer.php:29
+msgid "Unbekanntes Exportformat."
+msgstr ""
+
+#: src/Admin/SettingsTransfer.php:50
+msgid "Die JSON-Datei darf höchstens 64 KiB groß sein."
+msgstr ""
+
+#: src/Admin/SettingsTransfer.php:54
+msgid "Das ist keine unterstützte Daily-Scripture-Konfiguration (Schema 1)."
+msgstr ""
+
+#: src/Admin/SettingsTransfer.php:71
+msgid "Die Datei enthält fehlende oder unbekannte Einstellungen. Es wurde nichts übernommen."
+msgstr ""
+
+#: src/Admin/SettingsTransfer.php:75
+msgid "Ein Einstellungswert hat einen ungültigen Datentyp."
+msgstr ""
+
+#: src/Admin/SettingsTransfer.php:81
+msgid "Die Datei enthält einen ungültigen Wert oder überschreitet einen zulässigen Bereich."
+msgstr ""
+
+#: src/Bible/Library.php:34
+msgid "Bibeldownload ist zu groß oder nicht lesbar."
+msgstr ""
+
+#: src/Bible/Library.php:38
+msgid "Die Bibeldatei ist leer oder nicht lesbar."
+msgstr ""
+
+#: src/Bible/Library.php:45
+msgid "Diese Ausgabe ist bereits installiert. Ersetzen bitte ausdrücklich auswählen."
+msgstr ""
+
+#: src/Bible/Library.php:62
+msgid "Die Bibeldatei ist zu groß."
+msgstr ""
+
+#: src/Bible/Library.php:68
+msgid "Diese Textfassung stimmt nicht mit dem geprüften Quellenstand überein. Es wurde nichts installiert. Bitte das verlinkte Originalpaket verwenden; neuere Revisionen benötigen ein Plugin-Update."
+msgstr ""
+
+#: src/Bible/Library.php:77
+msgid "Ungültige Verszeile im Bibelpaket."
+msgstr ""
+
+#: src/Bible/Library.php:88
+msgid "Sicheres DOM/XML ist erforderlich."
+msgstr ""
+
+#: src/Bible/Library.php:96
+msgid "Ungültiges Bibel-XML."
+msgstr ""
+
+#: src/Bible/Library.php:118
+msgid "Doppelter oder ungültiger Versteil."
+msgstr ""
+
+#: src/Bible/Library.php:144
+msgid "Die Bibelausgabe ist strukturell unvollständig."
+msgstr ""
+
+#: src/Bible/Library.php:169
+msgid "Ungültige oder doppelte Bibelstelle."
+msgstr ""
+
+#: src/Bible/Library.php:183
+msgid "ZIP-Unterstützung fehlt. Bitte die Original-TXT/XML-Datei hochladen."
+msgstr ""
+
+#: src/Bible/Library.php:190
+msgid "Zwischenspeichern fehlgeschlagen."
+msgstr ""
+
+#: src/Bible/Library.php:195
+msgid "Ungültiges Bibelarchiv."
+msgstr ""
+
+#: src/Bible/Library.php:201
+msgid "Unsichere Archivpfade."
+msgstr ""
+
+#: src/Bible/Library.php:206
+msgid "Archivinhalt zu groß oder verschlüsselt."
+msgstr ""
+
+#: src/Bible/Library.php:212
+msgid "Die geprüfte Textdatei fehlt im Archiv."
+msgstr ""
+
+#: src/Bible/Library.php:233
+msgid "Unsichere Bibeldatei."
+msgstr ""
+
+#: src/Bible/Library.php:237
+msgid "Ungültiger Bibelspeicher."
+msgstr ""
+
+#: src/Bible/Library.php:241
+msgid "Bibeldaten beschädigt oder veraltet. Bitte erneut installieren."
+msgstr ""
+
+#: src/Bible/Library.php:258
+msgid "Bitte eine gültige Bibelstelle mit höchstens 50 Versen innerhalb eines Kapitels wählen."
+msgstr ""
+
+#: src/Bible/Library.php:262
+msgid "Diese Bibelausgabe ist noch nicht lokal installiert."
+msgstr ""
+
+#: src/Bible/Library.php:265
+msgid "Die Schlachter-1951-Quelldatei enthält bei Matthäus 21,44 keinen Verswortlaut. Die folgenden Verse tragen abweichende Nummern im Originaltext. Bitte einen Bereich ohne diese leere Stelle wählen oder die Textquelle vergleichen."
+msgstr ""
+
+#: src/Bible/Library.php:269
+msgid "Diese Menge-Textfassung fasst Hesekiel 33,14–15 zusammen. Bitte beide Verse gemeinsam wählen."
+msgstr ""
+
+#: src/Bible/Library.php:277
+msgid "Die gewählte Bibelstelle ist in dieser Textfassung nicht vollständig vorhanden. Bitte die Verszählung prüfen."
+msgstr ""
+
+#: src/Bible/Library.php:297
+msgid "Die Bibelausgabe konnte nicht gelöscht werden."
+msgstr ""
+
+#: src/Bible/Passage.php:94
+msgid "Ungültige Bibelstellen-Einstellung."
+msgstr ""
+
+#: src/Bible/Passage.php:98
+msgid "Kapitel und Verse müssen positive ganze Zahlen sein."
+msgstr ""
+
+#: src/Bible/Passage.php:110
+msgid "Textquelle & Ausgabe"
+msgstr ""
+
+#: src/Bible/TranslationManager.php:76
+msgid "Gemeinfrei (Public Domain)"
+msgstr ""
+
+#: src/Bible/TranslationManager.php:89
+msgid "Lizenz: CC BY 4.0 – Namensnennung"
+msgstr ""
+
+#: src/Bible/TranslationManager.php:89
+msgid "Lizenznachweis bei eBible"
+msgstr ""
+
+#: src/Bible/TranslationManager.php:89
+msgid "Verswortlaut unverändert aus dem eBible-Textpaket; für diese Ausgabe technisch aufbereitet und als Auszug dargestellt."
+msgstr ""
+
+#: src/Bible/TranslationManager.php:102
+msgid "Unbekannte Bibelausgabe."
+msgstr ""
+
+#: src/Core/Activator.php:22
+msgid "Daily Scripture bitte für einzelne Websites aktivieren; Netzwerkaktivierung wird noch nicht unterstützt."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:77
+msgid "The update filesystem is unavailable. Please try again."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:78
+msgid "The GitHub package does not contain the Daily Scripture plugin file."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:79
+msgid "The GitHub package could not be prepared. The installed version has been kept."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:86
+#: src/Core/GitHubUpdates.php:90
+#: src/Core/GitHubUpdates.php:94
+msgid "The update package could not be checked."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:101
+msgid "The package identity or version does not match a newer Daily Scripture release."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:106
+msgid "The package version differs from the offered update. Please check for updates again."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:110
+msgid "The update package has missing or invalid WordPress/PHP requirements."
+msgstr ""
+
+#: src/Core/GitHubUpdates.php:114
+msgid "This release requires a newer WordPress or PHP version. The installed version has been kept."
+msgstr ""
+
+#: src/Core/Lifecycle.php:53
+msgid "Vollständig installiert"
+msgstr ""
+
+#: src/Core/Lifecycle.php:53
+msgid "Import erforderlich"
+msgstr ""
+
+#: src/Core/Presentation.php:22
+msgid "Karte"
+msgstr ""
+
+#: src/Core/Presentation.php:23
+msgid "Schlicht"
+msgstr ""
+
+#: src/Core/Presentation.php:24
+msgid "Akzentleiste"
+msgstr ""
+
+#: src/Core/Presentation.php:25
+msgid "Lesespalten"
+msgstr ""
+
+#: src/Core/Presentation.php:26
+msgid "Leseblatt"
+msgstr ""
+
+#: src/Core/Presentation.php:27
+msgid "Titelband"
+msgstr ""
+
+#: src/Core/Presentation.php:28
+msgid "Kontur"
+msgstr ""
+
+#: src/Core/Presentation.php:29
+msgid "Geteilte Verse"
+msgstr ""
+
+#: src/Core/Presentation.php:30
+msgid "Journal"
+msgstr ""
+
+#: src/Core/Presentation.php:31
+msgid "Ruhepol"
+msgstr ""
+
+#: src/Core/Presentation.php:34
+#: assets/passage-block.js:34
+msgid "Standard"
+msgstr ""
+
+#: src/Core/Presentation.php:35
+msgid "Kompakt – Seitenleiste / Fußbereich"
+msgstr ""
+
+#: src/Core/Presentation.php:38
+#: assets/passage-block.js:35
+msgid "Hell"
+msgstr ""
+
+#: src/Core/Presentation.php:39
+#: assets/passage-block.js:35
+msgid "Dunkel"
+msgstr ""
+
+#: src/Core/Presentation.php:40
+msgid "Automatisch (Geräteeinstellung)"
+msgstr ""
+
+#: src/Core/Presentation.php:41
+#: assets/passage-block.js:35
+msgid "Eigene Farben"
+msgstr ""
+
+#: src/Core/Presentation.php:44
+msgid "Klein"
+msgstr ""
+
+#: src/Core/Presentation.php:45
+msgid "Mittel"
+msgstr ""
+
+#: src/Core/Presentation.php:46
+msgid "Groß"
+msgstr ""
+
+#: src/Core/Presentation.php:47
+msgid "Sehr groß"
+msgstr ""
+
+#: src/Core/Presentation.php:187
+msgid "Die Losungen"
+msgstr ""
+
+#: src/Core/Presentation.php:190
+msgid "Das Wort für heute"
+msgstr ""
+
+#: src/Core/Presentation.php:190
+msgid "The Word for Today"
+msgstr ""
+
+#: src/Core/Renderer.php:49
+msgid "Für dieses Datum sind keine freigegebenen lokalen Daten verfügbar."
+msgstr ""
+
+#: src/Core/Renderer.php:63
+msgid "Weitere Informationen finden Sie hier."
+msgstr ""
+
+#: src/Core/Renderer.php:67
+msgid "Copyright und Lizenzhinweise"
+msgstr ""
+
+#: src/Core/Renderer.php:69
+msgid "Zusammenstellung der Bibelstellen durch das Projekt „Bible 2.0“"
+msgstr ""
+
+#: src/Core/Renderer.php:69
+msgid "Lizenzinformationen"
+msgstr ""
+
+#: src/Data/Importer.php:34
+msgid "Die Losungen dürfen nur für das Vorjahr, das laufende Jahr und das Folgejahr importiert werden."
+msgstr ""
+
+#: src/Data/Importer.php:37
+msgid "Datei nicht lesbar, leer oder größer als 8 MiB."
+msgstr ""
+
+#: src/Data/Importer.php:41
+msgid "Die Datei konnte nicht gelesen werden."
+msgstr ""
+
+#: src/Data/Importer.php:48
+msgid "Die PHP-Erweiterung DOM/XML wird benötigt."
+msgstr ""
+
+#: src/Data/Importer.php:52
+msgid "XML mit DTD, Entitäten oder UTF-16-Kodierung wird nicht unterstützt. Bitte eine offizielle UTF-8-Datei verwenden."
+msgstr ""
+
+#: src/Data/Importer.php:55
+msgid "Die XML-Datei enthält zu viele Elemente."
+msgstr ""
+
+#: src/Data/Importer.php:64
+msgid "Die Datei enthält kein gültiges, unterstütztes XML."
+msgstr ""
+
+#: src/Data/Importer.php:90
+msgid "ZIP-Unterstützung fehlt. Bitte die XML-/TWD-Datei direkt hochladen."
+msgstr ""
+
+#: src/Data/Importer.php:94
+msgid "Das ZIP-Archiv ist beschädigt."
+msgstr ""
+
+#: src/Data/Importer.php:98
+msgid "Das Archiv enthält zu viele Einträge."
+msgstr ""
+
+#: src/Data/Importer.php:104
+msgid "Unsichere Dateipfade im Archiv."
+msgstr ""
+
+#: src/Data/Importer.php:109
+msgid "Die XML-Datei im Archiv ist zu groß oder verschlüsselt."
+msgstr ""
+
+#: src/Data/Importer.php:115
+msgid "Das Archiv muss genau eine XML-/TWD-Jahresdatei enthalten."
+msgstr ""
+
+#: src/Data/Importer.php:119
+msgid "Archivinhalt konnte nicht sicher gelesen werden."
+msgstr ""
+
+#: src/Data/Importer.php:159
+msgid "Ein erforderliches XML-Feld fehlt oder ist mehrfach vorhanden."
+msgstr ""
+
+#: src/Data/Importer.php:163
+msgid "Nicht unterstützte XML-Formatierung."
+msgstr ""
+
+#: src/Data/Importer.php:180
+msgid "Doppeltes oder ungültiges Tagesdatum."
+msgstr ""
+
+#: src/Data/Importer.php:195
+msgid "Erwartet wird die offizielle Losungen-XML-Datei (FreeXml)."
+msgstr ""
+
+#: src/Data/Importer.php:201
+msgid "Ungültiges Datum in der Losungen-Datei."
+msgstr ""
+
+#: src/Data/Importer.php:236
+msgid "Erwartet wird eine TWD-1.1-Datei für das ausgewählte Jahr."
+msgstr ""
+
+#: src/Data/Importer.php:240
+msgid "Die TWD-Datei enthält keinen eindeutigen Metadatenkopf."
+msgstr ""
+
+#: src/Data/Importer.php:246
+msgid "Jeder Bible-2.0-Tag muss genau zwei Bibelworte enthalten."
+msgstr ""
+
+#: src/Data/LocalFiles.php:27
+msgid "Ungültiger Speicherbereich."
+msgstr ""
+
+#: src/Data/LocalFiles.php:31
+msgid "Datenspeicher nicht verfügbar."
+msgstr ""
+
+#: src/Data/LocalFiles.php:41
+msgid "Unsicherer oder nicht beschreibbarer Datenspeicher."
+msgstr ""
+
+#: src/Data/LocalFiles.php:51
+msgid "Unsichere Schutzdatei."
+msgstr ""
+
+#: src/Data/LocalFiles.php:54
+msgid "Datenspeicher konnte nicht geschützt werden."
+msgstr ""
+
+#: src/Data/LocalFiles.php:69
+msgid "Ungültige Bibelausgabe."
+msgstr ""
+
+#: src/Data/LocalFiles.php:74
+msgid "Unsichere Datendatei."
+msgstr ""
+
+#: src/Data/LocalFiles.php:79
+msgid "Datenspeicher konnte nicht gesperrt werden."
+msgstr ""
+
+#: src/Data/LocalFiles.php:83
+msgid "Ein anderer Vorgang läuft. Bitte erneut versuchen."
+msgstr ""
+
+#: src/Data/LocalFiles.php:102
+msgid "Bibeldaten konnten nicht kodiert werden."
+msgstr ""
+
+#: src/Data/LocalFiles.php:108
+msgid "Speichern fehlgeschlagen. Vorhandene Daten bleiben erhalten."
+msgstr ""
+
+#: src/Data/YearStore.php:35
+msgid "Das WordPress-Inhaltsverzeichnis fehlt."
+msgstr ""
+
+#: src/Data/YearStore.php:48
+msgid "Datenspeicher nicht verfügbar oder durch einen symbolischen Link umgeleitet."
+msgstr ""
+
+#: src/Data/YearStore.php:74
+msgid "Unsichere Schutzdatei im Datenspeicher."
+msgstr ""
+
+#: src/Data/YearStore.php:82
+msgid "Datenspeicher konnte nicht geschützt werden. Bitte erneut versuchen."
+msgstr ""
+
+#: src/Data/YearStore.php:88
+msgid "Schutzdatei konnte nicht vollständig geschrieben werden."
+msgstr ""
+
+#: src/Data/YearStore.php:104
+msgid "Ungültiges Speicherformat. Bitte die offizielle Jahresdatei erneut importieren."
+msgstr ""
+
+#: src/Data/YearStore.php:124
+msgid "Symbolische Links sind im Datenspeicher nicht erlaubt."
+msgstr ""
+
+#: src/Data/YearStore.php:130
+msgid "Jahresdatei nicht lesbar oder zu groß."
+msgstr ""
+
+#: src/Data/YearStore.php:134
+msgid "Jahresdatei beschädigt: Dateischutz fehlt."
+msgstr ""
+
+#: src/Data/YearStore.php:138
+msgid "Jahresdatei enthält ungültiges JSON."
+msgstr ""
+
+#: src/Data/YearStore.php:157
+msgid "Unsicherer Speicherpfad."
+msgstr ""
+
+#: src/Data/YearStore.php:161
+msgid "Der Datenspeicher ist nicht beschreibbar."
+msgstr ""
+
+#: src/Data/YearStore.php:165
+msgid "Für dieses Jahr läuft bereits eine Änderung. Bitte erneut versuchen."
+msgstr ""
+
+#: src/Data/YearStore.php:188
+msgid "Dieses Losungen-Jahr liegt außerhalb des zulässigen Zeitraums."
+msgstr ""
+
+#: src/Data/YearStore.php:192
+msgid "Die normalisierten Jahresdaten sind zu groß."
+msgstr ""
+
+#: src/Data/YearStore.php:199
+msgid "Dieses Jahr ist bereits installiert. Zum Ersetzen bitte die entsprechende Option wählen."
+msgstr ""
+
+#: src/Data/YearStore.php:204
+msgid "Temporäre Jahresdatei konnte nicht angelegt werden."
+msgstr ""
+
+#: src/Data/YearStore.php:213
+msgid "Die Jahresdatei konnte nicht vollständig gespeichert werden. Vorhandene Daten bleiben erhalten."
+msgstr ""
+
+#: src/Data/YearStore.php:242
+msgid "Symbolische Links werden nicht gelöscht."
+msgstr ""
+
+#: src/Data/YearStore.php:247
+msgid "Jahresdatei konnte nicht gelöscht werden."
+msgstr ""
+
+#: src/Data/YearStore.php:273
+msgid "Altdaten aus 0.1.0: bitte erneut importieren oder löschen."
+msgstr ""
+
+#: src/Data/YearValidator.php:24
+msgid "Ungültige Quelle oder Jahreszahl."
+msgstr ""
+
+#: src/Data/YearValidator.php:50
+msgid "Ein Textfeld fehlt, ist zu lang oder enthält ungültige Zeichen."
+msgstr ""
+
+#: src/Data/YearValidator.php:69
+msgid "Die Datei muss ein vollständiges Kalenderjahr mit 365 bzw. 366 Tagen enthalten."
+msgstr ""
+
+#: src/Data/YearValidator.php:75
+msgid "Ein Tagesdatum fehlt oder enthält kein vollständiges Verspaar."
+msgstr ""
+
+#: src/Data/YearValidator.php:79
+msgid "Ungültiger Tagesdatensatz."
+msgstr ""
+
+#: src/Downloads/AnnualPackages.php:62
+msgid "DOM/XML wird benötigt."
+msgstr ""
+
+#: src/Downloads/AnnualPackages.php:86
+msgid "Das Anbieter-Verzeichnis ist nicht lesbar."
+msgstr ""
+
+#: src/Downloads/AnnualPackages.php:107
+msgid "Keine passenden Jahrespakete im Anbieter-Verzeichnis gefunden. Manueller Upload bleibt möglich."
+msgstr ""
+
+#: src/Downloads/AnnualPackages.php:124
+msgid "Bitte zuerst die Downloadquelle prüfen und ein verfügbares Paket wählen."
+msgstr ""
+
+#: src/Downloads/AnnualPackages.php:129
+msgid "Das Paket ist nicht mehr freigegeben."
+msgstr ""
+
+#: src/Downloads/AnnualPackages.php:135
+msgid "Download konnte nicht zwischengespeichert werden."
+msgstr ""
+
+#: src/Downloads/Remote.php:26
+msgid "Diese Downloadadresse ist nicht freigegeben."
+msgstr ""
+
+#: src/Downloads/Remote.php:39
+msgid "Anbieter nicht erreichbar oder sichere Verbindung fehlgeschlagen. Manueller Upload bleibt möglich."
+msgstr ""
+
+#: src/Downloads/Remote.php:52
+msgid "Download nicht verfügbar, umgeleitet, leer oder zu groß. Bitte manuell hochladen oder später erneut prüfen."
+msgstr ""
+
+#: src/Integrations/Bricks/BricksStyles.php:31
+msgid "Versfläche & Abstände"
+msgstr ""
+
+#: src/Integrations/Bricks/BricksStyles.php:56
+msgid "Typografie & Farbe"
+msgstr ""
+
+#: src/Integrations/Bricks/BricksStyles.php:64
+#: src/Integrations/Elementor/ElementorStyles.php:93
+msgid "Akzentfarbe"
+msgstr ""
+
+#: src/Integrations/Bricks/BricksStyles.php:83
+msgid "Rahmen & Rundungen"
+msgstr ""
+
+#: src/Integrations/Bricks/BricksStyles.php:96
+#: src/Integrations/Elementor/ElementorStyles.php:112
+msgid "Innenabstand"
+msgstr ""
+
+#: src/Integrations/Bricks/BricksStyles.php:127
+msgid "Leere Werte übernehmen die Plugin-Vorgaben. Eigene Werte gelten nur für dieses Element. Nutze die Bricks-Breakpoints für responsive Anpassungen. Äußere Abstände bleiben in den allgemeinen Layout-Einstellungen."
+msgstr ""
+
+#: src/Integrations/Bricks/PassageElement.php:44
+#: src/Integrations/Elementor/PassageWidget.php:31
+#: assets/passage-block.js:9
+msgid "Bibelstelle · Daily Scripture"
+msgstr ""
+
+#: src/Integrations/Bricks/PassageElement.php:63
+#: src/Integrations/Elementor/PassageWidget.php:77
+#: assets/passage-block.js:25
+msgid "Bibelstelle & Übersetzung"
+msgstr ""
+
+#: src/Integrations/Bricks/PassageElement.php:89
+#: src/Integrations/Bricks/ScriptureElement.php:89
+#: src/Integrations/BuilderSettings.php:23
+#: src/Integrations/PassageSettings.php:72
+#: assets/block.js:39
+#: assets/block.js:53
+#: assets/passage-block.js:20
+msgid "Website-Einstellung"
+msgstr ""
+
+#: src/Integrations/Bricks/PassageElement.php:92
+#: src/Integrations/Elementor/PassageWidget.php:95
+msgid "Leer zeigt die Bibelstelle als Überschrift. Maximal 160 Zeichen."
+msgstr ""
+
+#: src/Integrations/Bricks/PassageElement.php:92
+#: src/Integrations/Elementor/PassageWidget.php:95
+msgid "Wähle bis zu 50 Verse innerhalb eines Kapitels."
+msgstr ""
+
+#: src/Integrations/Bricks/PassageElement.php:104
+#: src/Integrations/Elementor/PassageWidget.php:107
+msgid "Die Plugin-Vorgaben sind dein Ausgangspunkt. Unter Stil kannst du Typografie, Farben und Abstände für dieses Element gestalten. Installiere die gewünschte Übersetzung zuerst unter Daily Scripture → Bibelbibliothek."
+msgstr ""
+
+#: src/Integrations/Bricks/ScriptureElement.php:63
+#: src/Integrations/Elementor/ScriptureWidget.php:77
+#: assets/block.js:35
+msgid "Quelle & Überschriften"
+msgstr ""
+
+#: src/Integrations/Bricks/ScriptureElement.php:92
+#: src/Integrations/Elementor/ScriptureWidget.php:95
+msgid "Leer übernimmt die globale Überschrift. Nur für die zugehörige Quelle; maximal 160 Zeichen."
+msgstr ""
+
+#: src/Integrations/Bricks/ScriptureElement.php:100
+#: src/Integrations/Elementor/ScriptureWidget.php:103
+msgid "Die Plugin-Vorgaben sind dein Ausgangspunkt. Unter Stil kannst du Typografie, Farben und Abstände für dieses Element gestalten. Tagesdaten und Lizenzhinweise bleiben unverändert."
+msgstr ""
+
+#: src/Integrations/BuilderSettings.php:26
+#: assets/block.js:37
+msgid "Datenquelle"
+msgstr ""
+
+#: src/Integrations/BuilderSettings.php:47
+#: src/Integrations/PassageSettings.php:64
+#: assets/block.js:49
+#: assets/passage-block.js:34
+msgid "Ansicht"
+msgstr ""
+
+#: src/Integrations/BuilderSettings.php:48
+#: src/Integrations/PassageSettings.php:65
+#: assets/block.js:49
+#: assets/passage-block.js:35
+msgid "Farbschema"
+msgstr ""
+
+#: src/Integrations/BuilderStyles.php:24
+msgid "Bibelverse"
+msgstr ""
+
+#: src/Integrations/BuilderStyles.php:25
+msgid "Bibelstellen"
+msgstr ""
+
+#: src/Integrations/BuilderStyles.php:41
+msgid "Zwischen den Quellen"
+msgstr ""
+
+#: src/Integrations/BuilderStyles.php:42
+msgid "Zwischen Kopf, Versen und Hinweisen"
+msgstr ""
+
+#: src/Integrations/BuilderStyles.php:43
+msgid "Zwischen den Versen"
+msgstr ""
+
+#: src/Integrations/BuilderStyles.php:44
+msgid "Vor der Bibelstelle"
+msgstr ""
+
+#: src/Integrations/BuilderStyles.php:45
+msgid "Innenabstand über den Hinweisen"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:61
+msgid "Farbe"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:69
+msgid "Ausrichtung"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:72
+msgid "Vorgabe"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:73
+msgid "Anfang"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:74
+msgid "Zentriert"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:75
+msgid "Ende"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:87
+msgid "Fläche & Abstände"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:113
+msgid "Rundungen"
+msgstr ""
+
+#: src/Integrations/Elementor/ElementorStyles.php:146
+msgid "Leere Werte übernehmen die Plugin-Vorgaben. Eigene Werte gelten nur für dieses Element. Über das Gerätesymbol passt du responsive Werte an; äußere Abstände findest du unter Erweitert."
+msgstr ""
+
+#: src/Integrations/PassageSettings.php:25
+#: assets/passage-block.js:26
+msgid "Übersetzung"
+msgstr ""
+
+#: src/Integrations/PassageSettings.php:31
+#: assets/passage-block.js:28
+msgid "Buch"
+msgstr ""
+
+#: src/Integrations/PassageSettings.php:37
+#: assets/passage-block.js:29
+msgid "Kapitel"
+msgstr ""
+
+#: src/Integrations/PassageSettings.php:42
+#: assets/passage-block.js:29
+msgid "Erster Vers"
+msgstr ""
+
+#: src/Integrations/PassageSettings.php:47
+#: assets/passage-block.js:29
+msgid "Letzter Vers"
+msgstr ""
+
+#: src/Integrations/PassageSettings.php:52
+#: assets/passage-block.js:31
+msgid "Eigene Überschrift"
+msgstr ""
+
+#: src/Integrations/PassageSettings.php:55
+msgid "Bibelstelle als Titel"
+msgstr ""
+
+#: assets/block.js:30
+msgid "Leer übernimmt die Überschrift aus den Plugin-Einstellungen."
+msgstr ""
+
+#: assets/block.js:57
+msgid "Schriftgrößen, eigene Farben und Datumsformat folgen den Plugin-Einstellungen. Die Vorschau zeigt die lokalen Verse des heutigen Tages."
+msgstr ""
+
+#: assets/passage-block.js:10
+msgid "Eigene Bibelstellen aus lokal installierten freien Übersetzungen."
+msgstr ""
+
+#: assets/passage-block.js:27
+msgid "Installiere die Ausgabe zuerst unter Daily Scripture → Bibelbibliothek. Bis dahin zeigt die Vorschau einen Hinweis."
+msgstr ""
+
+#: assets/passage-block.js:30
+msgid "Bis zu 50 Verse in einem Kapitel. Die Verszählung richtet sich nach der gewählten Ausgabe."
+msgstr ""
+
+#: assets/passage-block.js:31
+msgid "Leer zeigt die Bibelstelle als Titel."
+msgstr ""
+
+#: assets/passage-block.js:34
+msgid "Kompakt"
+msgstr ""
+
+#: assets/passage-block.js:35
+msgid "Geräteeinstellung"
+msgstr ""
