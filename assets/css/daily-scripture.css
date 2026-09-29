@@ -1,0 +1,124 @@
+/* Geometry and type stay inside the component. Important declarations protect
+   these specific properties from theme rules on semantic header/footer/quotes.
+   Colors and sizes remain configurable through validated CSS custom properties. */
+.daily-scripture[data-ds-component] {
+ --ds-bg:#fff; --ds-text:#202b36; --ds-accent:#245c73; --ds-border:#c9d2da;
+ --ds-pad:1em; --ds-gap:.8em; --ds-heading-size:28px; --ds-verse-size:22px;
+ --ds-reference-size:18px; --ds-meta-size:14px; --ds-date-size:16px;
+ display:grid!important; gap:1em!important; width:100%; min-width:0; max-width:100%;
+ height:auto!important; min-height:0!important; margin-block:0!important; padding:0!important;
+ font:normal 1rem/1.55 system-ui,sans-serif;
+ text-align:start; color:var(--ds-text); box-sizing:border-box;
+}
+.daily-scripture[data-ds-component].daily-scripture--theme-dark { --ds-bg:#17212b; --ds-text:#edf2f7; --ds-accent:#8bd6ee; --ds-border:#4b5e70; }
+@media(prefers-color-scheme:dark) {
+ .daily-scripture[data-ds-component].daily-scripture--theme-auto { --ds-bg:#17212b; --ds-text:#edf2f7; --ds-accent:#8bd6ee; --ds-border:#4b5e70; }
+}
+.daily-scripture[data-ds-component].daily-scripture--density-compact { --ds-pad:.6em; --ds-gap:.5em; }
+.daily-scripture[data-ds-component] :where(section,header,footer,div,h3,p,blockquote,cite,time,details,summary,a) {
+ box-sizing:border-box!important; float:none!important; position:static!important; inset:auto!important;
+ transform:none!important; height:auto!important; min-height:0!important; max-height:none!important;
+ width:auto!important; min-width:0!important; max-width:none!important; margin:0!important; padding:0!important;
+ letter-spacing:normal; text-transform:none; text-align:start;
+ font-family:inherit; background:transparent; box-shadow:none; color:inherit;
+}
+.daily-scripture[data-ds-component] .daily-scripture__source {
+ container-type:inline-size; display:flex!important; flex-direction:column!important; justify-content:flex-start!important;
+ align-items:stretch!important; gap:var(--ds-gap)!important; padding:var(--ds-pad)!important;
+ width:100%!important; border:1px solid var(--ds-border); border-radius:.6em;
+ background:var(--ds-bg); color:var(--ds-text); overflow-wrap:anywhere;
+}
+.daily-scripture[data-ds-component] .daily-scripture__header {
+ display:flex!important; flex-wrap:wrap!important; align-items:baseline!important; justify-content:space-between!important;
+ gap:.25em .7em!important; border:0; width:100%!important; flex:none!important;
+}
+.daily-scripture[data-ds-component] .daily-scripture__title {
+ display:block!important; font-size:var(--ds-heading-size); line-height:1.2;
+ font-weight:700; font-style:normal; color:var(--ds-heading-color,var(--ds-text));
+}
+.daily-scripture[data-ds-component] .daily-scripture__date {
+ display:block!important; font-size:var(--ds-date-size); line-height:1.4;
+ font-weight:400; color:var(--ds-date-color,var(--ds-text));
+}
+.daily-scripture[data-ds-component] .daily-scripture__verses {
+ display:grid!important; grid-template-columns:minmax(0,1fr); gap:var(--ds-gap)!important;
+ align-items:start!important; align-content:start!important; width:100%!important; flex:none!important;
+}
+.daily-scripture[data-ds-component] .daily-scripture__item {
+ display:block!important; border:0; border-inline-start:3px solid var(--ds-accent);
+ padding-inline-start:.7em!important; font:inherit;
+ quotes:none; width:100%!important;
+}
+.daily-scripture[data-ds-component] :is(blockquote,cite,header,footer)::before,
+.daily-scripture[data-ds-component] :is(blockquote,cite,header,footer)::after { content:none!important; display:none!important; }
+.daily-scripture[data-ds-component] .daily-scripture__text {
+ display:block!important; font-size:var(--ds-verse-size); line-height:1.55;
+ font-weight:400; font-style:normal; white-space:pre-wrap;
+ color:var(--ds-verse-color,var(--ds-text)); overflow-wrap:anywhere;
+}
+.daily-scripture[data-ds-component] .daily-scripture__text + .daily-scripture__text { margin-top:.2em!important; }
+.daily-scripture[data-ds-component] .daily-scripture__reference {
+ display:block!important; margin-top:.3em!important; font-size:var(--ds-reference-size);
+ font-weight:500; font-style:normal; line-height:1.4;
+ color:var(--ds-reference-color,var(--ds-accent));
+}
+.daily-scripture[data-ds-component] a {
+ color:var(--ds-accent); font-size:inherit; line-height:inherit; font-weight:inherit;
+ text-decoration:underline; text-underline-offset:.15em;
+}
+.daily-scripture[data-ds-component] .daily-scripture__reference a { color:inherit; }
+.daily-scripture[data-ds-component] .daily-scripture__meta {
+ display:grid!important; gap:.3em!important; padding-top:.65em!important; width:100%!important;
+ border:0; border-top:1px solid var(--ds-border); font-size:var(--ds-meta-size);
+ line-height:1.5; font-weight:400; font-style:normal;
+ color:var(--ds-meta-color,var(--ds-text)); flex:none!important;
+}
+.daily-scripture[data-ds-component] .daily-scripture__meta :is(p,details,summary) { font-size:inherit; line-height:inherit; font-weight:400; }
+.daily-scripture[data-ds-component] .daily-scripture__meta > :is(p,details) { display:block; }
+.daily-scripture[data-ds-component] .daily-scripture__meta a { color:var(--ds-meta-color,var(--ds-accent)); }
+.daily-scripture[data-ds-component] .daily-scripture__copyright { white-space:pre-wrap; overflow-wrap:anywhere; }
+.daily-scripture[data-ds-component] .daily-scripture__license > summary { display:list-item!important; cursor:pointer; text-decoration:underline; text-underline-offset:.15em; }
+.daily-scripture[data-ds-component] .daily-scripture__license[open] > p { margin-top:.5em!important; }
+.daily-scripture[data-ds-component].daily-scripture--layout-minimal .daily-scripture__source { border:0; border-radius:0; }
+.daily-scripture[data-ds-component].daily-scripture--layout-accent .daily-scripture__source { border-inline-start:5px solid var(--ds-accent); border-radius:.25em; }
+.daily-scripture[data-ds-component].daily-scripture--layout-editorial .daily-scripture__source { border-radius:0; border-top:3px solid var(--ds-accent); }
+.daily-scripture[data-ds-component].daily-scripture--layout-paper .daily-scripture__source { border:0; border-radius:.2em; box-shadow:0 3px 16px #00000012; }
+.daily-scripture[data-ds-component].daily-scripture--layout-paper .daily-scripture__item { border:0; padding-inline-start:0!important; }
+.daily-scripture[data-ds-component].daily-scripture--layout-ribbon .daily-scripture__header { padding:.6em!important; border-inline-start:5px solid var(--ds-accent); background:color-mix(in srgb,var(--ds-accent) 10%,var(--ds-bg)); }
+.daily-scripture[data-ds-component].daily-scripture--layout-outline .daily-scripture__source { border:2px solid var(--ds-accent); border-radius:1em; }
+.daily-scripture[data-ds-component].daily-scripture--layout-divided .daily-scripture__item { border:0; padding-inline-start:0!important; }
+.daily-scripture[data-ds-component].daily-scripture--layout-divided .daily-scripture__item + .daily-scripture__item { border-top:1px solid var(--ds-border); padding-top:var(--ds-gap)!important; }
+.daily-scripture[data-ds-component].daily-scripture--layout-journal .daily-scripture__source { border-radius:0; border:0; border-block:2px solid var(--ds-accent); }
+.daily-scripture[data-ds-component].daily-scripture--layout-quiet .daily-scripture__source { border:0; border-radius:1em; }
+.daily-scripture[data-ds-component].daily-scripture--layout-quiet .daily-scripture__header { justify-content:center!important; }
+.daily-scripture[data-ds-component].daily-scripture--layout-quiet .daily-scripture__item { border:0; padding:0!important; }
+.daily-scripture[data-ds-component].daily-scripture--layout-quiet .daily-scripture__item :is(p,cite) { text-align:center; }
+@container(min-width:34rem) {
+ .daily-scripture[data-ds-component].daily-scripture--layout-editorial .daily-scripture__verses { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1em!important; }
+}
+.daily-scripture[data-ds-component].daily-scripture--admin { --ds-bg:#fff; --ds-text:#1d2327; --ds-accent:var(--ds-admin-accent,#2271b1); --ds-border:#c3c4c7; }
+.daily-scripture a:focus-visible,.daily-scripture__license > summary:focus-visible,.daily-scripture-license-dialog__close:focus-visible { outline:2px solid currentColor!important; outline-offset:4px; }
+.daily-scripture-license-dialog {
+ box-sizing:border-box; width:44rem; max-width:calc(100vw - 2rem); max-height:80vh; margin:auto;
+ padding:1.5rem; border:1px solid var(--ds-border,#757575); border-radius:.5rem;
+ background:var(--ds-bg,#fff); color:var(--ds-text,#1d2327); font:normal 16px/1.6 system-ui,sans-serif; overflow:auto;
+}
+.daily-scripture-license-dialog:not([open]) { display:none; }
+.daily-scripture-license-dialog::backdrop { background:rgb(0 0 0 / 55%); }
+.daily-scripture-license-dialog > h2 { margin:0 0 1rem; color:inherit; font:bold 22px/1.4 system-ui,sans-serif; }
+.daily-scripture-license-dialog__close { padding:.4rem .8rem; cursor:pointer; font:inherit; color:inherit; background:transparent; border:1px solid currentColor; border-radius:.25rem; }
+.daily-scripture-license-dialog .daily-scripture__copyright { margin:1rem 0 0!important; padding:0!important; max-width:none!important; text-align:start!important; white-space:pre-wrap; overflow-wrap:anywhere; font:normal max(14px,var(--ds-meta-size,14px))/1.6 system-ui,sans-serif!important; color:inherit; }
+
+/* Theme typography safeguards apply outside native builders. Builder engines
+   own typography priority inside their scoped element; geometry stays protected. */
+.daily-scripture[data-ds-component]:not([data-ds-builder]) { font:normal 1rem/1.55 system-ui,sans-serif!important; text-align:start!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) :where(section,header,footer,div,h3,p,blockquote,cite,time,details,summary,a) { letter-spacing:normal!important; text-transform:none!important; text-align:start!important; font-family:inherit!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__title { font-size:var(--ds-heading-size)!important; line-height:1.2!important; font-weight:700!important; font-style:normal!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__date { font-size:var(--ds-date-size)!important; line-height:1.4!important; font-weight:400!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__item { font:inherit!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__text { font-size:var(--ds-verse-size)!important; line-height:1.55!important; font-weight:400!important; font-style:normal!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__reference { font-size:var(--ds-reference-size)!important; font-weight:500!important; font-style:normal!important; line-height:1.4!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) a { font-size:inherit!important; line-height:inherit!important; font-weight:inherit!important; text-decoration:underline!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__meta { font-size:var(--ds-meta-size)!important; line-height:1.5!important; font-weight:400!important; font-style:normal!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__meta :is(p,details,summary) { font-size:inherit!important; line-height:inherit!important; font-weight:400!important; }
+.daily-scripture[data-ds-component]:not([data-ds-builder]).daily-scripture--layout-quiet .daily-scripture__item :is(p,cite) { text-align:center!important; }

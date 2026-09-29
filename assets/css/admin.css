@@ -1,0 +1,45 @@
+/* Shared identity is scoped to plugin screens, never the surrounding admin. */
+.ds-admin { max-width:1600px; color:#202b36; }
+.ds-admin .ds-admin-header { display:flex; align-items:flex-start; gap:24px; background:#e9f0ef; border:1px solid #d4e1de; border-radius:14px; padding:28px 32px; margin:22px 0 16px; }
+.ds-admin .ds-admin-logo { flex:0 0 72px; width:72px; height:72px; margin:4px 0 0; }
+.ds-admin .ds-admin-eyebrow { font-size:11px; letter-spacing:.14em; font-weight:700; color:#35616a; margin:0; text-transform:uppercase; }
+.ds-admin .ds-admin-eyebrow span { letter-spacing:.08em; }
+.ds-admin .ds-admin-header h1 { font-size:clamp(24px,2.5vw,34px); line-height:1.2; max-width:32ch; padding:0; margin:8px 0 12px; font-weight:650; color:#183b43; }
+.ds-admin .ds-admin-intro { font-size:15px; line-height:1.6; max-width:74ch; margin:0; }
+.ds-admin .ds-admin-nav { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 24px; }
+.ds-admin-nav a { padding:9px 14px; border:1px solid #ccd5d9; border-radius:20px; text-decoration:none; font-weight:600; background:#fff; color:#245c73; }
+.ds-admin-nav a[aria-current=page] { color:#fff; background:#245c73; border-color:#245c73; }
+.ds-admin-nav a:hover { border-color:#245c73; }
+.ds-admin-nav a:focus-visible,.ds-admin-footer a:focus-visible { outline:2px solid #245c73; outline-offset:3px; }
+.ds-admin .ds-admin-footer { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px 28px; margin:32px 0 16px; padding:20px 0; border-top:1px solid #ccd5d9; color:#52626d; font-size:13px; line-height:1.6; }
+.ds-admin-footer strong { color:#245c73; margin-inline-end:8px; }
+.ds-admin .ds-admin-footer p { font-size:13px; margin:4px 0 0; }
+.ds-admin-footer > div:last-child { display:flex; flex-wrap:wrap; gap:8px 20px; }
+.ds-admin-footer a { color:#245c73; text-underline-offset:3px; }
+.ds-admin .card,.ds-admin .ds-docs-card { border:1px solid #d5dce0; border-radius:12px; padding:24px; box-shadow:none; }
+.ds-admin .card { box-sizing:border-box; width:100%; max-width:100%; margin:16px 0; }
+.ds-admin .card p { line-height:1.65; }
+.ds-admin input[type=file] { max-width:100%; }
+.ds-admin-table { overflow-x:auto; margin:16px 0 24px; }
+.ds-admin .widefat { border-color:#d5dce0; }
+@media(max-width:600px) {
+ .ds-admin .ds-admin-header { padding:20px 16px; gap:14px; }
+ .ds-admin .ds-admin-logo { width:48px; height:48px; flex-basis:48px; }
+ .ds-admin .ds-admin-header h1 { font-size:24px; }
+ .ds-admin .ds-admin-eyebrow span { display:block; margin-top:4px; }
+ .ds-admin .card,.ds-admin .ds-docs-card { padding:16px; }
+}
+
+/* The release history shares the admin shell, with an independently scrolling body. */
+.ds-changelog:not([open]) { display: none; }
+.ds-changelog[open] { display: flex; flex-direction: column; }
+.ds-changelog { box-sizing: border-box; width: min(780px, calc(100vw - 32px)); max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); margin: auto; padding: 0; overflow: hidden; color: #202b36; background: #fff; border: 1px solid #c3ccd5; border-radius: 12px; box-shadow: 0 18px 64px #0004; }
+.ds-changelog::backdrop { background: #101c2aaa; }
+.ds-changelog__header { display: flex; align-items: center; justify-content: space-between; flex: none; gap: 16px; padding: 18px 22px; border-bottom: 1px solid #dce2e8; }
+.ds-changelog__header h2 { margin: 0; font-size: 20px; line-height: 1.35; }
+.ds-changelog__content { min-height: 0; overflow: auto; overscroll-behavior: contain; padding: 4px 24px 20px; font-size: 14px; line-height: 1.6; }
+.ds-changelog__content h3 { margin: 20px 0 8px; font-size: 17px; }
+.ds-changelog__content ul { margin: 0; padding-left: 20px; list-style: disc; }
+.ds-changelog__content li { margin: 0 0 8px; }
+.ds-changelog__readme { flex: none; margin: 0; padding: 12px 22px; border-top: 1px solid #dce2e8; }
+@media (max-width: 480px) { .ds-changelog__header { align-items: flex-start; padding: 14px; gap: 10px; } .ds-changelog__header h2 { font-size: 18px; } .ds-changelog__content { padding-inline: 16px; } }

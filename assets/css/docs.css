@@ -1,0 +1,19 @@
+.ds-docs { max-width: 1600px; }
+.ds-docs .ds-docs-intro { font-size: 16px; max-width: 78ch; line-height: 1.6; }
+.ds-docs-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.ds-docs-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,340px),1fr)); gap: 16px; margin: 16px 0 28px; }
+.ds-docs-card { background: #fff; border: 1px solid #c3c4c7; border-radius: 8px; padding: 20px; margin: 0 0 12px; min-width: 0; }
+.ds-docs-grid .ds-docs-card { margin: 0; }
+.ds-docs-card h2, .ds-docs-card h3 { margin: 0 0 10px; }
+.ds-docs-card p { line-height: 1.65; }
+.ds-docs-card textarea { display: block; box-sizing: border-box; width: 100%; resize: vertical; min-height: 88px; font-family: monospace; margin: 12px 0; }
+.ds-docs .ds-copy[hidden] { display: none; }
+.ds-copy .dashicons { vertical-align: middle; font-size: 16px; line-height: 20px; }
+.ds-copy-status { display: inline-block; margin: 8px; }
+.ds-docs summary { cursor: pointer; font-size: 15px; font-weight: 600; }
+.ds-docs summary:focus-visible { outline: 2px solid var(--wp-admin-theme-color,#2271b1); outline-offset: 4px; }
+.ds-docs-table { overflow-x: auto; margin: 16px 0; }
+.ds-docs-table td { line-height: 1.6; }
+.ds-docs-books { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 8px 20px; }
+.ds-docs-books div { display: flex; gap: 12px; }
+.ds-docs-books dd { margin: 0; }
