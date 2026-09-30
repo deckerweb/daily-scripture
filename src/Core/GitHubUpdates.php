@@ -9,7 +9,7 @@ namespace Deckerweb\DailyScripture\Core;
 
 defined( 'ABSPATH' ) || exit;
 
-/** Keep the shared updater unchanged and isolate plugin-specific behavior. */
+/** Configure shared update artwork and isolate plugin-specific safeguards. */
 final class GitHubUpdates {
 	/** Public release repository; never taken from user input. */
 	private const REPOSITORY = 'https://github.com/deckerweb/daily-scripture';
@@ -21,15 +21,16 @@ final class GitHubUpdates {
 
 	/** Load the shared versioned class once, including beside other deckerweb plugins. @return void */
 	public function boot(): void {
-		if ( ! class_exists( '\Deckerweb\GitHubReleaseUpdater\V1\Updater' ) ) {
-			require_once DAILY_SCRIPTURE_DIR . 'includes/deckerweb-github-release-updater-v1.php';
+		if ( ! class_exists( '\Deckerweb\GitHubReleaseUpdater\V2\Updater' ) ) {
+			require_once DAILY_SCRIPTURE_DIR . 'includes/deckerweb-github-release-updater-v2.php';
 		}
 		try {
-			$updater = new \Deckerweb\GitHubReleaseUpdater\V1\Updater(
+			$updater = new \Deckerweb\GitHubReleaseUpdater\V2\Updater(
 				DAILY_SCRIPTURE_FILE,
 				self::REPOSITORY,
 				'Daily Scripture',
-				__( 'Daily verses from Die Losungen and Bible 2.0, plus selected passages from four local Bible editions. Includes live previews, ten layouts, flexible typography, Gutenberg, Elementor, Bricks, shortcodes, a compact dashboard widget and JSON settings transfer.', 'daily-scripture' )
+				__( 'Daily verses from Die Losungen and Bible 2.0, plus selected passages from four local Bible editions. Includes live previews, ten layouts, flexible typography, Gutenberg, Elementor, Bricks, shortcodes, a compact dashboard widget and JSON settings transfer.', 'daily-scripture' ),
+				$this->artwork()
 			);
 		} catch ( \InvalidArgumentException $error ) {
 			// An unsupported installation directory must not break verse rendering.
@@ -38,6 +39,26 @@ final class GitHubUpdates {
 		$updater->register();
 		add_filter( 'http_request_args', array( $this, 'request_limits' ), 20, 2 );
 		add_filter( 'upgrader_source_selection', array( $this, 'validate_source' ), 30, 4 );
+	}
+
+	/**
+	 * Provide bundled artwork matching the current administrator's language.
+	 *
+	 * @return array<string,array<string,string>> WordPress icon and banner maps.
+	 */
+	public function artwork(): array {
+		$language = \Deckerweb\DailyScripture\Admin\Changelog::is_german() ? 'de-' : '';
+		return array(
+			'icons'   => array(
+				'svg' => plugins_url( 'assets/brand/icon.svg', DAILY_SCRIPTURE_FILE ),
+				'1x'  => plugins_url( 'assets/brand/icon-128x128.png', DAILY_SCRIPTURE_FILE ),
+				'2x'  => plugins_url( 'assets/brand/icon-256x256.png', DAILY_SCRIPTURE_FILE ),
+			),
+			'banners' => array(
+				'low'  => plugins_url( 'assets-github/banner-' . $language . '772x250.png', DAILY_SCRIPTURE_FILE ),
+				'high' => plugins_url( 'assets-github/banner-' . $language . '1544x500.png', DAILY_SCRIPTURE_FILE ),
+			),
+		);
 	}
 
 	/**
