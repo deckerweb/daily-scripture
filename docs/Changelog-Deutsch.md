@@ -2,6 +2,14 @@
 
 [ Deutsch ](Deutsch.md) · [ English ](Changelog-English.md)
 
+### 0.16.4
+
+- **Neu:** Ergänzt deutsche und englische Banner in normaler und hoher Auflösung im WordPress-Versionsdialog. Die gemeinsame Updater-API v2 unterstützt jetzt optionale Icons und Banner sowie Icons in zwischengespeicherten Angeboten – auch neben Plugins mit v1.
+
+### 0.16.3
+
+- **Behoben:** Zeigt das Daily-Scripture-Icon bei WordPress-Updates an, auch bei bereits zwischengespeicherten Angeboten. SVG und PNG stammen direkt aus dem Plugin; zusätzliche externe Abfragen entfallen.
+
 ### 0.16.2
 
 - **Verbessert:** Gliedert alle vier Readmes mit einer klaren Funktionsübersicht, Inhaltsverzeichnis, sieben kurzen Antworten und den letzten fünf Versionen neu.

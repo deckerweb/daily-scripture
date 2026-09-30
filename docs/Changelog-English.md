@@ -2,6 +2,14 @@
 
 [ English ](English.md) · [ Deutsch ](Changelog-Deutsch.md)
 
+### 0.16.4
+
+- **New:** Adds localized standard and high-resolution banners to the WordPress version details dialog. Shared updater API v2 now supports optional icons and banners, including cached update icons, alongside plugins still using v1.
+
+### 0.16.3
+
+- **Fixed:** Shows the Daily Scripture icon in WordPress update offers, including cached offers, using bundled SVG and PNG artwork without additional remote requests.
+
 ### 0.16.2
 
 - **Improved:** Rebuilds all four readmes around a clear feature overview, linked contents, seven quick answers and the latest five versions.
