@@ -3,7 +3,7 @@ Contributors: deckerweb
 Tags: bible, scripture, daily, shortcode, block
 Requires at least: 6.6
 Requires PHP: 8.0
-Stable tag: 0.16.2
+Stable tag: 0.16.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Tägliche Verse und eigene Bibelstellen. Lokal gespeichert, mit Vorschau, zehn L
 
 Worte, die den Tag erhellen. Die Losungen, „Das Wort für heute“ von Bible 2.0 und selbst gewählte Bibelstellen: Daily Scripture bringt tägliche Lesungen auf deine WordPress-Website. Wähle ein Layout, passe die Schrift an und prüfe die Vorschau. Die Texte liegen lokal, die Gestaltung passt zu dir.
 
-Version: 0.16.2 · Voraussetzungen: WordPress 6.6+ / PHP 8.0+ · Lizenz: GPL-2.0-or-later
+Version: 0.16.4 · Voraussetzungen: WordPress 6.6+ / PHP 8.0+ · Lizenz: GPL-2.0-or-later
 
 Download (https://github.com/deckerweb/daily-scripture/releases/latest) · Anleitung (https://github.com/deckerweb/daily-scripture/wiki/Deutsch) · English (https://github.com/deckerweb/daily-scripture/blob/main/README.md)
 
@@ -104,6 +104,14 @@ Alle Fragen nach Themen (https://github.com/deckerweb/daily-scripture/wiki/FAQ-D
 
 == Changelog ==
 
+= 0.16.4 =
+
+* Neu: Ergänzt deutsche und englische Banner in normaler und hoher Auflösung im WordPress-Versionsdialog. Die gemeinsame Updater-API v2 unterstützt jetzt optionale Icons und Banner sowie Icons in zwischengespeicherten Angeboten – auch neben Plugins mit v1.
+
+= 0.16.3 =
+
+* Behoben: Zeigt das Daily-Scripture-Icon bei WordPress-Updates an, auch bei bereits zwischengespeicherten Angeboten. SVG und PNG stammen direkt aus dem Plugin; zusätzliche externe Abfragen entfallen.
+
 = 0.16.2 =
 
 * Verbessert: Gliedert alle vier Readmes mit einer klaren Funktionsübersicht, Inhaltsverzeichnis, sieben kurzen Antworten und den letzten fünf Versionen neu.
@@ -119,17 +127,6 @@ Alle Fragen nach Themen (https://github.com/deckerweb/daily-scripture/wiki/FAQ-D
 * Verbessert: Begrenzte HTTPS-Metadatenabfragen, zwischengespeicherte Ergebnisse und lokalisierte Updatefehler.
 * Verbessert: Prüfung von Paketidentität, angebotener Version und tatsächlichen WordPress-/PHP-Anforderungen vor dem Austausch der Plugin-Dateien.
 * Sonstiges: Update-URI, Bibliotheksherkunft und Anleitung für öffentliche GitHub-Releases dokumentiert; automatische Updates bleiben eine Benutzerentscheidung.
-
-= 0.15.0 =
-* Neu: Changelog-Dialog neben der Versionsnummer auf allen Plugin-Adminseiten, mit deutscher oder englischer Versionshistorie.
-* Verbessert: Englische Standard-Readmes und separate deutsche Fassungen; Verweise passend zur jeweiligen Sprache.
-
-= 0.14.0 =
-* Neu: Deutsche Sprachdateien für Plugin und Block-Editor.
-* Verbessert: Kürzere Plugin-Beschreibung mit dem aktuellen Funktionsumfang; verständlichere Hilfen und einheitliche deutsche Begriffe.
-* Verbessert: Readme als aktuelle Anleitung mit Einrichtung, Gestaltung, Shortcodes, Datenpflege und allen vier Bibelausgaben.
-* Behoben: Veraltete Speicherpfade und unvollständige Hinweise zu Datenlöschung, JSON-Export und Dashboard-Vorschau berichtigt.
-* Sonstiges: Vollständige Versionshistorie mit den Präfixen New, Improved, Fixed und Misc; Übersetzungsvorlage aktualisiert. Der Pluginname bleibt Daily Scripture.
 
 Vollständiger Änderungsverlauf im Wiki (https://github.com/deckerweb/daily-scripture/wiki/Changelog-Deutsch) · Lokale Historie (https://github.com/deckerweb/daily-scripture/blob/main/docs/Changelog-Deutsch.md) · Releases (https://github.com/deckerweb/daily-scripture/releases)
 

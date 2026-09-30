@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <ruleset name="Daily Scripture">
     <description>WordPress standards; original namespace autoloader preserves its class filenames.</description>
-    <!-- Shared upstream library is shipped byte-for-byte; integration code is checked below. -->
-    <exclude-pattern>*/includes/deckerweb-github-release-updater-v1.php</exclude-pattern>
+    <file>includes</file>
     <file>daily-scripture.php</file>
     <file>uninstall.php</file>
     <file>src</file>

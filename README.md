@@ -4,7 +4,7 @@
 
 **Words to brighten your day.** Die Losungen, “The Word for Today” from Bible 2.0 and your own passage selections: Daily Scripture brings daily readings to your WordPress website. Choose a layout, adjust the type and check the preview. Texts stay local; the design fits your site.
 
-**Version:** 0.16.2 · **Requires:** WordPress 6.6+ / PHP 8.0+ · **License:** GPL-2.0-or-later
+**Version:** 0.16.4 · **Requires:** WordPress 6.6+ / PHP 8.0+ · **License:** GPL-2.0-or-later
 
 [Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [User guide](https://github.com/deckerweb/daily-scripture/wiki/English) · [Deutsch](README-de.md)
 
@@ -113,6 +113,14 @@ The [English guide](https://github.com/deckerweb/daily-scripture/wiki/English), 
 
 ## Changelog
 
+### 0.16.4
+
+- **New:** Adds localized standard and high-resolution banners to the WordPress version details dialog. Shared updater API v2 now supports optional icons and banners, including cached update icons, alongside plugins still using v1.
+
+### 0.16.3
+
+- **Fixed:** Shows the Daily Scripture icon in WordPress update offers, including cached offers, using bundled SVG and PNG artwork without additional remote requests.
+
 ### 0.16.2
 
 - **Improved:** Rebuilds all four readmes around a clear feature overview, linked contents, seven quick answers and the latest five versions.
@@ -128,17 +136,6 @@ The [English guide](https://github.com/deckerweb/daily-scripture/wiki/English), 
 - **Improved:** Bounded HTTPS metadata requests, cached results and localized update errors.
 - **Improved:** Package identity, offered version and actual WordPress/PHP requirements checked before replacing plugin files.
 - **Misc:** Update URI, library provenance and public GitHub release instructions documented; automatic updates remain a user choice.
-
-### 0.15.0
-- **New:** Changelog dialog beside the version number on every plugin admin page, with German or English release history.
-- **Improved:** English default readmes and separate German editions, with language-matched documentation links.
-
-### 0.14.0
-- **New:** German translation files for the plugin and block editor.
-- **Improved:** Concise plugin description covering current features, clearer help and consistent German terminology.
-- **Improved:** Current readme covering setup, design, shortcodes, data management and all four Bible editions.
-- **Fixed:** Outdated storage paths and incomplete notes on data removal, JSON exports and dashboard previews.
-- **Misc:** Complete release history using New, Improved, Fixed and Misc prefixes; refreshed translation template. The plugin name remains Daily Scripture.
 
 [Full changelog in the wiki](https://github.com/deckerweb/daily-scripture/wiki/Changelog-English) · [Local history](docs/Changelog-English.md) · [Releases](https://github.com/deckerweb/daily-scripture/releases)
 
