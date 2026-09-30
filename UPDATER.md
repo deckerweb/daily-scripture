@@ -49,3 +49,5 @@ V2 distribution SHA-256: `252c9cae6f7590ef7d39799e3d95ed813fc3b2e846497870b244f4
 WordPress behavior verified against local core `wp-admin/includes/plugin-install.php` (banners low/high) and `wp-admin/update-core.php` (icons svg/2x/1x/default). Functional tests run against WordPress 6.8.3 and PHP 8.2.27; no claim of testing other installed versions.
 
 Daily Scripture configures localized bundled artwork in `src/Core/GitHubUpdates.php`. That bridge also retains bounded HTTPS requests, localized errors, package identity and candidate compatibility checks.
+
+The original V1 file is retained unchanged as a legacy compatibility copy. Daily Scripture itself loads V2 only.
