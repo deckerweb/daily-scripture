@@ -1,142 +1,153 @@
 # Daily Scripture
 
-[English](README.md) · **Deutsch**
+![Daily Scripture – Worte, die den Tag erhellen](assets-github/banner-de-1544x500.png)
 
-**Tägliche Bibelworte. Passend zu deiner Website.**
+**Worte, die den Tag erhellen.** Die Losungen, „Das Wort für heute“ von Bible 2.0 und selbst gewählte Bibelstellen: Daily Scripture bringt tägliche Lesungen auf deine WordPress-Website. Wähle ein Layout, passe die Schrift an und prüfe die Vorschau. Die Texte liegen lokal, die Gestaltung passt zu dir.
 
-Die Losungen, Bible 2.0 und eigene Bibelstellen aus vier lokal gespeicherten Übersetzungen: Daily Scripture verbindet tägliche Lektüre mit einer Gestaltung, die zu deiner Website passt. Mit Vorschau, zehn Layouts, abgestimmten Schriftgrößen und nativen Elementen für Gutenberg, Elementor und Bricks.
+**Version:** 0.16.2 · **Voraussetzungen:** WordPress 6.6+ / PHP 8.0+ · **Lizenz:** GPL-2.0-or-later
 
-## Das steckt drin
+[Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deutsch) · [English](README.md)
 
-- **Tagesverse und eigene Bibelstellen:** offizielle Verspaare aus Die Losungen und Bible 2.0 sowie eine unabhängige Bibelbibliothek mit Luther 1912, Elberfelder 1905, Menge 1939 und Schlachter 1951.
-- **Lokal gespeicherte Texte:** verfügbare Jahrespakete direkt beim Anbieter prüfen und herunterladen oder Originaldateien manuell hochladen. Vollständige Prüfung vor dem Speichern, Bestandsübersicht, gezieltes Ersetzen und Löschen.
-- **Gestaltung mit Vorschau:** zehn Layouts mit schematischen Auswahlkarten, helle und dunkle Ansichten, eigene Farben und kompakte Darstellung für schmale Bereiche. Die Gesamtgröße skaliert Überschrift, Verse, Stellenangaben und Hinweise gemeinsam.
-- **Feinabstimmung nach Bedarf:** einzelne Schriftgrößen und Farben, Einheiten px, em, rem und %, vorhandene CSS-Variablen samt Ersatzwert. Datumsformat und Quellenüberschriften sind anpassbar.
-- **Direkt im Editor:** je ein Gutenberg-Block für Tagesverse und eigene Bibelstellen, Einstellungen in der Seitenleiste und Vorschau der lokalen Texte. Elementor und Bricks bieten zusätzlich native, responsive Stilregler.
-- **Auch ohne Builder:** zwei Shortcodes, eine eigene Beispielseite mit Kopierbuttons und ein kompaktes Dashboard-Widget mit persönlichen Leseeinstellungen.
-- **Einstellungen zum Mitnehmen:** geprüfter JSON-Import und -Export für Gestaltung oder alle Website-Einstellungen. Quellenhinweise bleiben zugänglich; Bibleserver wird ausschließlich verlinkt, mit separat wählbarer Zielübersetzung.
+## Inhaltsverzeichnis
 
-## Installation und Einstieg
+- [Auf einen Blick](#auf-einen-blick)
+- [Installation und erste Verse](#installation-und-erste-verse)
+- [Tagesverse und Bibelbibliothek](#tagesverse-und-bibelbibliothek)
+- [Layouts und Schriftgrößen](#layouts-und-schriftgroessen)
+- [Editoren, Shortcodes und Dashboard](#editoren-shortcodes-und-dashboard)
+- [Daten und Einstellungstransfer](#daten-und-einstellungstransfer)
+- [Updates und Dokumentation](#updates-und-dokumentation)
+- [Häufige Fragen](#haeufige-fragen)
+- [Changelog](#changelog)
+- [Über das Plugin](#ueber-das-plugin)
 
-Benötigt werden WordPress ab 6.6, PHP ab 8.0 und DOM/XML. Für ZIP-Pakete ist die PHP-Erweiterung ZipArchive erforderlich. Elementor und Bricks sind optional.
+<a name="auf-einen-blick"></a>
 
-1. Das Plugin-ZIP unter **Plugins → Installieren → Plugin hochladen** installieren und aktivieren.
-2. Unter **Daily Scripture → Datenquellen** die Downloadquelle prüfen, ein Jahrespaket wählen und nach Prüfung der Nutzungsbedingungen importieren. Alternativ eine offizielle XML-/TWD-Datei oder das zugehörige ZIP hochladen.
-3. Auf der Hauptseite die Gestaltung wählen, Vorschau prüfen und oben **Einstellungen speichern** klicken.
-4. Den Block oder das Builder-Element **Daily Scripture** einfügen. Für eigene Bibelstellen zuerst eine Übersetzung unter **Bibelbibliothek** installieren und anschließend **Bibelstelle · Daily Scripture** verwenden.
+## Auf einen Blick
 
-Ein Update behält Einstellungen und installierte Texte. Nach dem Update den Editor neu laden; bei unveränderter Darstellung gegebenenfalls Browser- und Website-Cache leeren.
+- **Jeden Tag ein Wort:** offizielle Verspaare der Losungen und von Bible 2.0, als Jahrespaket herunterladen oder manuell hochladen.
+- **Eigene Bibelstellen auswählen:** eine unabhängige lokale Bibliothek mit Luther 1912, Elberfelder 1905, Menge 1939 und Schlachter 1951.
+- **Passend zu deiner Website:** zehn Layouts, helle und dunkle Ansichten, kompakte Abstände, eigene Farben und eine Vorschau in mehreren Breiten.
+- **Ausgewogen lesen:** eine gemeinsame Schriftgrößen-Skala, bei Bedarf ergänzt um Expertenwerte in px, em, rem, %, oder CSS-Variablen.
+- **Im vertrauten Editor arbeiten:** Gutenberg-Blöcke, Elementor-Widgets und Bricks-Elemente für Tagesverse und eigene Bibelstellen; zwei Shortcodes funktionieren ohne Builder.
+- **Ein kleiner Begleiter im Alltag:** Dashboard-Widget mit persönlichen Schriftgrößen und Abständen, eigenen Quellenüberschriften und der WordPress-Adminfarbe.
+- **Für weitere Projekte vorbereitet:** geprüfter JSON-Einstellungstransfer, lokale Textspeicherung und Updates über das reguläre WordPress-Updatesystem.
 
-## Vorschau, Schrift und Dashboard
+<a name="installation-und-erste-verse"></a>
 
-Bei 100 % sind die Schriftgrößen aufeinander abgestimmt: Überschrift 28 px, Verse 22 px, Stellenangabe 18 px, Datum 16 px und Zusatzinformationen 14 px. Der Gesamtregler verändert diese Größen gemeinsam. Im Expertenmodus lassen sich einzelne Werte überschreiben, zum Beispiel mit `1.75rem` oder `var(--text-xxl, 28px)`.
+## Installation und erste Verse
 
-CSS-Variablen müssen auf der Website verfügbar sein und eine gültige Schriftgröße liefern. Die isolierte Admin-Vorschau lädt keine Variablen aus Bricks oder anderen Frameworks; sie verwendet den Ersatzwert. Relative Einheiten allein erzeugen keine Anpassung an Bildschirmbreiten. Eine entsprechend definierte CSS-Variable kann das übernehmen. Die Vorschau bietet verschiedene Breiten und eine Simulation strenger Theme-Abstände; die fertige Seite bitte zusätzlich im verwendeten Theme ansehen.
+1. Lade das **Plugin-ZIP** aus den [GitHub-Releases](https://github.com/deckerweb/daily-scripture/releases/latest).
+2. Installiere es über **Plugins → Plugin hinzufügen → Plugin hochladen** und aktiviere es.
+3. Öffne **Daily Scripture → Datenquellen**, prüfe die Verfügbarkeit und importiere ein offizielles Jahrespaket. Alternativ kannst du es manuell hochladen.
+4. Wähle unter **Gestaltung** ein Layout, passe die Gesamtgröße an und prüfe die Vorschau. Speichere mit dem Button oben.
+5. Füge den Block, das Builder-Element oder den Shortcode **Daily Scripture** ein. Für eigene Bibelstellen installierst du vorher eine Ausgabe unter **Bibelbibliothek**.
 
-Im Dashboard wählt jeder Benutzer unter **Ansicht anpassen** seine eigene Versgröße (14, 16 oder 18 px), Abstände und Darstellung. Diese Auswahl gilt nur für ihn auf der jeweiligen Website. Quellenüberschriften und Datumsformat folgen den Website-Einstellungen; die Farben greifen den persönlichen WordPress-Admin-Akzent auf. Die Admin-Vorschau zeigt diese Farbumgebung, nicht die persönlichen Leseeinstellungen des Widgets.
+Vorausgesetzt werden WordPress 6.6+, PHP 8.0+ und DOM/XML. ZIP-Pakete benötigen ZipArchive. Elementor und Bricks sind optional. Der Pluginname bleibt auch auf Deutsch **Daily Scripture**.
 
-Die Standardüberschrift lautet **Die Losungen** beziehungsweise auf deutschsprachigen Websites **Das Wort für heute**. Auf englischsprachigen Websites verwendet Bible 2.0 **The Word for Today**. Eigene globale Überschriften gelten auch im Dashboard; Blöcke und Builder-Elemente können sie überschreiben. Ein leeres Datumsformat übernimmt WordPress.
+<a name="tagesverse-und-bibelbibliothek"></a>
 
-## Shortcodes
+## Tagesverse und Bibelbibliothek
 
-Tagesverse mit den gespeicherten Vorgaben:
+Tagesverse und selbst gewählte Bibelstellen sind getrennte Ausgaben. Das offizielle Losungen-Paar bleibt zusammen und unverändert; die Wahl einer lokalen Bibelausgabe schreibt diese Texte nicht um. Bible 2.0 verwendet die Texte und Hinweise des importierten Jahrespakets.
 
-```text
-[daily_scripture]
-```
+In der unabhängigen Bibelbibliothek wählst du Übersetzung, Buch, Kapitel und bis zu 50 Verse innerhalb eines Kapitels. Die Volltexte werden separat installiert. Luther 1912, Elberfelder 1905 und Menge 1939 verwenden die geprüften gemeinfreien Quellen; die verwendete Schlachter-1951-Quelle steht unter **CC BY 4.0**. Quellen- und Lizenzhinweise bleiben zugänglich.
 
-Die Losungen in kompakter Darstellung:
+Bibleserver wird nur für Bibelstellen-Links verwendet. Die separat gewählte Zielübersetzung verändert das Linkziel, nicht den auf deiner Website angezeigten Text.
 
-```text
-[daily_scripture source="herrnhuter" layout="minimal" density="compact"]
-```
+<a name="layouts-und-schriftgroessen"></a>
 
-Eine eigene Bibelstelle aus der zuvor installierten Übersetzung:
+## Layouts und Schriftgrößen
 
-```text
-[daily_scripture_passage translation="luther-1912" book="JOH" chapter="3" from="16" to="17" title="Ein Wort für dich"]
-```
+Beginne mit einem Layout und dem Regler für die Gesamtgröße: Überschrift, Vers, Bibelstelle, Datum und Quellenhinweise bleiben im Verhältnis zueinander. Wähle normale oder kompakte Abstände und anschließend helle, dunkle, geräteabhängige oder eigene Farben. Der Expertenmodus ergänzt individuelle Schriftgrößen und Farben.
 
-Tagesverse unterstützen `source` (`herrnhuter`, `bible2`, `both`). Eigene Bibelstellen unterstützen `translation`, `book`, `chapter`, `from`, `to` und `title`; ohne `to` wird nur der erste Vers ausgegeben. Bis zu 50 Verse innerhalb eines Kapitels sind möglich. Ohne eigenen Titel erscheint die Bibelstellenangabe.
+Vorhandene CSS-Variablen wie `var(--text-xxl, 28px)` sind möglich. Gib einen Ersatzwert an: Die abgeschirmte Adminvorschau kann die Variablen deines Themes oder Builders nicht einlesen. Prüfe breite und schmale Ansichten und danach die veröffentlichte Seite. Der Vers steht im Mittelpunkt, mit klarer Überschrift und dezenteren Bibelstellen- und Lizenzangaben.
 
-Beide Shortcodes unterstützen `layout`, `density` (`standard`, `compact`) und `theme` (`light`, `dark`, `auto`, `custom`). Ohne Darstellungsoptionen gelten die Website-Einstellungen. Alle Layoutwerte, Buchkürzel und weitere kopierbare Beispiele stehen auf der Pluginseite **Shortcodes**.
+<a name="editoren-shortcodes-und-dashboard"></a>
 
-## Daten, Downloads und Jahreswechsel
+## Editoren, Shortcodes und Dashboard
 
-Downloads werden bewusst in der Datenverwaltung ausgelöst. Die Quellenprüfung zeigt verfügbare Pakete; sie installiert das Folgejahr nicht selbstständig. Erfolgreiche Katalogprüfungen werden sechs Stunden, fehlgeschlagene fünf Minuten zwischengespeichert. Bei Anbieter- oder Verbindungsproblemen bleibt der manuelle Upload verfügbar.
+Gutenberg zeigt die Einstellungen in der Seitenleiste und eine serverseitig erzeugte Vorschau im Block. Blöcke können die gespeicherten Vorgaben übernehmen oder eigene Überschriften und Darstellungsoptionen verwenden. Elementor und Bricks bieten zusätzlich native Regler für Schriften, Farben, Rahmen und Abstände sowie responsive Werte.
 
-Jahresdateien müssen ein vollständiges Kalenderjahr mit vollständigen Verspaaren enthalten. Ein bestehendes Jahr wird erst nach erfolgreicher Prüfung und ausdrücklicher Auswahl ersetzt. Der Tages- und Jahreswechsel folgt der WordPress-Zeitzone. Fehlende Daten führen zu einem Hinweis; es werden keine alten Verse als aktuelle ausgegeben. Die Jahresübersicht zeigt, ob Daten für den Jahreswechsel fehlen. Seiten- und CDN-Caches müssen zum Tageswechsel aktualisiert werden.
+`[daily_scripture]` gibt Tagesverse aus, `[daily_scripture_passage]` eine selbst gewählte Bibelstelle. Auf der Pluginseite **Shortcodes** findest du Beispiele mit Kopierbuttons und alle Buchkürzel.
 
-Alle vom Plugin verwalteten Textdateien liegen relativ zu `wp-content/uploads/` hier:
+Im Dashboard kann jeder Benutzer über **Ansicht anpassen** kompakte Abstände und eine Versgröße von 14, 16 oder 18 px wählen. Das gilt nur für diesen Benutzer auf dieser Website. Quellenüberschriften und das Standard-Datumsformat folgen den Website-Einstellungen.
 
-```text
-daily-scripture/herrnhuter/YYYY.json.php
-daily-scripture/bible2/YYYY.json.php
-daily-scripture/bibles/luther-1912.json.php
-daily-scripture/bibles/elberfelder-1905.json.php
-daily-scripture/bibles/menge-1939.json.php
-daily-scripture/bibles/schlachter-1951.json.php
-```
+<a name="daten-und-einstellungstransfer"></a>
 
-`daily-scripture/downloads/` dient der vorübergehenden Download-Verarbeitung. Es gibt keinen zusätzlichen `data/`-Unterordner. Bei Einzelaktivierung in Multisite liegen die Daten getrennt unter `daily-scripture/sites/BLOG_ID/`; Netzwerkaktivierung wird nicht unterstützt. Bei umbenanntem Inhaltsverzeichnis gilt `WP_CONTENT_DIR/uploads/daily-scripture/`. Abweichende Uploadverzeichnisse werden für diese Textdaten nicht verwendet.
+## Daten und Einstellungstransfer
 
-Schutzdateien, PHP-Abbruchschutz, Pfadprüfung und gesperrte Schreibvorgänge schützen den lokalen Bestand. Browseruploads landen zunächst im konfigurierten PHP-Upload-Tempverzeichnis. Plugin-Einstellungen und kurzlebige Statusmeldungen liegen in der WordPress-Datenbank.
+Du startest die Jahresdownloads selbst. Die Quellenprüfung zeigt verfügbare Pakete, installiert aber nicht automatisch das Folgejahr. Der Import prüft vollständige Jahre und Verspaare vor dem Ersetzen lokaler Daten. Installiere das nächste Jahr rechtzeitig und aktualisiere Seiten- oder CDN-Caches zum Tageswechsel.
 
-## Bibelbibliothek und Quellen
+Alle verwalteten Textdateien bleiben unter `wp-content/uploads/daily-scripture/`. JSON-Exporte enthalten die gespeicherte Gestaltung oder Website-Einstellungen, aber keine Bibeltexte, Jahrespakete, persönlichen Dashboard-Werte oder Builder-Stile. Importierte Einstellungen erscheinen zunächst zur Prüfung im Formular und gelten nach dem Speichern. Nimm die Textdateien in dein normales Website-Backup auf.
 
-Volltexte und Jahrespakete werden **nicht im Plugin-ZIP mitgeliefert**. Die Bibliothek akzeptiert die verlinkten, anhand ihres Fingerabdrucks geprüften Textfassungen. Andere Revisionen benötigen eine neue Quellenprüfung. Importiert werden jeweils 66 Bücher ohne zusätzliche Apokryphen und redaktionelle Überschriften.
+<a name="updates-und-dokumentation"></a>
 
-| Ausgabe | Textquelle | Kennzeichnung der verwendeten Ausgabe |
-| --- | --- | --- |
-| Luther 1912 | [eBible](https://ebible.org/bible/details.php?id=deu1912) | Gemeinfrei |
-| Elberfelder 1905, unrevidiert | [eBible](https://ebible.org/bible/details.php?id=deuelo) | Gemeinfrei |
-| Menge 1939 | [Zefania-Textpaket](https://sourceforge.net/projects/zefania-sharp/files/Bibles/GER/Menge-Bibel/) | Gemeinfrei; Nachweise in der Bibelbibliothek |
-| Schlachter 1951 | [eBible](https://ebible.org/deu1951/copyright.htm) | CC BY 4.0, mit Namensnennung und Lizenzverknüpfung |
+## Updates und Dokumentation
 
-Verszählungen können abweichen. Die Menge-Datei fasst Hesekiel 33,14–15 zusammen; beide Verse gemeinsam wählen. Die Schlachter-Datei enthält bei Matthäus 21,44 keinen Wortlaut und anschließend abweichende Versnummern. Daily Scripture übernimmt die Quelldatei und weist bei einer betroffenen Auswahl darauf hin.
+Updates kommen direkt aus dem [DECKERWEB-Repository auf GitHub](https://github.com/deckerweb/daily-scripture/releases) und erscheinen bei aktivem Daily Scripture im **regulären WordPress-Updatesystem**. Aktualisiere wie gewohnt über Plugins oder Dashboard → Aktualisierungen; ein zusätzliches Updater-Plugin ist nicht nötig. Automatische Updates bleiben deine Entscheidung.
 
-Die offiziellen Tagesquellen bleiben unabhängig von dieser Bibliothek. Losung und Lehrtext erscheinen unverändert zusammen; Import und Ausgabe der Losungen sind auf Vorjahr, laufendes Jahr und Folgejahr begrenzt. Beachte die [Losungen-Nutzungsbedingungen](https://www.losungen.de/digital/nutzungsbedingungen/). Für Bible 2.0 gelten die [Projektbedingungen](https://bible2.net/en/copyright) sowie die Hinweise der jeweiligen Bibelausgabe. Die vollständigen importierten Lizenzinformationen bleiben über die aufklappbare Anzeige beziehungsweise das Dialogfenster zugänglich, auch ohne JavaScript.
+Die [deutsche Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deutsch), die [englische Anleitung](https://github.com/deckerweb/daily-scripture/wiki/English) und die thematischen FAQs erklären Einstellungen, Quellen und häufige Fragen. Eine [lokale Kopie](docs/Deutsch.md) liegt im Plugin. Im Admin-Footer findest du die Dokumentation und den Changelog-Dialog. Zwischengespeicherte Updateprüfungen können ein neues Angebot bis zu 30 Minuten verzögern; ein manuelles ZIP-Update ist ebenfalls möglich.
 
-Bibleserver dient ausschließlich als externes Linkziel. Das Plugin lädt dort keine Texte; die gewählte Zielübersetzung ändert nicht den angezeigten Verswortlaut.
+<a name="haeufige-fragen"></a>
 
-## Sicherung und Deinstallation
+## Häufige Fragen
 
-Der JSON-Export enthält die **gespeicherten** Werte. Ein Design umfasst Darstellung und Datumsformat; der vollständige Export zusätzlich Quellenwahl und sonstige Website-Optionen. Texte, Jahrespakete, persönliche Dashboard-Einstellungen und Builder-Stile sind nicht enthalten. Ein Import wird erst ins Formular übernommen und nach **Einstellungen speichern** wirksam.
+**Brauche ich Elementor oder Bricks?** Nein. Gutenberg, Shortcodes und das Dashboard-Widget funktionieren unabhängig von beiden Buildern.
 
-Deaktivieren behält Texte und Einstellungen. Bei Deinstallation werden die Plugin-Einstellungen und die persönlichen Widget-Einstellungen dieser Website entfernt. Jahresdaten und Bibelausgaben bleiben standardmäßig erhalten. Mit aktivierter Löschoption werden die erkannten Textdateien dieser Website ebenfalls entfernt; unbekannte Dateien und Schutzdateien bleiben erhalten. Sichere deine Texte bei Bedarf mit der normalen Dateisicherung deiner Website.
+**Sind Bibeltexte im Download enthalten?** Nein. Jahrespakete und Bibelausgaben installierst du separat im Plugin. Beachte die Bedingungen der jeweiligen Quelle.
 
-## Plugin-Updates über GitHub
+**Kann ich den offiziellen Losungstext durch eine andere Übersetzung ersetzen?** Nein. Das offizielle Paar bleibt zusammen und unverändert. Für eigene Auswahltexte verwendest du die separate Bibelstellen-Ausgabe.
 
-Die gemeinsame **deckerweb GitHub Release Updater V1**-Bibliothek ist enthalten, unverändert übernommen aus Brand Admin Schemes 0.15.1. Bei aktivem Plugin registriert sie die WordPress-Updateprüfung und das Fenster mit Release-Details. Ziel ist ausschließlich das öffentliche Repository `https://github.com/deckerweb/daily-scripture`. `Update URI` verhindert eine Verwechslung mit einem gleichnamigen WordPress.org-Plugin.
+**Wird das nächste Jahr automatisch installiert?** Nein. Prüfe unter Datenquellen die Verfügbarkeit und starte den Import vor dem Jahreswechsel selbst.
 
-Es werden veröffentlichte Releases verwendet, keine Entwürfe oder als Vorabversion markierten Releases. Höhere Versionen erscheinen in der üblichen WordPress-Updateverwaltung. Automatische Updates werden nicht selbstständig aktiviert. Ohne öffentlich erreichbares Repository oder Release bleibt der manuelle ZIP-Weg verfügbar.
+**Verändert ein JSON-Import sofort die Website?** Nein. Prüfe ihn im Formular und speichere zum Anwenden. JSON enthält Einstellungen, keine gespeicherten Bibeltexte.
 
-**Für neue Releases:**
+**Warum erscheinen noch die Verse von gestern?** Prüfe die WordPress-Zeitzone, die installierten Jahresdaten und Seiten-/CDN-Caches. Zwischengespeicherte Seiten müssen zum Tageswechsel aktualisiert werden.
 
-1. Version im Plugin, in beiden TXT-Readmes und in beiden Changelogs angleichen. Die tatsächlichen Mindestanforderungen im Pluginheader pflegen.
-2. Ein vollständiges installierbares ZIP mit dem Hauptordner `daily-scripture/` bauen und prüfen. Bibliothek, Übersetzungen und alle vier Readmes mitliefern; keine Testdaten oder Zugangsdaten einpacken.
-3. Im öffentlichen Repository ein stabiles Release mit Tag `vX.Y.Z` oder `X.Y.Z` veröffentlichen und `daily-scripture.zip` oder `daily-scripture-X.Y.Z.zip` anhängen. ZIP-Version und Tag müssen übereinstimmen.
-4. Der Updater bevorzugt dieses Release-Asset. Fehlt es, verwendet die gemeinsame Bibliothek das GitHub-Quellarchiv. Dafür muss der markierte Repository-Stand selbst das vollständige Plugin mit Hauptdatei und sämtlichen benötigten Dateien im Stamm enthalten. Ein geprüftes Release-ZIP ist vorzuziehen.
-5. Aktualisierung zuerst in einer Testinstallation prüfen, auch zusammen mit anderen deckerweb-Plugins. Öffentliche Veröffentlichung und End-to-End-Download sind separate Schritte vom lokalen Einbau.
+**Wie funktionieren Updates?** Der enthaltene deckerweb-Updater liefert öffentliche GitHub-Releases über die regulären WordPress-Updates. Ein zusätzliches Updater-Plugin ist nicht nötig.
 
-Erfolgreiche Metadatenabfragen bleiben 30 Minuten, Fehler 10 Minuten im Cache; auch eine manuelle WordPress-Prüfung kann innerhalb dieser Frist den Bibliothekscache verwenden. Metadatenabfragen sind auf sechs Sekunden und 512 KiB begrenzt, ohne Weiterleitungen und mit HTTPS-Prüfung. Die Registrierung selbst ruft GitHub nicht auf und legt keinen zusätzlichen Cronjob an. Es sind keine GitHub-Zugangsdaten enthalten; beim Updatecheck erhält GitHub die üblichen Verbindungsdaten, aber keine Bibeltexte oder Plugin-Einstellungen.
+[Alle Fragen nach Themen](https://github.com/deckerweb/daily-scripture/wiki/FAQ-Deutsch)
 
-Zusätzlich zur Bibliothek prüft Daily Scripture das entpackte Paket vor dem Austausch: erwartete Hauptdatei, Pluginname, Update-URI, neuere Versionsnummer, Übereinstimmung mit dem angebotenen Update sowie die tatsächlichen PHP-/WordPress-Mindestversionen. Die installierten Texte unter uploads werden nicht angefasst. Paketvertrauen beruht auf GitHub/HTTPS und der Kontrolle des Release-Repositories; eine separate kryptografische Paketsignatur implementiert V1 nicht.
+<a name="changelog"></a>
 
-Die gemeinsame Bibliothek bleibt bytegleich, damit mehrere deckerweb-Plugins dieselbe versionierte Klasse laden können. Pluginbezogene Schutz- und Übersetzungsregeln liegen in `src/Core/GitHubUpdates.php`. Herkunft und SHA-256 stehen in [UPDATER.md](UPDATER.md). Bei weiteren Releases gehören Bibliotheksstand, WordPress-/PHP-Kompatibilität, Cacheverhalten und Paketvalidierung zur Prüfung.
+## Changelog
 
-## Entwicklung und Übersetzungen
+### 0.16.2
 
-Namespace: `Deckerweb\DailyScripture`. Der gemeinsame Datenweg aus Import, Validierung und lokaler Speicherung versorgt die Ausgabe in allen Integrationen. Der Hook `daily_scripture_year_readiness` meldet die jährliche Datenbereitschaft; er lädt oder löscht keine Dateien.
+- **Verbessert:** Gliedert alle vier Readmes mit einer klaren Funktionsübersicht, Inhaltsverzeichnis, sieben kurzen Antworten und den letzten fünf Versionen neu.
+- **Verbessert:** Ergänzt englische und deutsche GitHub-Banner, ausführliche zweisprachige Anleitungen, thematische FAQs und den vollständigen Änderungsverlauf.
+- **Verbessert:** Verlinkt die Dokumentation im Footer aller Plugin-Adminseiten und erklärt Updates über das reguläre WordPress-Updatesystem.
+- **Sonstiges:** Liefert die Dokumentation lokal mit und behält die gemeinsame deckerweb-Updater-Bibliothek unverändert bei.
 
-Der Pluginname bleibt in jeder Sprache **Daily Scripture**. Deutsche Sprachdateien und die POT-Vorlage liegen in `languages/`; Quellenbezeichnungen, Shortcode-Parameter und importierte Originaltexte werden nicht umbenannt. `phpcs.xml.dist` enthält die WordPress-Coding-Standards-Konfiguration.
+### 0.16.1
+- **Sonstiges:** GPL-2.0-or-later für den Plugin-Code ausdrücklich dokumentiert; vollständige Lizenzdatei und Veröffentlichungspaket ergänzt. Die Nutzungsbedingungen der Bibeltexte bleiben unabhängig davon.
 
-Über den Changelog-Link neben der Versionsnummer im Admin-Fußbereich öffnest du die Versionshistorie im Dialog. Er folgt deiner WordPress-Adminsprache (Deutsch oder Englisch); ohne JavaScript öffnet sich die Readme-Datei.
+### 0.16.0
+- **Neu:** Gemeinsame deckerweb GitHub Release Updater-Bibliothek wie in Brand Admin Schemes, mit WordPress-Updateanzeige und Release-Details.
+- **Verbessert:** Begrenzte HTTPS-Metadatenabfragen, zwischengespeicherte Ergebnisse und lokalisierte Updatefehler.
+- **Verbessert:** Prüfung von Paketidentität, angebotener Version und tatsächlichen WordPress-/PHP-Anforderungen vor dem Austausch der Plugin-Dateien.
+- **Sonstiges:** Update-URI, Bibliotheksherkunft und Anleitung für öffentliche GitHub-Releases dokumentiert; automatische Updates bleiben eine Benutzerentscheidung.
 
-Die Versionshistorie mit **New**, **Improved**, **Fixed** und **Misc** steht in [readme-de.txt](readme-de.txt). Autor: [David Decker](https://github.com/deckerweb) · [Plugin-Website](https://github.com/deckerweb/daily-scripture).
+### 0.15.0
+- **Neu:** Changelog-Dialog neben der Versionsnummer auf allen Plugin-Adminseiten, mit deutscher oder englischer Versionshistorie.
+- **Verbessert:** Englische Standard-Readmes und separate deutsche Fassungen; Verweise passend zur jeweiligen Sprache.
 
-## Lizenz
+### 0.14.0
+- **Neu:** Deutsche Sprachdateien für Plugin und Block-Editor.
+- **Verbessert:** Kürzere Plugin-Beschreibung mit dem aktuellen Funktionsumfang; verständlichere Hilfen und einheitliche deutsche Begriffe.
+- **Verbessert:** Readme als aktuelle Anleitung mit Einrichtung, Gestaltung, Shortcodes, Datenpflege und allen vier Bibelausgaben.
+- **Behoben:** Veraltete Speicherpfade und unvollständige Hinweise zu Datenlöschung, JSON-Export und Dashboard-Vorschau berichtigt.
+- **Sonstiges:** Vollständige Versionshistorie mit den Präfixen New, Improved, Fixed und Misc; Übersetzungsvorlage aktualisiert. Der Pluginname bleibt Daily Scripture.
 
-Copyright © 2026 David Decker – deckerweb. Der Plugin-Code steht unter **GPL-2.0-or-later**: Du darfst ihn unter den Bedingungen der GNU General Public License, Version 2 oder einer späteren Version, weitergeben und verändern. Er wird ohne Gewährleistung bereitgestellt. Den vollständigen Lizenztext findest du in [LICENSE](LICENSE).
+[Vollständiger Änderungsverlauf im Wiki](https://github.com/deckerweb/daily-scripture/wiki/Changelog-Deutsch) · [Lokale Historie](docs/Changelog-Deutsch.md) · [Releases](https://github.com/deckerweb/daily-scripture/releases)
 
-Diese Softwarelizenz gilt nicht für heruntergeladene Bibeltexte oder Jahrespakete. Für diese gelten die oben aufgeführten Quellen- und Nutzungshinweise.
+<a name="ueber-das-plugin"></a>
+
+## Über das Plugin
+
+Entwickelt von **David Decker – DECKERWEB**, damit tägliche Bibelverse auf Gemeinde-, Kunden- und persönlichen Websites gut lesbar ihren Platz finden.
+
+Eine Idee oder einen Fehler gefunden? [Melde dich auf GitHub](https://github.com/deckerweb/daily-scripture/issues). Nenne Plugin-, WordPress- und PHP-Version sowie den betroffenen Editor und die Schritte zum Nachstellen.
+
+Der Plugin-Code steht unter **GPL-2.0-or-later**. Für Bibeltexte und Jahrespakete gelten eigene Bedingungen. © 2026 David Decker – DECKERWEB · [Lizenz](LICENSE)

@@ -3,7 +3,7 @@
  * Plugin Name: Daily Scripture
  * Plugin URI: https://github.com/deckerweb/daily-scripture
  * Description: Daily verses from Die Losungen and Bible 2.0, plus selected passages from four local Bible editions. Includes live previews, ten layouts, flexible typography, Gutenberg, Elementor, Bricks, shortcodes, a compact dashboard widget and JSON settings transfer.
- * Version: 0.16.1
+ * Version: 0.16.2
  * Update URI: https://github.com/deckerweb/daily-scripture
  * GitHub Plugin URI: https://github.com/deckerweb/daily-scripture
  * Author: David Decker
@@ -20,7 +20,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAILY_SCRIPTURE_VERSION', '0.16.1' );
+define( 'DAILY_SCRIPTURE_VERSION', '0.16.2' );
 define( 'DAILY_SCRIPTURE_FILE', __FILE__ );
 define( 'DAILY_SCRIPTURE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DAILY_SCRIPTURE_URL', plugin_dir_url( __FILE__ ) );
