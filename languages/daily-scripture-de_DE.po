@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Daily Scripture 0.16.1\n"
+"Project-Id-Version: Daily Scripture 0.16.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/daily-scripture\n"
 "Last-Translator: David Decker\n"
 "Language-Team: German\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-29T21:44:06+00:00\n"
-"PO-Revision-Date: 2026-09-29 21:44+0000\n"
+"POT-Creation-Date: 2026-09-30T08:10:05+00:00\n"
+"PO-Revision-Date: 2026-09-30 08:10+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: daily-scripture\n"
 "Language: de_DE\n"
@@ -1114,6 +1114,10 @@ msgstr "Über das Plugin"
 #: src/Admin/PageChrome.php:61
 msgid "Version"
 msgstr "Version"
+
+#: src/Admin/PageChrome.php:61
+msgid "Documentation"
+msgstr "Dokumentation"
 
 #: src/Admin/PageChrome.php:61
 msgid "Worte, die den Tag erhellen."
