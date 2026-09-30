@@ -58,7 +58,7 @@ final class PageChrome {
 	 * @return void
 	 */
 	public static function footer(): void {
-		echo '<footer class="ds-admin-footer" aria-label="' . esc_attr__( 'Über das Plugin', 'daily-scripture' ) . '"><div><strong>Daily Scripture</strong> <span>' . esc_html__( 'Version', 'daily-scripture' ) . ' ' . esc_html( DAILY_SCRIPTURE_VERSION ) . '</span> · <a href="' . esc_url( Changelog::url() ) . '" data-ds-changelog>' . esc_html__( 'Changelog', 'daily-scripture' ) . '</a><p>' . esc_html__( 'Worte, die den Tag erhellen.', 'daily-scripture' ) . '</p></div><div><span>© ' . esc_html( wp_date( 'Y' ) ) . ' <a href="https://github.com/deckerweb">David Decker · deckerweb</a></span><a href="https://github.com/deckerweb/daily-scripture">' . esc_html__( 'Plugin-Website', 'daily-scripture' ) . '</a></div></footer>';
+		echo '<footer class="ds-admin-footer" aria-label="' . esc_attr__( 'Über das Plugin', 'daily-scripture' ) . '"><div><strong>Daily Scripture</strong> <span>' . esc_html__( 'Version', 'daily-scripture' ) . ' ' . esc_html( DAILY_SCRIPTURE_VERSION ) . '</span> · <a href="' . esc_url( Changelog::url() ) . '" data-ds-changelog>' . esc_html__( 'Changelog', 'daily-scripture' ) . '</a> · <a href="' . esc_url( 'https://github.com/deckerweb/daily-scripture/wiki/' . ( Changelog::is_german() ? 'Deutsch' : 'English' ) ) . '">' . esc_html__( 'Documentation', 'daily-scripture' ) . '</a><p>' . esc_html__( 'Worte, die den Tag erhellen.', 'daily-scripture' ) . '</p></div><div><span>© ' . esc_html( wp_date( 'Y' ) ) . ' <a href="https://github.com/deckerweb">David Decker · deckerweb</a></span><a href="https://github.com/deckerweb/daily-scripture">' . esc_html__( 'Plugin-Website', 'daily-scripture' ) . '</a></div></footer>';
 		Changelog::dialog();
 	}
 }

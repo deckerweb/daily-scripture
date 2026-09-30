@@ -23,10 +23,10 @@ final class Changelog {
 	/**
 	 * Local documentation URL, also used when dialogs or JavaScript are unavailable.
 	 *
-	 * @return string Readme URL.
+	 * @return string Changelog URL.
 	 */
 	public static function url(): string {
-		return DAILY_SCRIPTURE_URL . ( self::is_german() ? 'readme-de.txt' : 'readme.txt' );
+		return DAILY_SCRIPTURE_URL . ( self::is_german() ? 'docs/changelog-de.txt' : 'docs/changelog.txt' );
 	}
 
 	/**
@@ -35,7 +35,7 @@ final class Changelog {
 	 * @return string Escaped headings and lists, or an empty string if unavailable.
 	 */
 	public static function content(): string {
-		$file = DAILY_SCRIPTURE_DIR . ( self::is_german() ? 'readme-de.txt' : 'readme.txt' );
+		$file = DAILY_SCRIPTURE_DIR . ( self::is_german() ? 'docs/changelog-de.txt' : 'docs/changelog.txt' );
 		if ( ! is_readable( $file ) || filesize( $file ) > 262144 ) {
 			return '';
 		}
@@ -78,6 +78,6 @@ final class Changelog {
 		$close = self::is_german() ? __( 'Schließen', 'daily-scripture' ) : __( 'Close', 'daily-scripture' );
 		echo '<dialog id="ds-changelog" class="ds-changelog" aria-labelledby="ds-changelog-title"><header class="ds-changelog__header"><h2 id="ds-changelog-title">Daily Scripture · ' . esc_html__( 'Changelog', 'daily-scripture' ) . '</h2><button type="button" class="button" data-ds-changelog-close autofocus>' . esc_html( $close ) . '</button></header><div class="ds-changelog__content" tabindex="0">';
 		echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- content() escapes every text node; only fixed heading, list and paragraph markup is emitted.
-		echo '</div><p class="ds-changelog__readme"><a href="' . esc_url( self::url() ) . '">' . esc_html( self::is_german() ? 'readme-de.txt' : 'readme.txt' ) . '</a></p></dialog>';
+		echo '</div><p class="ds-changelog__readme"><a href="' . esc_url( self::url() ) . '">' . esc_html( self::is_german() ? 'docs/changelog-de.txt' : 'docs/changelog.txt' ) . '</a></p></dialog>';
 	}
 }
