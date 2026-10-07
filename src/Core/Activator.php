@@ -19,8 +19,10 @@ final class Activator {
 	 */
 	public static function activate( bool $network_wide = false ): void {
 		if ( $network_wide ) {
-			wp_die( esc_html__( 'Daily Scripture bitte für einzelne Websites aktivieren; Netzwerkaktivierung wird noch nicht unterstützt.', 'daily-scripture' ) );
+			// Network sites, including new sites, initialize defaults on their first request.
+			return;
 		}
+		// Each site inherits defaults lazily, including sites created after network activation.
 		if ( false === get_option( 'daily_scripture_settings', false ) ) {
 			add_option( 'daily_scripture_settings', Settings::defaults() );
 		}

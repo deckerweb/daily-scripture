@@ -21,16 +21,23 @@ final class Passage {
 	public function block(): void {
 		wp_register_script( 'daily-scripture-passage', DAILY_SCRIPTURE_URL . 'assets/passage-block.js', array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-server-side-render' ), DAILY_SCRIPTURE_VERSION, true );
 		wp_set_script_translations( 'daily-scripture-passage', 'daily-scripture', dirname( DAILY_SCRIPTURE_FILE ) . '/languages' );
+		/**
+		* Expose the reviewed edition label to passage editor controls.
+		*
+		* @param array $edition Reviewed edition metadata.
+		* @return string
+		*/
+		$edition_label = static fn( $edition ) => $edition['label'];
 		wp_localize_script(
 			'daily-scripture-passage',
 			'dailyScripturePassage',
 			array(
 				'books'    => TranslationManager::books(),
-				'editions' => array_map( static fn( $edition ) => $edition['label'], ( new TranslationManager() )->bundled() ),
+				'editions' => array_map( $edition_label, ( new TranslationManager() )->bundled() ),
 				'layouts'  => Presentation::choices()['layout'],
 			)
 		);
-		$attributes = array();
+		$attributes    = array();
 		foreach ( array(
 			'translation' => 'luther-1912',
 			'book'        => 'JOH',
@@ -68,11 +75,13 @@ final class Passage {
 	/**
 	 * Render one local range using the established semantic component markup.
 	 *
-	 * @param mixed $attributes Shortcode or block attributes.
+	 * @param mixed     $attributes Shortcode or block attributes.
+	 * @param bool|null $admin Explicit dashboard presentation context.
 	 * @return string Escaped component output.
 	 * @throws \RuntimeException Caught locally and converted to a display notice.
 	 */
-	public function render( $attributes = array() ): string {
+	public function render( $attributes = array(), ?bool $admin = null ): string {
+		( new \Deckerweb\DailyScripture\Core\Plugin() )->styles();
 		$attributes = is_array( $attributes ) ? $attributes : array();
 		$defaults   = array(
 			'translation' => 'luther-1912',
@@ -91,11 +100,11 @@ final class Passage {
 		try {
 			foreach ( $args as $value ) {
 				if ( ! is_scalar( $value ) ) {
-					throw new \RuntimeException( esc_html__( 'Ungültige Bibelstellen-Einstellung.', 'daily-scripture' ) ); }
+					throw new \RuntimeException( esc_html__( 'Invalid passage setting.', 'daily-scripture' ) ); }
 			}
 			foreach ( array( 'chapter', 'from', 'to' ) as $key ) {
 				if ( ! preg_match( '/^[1-9]\d{0,2}$/D', (string) $args[ $key ] ) ) {
-					throw new \RuntimeException( esc_html__( 'Kapitel und Verse müssen positive ganze Zahlen sein.', 'daily-scripture' ) ); }
+					throw new \RuntimeException( esc_html__( 'Chapter and verse numbers must be positive integers.', 'daily-scripture' ) ); }
 			}
 			$edition   = TranslationManager::edition( (string) $args['translation'] );
 			$book      = strtoupper( (string) $args['book'] );
@@ -103,11 +112,11 @@ final class Passage {
 			$reference = TranslationManager::books()[ $book ] . ' ' . $args['chapter'] . ',' . $args['from'] . ( (int) $args['from'] !== (int) $args['to'] ? '–' . $args['to'] : '' );
 			$title     = Presentation::sanitize_heading( (string) $args['title'] );
 			$title     = '' === $title ? $reference : $title;
-			$style     = Presentation::resolve( $args, false );
+			$style     = Presentation::resolve( array_merge( $args, array_intersect_key( $attributes, Presentation::defaults() ) ), $admin ?? false );
 			$html      = '<div class="' . esc_attr( $style['classes'] ) . '" style="' . esc_attr( $style['style'] ) . '" data-ds-component="1" data-source="passage"><section class="daily-scripture__source"><header class="daily-scripture__header"><h3 class="daily-scripture__title">' . esc_html( $title ) . '</h3></header><div class="daily-scripture__verses"><blockquote class="daily-scripture__item">';
 			foreach ( $verses as $number => $text ) {
 				$html .= '<p class="daily-scripture__text"><sup>' . esc_html( (string) $number ) . '</sup> ' . esc_html( $text ) . '</p>'; }
-			$html .= '<cite class="daily-scripture__reference"><a href="' . esc_url( ReferenceLink::url( $reference ) ) . '">' . esc_html( $reference ) . '</a></cite></blockquote></div><footer class="daily-scripture__meta"><p>' . esc_html( $edition['label'] . ' · ' . TranslationManager::license_label( $edition ) ) . '</p><p><a href="' . esc_url( $edition['source'] ) . '">' . esc_html__( 'Textquelle & Ausgabe', 'daily-scripture' ) . '</a></p>' . TranslationManager::attribution_html( $edition ) . '</footer></section></div>';
+			$html .= '<cite class="daily-scripture__reference"><a href="' . esc_url( ReferenceLink::url( $reference ) ) . '">' . esc_html( $reference ) . '</a></cite></blockquote></div><footer class="daily-scripture__meta"><p>' . esc_html( $edition['label'] . ' · ' . TranslationManager::license_label( $edition ) ) . '</p><p><a href="' . esc_url( $edition['source'] ) . '">' . esc_html__( 'Text source & edition', 'daily-scripture' ) . '</a></p>' . TranslationManager::attribution_html( $edition ) . '</footer></section></div>';
 			return $html;
 		} catch ( \RuntimeException $error ) {
 			return '<div class="daily-scripture-passage-notice" role="status"><p>' . esc_html( $error->getMessage() ) . '</p></div>';

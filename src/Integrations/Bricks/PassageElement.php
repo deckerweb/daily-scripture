@@ -41,7 +41,7 @@ final class PassageElement extends \Bricks\Element {
 	 * @return string
 	 */
 	public function get_label() {
-		return __( 'Bibelstelle · Daily Scripture', 'daily-scripture' );
+		return __( 'Bible passage · Daily Scripture', 'daily-scripture' );
 	}
 
 	/**
@@ -60,11 +60,11 @@ final class PassageElement extends \Bricks\Element {
 	 */
 	public function set_control_groups() {
 		$this->control_groups['source']  = array(
-			'title' => __( 'Bibelstelle & Übersetzung', 'daily-scripture' ),
+			'title' => __( 'Passage & translation', 'daily-scripture' ),
 			'tab'   => 'content',
 		);
 		$this->control_groups['display'] = array(
-			'title' => __( 'Darstellung', 'daily-scripture' ),
+			'title' => __( 'Presentation', 'daily-scripture' ),
 			'tab'   => 'content',
 		);
 		BricksStyles::groups( $this, true );
@@ -86,10 +86,10 @@ final class PassageElement extends \Bricks\Element {
 			);
 			if ( isset( $field['options'] ) ) {
 				$control['options']     = $field['options'];
-				$control['placeholder'] = __( 'Website-Einstellung', 'daily-scripture' );
+				$control['placeholder'] = __( 'Site setting', 'daily-scripture' );
 			} else {
 				$control['placeholder'] = $field['placeholder'] ?? '';
-				$control['description'] = 'title' === $key ? __( 'Leer zeigt die Bibelstelle als Überschrift. Maximal 160 Zeichen.', 'daily-scripture' ) : __( 'Wähle bis zu 50 Verse innerhalb eines Kapitels.', 'daily-scripture' );
+				$control['description'] = 'title' === $key ? __( 'Leave blank to use the Bible reference as the heading. Up to 160 characters.', 'daily-scripture' ) : __( 'Choose up to 50 verses within one chapter.', 'daily-scripture' );
 			}
 			if ( 'number' === $field['type'] ) {
 				$control['min']  = 1;
@@ -101,7 +101,7 @@ final class PassageElement extends \Bricks\Element {
 			'tab'     => 'content',
 			'group'   => 'display',
 			'type'    => 'info',
-			'content' => esc_html__( 'Die Plugin-Vorgaben sind dein Ausgangspunkt. Unter Stil kannst du Typografie, Farben und Abstände für dieses Element gestalten. Installiere die gewünschte Übersetzung zuerst unter Daily Scripture → Bibelbibliothek.', 'daily-scripture' ),
+			'content' => esc_html__( 'Plugin defaults are your starting point. Under Style, adjust typography, colors and spacing for this element. Install the selected edition under Daily Scripture → Bible library first.', 'daily-scripture' ),
 		);
 		BricksStyles::controls( $this, true );
 	}

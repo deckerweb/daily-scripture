@@ -3,58 +3,60 @@ Contributors: deckerweb
 Tags: bible, scripture, daily, shortcode, block
 Requires at least: 6.6
 Requires PHP: 8.0
-Stable tag: 0.16.4
+Stable tag: 1.0.0
 License: GPL-2.0-or-later
-License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Daily verses and selected passages. Local storage, previews, ten layouts, Gutenberg, Elementor, Bricks and a compact dashboard widget.
 
 == Description ==
 
-Words to brighten your day. Die Losungen, “The Word for Today” from Bible 2.0 and your own passage selections: Daily Scripture brings daily readings to your WordPress website. Choose a layout, adjust the type and check the preview. Texts stay local; the design fits your site.
+**Words to brighten your day.** Die Losungen, “The Word for Today” from Bible 2.0 and your own passage selections: Daily Scripture brings daily readings to your WordPress website. Choose a layout, adjust the type and check the preview. Texts stay local; the design fits your site.
 
-Version: 0.16.4 · Requires: WordPress 6.6+ / PHP 8.0+ · License: GPL-2.0-or-later
+Daily Scripture adds daily readings, selected Bible passages and personal dashboard widgets to your WordPress website. Choose your sources, shape the design and display readings with Gutenberg, shortcodes, Elementor or Bricks. Website features also work in Multisite, with an additional Network Admin reading view.
 
-Download (https://github.com/deckerweb/daily-scripture/releases/latest) · User guide (https://github.com/deckerweb/daily-scripture/wiki/English) · Deutsch (https://github.com/deckerweb/daily-scripture/blob/main/README-de.md)
+**Version:** 1.0.0 · **Requires:** WordPress 6.6+ / PHP 8.0+ · **License:** GPL-2.0-or-later
+
+[Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [User guide](https://github.com/deckerweb/daily-scripture/wiki/English) · [Deutsch](README-de.md)
 
 == Contents ==
 
-* At a glance
-* Installation and first verses
-* Daily readings and Bible library
-* Layouts and typography
-* Editors, shortcodes and dashboard
-* Data and settings transfer
-* Updates and documentation
-* FAQ
-* Changelog
-* About
+* [At a glance](#at-a-glance)
+* [Installation and first verses](#installation-and-first-verses)
+* [Daily readings and Bible library](#daily-readings-and-bible-library)
+* [Layouts and typography](#layouts-and-typography)
+* [Editors, shortcodes and dashboard](#editors-shortcodes-and-dashboard)
+* [Data and settings transfer](#data-and-settings-transfer)
+* [Updates and documentation](#updates-and-documentation)
+* [FAQ](#faq)
+* [Changelog](#changelog)
+* [About](#about)
 
 == At a glance ==
 
-* A daily reading, ready to display: official verse pairs from Die Losungen and Bible 2.0, downloaded as annual packages or uploaded manually.
-* Your own passage selections: a separate local library with Luther 1912, Elberfelder 1905, Menge 1939 and Schlachter 1951.
-* A design that fits: ten layouts, light and dark appearances, compact spacing, custom colors and a live preview at several widths.
-* Balanced, readable type: one overall scale, plus optional expert sizes in px, em, rem, %, or CSS variables.
-* At home in your editor: Gutenberg blocks, Elementor widgets and Bricks elements for both daily readings and selected passages; two shortcodes work without a builder.
-* A small daily companion: a dashboard widget with personal size and spacing choices, source headings and the WordPress admin accent.
-* Ready for another project: validated JSON settings transfer, local text storage and updates in the regular WordPress update system.
+* **A daily reading, ready to display:** official verse pairs from Die Losungen and Bible 2.0, downloaded as annual packages or uploaded manually.
+* **Your own passage selections:** a separate local library with Luther 1912, Elberfelder 1905, Menge 1939 and Schlachter 1951.
+* **A design that fits:** ten layouts, light and dark appearances, compact spacing, custom colors and a live preview at several widths.
+* **Balanced, readable type:** one overall scale, plus optional expert sizes in px, em, rem, %, or CSS variables.
+* **At home in your editor:** Gutenberg blocks, Elementor widgets and Bricks elements for both daily readings and selected passages; two shortcodes work without a builder.
+* **A small daily companion:** a dashboard widget with personal size and spacing choices, source headings and the WordPress admin accent.
+* **Ready for another project:** validated JSON settings transfer, local text storage and updates in the regular WordPress update system.
 
 == Installation and first verses ==
 
-1. Download the plugin ZIP from GitHub Releases (https://github.com/deckerweb/daily-scripture/releases/latest).
-2. Install it through Plugins → Add Plugin → Upload Plugin and activate it.
-3. Open Daily Scripture → Datenquellen (data sources), check availability and import an official annual package. Manual upload is available too.
-4. Under Gestaltung (design), choose a layout, adjust the overall size and check the preview. Save with the button at the top.
-5. Add the Daily Scripture block, builder element or shortcode. For selected passages, install an edition under Bibelbibliothek first.
+1. Download the **plugin ZIP** from [GitHub Releases](https://github.com/deckerweb/daily-scripture/releases/latest).
+2. Install it through **Plugins → Add Plugin → Upload Plugin** and activate it.
+3. Open **Daily Scripture → Data sources** (data sources), check availability and import an official annual package. Manual upload is available too.
+4. Under **Design**, choose a layout, adjust the overall size and check the preview. Save with the button at the top.
+5. Add the **Daily Scripture** block, builder element or shortcode. For selected passages, install an edition under **Bible library** first.
 
-WordPress 6.6+, PHP 8.0+ and DOM/XML are required. ZIP packages need ZipArchive. Elementor and Bricks are optional. The current admin interface is primarily German; this guide includes its actual menu labels.
+WordPress 6.6+, PHP 8.0+ and DOM/XML are required. ZIP packages need ZipArchive. Elementor and Bricks are optional. The interface is available in English, German and formal German.
 
 == Daily readings and Bible library ==
 
 Daily readings and your own passage selections are separate. The official Losungen pair stays together and unchanged; changing the local Bible edition does not rewrite it. Bible 2.0 uses the texts and notices supplied in its annual package.
 
-The independent Bible library lets you select a translation, book, chapter and up to 50 verses within one chapter. Full texts are installed separately. Luther 1912, Elberfelder 1905 and Menge 1939 use the reviewed public-domain sources; the supplied Schlachter 1951 source is CC BY 4.0. Source and license notices remain accessible.
+The independent Bible library lets you select a translation, book, chapter and up to 50 verses within one chapter. Full texts are installed separately. Luther 1912, Elberfelder 1905 and Menge 1939 use the reviewed public-domain sources; the supplied Schlachter 1951 source is **CC BY 4.0**. Source and license notices remain accessible.
 
 Bibleserver is used for reference links only. Its independently selected target translation changes the link destination, not the text displayed on your site.
 
@@ -62,78 +64,126 @@ Bibleserver is used for reference links only. Its independently selected target 
 
 Start with a layout and the overall size slider: heading, verse, reference, date and source notices stay in proportion. Choose standard or compact spacing, then light, dark, device-based or custom colors. Expert mode adds individual sizes and colors when you need them.
 
-Existing CSS variables such as var(--text-xxl, 28px) are supported. Include a fallback: the isolated admin preview cannot read your theme or builder variables. Preview wide and narrow screens, then check the published page in your actual theme. Keep the verse central, with a clear heading and quieter reference and license text.
+Existing CSS variables such as `var(--text-xxl, 28px)` are supported. Include a fallback: the isolated admin preview cannot read your theme or builder variables. Preview wide and narrow screens, then check the published page in your actual theme. Keep the verse central, with a clear heading and quieter reference and license text.
 
 == Editors, shortcodes and dashboard ==
 
 Gutenberg keeps controls in the sidebar and shows a server-rendered preview. Blocks can inherit saved defaults or use their own titles and display options. Elementor and Bricks also offer native typography, color, border and spacing controls, including responsive settings.
 
-Use [daily_scripture] for daily readings and [daily_scripture_passage] for a selected passage. The plugin’s Shortcodes page provides examples with copy buttons and all book codes.
+Use `[daily_scripture]` for daily readings and `[daily_scripture_passage]` for a selected passage. The plugin’s **Shortcodes** page provides examples with copy buttons and all book codes.
 
-Each dashboard user can choose compact spacing and a 14, 16 or 18 px verse size under Ansicht anpassen. These preferences affect only that user on that site. Source headings and the default date format come from the site settings.
+Each dashboard user can choose compact spacing and a 14, 16 or 18 px verse size under **Display options**. These preferences affect only that user on that site. Source headings and the default date format come from the site settings.
 
 == Data and settings transfer ==
 
 Annual downloads are started by you. The source check shows available packages; it does not install the next year automatically. Import validates complete years and verse pairs before replacing local data. Install next year’s package in advance and refresh page or CDN caches at the daily changeover.
 
-All managed text files stay under wp-content/uploads/daily-scripture/. JSON exports contain saved design or site settings, not Bible texts, annual packages, personal dashboard choices or builder styles. Imported settings appear in the form for review and apply only when saved. Include local text files in your normal website backup.
+All managed text files stay under `wp-content/uploads/daily-scripture/`. JSON exports contain saved design or site settings, not Bible texts, annual packages, personal dashboard choices or builder styles. Imported settings appear in the form for review and apply only when saved. Include local text files in your normal website backup.
 
 == Updates and documentation ==
 
-Updates come directly from the DECKERWEB repository on GitHub (https://github.com/deckerweb/daily-scripture/releases) and appear in the regular WordPress plugin update system while Daily Scripture is active. Update through Plugins or Dashboard → Updates as usual; no additional updater plugin is needed. Automatic updates remain your choice.
+Updates come directly from the [DECKERWEB repository on GitHub](https://github.com/deckerweb/daily-scripture/releases) and appear in the **regular WordPress plugin update system** while Daily Scripture is active. Update through Plugins or Dashboard → Updates as usual; no additional updater plugin is needed. Automatic updates remain your choice.
 
-The English guide (https://github.com/deckerweb/daily-scripture/wiki/English), German guide (https://github.com/deckerweb/daily-scripture/wiki/Deutsch) and themed FAQs explain settings, sources and common problems. A local copy (https://github.com/deckerweb/daily-scripture/blob/main/docs/English.md) is included in the plugin. The admin footer links to the documentation and opens the changelog in a dialog. Cached update checks can delay a new offer by up to 30 minutes; a manual ZIP update is also available.
+The [English guide](https://github.com/deckerweb/daily-scripture/wiki/English), [German guide](https://github.com/deckerweb/daily-scripture/wiki/Deutsch) and themed FAQs explain settings, sources and common problems. A [local copy](docs/English.md) is included in the plugin. The admin footer links to the documentation and opens the changelog in a dialog. Cached update checks can delay a new offer by up to 30 minutes; a manual ZIP update is also available.
 
-== FAQ ==
+== Frequently Asked Questions ==
 
-Do I need Elementor or Bricks? No. Gutenberg, shortcodes and the dashboard widget work independently of either builder.
+= Do I need Elementor or Bricks? =
 
-Are Bible texts included in the download? No. Install annual packages and Bible editions separately in the plugin. Observe the terms of each source.
+No. Gutenberg, shortcodes and the dashboard widget work independently of either builder.
 
-Can I replace the official Losungen text with another translation? No. The official pair stays together and unchanged. Use the separate passage output for your own selections.
+= Are Bible texts included in the download? =
 
-Is next year installed automatically? No. Check availability under Data sources and start the import yourself before the year changes.
+No. Install annual packages and Bible editions separately in the plugin. Observe the terms of each source.
 
-Does a JSON import immediately change the website? No. Review it in the form and save to apply it. JSON contains settings, not stored Bible texts.
+= Can I replace the official Losungen text with another translation? =
 
-Why are yesterday’s verses still showing? Check the WordPress timezone, installed annual data and page/CDN caches. Cached pages need to refresh at the daily changeover.
+No. The official pair stays together and unchanged. Use the separate passage output for your own selections.
 
-How do updates work? The bundled deckerweb updater delivers public GitHub releases through regular WordPress updates. No additional updater plugin is required.
+= Is next year installed automatically? =
 
-More answers by topic (https://github.com/deckerweb/daily-scripture/wiki/FAQ-English)
+No. Check availability under Data sources and start the import yourself before the year changes.
+
+= Does a JSON import immediately change the website? =
+
+No. Review it in the form and save to apply it. JSON contains settings, not stored Bible texts.
+
+= Why are yesterday’s verses still showing? =
+
+Check the WordPress timezone, installed annual data and page/CDN caches. Cached pages need to refresh at the daily changeover.
+
+= How do updates work? =
+
+The bundled deckerweb updater delivers public GitHub releases through regular WordPress updates. No additional updater plugin is required.
+
+[More answers by topic](https://github.com/deckerweb/daily-scripture/wiki/FAQ-English)
+
+
+= Network dashboard and page caches =
+
+The Network Admin widget reads the selected active website’s local texts and timezone. Its personal display options are separate from website dashboards. New websites initialize their own defaults and annual checks when the plugin is network active. The corrected deckerweb catalog remains a prerequisite for network activation. Refresh full-page/CDN caches after midnight in each website’s timezone so daily readings stay current.
 
 == Changelog ==
 
+= 1.0.0 =
+
+* New: Personal dashboard source selection, multiple readings and ordering for WordPress websites, including Multisite; configured Bible passages and a selectable Network Admin source website.
+* Improved: Modern WordPress color modal, dedicated dashboard settings and more readable widget spacing.
+* Fixed: Stricter bulk-update package checks and isolated Multisite data cleanup; settings are retained by default.
+* Misc: English interface and informal/formal German; updated documentation and local update artwork.
+
+= 0.17.0 =
+
+Unreleased intermediate version; included in version 1.0.0.
+
+* **New:** Read-only Site Health check for annual data readiness and a compact diagnostic report.
+
 = 0.16.4 =
 
-* New: Adds localized standard and high-resolution banners to the WordPress version details dialog. Shared updater API v2 now supports optional icons and banners, including cached update icons, alongside plugins still using v1.
-
-= 0.16.3 =
-
-* Fixed: Shows the Daily Scripture icon in WordPress update offers, including cached offers, using bundled SVG and PNG artwork without additional remote requests.
+* **New:** Shows local icons and localized banners in WordPress update offers and version details.
 
 = 0.16.2 =
 
-* Improved: Rebuilds all four readmes around a clear feature overview, linked contents, seven quick answers and the latest five versions.
-* Improved: Adds English and German GitHub banners, detailed bilingual guides, themed FAQs and the complete release history.
-* Improved: Links the documentation from every plugin admin footer and explains updates through the regular WordPress update system.
-* Misc: Packages the documentation locally and keeps the shared deckerweb updater unchanged.
+* **Improved:** Bilingual guides, topic FAQs and directly accessible documentation on all plugin admin pages.
 
 = 0.16.1 =
-* Misc: Explicit GPL-2.0-or-later licensing for the plugin code, with the full license and publication package. Bible text permissions remain separate.
+* **Misc:** Explicit GPL-2.0-or-later licensing for the plugin code, with the full license and publication package. Bible text permissions remain separate.
 
 = 0.16.0 =
-* New: Shared deckerweb GitHub Release Updater library, as used by Brand Admin Schemes, with WordPress update notices and release details.
-* Improved: Bounded HTTPS metadata requests, cached results and localized update errors.
-* Improved: Package identity, offered version and actual WordPress/PHP requirements checked before replacing plugin files.
-* Misc: Update URI, library provenance and public GitHub release instructions documented; automatic updates remain a user choice.
+* **New:** Shared deckerweb GitHub Release Updater library, as used by Brand Admin Schemes, with WordPress update notices and release details.
+* **Improved:** Bounded HTTPS metadata requests, cached results and localized update errors.
+* **Improved:** Package identity, offered version and actual WordPress/PHP requirements checked before replacing plugin files.
+* **Misc:** Update URI, library provenance and public GitHub release instructions documented; automatic updates remain a user choice.
 
-Full changelog in the wiki (https://github.com/deckerweb/daily-scripture/wiki/Changelog-English) · Local history (https://github.com/deckerweb/daily-scripture/blob/main/docs/Changelog-English.md) · Releases (https://github.com/deckerweb/daily-scripture/releases)
+= 0.15.0 =
+* **New:** Changelog dialog beside the version number on every plugin admin page, with German or English release history.
+* **Improved:** English default readmes and separate German editions, with language-matched documentation links.
 
-== About ==
+= 0.14.0 =
+* **New:** German translation files for the plugin and block editor.
+* **Improved:** Concise plugin description covering current features, clearer help and consistent German terminology.
+* **Improved:** Current readme covering setup, design, shortcodes, data management and all four Bible editions.
+* **Fixed:** Outdated storage paths and incomplete notes on data removal, JSON exports and dashboard previews.
+* **Misc:** Complete release history using New, Improved, Fixed and Misc prefixes; refreshed translation template. The plugin name remains Daily Scripture.
 
-Built by David Decker – DECKERWEB to give daily Bible readings a readable place on church, client and personal websites.
+[Full changelog in the wiki](https://github.com/deckerweb/daily-scripture/wiki/Changelog-English) · [Local history](docs/Changelog-English.md) · [Releases](https://github.com/deckerweb/daily-scripture/releases)
 
-Have an idea or found a problem? Open an issue (https://github.com/deckerweb/daily-scripture/issues) with plugin, WordPress and PHP versions, the affected editor and steps to reproduce it.
+== Author and project ==
 
-Plugin code is licensed under GPL-2.0-or-later. Bible texts and annual packages have separate terms. © 2026 David Decker – DECKERWEB · License (https://github.com/deckerweb/daily-scripture/blob/main/LICENSE)
+Built by **David Decker – DECKERWEB** to give daily Bible readings a readable place on church, client and personal websites.
+
+Have an idea or found a problem? [Open an issue](https://github.com/deckerweb/daily-scripture/issues) with plugin, WordPress and PHP versions, the affected editor and steps to reproduce it.
+
+Report vulnerabilities privately through [the security policy](SECURITY.md). Support: [Ko-fi](https://ko-fi.com/deckerweb), [Buy Me a Coffee](https://buymeacoffee.com/daveshine), [PayPal](https://paypal.me/deckerweb).
+
+Plugin code is licensed under **GPL-2.0-or-later**. Bible texts and annual packages have separate terms. © 2026 David Decker – DECKERWEB · [License](LICENSE)
+
+Shared components: deckerweb Library 0.6.0 and Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Provenance and behavior: [Components](UPDATER.md).
+
+## Dashboard readings and color picker
+
+Define available readings in **Daily Scripture → Dashboard readings**: Die Losungen, Bible 2.0 and up to six passages from installed local Bible editions (up to 50 verses in one chapter). Save the website settings, then open **Display options** in the widget. Select one or more readings and use **Move up / Move down** to order them. Without JavaScript, numeric positions remain available. No configured readings produces a quiet notice; missing yearly data or an unavailable edition is reported per reading. Personal choices do not change website output. Full JSON settings exports include the reading definitions; design-only and older exports leave them unchanged. Install the required editions on the destination website before saving imported passage definitions.
+
+The Network Admin widget uses a personally selected active website in the current network and visibly names it. When only the main website is active, it is used automatically. With multiple active websites or network activation, select the source website; save once after changing it to load its configured readings, then choose your personal selection. An unavailable previous website falls back with a notice. The network widget is available when the plugin is active on the main website or network-wide; activation only on a subsite does not load it in Network Admin. The website widget switch affects that website's dashboard; the network reading view is independent. Website choices are paginated in groups of 50. No separate network Bible storage is created.
+
+Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.

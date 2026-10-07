@@ -23,7 +23,7 @@ final class Remote {
 	public static function get( string $url, int $limit = 2097152, int $redirects = 0 ): string {
 		$parts = wp_parse_url( $url );
 		if ( ! is_array( $parts ) || 'https' !== ( $parts['scheme'] ?? '' ) || ! ( in_array( $parts['host'] ?? '', array( 'www.losungen.de', 'bible2.net', 'ebible.org', 'downloads.sourceforge.net' ), true ) || preg_match( '/^[a-z0-9-]+\.dl\.sourceforge\.net$/D', $parts['host'] ?? '' ) ) || isset( $parts['user'] ) || isset( $parts['pass'] ) || isset( $parts['port'] ) || isset( $parts['fragment'] ) ) {
-			throw new \RuntimeException( esc_html__( 'Diese Downloadadresse ist nicht freigegeben.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'This download address is not approved.', 'daily-scripture' ) );
 		}
 		$response = wp_safe_remote_get(
 			$url,
@@ -36,7 +36,7 @@ final class Remote {
 			)
 		);
 		if ( is_wp_error( $response ) ) {
-			throw new \RuntimeException( esc_html__( 'Anbieter nicht erreichbar oder sichere Verbindung fehlgeschlagen. Manueller Upload bleibt möglich.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The provider is unreachable or the secure connection failed. Manual upload is still available.', 'daily-scripture' ) );
 		}
 		$status = wp_remote_retrieve_response_code( $response );
 		$body   = wp_remote_retrieve_body( $response );
@@ -49,7 +49,7 @@ final class Remote {
 			}
 		}
 		if ( 200 !== $status || '' === $body || strlen( $body ) > $limit ) {
-			throw new \RuntimeException( esc_html__( 'Download nicht verfügbar, umgeleitet, leer oder zu groß. Bitte manuell hochladen oder später erneut prüfen.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The download is unavailable, redirected, empty or too large. Please upload manually or check again later.', 'daily-scripture' ) );
 		}
 		return $body;
 	}

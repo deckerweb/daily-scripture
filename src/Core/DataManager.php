@@ -24,6 +24,8 @@ final class DataManager {
 
 	/**
 	 * Register the two local source adapters.
+	 *
+	 * @return void
 	 */
 	public function __construct() {
 		foreach ( array( new HerrnhuterProvider(), new Bible2Provider() ) as $source ) {

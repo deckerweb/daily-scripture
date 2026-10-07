@@ -1,6 +1,8 @@
-# User guide · Daily Scripture 0.16.2
+# User guide · Daily Scripture 1.0.0
 
 [Deutsch](Deutsch.md) · [Home](Home.md)
+
+Daily Scripture adds daily readings, selected Bible passages and personal dashboard widgets to your WordPress website. Choose your sources, shape the design and display readings with Gutenberg, shortcodes, Elementor or Bricks. Website features also work in Multisite, with an additional Network Admin reading view.
 
 From your first reading to a design that fits: use the contents to jump straight to the topic you need.
 
@@ -13,7 +15,6 @@ From your first reading to a design that fits: use the contents to jump straight
 - [Bible library and sources](#bible-library-and-sources)
 - [Backups and uninstallation](#backups-and-uninstallation)
 - [GitHub plugin updates](#github-plugin-updates)
-- [Development and translations](#development-and-translations)
 - [License](#license)
 - [FAQ](#faq)
 - [Changelog](#changelog)
@@ -25,11 +26,11 @@ From your first reading to a design that fits: use the contents to jump straight
 Requires WordPress 6.6 or later, PHP 8.0 or later and DOM/XML. ZIP packages require the PHP ZipArchive extension. Elementor and Bricks are optional.
 
 1. Install and activate the plugin ZIP through **Plugins → Add Plugin → Upload Plugin**.
-2. Under **Daily Scripture → Datenquellen** (data sources), check the download source, select an annual package, review its terms and import it. Alternatively, upload an official XML/TWD file or its ZIP package.
+2. Under **Daily Scripture → Data sources** (data sources), check the download source, select an annual package, review its terms and import it. Alternatively, upload an official XML/TWD file or its ZIP package.
 3. Choose your design on the main settings page, review the preview and click **Einstellungen speichern** (save settings) at the top.
-4. Insert the **Daily Scripture** block or builder element. For selected passages, first install an edition under **Bibelbibliothek** (Bible library), then use **Bibelstelle · Daily Scripture**.
+4. Insert the **Daily Scripture** block or builder element. For selected passages, first install an edition under **Bible library** (Bible library), then use **Bible passage · Daily Scripture**.
 
-Updates preserve settings and installed texts. Reload the editor afterwards; clear browser and website caches if the previous appearance persists. The existing interface is primarily German; these English instructions include the actual German menu labels where helpful.
+Updates preserve settings and installed texts. Reload the editor afterwards; clear browser and website caches if the previous appearance persists. The interface is available in English, German and formal German.
 
 <a name="preview-typography-and-dashboard"></a>
 
@@ -39,7 +40,7 @@ At 100%, the default sizes are balanced: headings 28 px, verses 22 px, reference
 
 CSS variables must exist on your website and resolve to a valid font size. The isolated admin preview does not load variables from Bricks or other frameworks, so it uses the fallback. Relative units alone do not create viewport breakpoints; a responsive CSS variable can provide that behavior. The preview offers several widths and a strict theme-spacing simulation. Also check the published page in your actual theme.
 
-Each dashboard user can choose their own verse size (14, 16 or 18 px), spacing and layout under **Ansicht anpassen** (adjust view). These preferences apply only to that user on the current site. Source headings and date formats follow site settings; colors use the personal WordPress admin accent. The admin preview shows this color context, not the widget's personal reading preferences.
+Each dashboard user can choose their own verse size (14, 16 or 18 px), spacing and layout under **Display options** (adjust view). These preferences apply only to that user on the current site. Source headings and date formats follow site settings; colors use the personal WordPress admin accent. The admin preview shows this color context, not the widget's personal reading preferences.
 
 Default headings are **Die Losungen** and, on German-language sites, **Das Wort für heute**. English-language sites use **The Word for Today** for Bible 2.0. Custom global headings also apply to the dashboard; blocks and builder elements can override them. An empty date-format field follows WordPress.
 
@@ -80,15 +81,15 @@ Annual files must contain a complete calendar year with complete verse pairs. Ex
 All plugin-managed text files use these paths relative to `wp-content/uploads/`:
 
 ```text
-daily-scripture/herrnhuter/YYYY.json.php
-daily-scripture/bible2/YYYY.json.php
+daily-scripture/data/herrnhuter/YYYY.json.php
+daily-scripture/data/bible2/YYYY.json.php
 daily-scripture/bibles/luther-1912.json.php
 daily-scripture/bibles/elberfelder-1905.json.php
 daily-scripture/bibles/menge-1939.json.php
 daily-scripture/bibles/schlachter-1951.json.php
 ```
 
-`daily-scripture/downloads/` provides temporary download staging. There is no additional `data/` directory. Individual multisite activation separates data under `daily-scripture/sites/BLOG_ID/`; network activation is not supported. Renamed content directories use `WP_CONTENT_DIR/uploads/daily-scripture/`. Custom upload locations are not used for these text files.
+`daily-scripture/downloads/` provides temporary download staging. Annual files use the `data/` subdirectory. In Multisite, per-site activation separates data under `daily-scripture/sites/BLOG_ID/`; new sites inherit defaults lazily. Renamed content directories use `WP_CONTENT_DIR/uploads/daily-scripture/`. Custom upload locations are not used for these text files.
 
 Protection files, PHP exit guards, path validation and locked writes protect the local store. Browser uploads initially enter PHP's configured upload temporary directory. Plugin settings and short-lived status messages are stored in the WordPress database.
 
@@ -117,7 +118,7 @@ Bibleserver is used solely as an external link destination. No texts are retriev
 
 JSON exports contain **saved** values. A design includes appearance and date format; a full export adds source selection and other site options. Texts, annual packages, personal dashboard preferences and builder styles are excluded. Imports are staged in the form and take effect only when settings are saved.
 
-Deactivation preserves texts and settings. Uninstallation removes plugin settings and personal widget preferences for this site. Annual data and Bible editions are kept by default. If the removal option is enabled, known text files for the site are also removed; unknown files and protection files remain. Include texts in your regular website file backups when needed.
+Deactivation preserves texts and settings. Uninstallation clears temporary caches and scheduled checks. Settings, personal widget preferences, annual data and Bible editions are kept by default. If the removal option is enabled, settings, preferences and known text files for the site are removed; unknown files and protection files remain. Include texts in your regular website file backups when needed.
 
 <a name="github-plugin-updates"></a>
 
@@ -126,18 +127,6 @@ Deactivation preserves texts and settings. Uninstallation removes plugin setting
 Updates come directly from the [DECKERWEB repository on GitHub](https://github.com/deckerweb/daily-scripture/releases) and appear in the **regular WordPress plugin update system** while Daily Scripture is active. Update through Plugins or Dashboard → Updates as usual; no additional updater plugin is needed. Automatic updates remain your choice.
 
 The [English guide](https://github.com/deckerweb/daily-scripture/wiki/English), [German guide](https://github.com/deckerweb/daily-scripture/wiki/Deutsch) and themed FAQs explain settings, sources and common problems. A [local copy](English.md) is included in the plugin. The admin footer links to the documentation and opens the changelog in a dialog. Cached update checks can delay a new offer by up to 30 minutes; a manual ZIP update is also available.
-
-<a name="development-and-translations"></a>
-
-## Development and translations
-
-Namespace: `Deckerweb\DailyScripture`. The shared import, validation and local-storage pipeline supplies all rendering integrations. The `daily_scripture_year_readiness` hook reports annual data readiness; it does not download or delete files.
-
-The plugin name remains **Daily Scripture** in every language. German translation files and the POT template are in `languages/`; source names, shortcode parameters and imported original texts are not renamed. `phpcs.xml.dist` contains the WordPress Coding Standards configuration.
-
-The changelog link beside the version number in the admin footer opens the release history in a dialog. It follows the WordPress admin language (German or English); without JavaScript it opens the readme file.
-
-The complete release history, ordered by **New**, **Improved**, **Fixed** and **Misc**, is in [readme.txt](Changelog-English.md). Author: [David Decker](https://github.com/deckerweb) · [Plugin website](https://github.com/deckerweb/daily-scripture).
 
 <a name="license"></a>
 
@@ -174,3 +163,11 @@ This software license does not cover downloaded Bible texts or annual packages. 
 [Complete changelog](Changelog-English.md)
 
 [Publishing and checking updates](Development-English.md)
+
+## Dashboard readings and color picker
+
+Define available readings in **Daily Scripture → Dashboard readings**: Die Losungen, Bible 2.0 and up to six passages from installed local Bible editions (up to 50 verses in one chapter). Save the website settings, then open **Display options** in the widget. Select one or more readings and use **Move up / Move down** to order them. Without JavaScript, numeric positions remain available. No configured readings produces a quiet notice; missing yearly data or an unavailable edition is reported per reading. Personal choices do not change website output. Full JSON settings exports include the reading definitions; design-only and older exports leave them unchanged. Install the required editions on the destination website before saving imported passage definitions.
+
+The Network Admin widget uses a personally selected active website in the current network and visibly names it. When only the main website is active, it is used automatically. With multiple active websites or network activation, select the source website; save once after changing it to load its configured readings, then choose your personal selection. An unavailable previous website falls back with a notice. The network widget is available when the plugin is active on the main website or network-wide; activation only on a subsite does not load it in Network Admin. The website widget switch affects that website's dashboard; the network reading view is independent. Website choices are paginated in groups of 50. No separate network Bible storage is created.
+
+Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.

@@ -28,7 +28,7 @@ final class BricksStyles {
 			);
 		}
 		$element->control_groups['ds_box'] = array(
-			'title' => __( 'Versfläche & Abstände', 'daily-scripture' ),
+			'title' => __( 'Verse surface & spacing', 'daily-scripture' ),
 			'tab'   => 'style',
 		);
 	}
@@ -53,15 +53,15 @@ final class BricksStyles {
 			$element->controls[ 'ds_' . $part . '_typography' ] = array(
 				'tab'   => 'style',
 				'group' => 'ds_' . $part,
-				'label' => __( 'Typografie & Farbe', 'daily-scripture' ),
+				'label' => __( 'Typography & color', 'daily-scripture' ),
 				'type'  => 'typography',
 				'css'   => $css,
 				'popup' => false,
 			);
 		}
 		foreach ( array(
-			'background' => array( __( 'Hintergrund', 'daily-scripture' ), '--ds-bg' ),
-			'accent'     => array( __( 'Akzentfarbe', 'daily-scripture' ), '--ds-accent' ),
+			'background' => array( __( 'Background', 'daily-scripture' ), '--ds-bg' ),
+			'accent'     => array( __( 'Accent color', 'daily-scripture' ), '--ds-accent' ),
 		) as $key => $definition ) {
 			$element->controls[ 'ds_' . $key ] = array(
 				'tab'   => 'style',
@@ -80,7 +80,7 @@ final class BricksStyles {
 		$element->controls['ds_border']  = array(
 			'tab'   => 'style',
 			'group' => 'ds_box',
-			'label' => __( 'Rahmen & Rundungen', 'daily-scripture' ),
+			'label' => __( 'Borders & corners', 'daily-scripture' ),
 			'type'  => 'border',
 			'css'   => array(
 				array(
@@ -93,7 +93,7 @@ final class BricksStyles {
 		$element->controls['ds_padding'] = array(
 			'tab'   => 'style',
 			'group' => 'ds_box',
-			'label' => __( 'Innenabstand', 'daily-scripture' ),
+			'label' => __( 'Padding', 'daily-scripture' ),
 			'type'  => 'dimensions',
 			'css'   => array(
 				array(
@@ -124,7 +124,7 @@ final class BricksStyles {
 			'tab'     => 'style',
 			'group'   => 'ds_box',
 			'type'    => 'info',
-			'content' => esc_html__( 'Leere Werte übernehmen die Plugin-Vorgaben. Eigene Werte gelten nur für dieses Element. Nutze die Bricks-Breakpoints für responsive Anpassungen. Äußere Abstände bleiben in den allgemeinen Layout-Einstellungen.', 'daily-scripture' ),
+			'content' => esc_html__( 'Blank values inherit plugin defaults. Custom values apply only to this element. Use Bricks breakpoints for responsive settings. Outer margins remain in general layout settings.', 'daily-scripture' ),
 		);
 	}
 }

@@ -38,6 +38,7 @@ final class Renderer {
 	 * @return string Escaped HTML.
 	 */
 	public function render_sets( array $sets, array $display = array(), ?bool $admin = null, string $source = 'preview' ): string {
+		( new Plugin() )->styles();
 		$presentation = Presentation::resolve( $display, $admin );
 		ob_start();
 		echo '<div class="' . esc_attr( $presentation['classes'] ) . '" style="' . esc_attr( $presentation['style'] ) . '" data-ds-component="1" data-source="' . esc_attr( $source ) . '">';
@@ -46,7 +47,7 @@ final class Renderer {
 			echo '<section class="daily-scripture__source"><header class="daily-scripture__header"><h3 class="daily-scripture__title">' . esc_html( ! empty( $set['preview_sample'] ) ? $set['label'] : Presentation::heading( $set['source'], $display ) ) . '</h3>';
 			echo '<time class="daily-scripture__date" datetime="' . esc_attr( $set['date'] ) . '">' . esc_html( wp_date( $presentation['format'], $day->getTimestamp(), wp_timezone() ) ) . '</time></header>';
 			if ( 'ok' !== $set['status'] || 2 !== count( $set['items'] ) ) {
-				echo '<p>' . esc_html__( 'Für dieses Datum sind keine freigegebenen lokalen Daten verfügbar.', 'daily-scripture' ) . '</p></section>';
+				echo '<p>' . esc_html__( 'No approved local data is available for this date.', 'daily-scripture' ) . '</p></section>';
 				continue;
 			}
 			echo '<div class="daily-scripture__verses">';
@@ -60,13 +61,13 @@ final class Renderer {
 			}
 			echo '</div><footer class="daily-scripture__meta">';
 			if ( 'herrnhuter' === $set['source'] ) {
-				echo '<p class="daily-scripture__copyright"><a href="https://www.herrnhuter.de/">© Evangelische Brüder-Unität – Herrnhuter Brüdergemeine</a><br><a href="https://www.losungen.de/">' . esc_html__( 'Weitere Informationen finden Sie hier.', 'daily-scripture' ) . '</a></p>';
+				echo '<p class="daily-scripture__copyright"><a href="https://www.herrnhuter.de/">© Evangelische Brüder-Unität – Herrnhuter Brüdergemeine</a><br><a href="https://www.losungen.de/">' . esc_html__( 'Find more information here.', 'daily-scripture' ) . '</a></p>';
 			} else {
 				echo '<p>' . esc_html( $set['edition'] ) . '</p>';
 				// Keep all imported rights text accessible even without JavaScript.
-				echo '<details class="daily-scripture__license" data-close-label="' . esc_attr__( 'Schließen', 'daily-scripture' ) . '"><summary>' . esc_html__( 'Copyright und Lizenzhinweise', 'daily-scripture' ) . '</summary>';
+				echo '<details class="daily-scripture__license" data-close-label="' . esc_attr__( 'Close', 'daily-scripture' ) . '"><summary>' . esc_html__( 'Copyright and license notices', 'daily-scripture' ) . '</summary>';
 				echo '<p class="daily-scripture__copyright">' . esc_html( $set['copyright'] ) . '</p></details>';
-				echo '<p><a href="https://bible2.net/">' . esc_html__( 'Zusammenstellung der Bibelstellen durch das Projekt „Bible 2.0“', 'daily-scripture' ) . '</a> · <a href="https://bible2.net/en/copyright">' . esc_html__( 'Lizenzinformationen', 'daily-scripture' ) . '</a></p>';
+				echo '<p><a href="https://bible2.net/">' . esc_html__( 'Bible references compiled by the “Bible 2.0” project', 'daily-scripture' ) . '</a> · <a href="https://bible2.net/en/copyright">' . esc_html__( 'License information', 'daily-scripture' ) . '</a></p>';
 			}
 			echo '</footer></section>';
 		}

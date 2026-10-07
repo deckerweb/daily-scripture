@@ -59,7 +59,7 @@ final class AnnualPackages {
 		$current = (int) wp_date( 'Y' );
 		if ( 'herrnhuter' === $source ) {
 			if ( ! class_exists( '\DOMDocument' ) ) {
-				throw new \RuntimeException( esc_html__( 'DOM/XML wird benötigt.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'DOM/XML is required.', 'daily-scripture' ) );
 			}
 			$previous = libxml_use_internal_errors( true );
 			try {
@@ -83,7 +83,7 @@ final class AnnualPackages {
 		} elseif ( 'bible2' === $source ) {
 			$list = json_decode( $body, true );
 			if ( ! is_array( $list ) || count( $list ) > 3000 ) {
-				throw new \RuntimeException( esc_html__( 'Das Anbieter-Verzeichnis ist nicht lesbar.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'The provider directory is unreadable.', 'daily-scripture' ) );
 			}
 			foreach ( $list as $entry ) {
 				if ( ! is_array( $entry ) || 'file' !== ( $entry['category'] ?? '' ) || ! is_int( $entry['year'] ?? null ) || $entry['year'] < $current || $entry['year'] > $current + 1 || ! is_string( $entry['bible'] ?? null ) || ! preg_match( '/^[A-Za-z0-9]+$/D', $entry['bible'] ) || ! is_string( $entry['lang'] ?? null ) || ! preg_match( '/^[a-z]{2,3}(?:-[A-Za-z]+)*$/D', $entry['lang'] ) || ! is_string( $entry['biblename'] ?? null ) ) {
@@ -101,10 +101,18 @@ final class AnnualPackages {
 				);
 			}
 			// German first, then alphabetically, with all offered languages available.
-			uasort( $items, static fn( $a, $b ) => strcmp( ( str_starts_with( $a['label'], 'de ·' ) ? '0' : '1' ) . $a['label'], ( str_starts_with( $b['label'], 'de ·' ) ? '0' : '1' ) . $b['label'] ) );
+			/**
+			* Sort German publisher editions before other catalogue labels.
+			*
+			* @param array $a First catalogue entry.
+			* @param array $b Second catalogue entry.
+			* @return int
+			*/
+			$compare_editions = static fn( $a, $b ) => strcmp( ( str_starts_with( $a['label'], 'de ·' ) ? '0' : '1' ) . $a['label'], ( str_starts_with( $b['label'], 'de ·' ) ? '0' : '1' ) . $b['label'] );
+			uasort( $items, $compare_editions );
 		}
 		if ( ! $items ) {
-			throw new \RuntimeException( esc_html__( 'Keine passenden Jahrespakete im Anbieter-Verzeichnis gefunden. Manueller Upload bleibt möglich.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'No matching annual packages were found in the provider directory. Manual upload is still available.', 'daily-scripture' ) );
 		}
 		return $items;
 	}
@@ -121,18 +129,18 @@ final class AnnualPackages {
 		$catalogue = $this->catalogue( $source );
 		$item      = $catalogue['items'][ $id ] ?? null;
 		if ( ! is_array( $item ) || ! empty( $catalogue['error'] ) ) {
-			throw new \RuntimeException( esc_html__( 'Bitte zuerst die Downloadquelle prüfen und ein verfügbares Paket wählen.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Please check the download source first and choose an available package.', 'daily-scripture' ) );
 		}
 		// Recheck the fixed URL pattern even for cached metadata.
 		$pattern = 'herrnhuter' === $source ? '~^https://www\.losungen\.de/fileadmin/media-losungen/download/Losung_\d{4}_XML\.zip$~D' : '~^https://bible2\.net/service/TheWord/twd11/[a-z]{2,3}(?:-[A-Za-z]+)*_[A-Za-z0-9]+_\d{4}\.twd$~D';
 		if ( ! preg_match( $pattern, $item['url'] ) || ! YearValidator::allowed( $source, $item['year'] ) ) {
-			throw new \RuntimeException( esc_html__( 'Das Paket ist nicht mehr freigegeben.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The package is no longer approved.', 'daily-scripture' ) );
 		}
 		$body = Remote::get( $item['url'], Importer::MAX_BYTES );
 		$file = LocalFiles::directory( 'downloads' ) . '/.annual-' . wp_generate_uuid4() . '.bin';
 		try {
 			if ( strlen( $body ) !== file_put_contents( $file, $body, LOCK_EX ) ) {
-				throw new \RuntimeException( esc_html__( 'Download konnte nicht zwischengespeichert werden.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'The download could not be stored temporarily.', 'daily-scripture' ) );
 			}
 			chmod( $file, 0600 );
 			$record = ( new Importer() )->parse( $file, $source, $item['year'] );

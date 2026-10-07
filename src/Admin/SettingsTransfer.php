@@ -26,16 +26,20 @@ final class SettingsTransfer {
 	 */
 	public static function export( string $kind ): array {
 		if ( ! in_array( $kind, array( 'design', 'settings' ), true ) ) {
-			throw new \RuntimeException( esc_html__( 'Unbekanntes Exportformat.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Unknown export format.', 'daily-scripture' ) );
 		}
 		$settings = 'design' === $kind ? Presentation::sanitize( Settings::all() ) : ( new Admin() )->sanitize( Settings::all() );
-		return array(
+		$document = array(
 			'plugin'   => 'daily-scripture',
 			'schema'   => 1,
 			'kind'     => $kind,
 			'version'  => DAILY_SCRIPTURE_VERSION,
 			'settings' => $settings,
 		);
+		if ( 'settings' === $kind ) {
+			$document['dashboard_readings'] = DashboardReadings::all();
+		}
+		return $document;
 	}
 
 	/**
@@ -47,11 +51,11 @@ final class SettingsTransfer {
 	 */
 	public static function decode( string $json ): array {
 		if ( strlen( $json ) > self::MAX_BYTES ) {
-			throw new \RuntimeException( esc_html__( 'Die JSON-Datei darf höchstens 64 KiB groß sein.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The JSON file must not exceed 64 KiB.', 'daily-scripture' ) );
 		}
 		$data = json_decode( $json, true, 16 );
 		if ( ! is_array( $data ) || JSON_ERROR_NONE !== json_last_error() || 'daily-scripture' !== ( $data['plugin'] ?? null ) || 1 !== ( $data['schema'] ?? null ) || ! in_array( $data['kind'] ?? null, array( 'design', 'settings' ), true ) || ! is_array( $data['settings'] ?? null ) ) {
-			throw new \RuntimeException( esc_html__( 'Das ist keine unterstützte Daily-Scripture-Konfiguration (Schema 1).', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'This is not a supported Daily Scripture configuration (schema 1).', 'daily-scripture' ) );
 		}
 		$expected = 'design' === $data['kind'] ? Presentation::defaults() : Settings::defaults();
 		$input    = $data['settings'];
@@ -68,22 +72,30 @@ final class SettingsTransfer {
 			}
 		}
 		if ( array_diff_key( $expected, $input ) || array_diff_key( $input, $expected ) ) {
-			throw new \RuntimeException( esc_html__( 'Die Datei enthält fehlende oder unbekannte Einstellungen. Es wurde nichts übernommen.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The file contains missing or unknown settings. Nothing was imported.', 'daily-scripture' ) );
 		}
 		foreach ( $expected as $key => $default ) {
 			if ( gettype( $input[ $key ] ) !== gettype( $default ) ) {
-				throw new \RuntimeException( esc_html__( 'Ein Einstellungswert hat einen ungültigen Datentyp.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'A setting has an invalid data type.', 'daily-scripture' ) );
 			}
 		}
 		$clean = 'design' === $data['kind'] ? Presentation::sanitize( $input ) : ( new Admin() )->sanitize( $input );
 		foreach ( $clean as $key => $value ) {
 			if ( $input[ $key ] !== $value ) {
-				throw new \RuntimeException( esc_html__( 'Die Datei enthält einen ungültigen Wert oder überschreitet einen zulässigen Bereich.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'The file contains an invalid value or exceeds an allowed range.', 'daily-scripture' ) );
+			}
+		}
+		$readings = null;
+		if ( array_key_exists( 'dashboard_readings', $data ) ) {
+			$readings = DashboardReadings::sanitize( $data['dashboard_readings'] );
+			if ( 'settings' !== $data['kind'] || ! is_array( $data['dashboard_readings'] ) || $data['dashboard_readings'] !== $readings ) {
+				throw new \RuntimeException( esc_html__( 'The file contains invalid dashboard readings. Nothing was imported.', 'daily-scripture' ) );
 			}
 		}
 		return array(
-			'kind'     => $data['kind'],
-			'settings' => $clean,
+			'kind'               => $data['kind'],
+			'settings'           => $clean,
+			'dashboard_readings' => $readings,
 		);
 	}
 
@@ -94,7 +106,7 @@ final class SettingsTransfer {
 	 */
 	public function download(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Keine Berechtigung.', 'daily-scripture' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'You do not have permission.', 'daily-scripture' ), '', array( 'response' => 403 ) );
 		}
 		check_admin_referer( 'daily_scripture_export_settings' );
 		$kind = isset( $_POST['kind'] ) && is_string( $_POST['kind'] ) ? sanitize_key( wp_unslash( $_POST['kind'] ) ) : '';

@@ -60,11 +60,11 @@ final class ScriptureElement extends \Bricks\Element {
 	 */
 	public function set_control_groups() {
 		$this->control_groups['source']  = array(
-			'title' => __( 'Quelle & Überschriften', 'daily-scripture' ),
+			'title' => __( 'Source & headings', 'daily-scripture' ),
 			'tab'   => 'content',
 		);
 		$this->control_groups['display'] = array(
-			'title' => __( 'Darstellung', 'daily-scripture' ),
+			'title' => __( 'Presentation', 'daily-scripture' ),
 			'tab'   => 'content',
 		);
 		BricksStyles::groups( $this );
@@ -86,10 +86,10 @@ final class ScriptureElement extends \Bricks\Element {
 			);
 			if ( isset( $field['options'] ) ) {
 				$control['options']     = $field['options'];
-				$control['placeholder'] = __( 'Website-Einstellung', 'daily-scripture' );
+				$control['placeholder'] = __( 'Site setting', 'daily-scripture' );
 			} else {
 				$control['placeholder'] = $field['placeholder'];
-				$control['description'] = __( 'Leer übernimmt die globale Überschrift. Nur für die zugehörige Quelle; maximal 160 Zeichen.', 'daily-scripture' );
+				$control['description'] = __( 'Leave blank to inherit the global heading. Applies only to the matching source; up to 160 characters.', 'daily-scripture' );
 			}
 			$this->controls[ $key ] = $control;
 		}
@@ -97,7 +97,7 @@ final class ScriptureElement extends \Bricks\Element {
 			'tab'     => 'content',
 			'group'   => 'display',
 			'type'    => 'info',
-			'content' => esc_html__( 'Die Plugin-Vorgaben sind dein Ausgangspunkt. Unter Stil kannst du Typografie, Farben und Abstände für dieses Element gestalten. Tagesdaten und Lizenzhinweise bleiben unverändert.', 'daily-scripture' ),
+			'content' => esc_html__( 'Plugin defaults are your starting point. Under Style, adjust typography, colors and spacing for this element. Daily data and license notices stay unchanged.', 'daily-scripture' ),
 		);
 		BricksStyles::controls( $this );
 	}

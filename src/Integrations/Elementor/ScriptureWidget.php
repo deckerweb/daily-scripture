@@ -74,8 +74,8 @@ final class ScriptureWidget extends \Elementor\Widget_Base {
 	 */
 	protected function register_controls(): void {
 		foreach ( array(
-			'source'  => __( 'Quelle & Überschriften', 'daily-scripture' ),
-			'display' => __( 'Darstellung', 'daily-scripture' ),
+			'source'  => __( 'Source & headings', 'daily-scripture' ),
+			'display' => __( 'Presentation', 'daily-scripture' ),
 		) as $group => $label ) {
 			$this->start_controls_section( 'daily_scripture_' . $group, array( 'label' => $label ) );
 			foreach ( BuilderSettings::controls() as $key => $field ) {
@@ -92,7 +92,7 @@ final class ScriptureWidget extends \Elementor\Widget_Base {
 					$control['options'] = $field['options'];
 				} else {
 					$control['placeholder'] = $field['placeholder'];
-					$control['description'] = __( 'Leer übernimmt die globale Überschrift. Nur für die zugehörige Quelle; maximal 160 Zeichen.', 'daily-scripture' );
+					$control['description'] = __( 'Leave blank to inherit the global heading. Applies only to the matching source; up to 160 characters.', 'daily-scripture' );
 				}
 				$this->add_control( $key, $control );
 			}
@@ -100,7 +100,7 @@ final class ScriptureWidget extends \Elementor\Widget_Base {
 				'daily_scripture_help_' . $group,
 				array(
 					'type'            => \Elementor\Controls_Manager::RAW_HTML,
-					'raw'             => esc_html__( 'Die Plugin-Vorgaben sind dein Ausgangspunkt. Unter Stil kannst du Typografie, Farben und Abstände für dieses Element gestalten. Tagesdaten und Lizenzhinweise bleiben unverändert.', 'daily-scripture' ),
+					'raw'             => esc_html__( 'Plugin defaults are your starting point. Under Style, adjust typography, colors and spacing for this element. Daily data and license notices stay unchanged.', 'daily-scripture' ),
 					'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
 				)
 			);

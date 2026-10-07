@@ -2,20 +2,26 @@
 
 [ English ](English.md) · [ Deutsch ](Changelog-Deutsch.md)
 
+### 1.0.0
+
+- **New:** Personal dashboard source selection, multiple readings and ordering for WordPress websites, including Multisite; configured Bible passages and a selectable Network Admin source website.
+- **Improved:** Modern WordPress color modal, dedicated dashboard settings and more readable widget spacing.
+- **Fixed:** Stricter bulk-update package checks and isolated Multisite data cleanup; settings are retained by default.
+- **Misc:** English interface and informal/formal German; updated documentation and local update artwork.
+
+### 0.17.0
+
+Unreleased intermediate version; included in version 1.0.0.
+
+- **New:** Read-only Site Health check for annual data readiness and a compact diagnostic report.
+
 ### 0.16.4
 
-- **New:** Adds localized standard and high-resolution banners to the WordPress version details dialog. Shared updater API v2 now supports optional icons and banners, including cached update icons, alongside plugins still using v1.
-
-### 0.16.3
-
-- **Fixed:** Shows the Daily Scripture icon in WordPress update offers, including cached offers, using bundled SVG and PNG artwork without additional remote requests.
+- **New:** Shows local icons and localized banners in WordPress update offers and version details.
 
 ### 0.16.2
 
-- **Improved:** Rebuilds all four readmes around a clear feature overview, linked contents, seven quick answers and the latest five versions.
-- **Improved:** Adds English and German GitHub banners, detailed bilingual guides, themed FAQs and the complete release history.
-- **Improved:** Links the documentation from every plugin admin footer and explains updates through the regular WordPress update system.
-- **Misc:** Packages the documentation locally and keeps the shared deckerweb updater unchanged.
+- **Improved:** Bilingual guides, topic FAQs and directly accessible documentation on all plugin admin pages.
 
 ### 0.16.1
 - **Misc:** Explicit GPL-2.0-or-later licensing for the plugin code, with the full license and publication package. Bible text permissions remain separate.
@@ -25,7 +31,6 @@
 - **Improved:** Bounded HTTPS metadata requests, cached results and localized update errors.
 - **Improved:** Package identity, offered version and actual WordPress/PHP requirements checked before replacing plugin files.
 - **Misc:** Update URI, library provenance and public GitHub release instructions documented; automatic updates remain a user choice.
-
 
 ### 0.15.0
 - **New:** Changelog dialog beside the version number on every plugin admin page, with German or English release history.

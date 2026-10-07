@@ -1,6 +1,10 @@
-# Reviewed Bible sources · 0.8.0
+# Reviewed Bible sources
 
-No complete Bible texts are bundled in this plugin. Installation is optional and local. Reviewed on 2026-09-29.
+[Deutsch](README-de.md)
+
+This documentation applies to Daily Scripture on single-site WordPress installations and websites in Multisite.
+
+No complete Bible texts are bundled in this plugin. Installation is optional and local. Reviewed on 2026-09-29. Original packages and every verse position were rechecked on 2026-10-07.
 
 | Edition | Original dataset | Rights evidence | Payload SHA-256 | Canonical verse positions |
 | --- | --- | --- | --- | --- |
@@ -18,7 +22,7 @@ Storage is guarded JSON inside `.json.php` files, read as data rather than execu
 
 Downloads occur only following an administrator action. User-facing reference links to Bibleserver never retrieve texts. Official annual Losungen/Bible 2.0 content is independent of this library and is never replaced with these translations.
 
-## Schlachter 1951 · added in 0.10.0
+## Schlachter 1951
 
 This fourth edition is **freely licensed under CC BY 4.0**, rather than labelled Public Domain. The copyright and license statement is present both on [eBible's edition page](https://ebible.org/bible/details.php?id=deu1951&all=1) and its [copyright page](https://ebible.org/deu1951/copyright.htm), and in `deu1951_about.htm` inside the downloaded archive. Copyright © 1951 Geneva Bible Society / Genfer Bibelgesellschaft. Translation by Franz Eugen Schlachter, revised by Genfer Bibelgesellschaft in 1951. This is not Schlachter 2000.
 
@@ -26,6 +30,6 @@ Reviewed original: https://ebible.org/Scriptures/deu1951_vpl.zip, member `deu195
 Payload SHA-256: `3a68f2f8816f3da952b4a5e5da515ce8bf4081c412d77578805cfe7fdd4eb32c`.
 66 books, 1,189 chapters, 31,102 verse lines. Reviewed 2026-09-29. The entire parsed verse mapping is compared to the source text in the release tests.
 
-The source package already excludes introductions, notes and noncanonical headings. The plugin converts its verse-per-line representation into guarded local JSON and displays selected passages without changing verse wording. Every passage includes credit, source, the CC BY 4.0 link, the eBible rights record and a technical-processing notice. The admin card also displays these terms. Source revisions require a new reviewed fingerprint. The user's research document was a starting point; its broad Public Domain claim was not adopted for this particular supplied dataset.
+The source package already excludes introductions, notes and noncanonical headings. The plugin converts its verse-per-line representation into guarded local JSON and displays selected passages without changing verse wording. Every passage includes credit, source, the CC BY 4.0 link, the eBible rights record and a technical-processing notice. The admin card also displays these terms. Source revisions require a new reviewed fingerprint.
 
 Schlachter-specific versification: `MAT 21:44` is an empty source marker (31,102 positions, 31,101 nonempty texts). This is also visible in https://ebible.org/deu1951/MAT21.htm. Positions 45 and 46 retain the original text prefixes `(21-44)` and `(21-45)`. No automatic renumbering or substitution occurs. A requested range including the empty position displays an explicit notice instead of silently omitting it. The fingerprinted empty marker is the only newly permitted empty VPL line; other missing texts still fail validation.

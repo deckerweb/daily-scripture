@@ -2,20 +2,26 @@
 
 [ Deutsch ](Deutsch.md) · [ English ](Changelog-English.md)
 
+### 1.0.0
+
+- **Neu:** Persönliche Widget-Quellenwahl, mehrere Lesungen und anpassbare Reihenfolge für WordPress-Websites, auch in Multisite; eigene Bibelstellen und wählbare Bezugswebsite im Network Admin.
+- **Verbessert:** Moderner WordPress-Farbwähler im Modal, übersichtliche Dashboard-Einstellungen und besser lesbare Widget-Abstände.
+- **Behoben:** Strengere Paketprüfung bei Sammelupdates und getrennte Datenbereinigung in Multisite; Einstellungen bleiben standardmäßig erhalten.
+- **Sonstiges:** Englische Oberfläche sowie deutsche Du-/Sie-Fassungen; aktualisierte Dokumentation und lokale Updategrafiken.
+
+### 0.17.0
+
+Unveröffentlichte Zwischenversion; in Version 1.0.0 enthalten.
+
+- **Neu:** Rein lesende Website-Zustand-Prüfung für Jahresdaten und ein kompakter Diagnosebericht.
+
 ### 0.16.4
 
-- **Neu:** Ergänzt deutsche und englische Banner in normaler und hoher Auflösung im WordPress-Versionsdialog. Die gemeinsame Updater-API v2 unterstützt jetzt optionale Icons und Banner sowie Icons in zwischengespeicherten Angeboten – auch neben Plugins mit v1.
-
-### 0.16.3
-
-- **Behoben:** Zeigt das Daily-Scripture-Icon bei WordPress-Updates an, auch bei bereits zwischengespeicherten Angeboten. SVG und PNG stammen direkt aus dem Plugin; zusätzliche externe Abfragen entfallen.
+- **Neu:** Zeigt lokale Icons und sprachabhängige Banner in den WordPress-Updateangeboten und Versionsdetails.
 
 ### 0.16.2
 
-- **Verbessert:** Gliedert alle vier Readmes mit einer klaren Funktionsübersicht, Inhaltsverzeichnis, sieben kurzen Antworten und den letzten fünf Versionen neu.
-- **Verbessert:** Ergänzt englische und deutsche GitHub-Banner, ausführliche zweisprachige Anleitungen, thematische FAQs und den vollständigen Änderungsverlauf.
-- **Verbessert:** Verlinkt die Dokumentation im Footer aller Plugin-Adminseiten und erklärt Updates über das reguläre WordPress-Updatesystem.
-- **Sonstiges:** Liefert die Dokumentation lokal mit und behält die gemeinsame deckerweb-Updater-Bibliothek unverändert bei.
+- **Verbessert:** Zweisprachige Anleitungen, thematische FAQ und direkt erreichbare Dokumentation in allen Plugin-Adminseiten.
 
 ### 0.16.1
 - **Sonstiges:** GPL-2.0-or-later für den Plugin-Code ausdrücklich dokumentiert; vollständige Lizenzdatei und Veröffentlichungspaket ergänzt. Die Nutzungsbedingungen der Bibeltexte bleiben unabhängig davon.
@@ -25,7 +31,6 @@
 - **Verbessert:** Begrenzte HTTPS-Metadatenabfragen, zwischengespeicherte Ergebnisse und lokalisierte Updatefehler.
 - **Verbessert:** Prüfung von Paketidentität, angebotener Version und tatsächlichen WordPress-/PHP-Anforderungen vor dem Austausch der Plugin-Dateien.
 - **Sonstiges:** Update-URI, Bibliotheksherkunft und Anleitung für öffentliche GitHub-Releases dokumentiert; automatische Updates bleiben eine Benutzerentscheidung.
-
 
 ### 0.15.0
 - **Neu:** Changelog-Dialog neben der Versionsnummer auf allen Plugin-Adminseiten, mit deutscher oder englischer Versionshistorie.

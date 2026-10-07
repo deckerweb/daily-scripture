@@ -25,7 +25,18 @@ final class ElementorStyles {
 	 */
 	public static function register( \Elementor\Widget_Base $widget, bool $passage = false ): void {
 		foreach ( BuilderStyles::parts( $passage ) as $part => $definition ) {
-			$selector = implode( ', ', array_map( static fn( $child ) => '{{WRAPPER}} ' . BuilderStyles::selector( $child ), $definition[1] ) );
+			$selector = implode(
+				', ',
+				array_map( /**
+							* Scope a shared child selector to this Elementor widget instance.
+							*
+							* @param string $child Component child selector key.
+							* @return string
+							*/
+					static fn( $child ) => '{{WRAPPER}} ' . BuilderStyles::selector( $child ),
+					$definition[1]
+				)
+			);
 			$widget->start_controls_section(
 				'ds_style_' . $part,
 				array(
@@ -58,7 +69,7 @@ final class ElementorStyles {
 			$widget->add_control(
 				'ds_' . $part . '_color',
 				array(
-					'label'     => __( 'Farbe', 'daily-scripture' ),
+					'label'     => __( 'Color', 'daily-scripture' ),
 					'type'      => Controls::COLOR,
 					'selectors' => array( $selector => 'color: {{VALUE}} !important;' ),
 				)
@@ -66,13 +77,13 @@ final class ElementorStyles {
 			$widget->add_responsive_control(
 				'ds_' . $part . '_align',
 				array(
-					'label'     => __( 'Ausrichtung', 'daily-scripture' ),
+					'label'     => __( 'Alignment', 'daily-scripture' ),
 					'type'      => Controls::SELECT,
 					'options'   => array(
-						''       => __( 'Vorgabe', 'daily-scripture' ),
-						'start'  => __( 'Anfang', 'daily-scripture' ),
-						'center' => __( 'Zentriert', 'daily-scripture' ),
-						'end'    => __( 'Ende', 'daily-scripture' ),
+						''       => __( 'Default', 'daily-scripture' ),
+						'start'  => __( 'Start', 'daily-scripture' ),
+						'center' => __( 'Center', 'daily-scripture' ),
+						'end'    => __( 'End', 'daily-scripture' ),
 					),
 					'selectors' => array( $selector => 'text-align: {{VALUE}} !important;' ),
 				)
@@ -84,13 +95,13 @@ final class ElementorStyles {
 		$widget->start_controls_section(
 			'ds_style_box',
 			array(
-				'label' => __( 'Fläche & Abstände', 'daily-scripture' ),
+				'label' => __( 'Surface & spacing', 'daily-scripture' ),
 				'tab'   => Controls::TAB_STYLE,
 			)
 		);
 		foreach ( array(
-			'background' => array( __( 'Hintergrund', 'daily-scripture' ), '--ds-bg' ),
-			'accent'     => array( __( 'Akzentfarbe', 'daily-scripture' ), '--ds-accent' ),
+			'background' => array( __( 'Background', 'daily-scripture' ), '--ds-bg' ),
+			'accent'     => array( __( 'Accent color', 'daily-scripture' ), '--ds-accent' ),
 		) as $key => $definition ) {
 			$widget->add_control(
 				'ds_' . $key,
@@ -109,8 +120,8 @@ final class ElementorStyles {
 			)
 		);
 		foreach ( array(
-			'padding' => array( __( 'Innenabstand', 'daily-scripture' ), 'padding' ),
-			'radius'  => array( __( 'Rundungen', 'daily-scripture' ), 'border-radius' ),
+			'padding' => array( __( 'Padding', 'daily-scripture' ), 'padding' ),
+			'radius'  => array( __( 'Rounded corners', 'daily-scripture' ), 'border-radius' ),
 		) as $key => $definition ) {
 			$widget->add_responsive_control(
 				'ds_' . $key,
@@ -143,7 +154,7 @@ final class ElementorStyles {
 			'ds_style_help',
 			array(
 				'type' => Controls::RAW_HTML,
-				'raw'  => esc_html__( 'Leere Werte übernehmen die Plugin-Vorgaben. Eigene Werte gelten nur für dieses Element. Über das Gerätesymbol passt du responsive Werte an; äußere Abstände findest du unter Erweitert.', 'daily-scripture' ),
+				'raw'  => esc_html__( 'Blank values inherit plugin defaults. Custom values apply only to this element. Use the device icon for responsive values; outer margins are under Advanced.', 'daily-scripture' ),
 			)
 		);
 		$widget->end_controls_section();

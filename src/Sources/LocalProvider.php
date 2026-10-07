@@ -21,7 +21,14 @@ abstract class LocalProvider implements SourceInterface {
 	 */
 	public function installed_years(): array {
 		try {
-			return array_keys( array_filter( ( new YearStore() )->inventory( $this->id() ), static fn( $row ) => null !== $row['record'] ) );
+			/**
+			* Keep only fully validated installed annual records.
+			*
+			* @param array $row Annual inventory row.
+			* @return bool
+			*/
+			$valid_record = static fn( $row ) => null !== $row['record'];
+			return array_keys( array_filter( ( new YearStore() )->inventory( $this->id() ), $valid_record ) );
 		} catch ( \RuntimeException $error ) {
 			return array();
 		}

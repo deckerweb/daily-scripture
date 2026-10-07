@@ -1,6 +1,8 @@
-# Häufige Fragen
+# Fragen nach Themen
 
 [Deutsch](Deutsch.md) · [English](FAQ-English.md) · [Home](Home.md)
+
+Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewählte Bibelstellen und persönliche Dashboard-Widgets. Wähle deine Quellen, gestalte die Ausgabe und zeige Lesungen mit Gutenberg, Shortcodes, Elementor oder Bricks an. Die Website-Funktionen sind auch in Multisite nutzbar, ergänzt um eine Leseansicht im Network Admin.
 
 ## Themen
 
@@ -34,7 +36,7 @@ Nein. Beginne mit einem Jahrespaket unter Datenquellen oder einer Ausgabe unter 
 
 ### Kann ich Multisite verwenden?
 
-Aktiviere das Plugin einzeln auf der jeweiligen Website. Netzwerkweite Aktivierung wird nicht unterstützt; jede Website erhält einen eigenen Datenordner.
+Die Aktivierung je Website wird unterstützt. Einstellungen, Jahresdaten und Bibelausgaben bleiben je Website getrennt. Netzwerkaktivierung ist durch den mitgelieferten Library-Katalog 0.6.0 noch gesperrt und wartet auf eine separat freigegebene Komponenten-Korrektur. Die gemeinsame deckerweb Library verwendet Netzwerkeinstellungen.
 
 
 <a name="jahresdaten-und-downloads"></a>
@@ -151,11 +153,11 @@ Nachdem du die importierten Werte im Formular geprüft und gespeichert hast. Der
 
 ### Wo liegen Jahresdaten und Bibeltexte?
 
-Unter wp-content/uploads/daily-scripture/: herrnhuter/YYYY.json.php, bible2/YYYY.json.php und bibles/UEBERSETZUNG.json.php. Die Anleitung nennt die genauen Dateinamen jeder Ausgabe.
+Unter wp-content/uploads/daily-scripture/: data/herrnhuter/YYYY.json.php, data/bible2/YYYY.json.php und bibles/UEBERSETZUNG.json.php. Die Anleitung nennt die genauen Dateinamen jeder Ausgabe.
 
 ### Löscht Deaktivieren meine Texte?
 
-Nein. Deaktivieren erhält Texte und Einstellungen. Deinstallieren entfernt Plugin-Einstellungen und persönliche Widget-Werte; bekannte Textdateien werden nur bei aktivierter Löschoption entfernt.
+Nein. Deaktivieren erhält Texte und Einstellungen. Deinstallieren bereinigt temporäre Caches und geplante Prüfungen. Einstellungen, persönliche Widget-Werte und Texte bleiben standardmäßig erhalten. Die Löschoption einer Website entfernt ihre Einstellungen, persönlichen Werte und bekannten Textdateien. Beim Entfernen des Plugins gilt die Entscheidung jeder Website einzeln; fremde Daten bleiben unberührt.
 
 ### Genügt JSON als vollständiges Backup?
 
@@ -186,3 +188,11 @@ Lade den Editor neu und leere nach Updates betroffene Browser- oder Builder-Cach
 
 Plugin-, WordPress- und PHP-Version, Editor und Theme, betroffene Quelle/Jahr oder Bibelstelle, erwartetes und tatsächliches Ergebnis und nachvollziehbare Schritte. Screenshots helfen; Passwörter, Lizenzschlüssel und private Kundendaten gehören nicht hinein.
 
+
+## Wie wähle ich Widget-Lesungen und ihre Website?
+
+Lege unter **Daily Scripture → Dashboard-Lesungen** die angebotenen Lesungen fest: Die Losungen, Bible 2.0 und bis zu sechs Bibelstellen aus lokal installierten Ausgaben (bis zu 50 Verse innerhalb eines Kapitels). Speichere die Website-Einstellungen und öffne im Widget **Ansicht anpassen**. Wähle eine oder mehrere Lesungen und ändere ihre Reihenfolge mit **Nach oben / Nach unten**. Ohne JavaScript stehen Positionsfelder bereit. Ohne eingerichtete Lesungen erscheint ein zurückhaltender Hinweis; fehlende Jahresdaten oder Bibelausgaben werden je Lesung angezeigt. Persönliche Auswahl und Reihenfolge ändern die öffentliche Ausgabe nicht. Vollständige JSON-Sicherungen enthalten die Lesungsdefinitionen; reine Designs und ältere Sicherungen lassen sie unverändert. Installiere benötigte Ausgaben auf der Zielwebsite, bevor du importierte Bibelstellen speicherst.
+
+Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des aktuellen Netzwerks und nennt diese sichtbar. Ist nur die Hauptwebsite aktiv, wird sie automatisch verwendet. Bei mehreren aktiven Websites oder Netzwerkaktivierung kannst du die Bezugswebsite wählen: Speichere nach dem Wechsel einmal, um deren Lesungen zu laden, und triff danach deine persönliche Auswahl. Ist die bisherige Website nicht mehr verfügbar, folgt ein Hinweis und eine Ersatzwebsite. Das Widget steht im Network Admin bei Aktivierung auf der Hauptwebsite oder im Netzwerk bereit; eine ausschließliche Unterwebsite-Aktivierung lädt es dort nicht. Der Website-Widget-Schalter betrifft das Dashboard dieser Website; die Netzwerk-Leseansicht ist unabhängig. Die Website-Auswahl wird in Gruppen von 50 angeboten. Es entsteht keine zusätzliche Netzwerk-Bibeltextdatenhaltung.
+
+Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.

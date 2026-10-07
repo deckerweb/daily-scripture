@@ -24,11 +24,11 @@ final class LocalFiles {
 	 */
 	public static function directory( string $area ): string {
 		if ( ! in_array( $area, array( 'downloads', 'bibles' ), true ) ) {
-			throw new \RuntimeException( esc_html__( 'Ungültiger Speicherbereich.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Invalid storage area.', 'daily-scripture' ) );
 		}
 		$path = realpath( WP_CONTENT_DIR );
 		if ( false === $path ) {
-			throw new \RuntimeException( esc_html__( 'Datenspeicher nicht verfügbar.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Data storage is unavailable.', 'daily-scripture' ) );
 		}
 		$parts = array( 'uploads', 'daily-scripture' );
 		if ( is_multisite() ) {
@@ -38,7 +38,7 @@ final class LocalFiles {
 		foreach ( $parts as $part ) {
 			$path .= '/' . $part;
 			if ( is_link( $path ) || ( ! is_dir( $path ) && ! wp_mkdir_p( $path ) ) || realpath( $path ) !== $path ) {
-				throw new \RuntimeException( esc_html__( 'Unsicherer oder nicht beschreibbarer Datenspeicher.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Data storage is unsafe or not writable.', 'daily-scripture' ) );
 			}
 		}
 		foreach ( array(
@@ -48,10 +48,10 @@ final class LocalFiles {
 		) as $name => $text ) {
 			$file = $path . '/' . $name;
 			if ( is_link( $file ) || ( file_exists( $file ) && ! is_file( $file ) ) ) {
-				throw new \RuntimeException( esc_html__( 'Unsichere Schutzdatei.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Unsafe protection file.', 'daily-scripture' ) );
 			}
 			if ( ! file_exists( $file ) && false === file_put_contents( $file, $text, LOCK_EX ) ) {
-				throw new \RuntimeException( esc_html__( 'Datenspeicher konnte nicht geschützt werden.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Data storage could not be protected.', 'daily-scripture' ) );
 			}
 		}
 		return $path;
@@ -66,21 +66,21 @@ final class LocalFiles {
 	 */
 	public static function locked( string $id, callable $operation ) {
 		if ( ! preg_match( '/^[a-z]+-\d{4}$/D', $id ) ) {
-			throw new \RuntimeException( esc_html__( 'Ungültige Bibelausgabe.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Invalid Bible edition.', 'daily-scripture' ) );
 		}
 		$base = self::directory( 'bibles' ) . '/' . $id;
 		foreach ( array( $base . '.lock', $base . '.json.php' ) as $file ) {
 			if ( is_link( $file ) || ( file_exists( $file ) && ! is_file( $file ) ) ) {
-				throw new \RuntimeException( esc_html__( 'Unsichere Datendatei.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Unsafe data file.', 'daily-scripture' ) );
 			}
 		}
 		$lock = fopen( $base . '.lock', 'c' );
 		if ( false === $lock ) {
-			throw new \RuntimeException( esc_html__( 'Datenspeicher konnte nicht gesperrt werden.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Data storage could not be locked.', 'daily-scripture' ) );
 		}
 		try {
 			if ( ! flock( $lock, LOCK_EX | LOCK_NB ) ) {
-				throw new \RuntimeException( esc_html__( 'Ein anderer Vorgang läuft. Bitte erneut versuchen.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Another operation is running. Please try again.', 'daily-scripture' ) );
 			}
 			return $operation( $base . '.json.php' );
 		} finally {
@@ -99,13 +99,13 @@ final class LocalFiles {
 	public static function commit( string $target, array $record ): void {
 		$json = wp_json_encode( $record, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG );
 		if ( false === $json || strlen( $json ) > 16000000 ) {
-			throw new \RuntimeException( esc_html__( 'Bibeldaten konnten nicht kodiert werden.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Bible data could not be encoded.', 'daily-scripture' ) );
 		}
 		$temp = dirname( $target ) . '/.import-' . wp_generate_uuid4() . '.php';
 		try {
 			$data = self::GUARD . $json;
 			if ( strlen( $data ) !== file_put_contents( $temp, $data, LOCK_EX ) || ! rename( $temp, $target ) ) {
-				throw new \RuntimeException( esc_html__( 'Speichern fehlgeschlagen. Vorhandene Daten bleiben erhalten.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Saving failed. Existing data has been preserved.', 'daily-scripture' ) );
 			}
 		} finally {
 			if ( is_file( $temp ) ) {

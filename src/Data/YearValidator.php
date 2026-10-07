@@ -21,7 +21,7 @@ final class YearValidator {
 	 */
 	public static function identity( string $source, int $year ): void {
 		if ( ! in_array( $source, array( 'herrnhuter', 'bible2' ), true ) || $year < 1900 || $year > 2199 ) {
-			throw new \RuntimeException( esc_html__( 'Ungültige Quelle oder Jahreszahl.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Invalid source or year.', 'daily-scripture' ) );
 		}
 	}
 
@@ -47,7 +47,7 @@ final class YearValidator {
 	 */
 	public static function text( $value, int $limit = 20000 ): string {
 		if ( ! is_string( $value ) || '' === trim( $value ) || strlen( $value ) > $limit || ! preg_match( '//u', $value ) || preg_match( '/[\x00-\x08\x0B\x0C\x0E-\x1F]/', $value ) ) {
-			throw new \RuntimeException( esc_html__( 'Ein Textfeld fehlt, ist zu lang oder enthält ungültige Zeichen.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'A text field is missing, too long or contains invalid characters.', 'daily-scripture' ) );
 		}
 		return $value;
 	}
@@ -66,17 +66,17 @@ final class YearValidator {
 		$date = new \DateTimeImmutable( "$year-01-01", new \DateTimeZone( 'UTC' ) );
 		$end  = $date->modify( '+1 year' );
 		if ( count( $days ) !== (int) $date->diff( $end )->days ) {
-			throw new \RuntimeException( esc_html__( 'Die Datei muss ein vollständiges Kalenderjahr mit 365 bzw. 366 Tagen enthalten.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The file must contain a complete calendar year with 365 or 366 days.', 'daily-scripture' ) );
 		}
 		while ( $date < $end ) {
 			$key   = $date->format( 'Y-m-d' );
 			$items = $days[ $key ] ?? null;
 			if ( ! is_array( $items ) || array_keys( $items ) !== array( 0, 1 ) ) {
-				throw new \RuntimeException( esc_html__( 'Ein Tagesdatum fehlt oder enthält kein vollständiges Verspaar.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'A day is missing or lacks a complete verse pair.', 'daily-scripture' ) );
 			}
 			foreach ( $items as $item ) {
 				if ( ! is_array( $item ) ) {
-					throw new \RuntimeException( esc_html__( 'Ungültiger Tagesdatensatz.', 'daily-scripture' ) );
+					throw new \RuntimeException( esc_html__( 'Invalid day record.', 'daily-scripture' ) );
 				}
 				self::text( $item['text'] ?? null );
 				self::text( $item['reference'] ?? null, 1000 );

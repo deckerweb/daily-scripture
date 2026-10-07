@@ -31,28 +31,28 @@ final class Importer {
 	public function parse( string $path, string $source, int $year ): array {
 		YearValidator::identity( $source, $year );
 		if ( ! YearValidator::allowed( $source, $year ) ) {
-			throw new \RuntimeException( esc_html__( 'Die Losungen dürfen nur für das Vorjahr, das laufende Jahr und das Folgejahr importiert werden.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Die Losungen may only be imported for the previous, current and next year.', 'daily-scripture' ) );
 		}
 		if ( ! is_file( $path ) || ! is_readable( $path ) || filesize( $path ) > self::MAX_BYTES || 0 === filesize( $path ) ) {
-			throw new \RuntimeException( esc_html__( 'Datei nicht lesbar, leer oder größer als 8 MiB.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'File is unreadable, empty or larger than 8 MiB.', 'daily-scripture' ) );
 		}
 		$xml = file_get_contents( $path );
 		if ( false === $xml ) {
-			throw new \RuntimeException( esc_html__( 'Die Datei konnte nicht gelesen werden.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The file could not be read.', 'daily-scripture' ) );
 		}
 		$hash = hash( 'sha256', $xml );
 		if ( 'PK' === substr( $xml, 0, 2 ) ) {
 			$xml = $this->unzip( $path, $source );
 		}
 		if ( ! class_exists( '\DOMDocument' ) ) {
-			throw new \RuntimeException( esc_html__( 'Die PHP-Erweiterung DOM/XML wird benötigt.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The PHP DOM/XML extension is required.', 'daily-scripture' ) );
 		}
 		// Reject DTDs entirely: no external requests, entity substitution or entity bombs.
 		if ( false !== strpos( $xml, "\0" ) || preg_match( '/<!\s*(DOCTYPE|ENTITY)/i', $xml ) ) {
-			throw new \RuntimeException( esc_html__( 'XML mit DTD, Entitäten oder UTF-16-Kodierung wird nicht unterstützt. Bitte eine offizielle UTF-8-Datei verwenden.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'XML with DTDs, entities or UTF-16 encoding is not supported. Please use an official UTF-8 file.', 'daily-scripture' ) );
 		}
 		if ( substr_count( $xml, '<' ) > 20000 ) {
-			throw new \RuntimeException( esc_html__( 'Die XML-Datei enthält zu viele Elemente.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The XML file contains too many elements.', 'daily-scripture' ) );
 		}
 		$previous = libxml_use_internal_errors( true );
 		try {
@@ -61,7 +61,7 @@ final class Importer {
 			$document->substituteEntities = false;
 			$loaded                       = $document->loadXML( $xml, LIBXML_NONET );
 			if ( ! $loaded || $document->doctype || ! $document->documentElement ) {
-				throw new \RuntimeException( esc_html__( 'Die Datei enthält kein gültiges, unterstütztes XML.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'The file contains no valid supported XML.', 'daily-scripture' ) );
 			}
 		} finally {
 			libxml_clear_errors();
@@ -87,36 +87,36 @@ final class Importer {
 	 */
 	private function unzip( string $path, string $source ): string {
 		if ( ! class_exists( '\ZipArchive' ) ) {
-			throw new \RuntimeException( esc_html__( 'ZIP-Unterstützung fehlt. Bitte die XML-/TWD-Datei direkt hochladen.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'ZIP support is missing. Please upload the XML/TWD file directly.', 'daily-scripture' ) );
 		}
 		$zip = new \ZipArchive();
 		if ( true !== $zip->open( $path ) ) {
-			throw new \RuntimeException( esc_html__( 'Das ZIP-Archiv ist beschädigt.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The ZIP archive is damaged.', 'daily-scripture' ) );
 		}
 		try {
 			if ( $zip->numFiles > 30 ) {
-				throw new \RuntimeException( esc_html__( 'Das Archiv enthält zu viele Einträge.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'The archive contains too many entries.', 'daily-scripture' ) );
 			}
 			$matches = array();
 			for ( $i = 0; $i < $zip->numFiles; ++$i ) {
 				$entry = $zip->statIndex( $i );
 				if ( ! $entry || preg_match( '~(^/|\\\\|(^|/)\.\.(/|$)|^[A-Za-z]:)~', $entry['name'] ) ) {
-					throw new \RuntimeException( esc_html__( 'Unsichere Dateipfade im Archiv.', 'daily-scripture' ) );
+					throw new \RuntimeException( esc_html__( 'Unsafe file paths in the archive.', 'daily-scripture' ) );
 				}
 				$extension = strtolower( pathinfo( $entry['name'], PATHINFO_EXTENSION ) );
 				if ( in_array( $extension, 'herrnhuter' === $source ? array( 'xml' ) : array( 'xml', 'twd' ), true ) ) {
 					if ( $entry['size'] > self::MAX_BYTES || ! empty( $entry['encryption_method'] ) ) {
-						throw new \RuntimeException( esc_html__( 'Die XML-Datei im Archiv ist zu groß oder verschlüsselt.', 'daily-scripture' ) );
+						throw new \RuntimeException( esc_html__( 'The XML file in the archive is too large or encrypted.', 'daily-scripture' ) );
 					}
 					$matches[] = $i;
 				}
 			}
 			if ( 1 !== count( $matches ) ) {
-				throw new \RuntimeException( esc_html__( 'Das Archiv muss genau eine XML-/TWD-Jahresdatei enthalten.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'The archive must contain exactly one annual XML/TWD file.', 'daily-scripture' ) );
 			}
 			$content = $zip->getFromIndex( $matches[0], self::MAX_BYTES + 1 );
 			if ( false === $content || strlen( $content ) > self::MAX_BYTES ) {
-				throw new \RuntimeException( esc_html__( 'Archivinhalt konnte nicht sicher gelesen werden.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Archive content could not be read safely.', 'daily-scripture' ) );
 			}
 			return $content;
 		} finally {
@@ -156,11 +156,11 @@ final class Importer {
 			return '';
 		}
 		if ( 1 !== count( $nodes ) ) {
-			throw new \RuntimeException( esc_html__( 'Ein erforderliches XML-Feld fehlt oder ist mehrfach vorhanden.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'A required XML field is missing or duplicated.', 'daily-scripture' ) );
 		}
 		foreach ( $nodes[0]->getElementsByTagName( '*' ) as $child ) {
 			if ( ! ( 'text' === $name && 'em' === $child->tagName ) && ! ( 'copyright' === $name && 'biblecopyright' === $child->tagName ) ) {
-				throw new \RuntimeException( esc_html__( 'Nicht unterstützte XML-Formatierung.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Unsupported XML formatting.', 'daily-scripture' ) );
 			}
 		}
 		return YearValidator::text( $nodes[0]->textContent );
@@ -177,7 +177,7 @@ final class Importer {
 	 */
 	private function append( array &$days, string $date, array $items ): void {
 		if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/D', $date ) || isset( $days[ $date ] ) ) {
-			throw new \RuntimeException( esc_html__( 'Doppeltes oder ungültiges Tagesdatum.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Duplicate or invalid day date.', 'daily-scripture' ) );
 		}
 		$days[ $date ] = $items;
 	}
@@ -192,13 +192,13 @@ final class Importer {
 	private function herrnhuter( \DOMDocument $document ): array {
 		$root = $document->documentElement;
 		if ( 'FreeXml' !== $root->tagName ) {
-			throw new \RuntimeException( esc_html__( 'Erwartet wird die offizielle Losungen-XML-Datei (FreeXml).', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'An official Losungen XML file (FreeXml) is required.', 'daily-scripture' ) );
 		}
 		$days = array();
 		foreach ( $this->children( $root, 'Losungen' ) as $day ) {
 			$raw_date = $this->field( $day, 'Datum' );
 			if ( ! preg_match( '/^(\d{4}-\d{2}-\d{2})(?:T00:00:00(?:\.000)?)?$/D', $raw_date, $match ) ) {
-				throw new \RuntimeException( esc_html__( 'Ungültiges Datum in der Losungen-Datei.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Invalid date in the Losungen file.', 'daily-scripture' ) );
 			}
 			$this->append(
 				$days,
@@ -233,17 +233,17 @@ final class Importer {
 	private function bible2( \DOMDocument $document, int $year ): array {
 		$root = $document->documentElement;
 		if ( 'thewordfile' !== $root->tagName || '1.1' !== $root->getAttribute( 'dtdvers' ) || (string) $year !== $root->getAttribute( 'year' ) ) {
-			throw new \RuntimeException( esc_html__( 'Erwartet wird eine TWD-1.1-Datei für das ausgewählte Jahr.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'A TWD 1.1 file for the selected year is required.', 'daily-scripture' ) );
 		}
 		$heads = $this->children( $root, 'head' );
 		if ( 1 !== count( $heads ) ) {
-			throw new \RuntimeException( esc_html__( 'Die TWD-Datei enthält keinen eindeutigen Metadatenkopf.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The TWD file does not contain a unique metadata header.', 'daily-scripture' ) );
 		}
 		$days = array();
 		foreach ( $this->children( $root, 'theword' ) as $day ) {
 			$parols = $this->children( $day, 'parol' );
 			if ( 2 !== count( $parols ) ) {
-				throw new \RuntimeException( esc_html__( 'Jeder Bible-2.0-Tag muss genau zwei Bibelworte enthalten.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Each Bible 2.0 day must contain exactly two Bible texts.', 'daily-scripture' ) );
 			}
 			$items = array();
 			foreach ( $parols as $parol ) {

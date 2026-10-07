@@ -22,37 +22,45 @@ final class PassageSettings {
 	public static function controls(): array {
 		$fields = array(
 			'translation' => array(
-				'label'   => __( 'Übersetzung', 'daily-scripture' ),
+				'label'   => __( 'Translation', 'daily-scripture' ),
 				'type'    => 'select',
 				'default' => 'luther-1912',
-				'options' => array_map( static fn( $edition ) => $edition['label'], ( new TranslationManager() )->bundled() ),
+				'options' => array_map( /**
+										 * Expose the edition display label to builder controls.
+										 *
+										 * @param array $edition Reviewed edition metadata.
+										 * @return string
+										 */
+					static fn( $edition ) => $edition['label'],
+					( new TranslationManager() )->bundled()
+				),
 			),
 			'book'        => array(
-				'label'   => __( 'Buch', 'daily-scripture' ),
+				'label'   => __( 'Book', 'daily-scripture' ),
 				'type'    => 'select',
 				'default' => 'JOH',
 				'options' => TranslationManager::books(),
 			),
 			'chapter'     => array(
-				'label'   => __( 'Kapitel', 'daily-scripture' ),
+				'label'   => __( 'Chapter', 'daily-scripture' ),
 				'type'    => 'number',
 				'default' => 3,
 			),
 			'from'        => array(
-				'label'   => __( 'Erster Vers', 'daily-scripture' ),
+				'label'   => __( 'First verse', 'daily-scripture' ),
 				'type'    => 'number',
 				'default' => 16,
 			),
 			'to'          => array(
-				'label'   => __( 'Letzter Vers', 'daily-scripture' ),
+				'label'   => __( 'Last verse', 'daily-scripture' ),
 				'type'    => 'number',
 				'default' => 16,
 			),
 			'title'       => array(
-				'label'       => __( 'Eigene Überschrift', 'daily-scripture' ),
+				'label'       => __( 'Custom heading', 'daily-scripture' ),
 				'type'        => 'text',
 				'default'     => '',
-				'placeholder' => __( 'Bibelstelle als Titel', 'daily-scripture' ),
+				'placeholder' => __( 'Bible reference as title', 'daily-scripture' ),
 			),
 		);
 		foreach ( $fields as &$field ) {
@@ -61,15 +69,15 @@ final class PassageSettings {
 		unset( $field );
 		foreach ( array(
 			'layout'  => __( 'Layout', 'daily-scripture' ),
-			'density' => __( 'Ansicht', 'daily-scripture' ),
-			'theme'   => __( 'Farbschema', 'daily-scripture' ),
+			'density' => __( 'Spacing mode', 'daily-scripture' ),
+			'theme'   => __( 'Color scheme', 'daily-scripture' ),
 		) as $key => $label ) {
 			$fields[ $key ] = array(
 				'label'   => $label,
 				'type'    => 'select',
 				'default' => '',
 				'group'   => 'display',
-				'options' => array( '' => __( 'Website-Einstellung', 'daily-scripture' ) ) + Presentation::choices()[ $key ],
+				'options' => array( '' => __( 'Site setting', 'daily-scripture' ) ) + Presentation::choices()[ $key ],
 			);
 		}
 		return $fields;

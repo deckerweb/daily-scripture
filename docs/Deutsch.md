@@ -1,6 +1,8 @@
-# Anleitung · Daily Scripture 0.16.2
+# Anleitung · Daily Scripture 1.0.0
 
 [English](English.md) · [Home](Home.md)
+
+Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewählte Bibelstellen und persönliche Dashboard-Widgets. Wähle deine Quellen, gestalte die Ausgabe und zeige Lesungen mit Gutenberg, Shortcodes, Elementor oder Bricks an. Die Website-Funktionen sind auch in Multisite nutzbar, ergänzt um eine Leseansicht im Network Admin.
 
 Von der ersten Lesung bis zur passenden Gestaltung: Nutze das Inhaltsverzeichnis, um direkt zum gewünschten Thema zu springen.
 
@@ -14,7 +16,6 @@ Von der ersten Lesung bis zur passenden Gestaltung: Nutze das Inhaltsverzeichnis
 - [Bibelbibliothek und Quellen](#bibelbibliothek-und-quellen)
 - [Sicherung und Deinstallation](#sicherung-und-deinstallation)
 - [Plugin-Updates über GitHub](#plugin-updates-ueber-github)
-- [Entwicklung und Übersetzungen](#entwicklung-und-uebersetzungen)
 - [Lizenz](#lizenz)
 - [Häufige Fragen](#faq)
 - [Changelog](#changelog)
@@ -93,15 +94,15 @@ Jahresdateien müssen ein vollständiges Kalenderjahr mit vollständigen Verspaa
 Alle vom Plugin verwalteten Textdateien liegen relativ zu `wp-content/uploads/` hier:
 
 ```text
-daily-scripture/herrnhuter/YYYY.json.php
-daily-scripture/bible2/YYYY.json.php
+daily-scripture/data/herrnhuter/YYYY.json.php
+daily-scripture/data/bible2/YYYY.json.php
 daily-scripture/bibles/luther-1912.json.php
 daily-scripture/bibles/elberfelder-1905.json.php
 daily-scripture/bibles/menge-1939.json.php
 daily-scripture/bibles/schlachter-1951.json.php
 ```
 
-`daily-scripture/downloads/` dient der vorübergehenden Download-Verarbeitung. Es gibt keinen zusätzlichen `data/`-Unterordner. Bei Einzelaktivierung in Multisite liegen die Daten getrennt unter `daily-scripture/sites/BLOG_ID/`; Netzwerkaktivierung wird nicht unterstützt. Bei umbenanntem Inhaltsverzeichnis gilt `WP_CONTENT_DIR/uploads/daily-scripture/`. Abweichende Uploadverzeichnisse werden für diese Textdaten nicht verwendet.
+`daily-scripture/downloads/` dient der vorübergehenden Download-Verarbeitung. Jahresdateien liegen im Unterordner `data/`. Bei Aktivierung je Website in Multisite liegen die Daten getrennt unter `daily-scripture/sites/BLOG_ID/`; neue Websites erhalten Vorgaben beim ersten Zugriff. Bei umbenanntem Inhaltsverzeichnis gilt `WP_CONTENT_DIR/uploads/daily-scripture/`. Abweichende Uploadverzeichnisse werden für diese Textdaten nicht verwendet.
 
 Schutzdateien, PHP-Abbruchschutz, Pfadprüfung und gesperrte Schreibvorgänge schützen den lokalen Bestand. Browseruploads landen zunächst im konfigurierten PHP-Upload-Tempverzeichnis. Plugin-Einstellungen und kurzlebige Statusmeldungen liegen in der WordPress-Datenbank.
 
@@ -130,7 +131,7 @@ Bibleserver dient ausschließlich als externes Linkziel. Das Plugin lädt dort k
 
 Der JSON-Export enthält die **gespeicherten** Werte. Ein Design umfasst Darstellung und Datumsformat; der vollständige Export zusätzlich Quellenwahl und sonstige Website-Optionen. Texte, Jahrespakete, persönliche Dashboard-Einstellungen und Builder-Stile sind nicht enthalten. Ein Import wird erst ins Formular übernommen und nach **Einstellungen speichern** wirksam.
 
-Deaktivieren behält Texte und Einstellungen. Bei Deinstallation werden die Plugin-Einstellungen und die persönlichen Widget-Einstellungen dieser Website entfernt. Jahresdaten und Bibelausgaben bleiben standardmäßig erhalten. Mit aktivierter Löschoption werden die erkannten Textdateien dieser Website ebenfalls entfernt; unbekannte Dateien und Schutzdateien bleiben erhalten. Sichere deine Texte bei Bedarf mit der normalen Dateisicherung deiner Website.
+Deaktivieren behält Texte und Einstellungen. Deinstallation bereinigt temporäre Caches und geplante Prüfungen. Einstellungen, persönliche Widget-Werte, Jahresdaten und Bibelausgaben bleiben standardmäßig erhalten. Mit aktivierter Löschoption werden Einstellungen, persönliche Werte und erkannte Textdateien dieser Website entfernt; unbekannte Dateien und Schutzdateien bleiben erhalten. Sichere deine Texte bei Bedarf mit der normalen Dateisicherung deiner Website.
 
 <a name="plugin-updates-ueber-github"></a>
 
@@ -139,18 +140,6 @@ Deaktivieren behält Texte und Einstellungen. Bei Deinstallation werden die Plug
 Updates kommen direkt aus dem [DECKERWEB-Repository auf GitHub](https://github.com/deckerweb/daily-scripture/releases) und erscheinen bei aktivem Daily Scripture im **regulären WordPress-Updatesystem**. Aktualisiere wie gewohnt über Plugins oder Dashboard → Aktualisierungen; ein zusätzliches Updater-Plugin ist nicht nötig. Automatische Updates bleiben deine Entscheidung.
 
 Die [deutsche Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deutsch), die [englische Anleitung](https://github.com/deckerweb/daily-scripture/wiki/English) und die thematischen FAQs erklären Einstellungen, Quellen und häufige Fragen. Eine [lokale Kopie](Deutsch.md) liegt im Plugin. Im Admin-Footer findest du die Dokumentation und den Changelog-Dialog. Zwischengespeicherte Updateprüfungen können ein neues Angebot bis zu 30 Minuten verzögern; ein manuelles ZIP-Update ist ebenfalls möglich.
-
-<a name="entwicklung-und-uebersetzungen"></a>
-
-## Entwicklung und Übersetzungen
-
-Namespace: `Deckerweb\DailyScripture`. Der gemeinsame Datenweg aus Import, Validierung und lokaler Speicherung versorgt die Ausgabe in allen Integrationen. Der Hook `daily_scripture_year_readiness` meldet die jährliche Datenbereitschaft; er lädt oder löscht keine Dateien.
-
-Der Pluginname bleibt in jeder Sprache **Daily Scripture**. Deutsche Sprachdateien und die POT-Vorlage liegen in `languages/`; Quellenbezeichnungen, Shortcode-Parameter und importierte Originaltexte werden nicht umbenannt. `phpcs.xml.dist` enthält die WordPress-Coding-Standards-Konfiguration.
-
-Über den Changelog-Link neben der Versionsnummer im Admin-Fußbereich öffnest du die Versionshistorie im Dialog. Er folgt deiner WordPress-Adminsprache (Deutsch oder Englisch); ohne JavaScript öffnet sich die Readme-Datei.
-
-Die Versionshistorie mit **New**, **Improved**, **Fixed** und **Misc** steht in [readme-de.txt](Changelog-Deutsch.md). Autor: [David Decker](https://github.com/deckerweb) · [Plugin-Website](https://github.com/deckerweb/daily-scripture).
 
 <a name="lizenz"></a>
 
@@ -187,3 +176,11 @@ Diese Softwarelizenz gilt nicht für heruntergeladene Bibeltexte oder Jahrespake
 [Vollständiger Änderungsverlauf](Changelog-Deutsch.md)
 
 [Updates veröffentlichen und prüfen](Development-Deutsch.md)
+
+## Dashboard-Lesungen und Farbwähler
+
+Lege unter **Daily Scripture → Dashboard-Lesungen** die angebotenen Lesungen fest: Die Losungen, Bible 2.0 und bis zu sechs Bibelstellen aus lokal installierten Ausgaben (bis zu 50 Verse innerhalb eines Kapitels). Speichere die Website-Einstellungen und öffne im Widget **Ansicht anpassen**. Wähle eine oder mehrere Lesungen und ändere ihre Reihenfolge mit **Nach oben / Nach unten**. Ohne JavaScript stehen Positionsfelder bereit. Ohne eingerichtete Lesungen erscheint ein zurückhaltender Hinweis; fehlende Jahresdaten oder Bibelausgaben werden je Lesung angezeigt. Persönliche Auswahl und Reihenfolge ändern die öffentliche Ausgabe nicht. Vollständige JSON-Sicherungen enthalten die Lesungsdefinitionen; reine Designs und ältere Sicherungen lassen sie unverändert. Installiere benötigte Ausgaben auf der Zielwebsite, bevor du importierte Bibelstellen speicherst.
+
+Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des aktuellen Netzwerks und nennt diese sichtbar. Ist nur die Hauptwebsite aktiv, wird sie automatisch verwendet. Bei mehreren aktiven Websites oder Netzwerkaktivierung kannst du die Bezugswebsite wählen: Speichere nach dem Wechsel einmal, um deren Lesungen zu laden, und triff danach deine persönliche Auswahl. Ist die bisherige Website nicht mehr verfügbar, folgt ein Hinweis und eine Ersatzwebsite. Das Widget steht im Network Admin bei Aktivierung auf der Hauptwebsite oder im Netzwerk bereit; eine ausschließliche Unterwebsite-Aktivierung lädt es dort nicht. Der Website-Widget-Schalter betrifft das Dashboard dieser Website; die Netzwerk-Leseansicht ist unabhängig. Die Website-Auswahl wird in Gruppen von 50 angeboten. Es entsteht keine zusätzliche Netzwerk-Bibeltextdatenhaltung.
+
+Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.

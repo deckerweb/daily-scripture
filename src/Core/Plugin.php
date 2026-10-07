@@ -27,14 +27,15 @@ final class Plugin {
 		( new \Deckerweb\DailyScripture\Bible\Passage() )->register();
 		( new Lifecycle() )->register();
 		( new GitHubUpdates() )->register();
+		( new SiteHealth() )->register();
 		$this->register_shortcode();
 		$this->register_dashboard_widget();
 		( new GutenbergIntegration() )->register();
 		( new BricksIntegration() )->register();
 		( new ElementorIntegration() )->register();
-		add_action( 'enqueue_block_assets', array( $this, 'styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'styles' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'editor_styles' ) );
 	}
 
 	/**
@@ -45,6 +46,12 @@ final class Plugin {
 	private function register_shortcode(): void {
 		add_shortcode(
 			'daily_scripture',
+			/**
+			 * Resolve shortcode attributes and return escaped shared verse output.
+			 *
+			 * @param array|string $atts WordPress shortcode attributes.
+			 * @return string
+			 */
 			static function ( $atts ) {
 				$atts = shortcode_atts(
 					array(
@@ -68,6 +75,29 @@ final class Plugin {
 	 */
 	private function register_dashboard_widget(): void {
 		( new \Deckerweb\DailyScripture\Admin\DashboardWidget() )->register();
+	}
+
+	/**
+	 * Load presentation assets only on plugin screens and the enabled dashboard.
+	 *
+	 * @param string $hook Current admin screen hook.
+	 * @return void
+	 */
+	public function admin_styles( string $hook ): void {
+		if ( str_contains( $hook, 'daily-scripture' ) || ( 'index.php' === $hook && \Deckerweb\DailyScripture\Admin\DashboardWidget::enabled() ) ) {
+			$this->styles();
+		}
+	}
+
+	/**
+	 * Supply shared CSS to the block editor iframe without loading it on every page.
+	 *
+	 * @return void
+	 */
+	public function editor_styles(): void {
+		if ( is_admin() ) {
+			$this->styles();
+		}
 	}
 
 	/**

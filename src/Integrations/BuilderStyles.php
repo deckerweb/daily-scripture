@@ -19,11 +19,11 @@ final class BuilderStyles {
 	 */
 	public static function parts( bool $passage = false ): array {
 		$parts = array(
-			'heading'   => array( __( 'Überschrift', 'daily-scripture' ), array( '.daily-scripture__title' ) ),
-			'date'      => array( __( 'Datum', 'daily-scripture' ), array( '.daily-scripture__date' ) ),
-			'verse'     => array( __( 'Bibelverse', 'daily-scripture' ), array( '.daily-scripture__text' ) ),
-			'reference' => array( __( 'Bibelstellen', 'daily-scripture' ), array( '.daily-scripture__reference', '.daily-scripture__reference a' ) ),
-			'meta'      => array( __( 'Lizenz & Zusatzinfos', 'daily-scripture' ), array( '.daily-scripture__meta', '.daily-scripture__meta p', '.daily-scripture__meta a', '.daily-scripture__meta details', '.daily-scripture__meta summary' ) ),
+			'heading'   => array( __( 'Heading', 'daily-scripture' ), array( '.daily-scripture__title' ) ),
+			'date'      => array( __( 'Date', 'daily-scripture' ), array( '.daily-scripture__date' ) ),
+			'verse'     => array( __( 'Bible verses', 'daily-scripture' ), array( '.daily-scripture__text' ) ),
+			'reference' => array( __( 'Bible references', 'daily-scripture' ), array( '.daily-scripture__reference', '.daily-scripture__reference a' ) ),
+			'meta'      => array( __( 'License & additional information', 'daily-scripture' ), array( '.daily-scripture__meta', '.daily-scripture__meta p', '.daily-scripture__meta a', '.daily-scripture__meta details', '.daily-scripture__meta summary' ) ),
 		);
 		if ( $passage ) {
 			unset( $parts['date'] ); }
@@ -38,11 +38,11 @@ final class BuilderStyles {
 	 */
 	public static function spacing( bool $passage = false ): array {
 		$spacing = array(
-			'sources'   => array( __( 'Zwischen den Quellen', 'daily-scripture' ), '', 'gap' ),
-			'sections'  => array( __( 'Zwischen Kopf, Versen und Hinweisen', 'daily-scripture' ), '.daily-scripture__source', 'gap' ),
-			'verses'    => array( __( 'Zwischen den Versen', 'daily-scripture' ), '.daily-scripture__verses', 'gap' ),
-			'reference' => array( __( 'Vor der Bibelstelle', 'daily-scripture' ), '.daily-scripture__reference', 'margin-top' ),
-			'meta'      => array( __( 'Innenabstand über den Hinweisen', 'daily-scripture' ), '.daily-scripture__meta', 'padding-top' ),
+			'sources'   => array( __( 'Between sources', 'daily-scripture' ), '', 'gap' ),
+			'sections'  => array( __( 'Between header, verses and notices', 'daily-scripture' ), '.daily-scripture__source', 'gap' ),
+			'verses'    => array( __( 'Between verses', 'daily-scripture' ), '.daily-scripture__verses', 'gap' ),
+			'reference' => array( __( 'Before the Bible reference', 'daily-scripture' ), '.daily-scripture__reference', 'margin-top' ),
+			'meta'      => array( __( 'Padding above notices', 'daily-scripture' ), '.daily-scripture__meta', 'padding-top' ),
 		);
 		if ( $passage ) {
 			unset( $spacing['sources'] );

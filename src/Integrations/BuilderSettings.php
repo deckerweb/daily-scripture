@@ -20,21 +20,21 @@ final class BuilderSettings {
 	 * @return array
 	 */
 	public static function controls(): array {
-		$inherit = array( '' => __( 'Website-Einstellung', 'daily-scripture' ) );
+		$inherit = array( '' => __( 'Site setting', 'daily-scripture' ) );
 		$fields  = array(
 			'source' => array(
-				'label'   => __( 'Datenquelle', 'daily-scripture' ),
+				'label'   => __( 'Data source', 'daily-scripture' ),
 				'options' => $inherit + array(
 					'herrnhuter' => 'Die Losungen',
 					'bible2'     => 'Bible 2.0',
-					'both'       => __( 'Beide Quellen', 'daily-scripture' ),
+					'both'       => __( 'Both sources', 'daily-scripture' ),
 				),
 				'group'   => 'source',
 			),
 		);
 		foreach ( array(
-			'herrnhuter' => __( 'Überschrift für Die Losungen', 'daily-scripture' ),
-			'bible2'     => __( 'Überschrift für Bible 2.0', 'daily-scripture' ),
+			'herrnhuter' => __( 'Heading for Die Losungen', 'daily-scripture' ),
+			'bible2'     => __( 'Heading for Bible 2.0', 'daily-scripture' ),
 		) as $provider => $label ) {
 			$fields[ 'title_' . $provider ] = array(
 				'label'       => $label,
@@ -44,8 +44,8 @@ final class BuilderSettings {
 		}
 		foreach ( array(
 			'layout'  => __( 'Layout', 'daily-scripture' ),
-			'density' => __( 'Ansicht', 'daily-scripture' ),
-			'theme'   => __( 'Farbschema', 'daily-scripture' ),
+			'density' => __( 'Spacing mode', 'daily-scripture' ),
+			'theme'   => __( 'Color scheme', 'daily-scripture' ),
 		) as $key => $label ) {
 			$fields[ $key ] = array(
 				'label'   => $label,

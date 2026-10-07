@@ -43,3 +43,5 @@
 .ds-changelog__content li { margin: 0 0 8px; }
 .ds-changelog__readme { flex: none; margin: 0; padding: 12px 22px; border-top: 1px solid #dce2e8; }
 @media (max-width: 480px) { .ds-changelog__header { align-items: flex-start; padding: 14px; gap: 10px; } .ds-changelog__header h2 { font-size: 18px; } .ds-changelog__content { padding-inline: 16px; } }
+
+.ds-changelog__category{display:inline-block;font-weight:700;padding:.1em .45em;border-radius:3px;color:#153f48;background:#e6f1ed}.ds-changelog__category--improved{color:#174f76;background:#e6f0f8}.ds-changelog__category--fixed{color:#704500;background:#fff2d9}.ds-changelog__category--misc{color:#42454c;background:#eeeef1}

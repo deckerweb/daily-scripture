@@ -19,6 +19,11 @@ final class BricksIntegration {
 	public function register(): void {
 		add_action(
 			'init',
+			/**
+			 * Register native elements once the optional Bricks API is available.
+			 *
+			 * @return void
+			 */
 			static function () {
 				if ( class_exists( '\Bricks\Elements' ) && class_exists( '\Bricks\Element' ) ) {
 					\Bricks\Elements::register_element( __DIR__ . '/ScriptureElement.php', 'daily-scripture', ScriptureElement::class );

@@ -40,12 +40,19 @@ final class GutenbergIntegration {
 				'default' => '',
 			);
 		}
+		/**
+		* Render validated daily-reading attributes in frontend context.
+		*
+		* @param array $attributes Dynamic block attributes.
+		* @return string
+		*/
+		$render_reading = static fn( $attributes ) => ( new Renderer() )->render( sanitize_key( $attributes['source'] ?? '' ), null, $attributes, false );
 		register_block_type(
 			'daily-scripture/today',
 			array(
 				'api_version'     => 3,
 				'editor_script'   => 'daily-scripture-block',
-				'render_callback' => static fn( $attributes ) => ( new Renderer() )->render( sanitize_key( $attributes['source'] ?? '' ), null, $attributes, false ),
+				'render_callback' => $render_reading,
 				'attributes'      => $attributes,
 				'supports'        => array( 'html' => false ),
 			)

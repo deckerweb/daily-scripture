@@ -19,32 +19,32 @@ final class Presentation {
 	public static function choices(): array {
 		return array(
 			'layout'       => array(
-				'card'      => __( 'Karte', 'daily-scripture' ),
-				'minimal'   => __( 'Schlicht', 'daily-scripture' ),
-				'accent'    => __( 'Akzentleiste', 'daily-scripture' ),
-				'editorial' => __( 'Lesespalten', 'daily-scripture' ),
-				'paper'     => __( 'Leseblatt', 'daily-scripture' ),
-				'ribbon'    => __( 'Titelband', 'daily-scripture' ),
-				'outline'   => __( 'Kontur', 'daily-scripture' ),
-				'divided'   => __( 'Geteilte Verse', 'daily-scripture' ),
+				'card'      => __( 'Card', 'daily-scripture' ),
+				'minimal'   => __( 'Plain', 'daily-scripture' ),
+				'accent'    => __( 'Accent bar', 'daily-scripture' ),
+				'editorial' => __( 'Reading columns', 'daily-scripture' ),
+				'paper'     => __( 'Reading sheet', 'daily-scripture' ),
+				'ribbon'    => __( 'Title band', 'daily-scripture' ),
+				'outline'   => __( 'Outline', 'daily-scripture' ),
+				'divided'   => __( 'Split verses', 'daily-scripture' ),
 				'journal'   => __( 'Journal', 'daily-scripture' ),
-				'quiet'     => __( 'Ruhepol', 'daily-scripture' ),
+				'quiet'     => __( 'Quiet focus', 'daily-scripture' ),
 			),
 			'density'      => array(
 				'standard' => __( 'Standard', 'daily-scripture' ),
-				'compact'  => __( 'Kompakt – Seitenleiste / Fußbereich', 'daily-scripture' ),
+				'compact'  => __( 'Compact – sidebar / footer', 'daily-scripture' ),
 			),
 			'theme'        => array(
-				'light'  => __( 'Hell', 'daily-scripture' ),
-				'dark'   => __( 'Dunkel', 'daily-scripture' ),
-				'auto'   => __( 'Automatisch (Geräteeinstellung)', 'daily-scripture' ),
-				'custom' => __( 'Eigene Farben', 'daily-scripture' ),
+				'light'  => __( 'Light', 'daily-scripture' ),
+				'dark'   => __( 'Dark', 'daily-scripture' ),
+				'auto'   => __( 'Automatic (device setting)', 'daily-scripture' ),
+				'custom' => __( 'Custom colors', 'daily-scripture' ),
 			),
 			'heading_size' => array(
-				'small'  => __( 'Klein', 'daily-scripture' ),
-				'medium' => __( 'Mittel', 'daily-scripture' ),
-				'large'  => __( 'Groß', 'daily-scripture' ),
-				'xlarge' => __( 'Sehr groß', 'daily-scripture' ),
+				'small'  => __( 'Small', 'daily-scripture' ),
+				'medium' => __( 'Medium', 'daily-scripture' ),
+				'large'  => __( 'Large', 'daily-scripture' ),
+				'xlarge' => __( 'Extra large', 'daily-scripture' ),
 			),
 		);
 	}
@@ -187,7 +187,8 @@ final class Presentation {
 			return __( 'Die Losungen', 'daily-scripture' );
 		}
 		$site_locale = get_option( 'WPLANG', defined( 'WPLANG' ) ? WPLANG : 'en_US' );
-		return 0 === strpos( (string) $site_locale, 'de' ) ? __( 'Das Wort für heute', 'daily-scripture' ) : __( 'The Word for Today', 'daily-scripture' );
+		// Publisher titles are selected by site language, independently of the editor locale.
+		return 0 === strpos( (string) $site_locale, 'de' ) ? 'Das Wort für heute' : 'The Word for Today';
 	}
 
 	/**
@@ -214,7 +215,14 @@ final class Presentation {
 	 * @return array
 	 */
 	public static function resolve( array $overrides = array(), ?bool $admin = null ): array {
-		$options = self::sanitize( array_merge( Settings::all(), array_filter( $overrides, static fn( $value ) => '' !== $value ) ) );
+		/**
+		* Retain only explicit nonempty instance overrides.
+		*
+		* @param mixed $value Candidate setting override.
+		* @return bool
+		*/
+		$has_override = static fn( $value ) => '' !== $value;
+		$options      = self::sanitize( array_merge( Settings::all(), array_filter( $overrides, $has_override ) ) );
 		// A preview may explicitly clear an optional format or expert color.
 		foreach ( array( 'date_format', 'color_heading', 'color_verse', 'color_reference', 'color_meta', 'color_date', 'font_heading', 'font_verse', 'font_reference', 'font_meta', 'font_date' ) as $key ) {
 			if ( array_key_exists( $key, $overrides ) && '' === $overrides[ $key ] ) {

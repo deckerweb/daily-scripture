@@ -29,7 +29,7 @@ final class TranslationManager {
 				'verses'  => 31102,
 			),
 			'elberfelder-1905' => array(
-				'label'   => 'Elberfelder 1905 (unrevidiert)',
+				'label'   => __( 'Elberfelder 1905 (unrevised)', 'daily-scripture' ),
 				'license' => 'Public Domain',
 				'status'  => 'available',
 				'url'     => 'https://ebible.org/Scriptures/deuelo_vpl.zip',
@@ -73,7 +73,7 @@ final class TranslationManager {
 	 * @return string License label for display.
 	 */
 	public static function license_label( array $edition ): string {
-		return 'Public Domain' === $edition['license'] ? __( 'Gemeinfrei (Public Domain)', 'daily-scripture' ) : $edition['license'];
+		return 'Public Domain' === $edition['license'] ? __( 'Public domain', 'daily-scripture' ) : $edition['license'];
 	}
 
 	/**
@@ -86,7 +86,7 @@ final class TranslationManager {
 		if ( empty( $edition['attribution'] ) ) {
 			return '';
 		}
-		return '<p>' . esc_html( $edition['attribution'] ) . '</p><p><a href="' . esc_url( $edition['license_url'] ) . '">' . esc_html__( 'Lizenz: CC BY 4.0 – Namensnennung', 'daily-scripture' ) . '</a> · <a href="' . esc_url( $edition['rights_url'] ) . '">' . esc_html__( 'Lizenznachweis bei eBible', 'daily-scripture' ) . '</a></p><p>' . esc_html__( 'Verswortlaut unverändert aus dem eBible-Textpaket; für diese Ausgabe technisch aufbereitet und als Auszug dargestellt.', 'daily-scripture' ) . '</p>';
+		return '<p>' . esc_html( $edition['attribution'] ) . '</p><p><a href="' . esc_url( $edition['license_url'] ) . '">' . esc_html__( 'License: CC BY 4.0 – attribution', 'daily-scripture' ) . '</a> · <a href="' . esc_url( $edition['rights_url'] ) . '">' . esc_html__( 'License notice at eBible', 'daily-scripture' ) . '</a></p><p>' . esc_html__( 'Verse text unchanged from the eBible package, prepared for this edition and displayed as an excerpt.', 'daily-scripture' ) . '</p>';
 	}
 
 	/**
@@ -99,82 +99,82 @@ final class TranslationManager {
 	public static function edition( string $id ): array {
 		$editions = ( new self() )->bundled();
 		if ( ! isset( $editions[ $id ] ) ) {
-			throw new \RuntimeException( esc_html__( 'Unbekannte Bibelausgabe.', 'daily-scripture' ) ); }
+			throw new \RuntimeException( esc_html__( 'Unknown Bible edition.', 'daily-scripture' ) ); }
 		return $editions[ $id ];
 	}
 	/**
-	 * Stable book codes with German display names (66 canonical books).
+	 * Stable book codes with localized display names (66 canonical books).
 	 *
 	 * @return array
 	 */
 	public static function books(): array {
 		return array(
-			'GEN' => '1. Mose',
-			'EXO' => '2. Mose',
-			'LEV' => '3. Mose',
-			'NUM' => '4. Mose',
-			'DEU' => '5. Mose',
-			'JOS' => 'Josua',
-			'JDG' => 'Richter',
-			'RUT' => 'Rut',
-			'1SA' => '1. Samuel',
-			'2SA' => '2. Samuel',
-			'1KI' => '1. Könige',
-			'2KI' => '2. Könige',
-			'1CH' => '1. Chronik',
-			'2CH' => '2. Chronik',
-			'EZR' => 'Esra',
-			'NEH' => 'Nehemia',
-			'EST' => 'Ester',
-			'JOB' => 'Hiob',
-			'PSA' => 'Psalmen',
-			'PRO' => 'Sprüche',
-			'ECC' => 'Prediger',
-			'SOL' => 'Hohelied',
-			'ISA' => 'Jesaja',
-			'JER' => 'Jeremia',
-			'LAM' => 'Klagelieder',
-			'EZE' => 'Hesekiel',
-			'DAN' => 'Daniel',
-			'HOS' => 'Hosea',
-			'JOE' => 'Joel',
-			'AMO' => 'Amos',
-			'OBA' => 'Obadja',
-			'JON' => 'Jona',
-			'MIC' => 'Micha',
-			'NAH' => 'Nahum',
-			'HAB' => 'Habakuk',
-			'ZEP' => 'Zefanja',
-			'HAG' => 'Haggai',
-			'ZEC' => 'Sacharja',
-			'MAL' => 'Maleachi',
-			'MAT' => 'Matthäus',
-			'MAR' => 'Markus',
-			'LUK' => 'Lukas',
-			'JOH' => 'Johannes',
-			'ACT' => 'Apostelgeschichte',
-			'ROM' => 'Römer',
-			'1CO' => '1. Korinther',
-			'2CO' => '2. Korinther',
-			'GAL' => 'Galater',
-			'EPH' => 'Epheser',
-			'PHI' => 'Philipper',
-			'COL' => 'Kolosser',
-			'1TH' => '1. Thessalonicher',
-			'2TH' => '2. Thessalonicher',
-			'1TI' => '1. Timotheus',
-			'2TI' => '2. Timotheus',
-			'TIT' => 'Titus',
-			'PHM' => 'Philemon',
-			'HEB' => 'Hebräer',
-			'JAM' => 'Jakobus',
-			'1PE' => '1. Petrus',
-			'2PE' => '2. Petrus',
-			'1JO' => '1. Johannes',
-			'2JO' => '2. Johannes',
-			'3JO' => '3. Johannes',
-			'JUD' => 'Judas',
-			'REV' => 'Offenbarung',
+			'GEN' => __( 'Genesis', 'daily-scripture' ),
+			'EXO' => __( 'Exodus', 'daily-scripture' ),
+			'LEV' => __( 'Leviticus', 'daily-scripture' ),
+			'NUM' => __( 'Numbers', 'daily-scripture' ),
+			'DEU' => __( 'Deuteronomy', 'daily-scripture' ),
+			'JOS' => __( 'Joshua', 'daily-scripture' ),
+			'JDG' => __( 'Judges', 'daily-scripture' ),
+			'RUT' => __( 'Ruth', 'daily-scripture' ),
+			'1SA' => __( '1 Samuel', 'daily-scripture' ),
+			'2SA' => __( '2 Samuel', 'daily-scripture' ),
+			'1KI' => __( '1 Kings', 'daily-scripture' ),
+			'2KI' => __( '2 Kings', 'daily-scripture' ),
+			'1CH' => __( '1 Chronicles', 'daily-scripture' ),
+			'2CH' => __( '2 Chronicles', 'daily-scripture' ),
+			'EZR' => __( 'Ezra', 'daily-scripture' ),
+			'NEH' => __( 'Nehemiah', 'daily-scripture' ),
+			'EST' => __( 'Esther', 'daily-scripture' ),
+			'JOB' => __( 'Job', 'daily-scripture' ),
+			'PSA' => __( 'Psalms', 'daily-scripture' ),
+			'PRO' => __( 'Proverbs', 'daily-scripture' ),
+			'ECC' => __( 'Ecclesiastes', 'daily-scripture' ),
+			'SOL' => __( 'Song of Songs', 'daily-scripture' ),
+			'ISA' => __( 'Isaiah', 'daily-scripture' ),
+			'JER' => __( 'Jeremiah', 'daily-scripture' ),
+			'LAM' => __( 'Lamentations', 'daily-scripture' ),
+			'EZE' => __( 'Ezekiel', 'daily-scripture' ),
+			'DAN' => __( 'Daniel', 'daily-scripture' ),
+			'HOS' => __( 'Hosea', 'daily-scripture' ),
+			'JOE' => __( 'Joel', 'daily-scripture' ),
+			'AMO' => __( 'Amos', 'daily-scripture' ),
+			'OBA' => __( 'Obadiah', 'daily-scripture' ),
+			'JON' => __( 'Jonah', 'daily-scripture' ),
+			'MIC' => __( 'Micah', 'daily-scripture' ),
+			'NAH' => __( 'Nahum', 'daily-scripture' ),
+			'HAB' => __( 'Habakkuk', 'daily-scripture' ),
+			'ZEP' => __( 'Zephaniah', 'daily-scripture' ),
+			'HAG' => __( 'Haggai', 'daily-scripture' ),
+			'ZEC' => __( 'Zechariah', 'daily-scripture' ),
+			'MAL' => __( 'Malachi', 'daily-scripture' ),
+			'MAT' => __( 'Matthew', 'daily-scripture' ),
+			'MAR' => __( 'Mark', 'daily-scripture' ),
+			'LUK' => __( 'Luke', 'daily-scripture' ),
+			'JOH' => __( 'John', 'daily-scripture' ),
+			'ACT' => __( 'Acts', 'daily-scripture' ),
+			'ROM' => __( 'Romans', 'daily-scripture' ),
+			'1CO' => __( '1 Corinthians', 'daily-scripture' ),
+			'2CO' => __( '2 Corinthians', 'daily-scripture' ),
+			'GAL' => __( 'Galatians', 'daily-scripture' ),
+			'EPH' => __( 'Ephesians', 'daily-scripture' ),
+			'PHI' => __( 'Philippians', 'daily-scripture' ),
+			'COL' => __( 'Colossians', 'daily-scripture' ),
+			'1TH' => __( '1 Thessalonians', 'daily-scripture' ),
+			'2TH' => __( '2 Thessalonians', 'daily-scripture' ),
+			'1TI' => __( '1 Timothy', 'daily-scripture' ),
+			'2TI' => __( '2 Timothy', 'daily-scripture' ),
+			'TIT' => __( 'Titus', 'daily-scripture' ),
+			'PHM' => __( 'Philemon', 'daily-scripture' ),
+			'HEB' => __( 'Hebrews', 'daily-scripture' ),
+			'JAM' => __( 'James', 'daily-scripture' ),
+			'1PE' => __( '1 Peter', 'daily-scripture' ),
+			'2PE' => __( '2 Peter', 'daily-scripture' ),
+			'1JO' => __( '1 John', 'daily-scripture' ),
+			'2JO' => __( '2 John', 'daily-scripture' ),
+			'3JO' => __( '3 John', 'daily-scripture' ),
+			'JUD' => __( 'Jude', 'daily-scripture' ),
+			'REV' => __( 'Revelation', 'daily-scripture' ),
 		);
 	}
 }

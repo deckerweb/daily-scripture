@@ -25,14 +25,15 @@ final class YearStore {
 	 * requires WP_CONTENT_DIR/uploads/daily-scripture. Multisite gets isolated sites.
 	 *
 	 * @param string $source Source identifier.
-	 * @return string
+	 * @param bool   $prepare Whether to create directories and protection files.
+	 * @return string Empty when absent in read-only mode.
 	 * @throws \RuntimeException For unsafe or unwritable storage.
 	 */
-	private function directory( string $source ): string {
+	private function directory( string $source, bool $prepare = true ): string {
 		YearValidator::identity( $source, 2000 );
 		$content = realpath( WP_CONTENT_DIR );
 		if ( false === $content ) {
-			throw new \RuntimeException( esc_html__( 'Das WordPress-Inhaltsverzeichnis fehlt.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The WordPress content directory is missing.', 'daily-scripture' ) );
 		}
 		$parts = array( 'uploads', 'daily-scripture' );
 		if ( is_multisite() ) {
@@ -44,11 +45,16 @@ final class YearStore {
 		$path    = $content;
 		foreach ( $parts as $part ) {
 			$path .= '/' . $part;
-			if ( is_link( $path ) || ( ! is_dir( $path ) && ! wp_mkdir_p( $path ) ) || realpath( $path ) !== $path ) {
-				throw new \RuntimeException( esc_html__( 'Datenspeicher nicht verfügbar oder durch einen symbolischen Link umgeleitet.', 'daily-scripture' ) );
+			if ( ! $prepare && ! file_exists( $path ) && ! is_link( $path ) ) {
+				return '';
+			}
+			if ( is_link( $path ) || ( ! is_dir( $path ) && ( ! $prepare || ! wp_mkdir_p( $path ) ) ) || realpath( $path ) !== $path ) {
+				throw new \RuntimeException( esc_html__( 'Data storage is unavailable or redirected by a symbolic link.', 'daily-scripture' ) );
 			}
 		}
-		$this->protect( $path );
+		if ( $prepare ) {
+			$this->protect( $path );
+		}
 		return $path;
 	}
 
@@ -71,7 +77,7 @@ final class YearStore {
 		foreach ( $files as $name => $content ) {
 			$file = $path . '/' . $name;
 			if ( is_link( $file ) || ( file_exists( $file ) && ! is_file( $file ) ) ) {
-				throw new \RuntimeException( esc_html__( 'Unsichere Schutzdatei im Datenspeicher.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Unsafe protection file in data storage.', 'daily-scripture' ) );
 			}
 			if ( is_file( $file ) ) {
 				continue;
@@ -79,13 +85,13 @@ final class YearStore {
 			// Exclusive creation prevents overwriting pre-existing host rules.
 			$handle = fopen( $file, 'x' );
 			if ( false === $handle ) {
-				throw new \RuntimeException( esc_html__( 'Datenspeicher konnte nicht geschützt werden. Bitte erneut versuchen.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'Data storage could not be protected. Please try again.', 'daily-scripture' ) );
 			}
 			$written = fwrite( $handle, $content );
 			fclose( $handle );
 			if ( strlen( $content ) !== $written ) {
 				wp_delete_file( $file );
-				throw new \RuntimeException( esc_html__( 'Schutzdatei konnte nicht vollständig geschrieben werden.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'The protection file could not be written completely.', 'daily-scripture' ) );
 			}
 		}
 	}
@@ -101,7 +107,7 @@ final class YearStore {
 	 */
 	private function validate( array $record, string $source, int $year ): void {
 		if ( 1 !== ( $record['schema'] ?? null ) || ( $record['source'] ?? null ) !== $source || ( $record['year'] ?? null ) !== $year || ! is_array( $record['days'] ?? null ) || ! is_string( $record['sha256'] ?? null ) || ! preg_match( '/^[a-f0-9]{64}$/D', $record['sha256'] ) ) {
-			throw new \RuntimeException( esc_html__( 'Ungültiges Speicherformat. Bitte die offizielle Jahresdatei erneut importieren.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Invalid storage format. Please import the official annual file again.', 'daily-scripture' ) );
 		}
 		YearValidator::text( $record['edition'] ?? null, 1000 );
 		YearValidator::text( $record['copyright'] ?? null );
@@ -111,34 +117,65 @@ final class YearStore {
 
 	/**
 	 * Read data without executing the PHP guard.
+	 * Pass false for diagnostics that must not create storage or protection files.
 	 *
 	 * @param string $source Source identifier.
 	 * @param int    $year Calendar year.
+	 * @param bool   $prepare Whether to prepare storage (false for diagnostics).
 	 * @return array|null Null when absent; errors are explicit.
 	 * @throws \RuntimeException For damaged or unsafe files.
 	 */
-	public function read( string $source, int $year ): ?array {
+	public function read( string $source, int $year, bool $prepare = true ): ?array {
 		YearValidator::identity( $source, $year );
-		$path = $this->directory( $source ) . '/' . $year . '.json.php';
+		$directory = $this->directory( $source, $prepare );
+		if ( '' === $directory ) {
+			return null;
+		}
+		$path = $directory . '/' . $year . '.json.php';
 		if ( is_link( $path ) ) {
-			throw new \RuntimeException( esc_html__( 'Symbolische Links sind im Datenspeicher nicht erlaubt.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Symbolic links are not allowed in data storage.', 'daily-scripture' ) );
 		}
 		if ( ! file_exists( $path ) ) {
 			return null;
 		}
 		if ( ! is_file( $path ) || ! is_readable( $path ) || filesize( $path ) > Importer::MAX_BYTES ) {
-			throw new \RuntimeException( esc_html__( 'Jahresdatei nicht lesbar oder zu groß.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Annual file is unreadable or too large.', 'daily-scripture' ) );
 		}
 		$raw = file_get_contents( $path );
 		if ( false === $raw || 0 !== strpos( $raw, self::GUARD ) ) {
-			throw new \RuntimeException( esc_html__( 'Jahresdatei beschädigt: Dateischutz fehlt.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Annual file is damaged: file protection is missing.', 'daily-scripture' ) );
 		}
 		$record = json_decode( substr( $raw, strlen( self::GUARD ) ), true );
 		if ( ! is_array( $record ) ) {
-			throw new \RuntimeException( esc_html__( 'Jahresdatei enthält ungültiges JSON.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Annual file contains invalid JSON.', 'daily-scripture' ) );
 		}
 		$this->validate( $record, $source, $year );
 		return $record;
+	}
+
+	/**
+	 * List annual filenames without loading texts or creating storage.
+	 *
+	 * @param string $source Source identifier.
+	 * @return int[] Years present; their contents are not validated here.
+	 * @throws \RuntimeException For unsafe or unreadable storage.
+	 */
+	public function existing_years( string $source ): array {
+		$directory = $this->directory( $source, false );
+		if ( '' === $directory ) {
+			return array();
+		}
+		if ( ! is_readable( $directory ) ) {
+			throw new \RuntimeException( 'Annual storage is unreadable.' );
+		}
+		$years = array();
+		foreach ( new \DirectoryIterator( $directory ) as $file ) {
+			if ( preg_match( '/^((?:19|20|21)[0-9]{2})\.json\.php$/D', $file->getFilename(), $match ) ) {
+				$years[] = (int) $match[1];
+			}
+		}
+		sort( $years, SORT_NUMERIC );
+		return $years;
 	}
 
 	/**
@@ -154,15 +191,15 @@ final class YearStore {
 		YearValidator::identity( $source, $year );
 		$path = $this->directory( $source ) . '/' . $year;
 		if ( is_link( $path . '.lock' ) || is_link( $path . '.json.php' ) ) {
-			throw new \RuntimeException( esc_html__( 'Unsicherer Speicherpfad.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Unsafe storage path.', 'daily-scripture' ) );
 		}
 		$handle = fopen( $path . '.lock', 'c' );
 		if ( false === $handle ) {
-			throw new \RuntimeException( esc_html__( 'Der Datenspeicher ist nicht beschreibbar.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'Data storage is not writable.', 'daily-scripture' ) );
 		}
 		try {
 			if ( ! flock( $handle, LOCK_EX | LOCK_NB ) ) {
-				throw new \RuntimeException( esc_html__( 'Für dieses Jahr läuft bereits eine Änderung. Bitte erneut versuchen.', 'daily-scripture' ) );
+				throw new \RuntimeException( esc_html__( 'This year is already being changed. Please try again.', 'daily-scripture' ) );
 			}
 			$operation( $path . '.json.php' );
 		} finally {
@@ -185,23 +222,29 @@ final class YearStore {
 		$year   = $record['year'] ?? 0;
 		$this->validate( $record, $source, $year );
 		if ( ! YearValidator::allowed( $source, $year ) ) {
-			throw new \RuntimeException( esc_html__( 'Dieses Losungen-Jahr liegt außerhalb des zulässigen Zeitraums.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'This Losungen year is outside the permitted range.', 'daily-scripture' ) );
 		}
 		$json = wp_json_encode( $record, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG );
 		if ( false === $json || strlen( $json ) + strlen( self::GUARD ) > Importer::MAX_BYTES ) {
-			throw new \RuntimeException( esc_html__( 'Die normalisierten Jahresdaten sind zu groß.', 'daily-scripture' ) );
+			throw new \RuntimeException( esc_html__( 'The normalized annual data is too large.', 'daily-scripture' ) );
 		}
 		$this->locked(
 			$source,
 			$year,
+			/**
+			 * Atomically replace one validated annual record under its source lock.
+			 *
+			 * @param string $path Guarded annual destination path.
+			 * @return void
+			 */
 			static function ( string $path ) use ( $json, $replace ): void {
 				if ( file_exists( $path ) && ! $replace ) {
-					throw new \RuntimeException( esc_html__( 'Dieses Jahr ist bereits installiert. Zum Ersetzen bitte die entsprechende Option wählen.', 'daily-scripture' ) );
+					throw new \RuntimeException( esc_html__( 'This year is already installed. Please select the replacement option to replace it.', 'daily-scripture' ) );
 				}
 				$temp = dirname( $path ) . '/.import-' . wp_generate_uuid4() . '.php';
 				$file = fopen( $temp, 'x' );
 				if ( false === $file ) {
-					throw new \RuntimeException( esc_html__( 'Temporäre Jahresdatei konnte nicht angelegt werden.', 'daily-scripture' ) );
+					throw new \RuntimeException( esc_html__( 'A temporary annual file could not be created.', 'daily-scripture' ) );
 				}
 				try {
 					$data    = self::GUARD . $json;
@@ -210,7 +253,7 @@ final class YearStore {
 					fclose( $file );
 					$file = null;
 					if ( strlen( $data ) !== $written || ! $flushed || ! rename( $temp, $path ) ) {
-						throw new \RuntimeException( esc_html__( 'Die Jahresdatei konnte nicht vollständig gespeichert werden. Vorhandene Daten bleiben erhalten.', 'daily-scripture' ) );
+						throw new \RuntimeException( esc_html__( 'The annual file could not be saved completely. Existing data has been preserved.', 'daily-scripture' ) );
 					}
 				} finally {
 					if ( is_resource( $file ) ) {
@@ -236,15 +279,21 @@ final class YearStore {
 		$this->locked(
 			$source,
 			$year,
+			/**
+			 * Delete only the selected annual record under its source lock.
+			 *
+			 * @param string $path Guarded annual destination path.
+			 * @return void
+			 */
 			static function ( string $path ): void {
 				foreach ( array( $path, substr( $path, 0, -4 ) ) as $file ) {
 					if ( is_link( $file ) ) {
-						throw new \RuntimeException( esc_html__( 'Symbolische Links werden nicht gelöscht.', 'daily-scripture' ) );
+						throw new \RuntimeException( esc_html__( 'Symbolic links are not deleted.', 'daily-scripture' ) );
 					}
 					if ( file_exists( $file ) ) {
 						wp_delete_file( $file );
 						if ( file_exists( $file ) ) {
-							throw new \RuntimeException( esc_html__( 'Jahresdatei konnte nicht gelöscht werden.', 'daily-scripture' ) );
+							throw new \RuntimeException( esc_html__( 'Annual file could not be deleted.', 'daily-scripture' ) );
 						}
 					}
 				}
@@ -270,7 +319,7 @@ final class YearStore {
 				$record        = $this->read( $source, $year );
 				$rows[ $year ] = array(
 					'record' => $record,
-					'error'  => $record ? '' : __( 'Altdaten aus 0.1.0: bitte erneut importieren oder löschen.', 'daily-scripture' ),
+					'error'  => $record ? '' : __( 'Legacy data from 0.1.0: please import again or delete.', 'daily-scripture' ),
 				);
 			} catch ( \RuntimeException $error ) {
 				$rows[ $year ] = array(

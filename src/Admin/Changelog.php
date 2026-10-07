@@ -21,12 +21,24 @@ final class Changelog {
 	}
 
 	/**
+	 * Choose a fixed local file for English, informal German or formal German.
+	 *
+	 * @return string Relative changelog filename.
+	 */
+	private static function filename(): string {
+		if ( 'de_DE_formal' === determine_locale() ) {
+			return 'docs/changelog-de-formal.txt';
+		}
+		return self::is_german() ? 'docs/changelog-de.txt' : 'docs/changelog.txt';
+	}
+
+	/**
 	 * Local documentation URL, also used when dialogs or JavaScript are unavailable.
 	 *
 	 * @return string Changelog URL.
 	 */
 	public static function url(): string {
-		return DAILY_SCRIPTURE_URL . ( self::is_german() ? 'docs/changelog-de.txt' : 'docs/changelog.txt' );
+		return DAILY_SCRIPTURE_URL . self::filename();
 	}
 
 	/**
@@ -35,7 +47,7 @@ final class Changelog {
 	 * @return string Escaped headings and lists, or an empty string if unavailable.
 	 */
 	public static function content(): string {
-		$file = DAILY_SCRIPTURE_DIR . ( self::is_german() ? 'docs/changelog-de.txt' : 'docs/changelog.txt' );
+		$file = DAILY_SCRIPTURE_DIR . self::filename();
 		if ( ! is_readable( $file ) || filesize( $file ) > 262144 ) {
 			return '';
 		}
@@ -55,8 +67,21 @@ final class Changelog {
 				$html .= ( $list ? '</ul>' : '' ) . '<h3>' . esc_html( $heading[1] ) . '</h3>';
 				$list  = false;
 			} elseif ( str_starts_with( $line, '* ' ) ) {
-				$html .= ( $list ? '' : '<ul>' ) . '<li>' . esc_html( substr( $line, 2 ) ) . '</li>';
-				$list  = true;
+				$item       = substr( $line, 2 );
+				$categories = array(
+					'New'        => 'new',
+					'Neu'        => 'new',
+					'Improved'   => 'improved',
+					'Verbessert' => 'improved',
+					'Fixed'      => 'fixed',
+					'Behoben'    => 'fixed',
+					'Misc'       => 'misc',
+					'Sonstiges'  => 'misc',
+				);
+				$parts      = explode( ': ', $item, 2 );
+				$label      = isset( $categories[ $parts[0] ] ) && isset( $parts[1] ) ? '<span class="ds-changelog__category ds-changelog__category--' . esc_attr( $categories[ $parts[0] ] ) . '">' . esc_html( $parts[0] ) . '</span> ' . esc_html( $parts[1] ) : esc_html( $item );
+				$html      .= ( $list ? '' : '<ul>' ) . '<li>' . $label . '</li>';
+				$list       = true;
 			} else {
 				$html .= ( $list ? '</ul>' : '' ) . '<p>' . esc_html( $line ) . '</p>';
 				$list  = false;
@@ -75,9 +100,9 @@ final class Changelog {
 		if ( '' === $content ) {
 			return;
 		}
-		$close = self::is_german() ? __( 'Schließen', 'daily-scripture' ) : __( 'Close', 'daily-scripture' );
+		$close = __( 'Close', 'daily-scripture' );
 		echo '<dialog id="ds-changelog" class="ds-changelog" aria-labelledby="ds-changelog-title"><header class="ds-changelog__header"><h2 id="ds-changelog-title">Daily Scripture · ' . esc_html__( 'Changelog', 'daily-scripture' ) . '</h2><button type="button" class="button" data-ds-changelog-close autofocus>' . esc_html( $close ) . '</button></header><div class="ds-changelog__content" tabindex="0">';
 		echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- content() escapes every text node; only fixed heading, list and paragraph markup is emitted.
-		echo '</div><p class="ds-changelog__readme"><a href="' . esc_url( self::url() ) . '">' . esc_html( self::is_german() ? 'docs/changelog-de.txt' : 'docs/changelog.txt' ) . '</a></p></dialog>';
+		echo '</div><p class="ds-changelog__readme"><a href="' . esc_url( self::url() ) . '">' . esc_html( self::filename() ) . '</a></p></dialog>';
 	}
 }

@@ -1,6 +1,8 @@
-# Frequently asked questions
+# FAQ by topic
 
 [English](English.md) · [Deutsch](FAQ-Deutsch.md) · [Home](Home.md)
+
+Daily Scripture adds daily readings, selected Bible passages and personal dashboard widgets to your WordPress website. Choose your sources, shape the design and display readings with Gutenberg, shortcodes, Elementor or Bricks. Website features also work in Multisite, with an additional Network Admin reading view.
 
 ## Topics
 
@@ -26,15 +28,15 @@ The administration pages require the WordPress manage_options capability, normal
 
 ### Which output should I choose?
 
-Use Daily Scripture for the official daily readings. Use Bibelstelle · Daily Scripture for a passage you select from an installed Bible edition.
+Use Daily Scripture for the official daily readings. Use Bible passage · Daily Scripture for a passage you select from an installed Bible edition.
 
 ### Are texts already installed?
 
-No. Start with an annual package under Datenquellen or an edition under Bibelbibliothek. The plugin ZIP contains software and documentation, not Bible texts.
+No. Start with an annual package under Data sources or an edition under Bible library. The plugin ZIP contains software and documentation, not Bible texts.
 
 ### Can I use multisite?
 
-Activate separately on each site. Network activation is not supported; each site receives its own data directory.
+Activation per site is supported. Settings, annual data and Bible editions remain separate for each site. Network activation is still blocked by the bundled Library 0.6.0 catalog and awaits a separately approved component correction. The shared deckerweb Library uses network settings.
 
 
 <a name="annual-data-and-downloads"></a>
@@ -130,7 +132,7 @@ Set source headings in the main settings; blocks and builder elements can overri
 
 ### How do I make the dashboard smaller?
 
-Use Ansicht anpassen in the widget to choose compact spacing and a 14, 16 or 18 px verse size. The choice is saved per user and site and does not change the frontend.
+Use Display options in the widget to choose compact spacing and a 14, 16 or 18 px verse size. The choice is saved per user and site and does not change the frontend.
 
 ### Does Bibleserver supply the displayed text?
 
@@ -151,11 +153,11 @@ After you review the imported values in the form and save them. Importing the JS
 
 ### Where are annual packages and Bible texts stored?
 
-Under wp-content/uploads/daily-scripture/: herrnhuter/YYYY.json.php, bible2/YYYY.json.php and bibles/TRANSLATION.json.php. The guide lists each edition’s exact filename.
+Under wp-content/uploads/daily-scripture/: data/herrnhuter/YYYY.json.php, data/bible2/YYYY.json.php and bibles/TRANSLATION.json.php. The guide lists each edition’s exact filename.
 
 ### Does deactivation delete my texts?
 
-No. Deactivation preserves texts and settings. Uninstalling removes plugin settings and personal widget choices; known text files are deleted only if the removal option was enabled.
+No. Deactivation preserves texts and settings. Uninstalling clears temporary caches and scheduled checks. Settings, personal widget choices and texts remain by default. A site’s deletion option removes its settings, preferences and known text files. Physical plugin removal applies each site’s own choice; foreign data remains untouched.
 
 ### Is JSON enough for a full backup?
 
@@ -186,3 +188,11 @@ Reload the editor and clear relevant browser or builder caches after updating. C
 
 Plugin, WordPress and PHP versions, editor and theme, affected source/year or passage, expected and actual result, and repeatable steps. Screenshots help; do not include passwords, license keys or private customer data.
 
+
+## How do I choose widget readings and their website?
+
+Define available readings in **Daily Scripture → Dashboard readings**: Die Losungen, Bible 2.0 and up to six passages from installed local Bible editions (up to 50 verses in one chapter). Save the website settings, then open **Display options** in the widget. Select one or more readings and use **Move up / Move down** to order them. Without JavaScript, numeric positions remain available. No configured readings produces a quiet notice; missing yearly data or an unavailable edition is reported per reading. Personal choices do not change website output. Full JSON settings exports include the reading definitions; design-only and older exports leave them unchanged. Install the required editions on the destination website before saving imported passage definitions.
+
+The Network Admin widget uses a personally selected active website in the current network and visibly names it. When only the main website is active, it is used automatically. With multiple active websites or network activation, select the source website; save once after changing it to load its configured readings, then choose your personal selection. An unavailable previous website falls back with a notice. The network widget is available when the plugin is active on the main website or network-wide; activation only on a subsite does not load it in Network Admin. The website widget switch affects that website's dashboard; the network reading view is independent. Website choices are paginated in groups of 50. No separate network Bible storage is created.
+
+Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
