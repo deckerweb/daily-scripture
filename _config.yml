@@ -1,0 +1,14 @@
+theme: jekyll-theme-cayman
+title: Daily Scripture
+description: "Words to brighten your day · Worte, die deinen Tag erhellen"
+show_downloads: false
+exclude:
+  - src
+  - includes
+  - languages
+  - resources
+  - docs/Development-English.md
+  - docs/Development-Deutsch.md
+  - phpcs.xml.dist
+  - UPDATER.md
+  - UPDATER-de.md
