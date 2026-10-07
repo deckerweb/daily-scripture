@@ -55,4 +55,4 @@ if ( is_multisite() ) {
 }
 
 require_once __DIR__ . '/includes/deckerweb-plugin-library/lifecycle.php';
-deckerweb_library_uninstall_v2( __DIR__ . '/daily-scripture.php' );
+deckerweb_library_uninstall_v3( __DIR__ . '/daily-scripture.php' );

@@ -2,7 +2,11 @@
 
 [ English ](English.md) · [ Deutsch ](Changelog-Deutsch.md)
 
-### 1.0.0
+### 1.0.1
+
+- **Fixed:** Network activation is supported with the bundled Library 0.8.1, including first activation beside an older Library copy.
+
+## 1.0.0
 
 - **New:** Personal dashboard source selection, multiple readings and ordering for WordPress websites, including Multisite; configured Bible passages and a selectable Network Admin source website.
 - **Improved:** Modern WordPress color modal, dedicated dashboard settings and more readable widget spacing.

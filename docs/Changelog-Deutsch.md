@@ -2,7 +2,11 @@
 
 [ Deutsch ](Deutsch.md) · [ English ](Changelog-English.md)
 
-### 1.0.0
+### 1.0.1
+
+- **Behoben:** Netzwerkaktivierung wird mit der eingebundenen Library 0.8.1 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie.
+
+## 1.0.0
 
 - **Neu:** Persönliche Widget-Quellenwahl, mehrere Lesungen und anpassbare Reihenfolge für WordPress-Websites, auch in Multisite; eigene Bibelstellen und wählbare Bezugswebsite im Network Admin.
 - **Verbessert:** Moderner WordPress-Farbwähler im Modal, übersichtliche Dashboard-Einstellungen und besser lesbare Widget-Abstände.

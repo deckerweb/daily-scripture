@@ -1,4 +1,4 @@
-# Anleitung · Daily Scripture 1.0.0
+# Anleitung · Daily Scripture 1.0.1
 
 [English](English.md) · [Home](Home.md)
 
@@ -184,3 +184,6 @@ Lege unter **Daily Scripture → Dashboard-Lesungen** die angebotenen Lesungen f
 Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des aktuellen Netzwerks und nennt diese sichtbar. Ist nur die Hauptwebsite aktiv, wird sie automatisch verwendet. Bei mehreren aktiven Websites oder Netzwerkaktivierung kannst du die Bezugswebsite wählen: Speichere nach dem Wechsel einmal, um deren Lesungen zu laden, und triff danach deine persönliche Auswahl. Ist die bisherige Website nicht mehr verfügbar, folgt ein Hinweis und eine Ersatzwebsite. Das Widget steht im Network Admin bei Aktivierung auf der Hauptwebsite oder im Netzwerk bereit; eine ausschließliche Unterwebsite-Aktivierung lädt es dort nicht. Der Website-Widget-Schalter betrifft das Dashboard dieser Website; die Netzwerk-Leseansicht ist unabhängig. Die Website-Auswahl wird in Gruppen von 50 angeboten. Es entsteht keine zusätzliche Netzwerk-Bibeltextdatenhaltung.
 
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
+
+
+Falls ein älterer Library-Katalog die Karte bei der ersten Netzwerkaktivierung noch sperrt, öffne **Network Admin → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Dabei übernimmt die neue Library. Hosts mit Library 0.8.1 bieten die Aktivierung direkt im Katalog an.

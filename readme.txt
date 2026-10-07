@@ -3,7 +3,7 @@ Contributors: deckerweb
 Tags: bible, scripture, daily, shortcode, block
 Requires at least: 6.6
 Requires PHP: 8.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ Daily verses and selected passages. Local storage, previews, ten layouts, Gutenb
 
 Daily Scripture adds daily readings, selected Bible passages and personal dashboard widgets to your WordPress website. Choose your sources, shape the design and display readings with Gutenberg, shortcodes, Elementor or Bricks. Website features also work in Multisite, with an additional Network Admin reading view.
 
-**Version:** 1.0.0 · **Requires:** WordPress 6.6+ / PHP 8.0+ · **License:** GPL-2.0-or-later
+**Version:** 1.0.1 · **Requires:** WordPress 6.6+ / PHP 8.0+ · **License:** GPL-2.0-or-later
 
 [Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [User guide](https://github.com/deckerweb/daily-scripture/wiki/English) · [Deutsch](README-de.md)
 
@@ -121,9 +121,13 @@ The bundled deckerweb updater delivers public GitHub releases through regular Wo
 
 = Network dashboard and page caches =
 
-The Network Admin widget reads the selected active website’s local texts and timezone. Its personal display options are separate from website dashboards. New websites initialize their own defaults and annual checks when the plugin is network active. The corrected deckerweb catalog remains a prerequisite for network activation. Refresh full-page/CDN caches after midnight in each website’s timezone so daily readings stay current.
+The Network Admin widget reads the selected active website’s local texts and timezone. Its personal display options are separate from website dashboards. New websites initialize their own defaults and annual checks when the plugin is network active. Network activation is supported with the bundled Library 0.8.1, including first activation beside an older Library copy. Refresh full-page/CDN caches after midnight in each website’s timezone so daily readings stay current.
 
 == Changelog ==
+
+= 1.0.1 =
+
+Fixed: Network activation is supported with the bundled Library 0.8.1, including first activation beside an older Library copy.
 
 = 1.0.0 =
 
@@ -178,7 +182,7 @@ Report vulnerabilities privately through [the security policy](SECURITY.md). Sup
 
 Plugin code is licensed under **GPL-2.0-or-later**. Bible texts and annual packages have separate terms. © 2026 David Decker – DECKERWEB · [License](LICENSE)
 
-Shared components: deckerweb Library 0.6.0 and Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Provenance and behavior: [Components](UPDATER.md).
+Shared components: deckerweb Library 0.8.1 and Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Provenance and behavior: [Components](UPDATER.md).
 
 ## Dashboard readings and color picker
 
@@ -187,3 +191,6 @@ Define available readings in **Daily Scripture → Dashboard readings**: Die Los
 The Network Admin widget uses a personally selected active website in the current network and visibly names it. When only the main website is active, it is used automatically. With multiple active websites or network activation, select the source website; save once after changing it to load its configured readings, then choose your personal selection. An unavailable previous website falls back with a notice. The network widget is available when the plugin is active on the main website or network-wide; activation only on a subsite does not load it in Network Admin. The website widget switch affects that website's dashboard; the network reading view is independent. Website choices are paginated in groups of 50. No separate network Bible storage is created.
 
 Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
+
+
+For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 0.8.1 offer activation directly in the catalog.

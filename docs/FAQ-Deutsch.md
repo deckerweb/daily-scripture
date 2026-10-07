@@ -36,7 +36,7 @@ Nein. Beginne mit einem Jahrespaket unter Datenquellen oder einer Ausgabe unter 
 
 ### Kann ich Multisite verwenden?
 
-Die Aktivierung je Website wird unterstützt. Einstellungen, Jahresdaten und Bibelausgaben bleiben je Website getrennt. Netzwerkaktivierung ist durch den mitgelieferten Library-Katalog 0.6.0 noch gesperrt und wartet auf eine separat freigegebene Komponenten-Korrektur. Die gemeinsame deckerweb Library verwendet Netzwerkeinstellungen.
+Daily Scripture 1.0.1 enthält Library 0.8.1 mit versionsabhängiger Netzwerkfreigabe und geprüfter Übergabe bei erstmaliger Aktivierung neben einer älteren Library. Website-Daten bleiben getrennt; das Network-Admin-Widget verwendet die gewählte Bezugswebsite.
 
 
 <a name="jahresdaten-und-downloads"></a>
@@ -196,3 +196,6 @@ Lege unter **Daily Scripture → Dashboard-Lesungen** die angebotenen Lesungen f
 Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des aktuellen Netzwerks und nennt diese sichtbar. Ist nur die Hauptwebsite aktiv, wird sie automatisch verwendet. Bei mehreren aktiven Websites oder Netzwerkaktivierung kannst du die Bezugswebsite wählen: Speichere nach dem Wechsel einmal, um deren Lesungen zu laden, und triff danach deine persönliche Auswahl. Ist die bisherige Website nicht mehr verfügbar, folgt ein Hinweis und eine Ersatzwebsite. Das Widget steht im Network Admin bei Aktivierung auf der Hauptwebsite oder im Netzwerk bereit; eine ausschließliche Unterwebsite-Aktivierung lädt es dort nicht. Der Website-Widget-Schalter betrifft das Dashboard dieser Website; die Netzwerk-Leseansicht ist unabhängig. Die Website-Auswahl wird in Gruppen von 50 angeboten. Es entsteht keine zusätzliche Netzwerk-Bibeltextdatenhaltung.
 
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
+
+
+Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 0.8.1 bieten die Freigabe direkt im Katalog.

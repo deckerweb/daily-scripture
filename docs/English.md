@@ -1,4 +1,4 @@
-# User guide · Daily Scripture 1.0.0
+# User guide · Daily Scripture 1.0.1
 
 [Deutsch](Deutsch.md) · [Home](Home.md)
 
@@ -171,3 +171,6 @@ Define available readings in **Daily Scripture → Dashboard readings**: Die Los
 The Network Admin widget uses a personally selected active website in the current network and visibly names it. When only the main website is active, it is used automatically. With multiple active websites or network activation, select the source website; save once after changing it to load its configured readings, then choose your personal selection. An unavailable previous website falls back with a notice. The network widget is available when the plugin is active on the main website or network-wide; activation only on a subsite does not load it in Network Admin. The website widget switch affects that website's dashboard; the network reading view is independent. Website choices are paginated in groups of 50. No separate network Bible storage is created.
 
 Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
+
+
+For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 0.8.1 offer activation directly in the catalog.

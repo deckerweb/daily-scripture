@@ -8,7 +8,7 @@
 
 Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewählte Bibelstellen und persönliche Dashboard-Widgets. Wähle deine Quellen, gestalte die Ausgabe und zeige Lesungen mit Gutenberg, Shortcodes, Elementor oder Bricks an. Die Website-Funktionen sind auch in Multisite nutzbar, ergänzt um eine Leseansicht im Network Admin.
 
-**Version:** 1.0.0 · **Voraussetzungen:** WordPress 6.6+ / PHP 8.0+ · **Lizenz:** GPL-2.0-or-later
+**Version:** 1.0.1 · **Voraussetzungen:** WordPress 6.6+ / PHP 8.0+ · **Lizenz:** GPL-2.0-or-later
 
 [Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deutsch) · [English](README.md)
 
@@ -121,6 +121,10 @@ Die [deutsche Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deuts
 
 ## Changelog
 
+### 1.0.1
+
+- **Behoben:** Netzwerkaktivierung wird mit der eingebundenen Library 0.8.1 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie.
+
 ### 1.0.0
 
 - **Neu:** Persönliche Widget-Quellenwahl, mehrere Lesungen und anpassbare Reihenfolge für WordPress-Websites, auch in Multisite; eigene Bibelstellen und wählbare Bezugswebsite im Network Admin.
@@ -176,7 +180,7 @@ Vertrauliche Sicherheitsmeldungen: [Sicherheitsmeldeweg](SECURITY-de.md). Unters
 
 Der Plugin-Code steht unter **GPL-2.0-or-later**. Für Bibeltexte und Jahrespakete gelten eigene Bedingungen. © 2026 David Decker – DECKERWEB · [Lizenz](LICENSE)
 
-Gemeinsame Komponenten: deckerweb Library 0.6.0 und Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Herkunft und Verhalten: [Komponenten](UPDATER-de.md).
+Gemeinsame Komponenten: deckerweb Library 0.8.1 und Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Herkunft und Verhalten: [Komponenten](UPDATER-de.md).
 
 ## Dashboard-Lesungen und Farbwähler
 
@@ -186,10 +190,13 @@ Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des
 
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
 
-Die korrigierte deckerweb-Katalogfreigabe bleibt Voraussetzung für allgemeine Netzwerkaktivierung. Seiten-/CDN-Caches sollten nach Mitternacht in der Website-Zeitzone erneuert werden.
+Netzwerkaktivierung wird mit der eingebundenen Library 0.8.1 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie. Seiten-/CDN-Caches sollten nach Mitternacht in der Website-Zeitzone erneuert werden.
 
 ## Einstellungen im Überblick
 
 ![Dashboard-Quellen und eine klar gekennzeichnete Gestaltungsvorschau auf einer WordPress-Website.](assets/screenshots/settings-de.png)
 
 Dashboard-Quellen und eine klar gekennzeichnete Gestaltungsvorschau auf einer WordPress-Website.
+
+
+Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 0.8.1 bieten die Freigabe direkt im Katalog.

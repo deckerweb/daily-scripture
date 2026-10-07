@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Daily Scripture 1.0.0\n"
+"Project-Id-Version: Daily Scripture 1.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/deckerweb/daily-scripture/issues\n"
 "Last-Translator: David Decker – DECKERWEB\n"
 "Language-Team: \n"
@@ -3090,4 +3090,60 @@ msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "You already use one of my plugins. Find selected additions in the deckerweb tab."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Activating…"
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Another action for this plugin is running. Please wait."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Check status"
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Checking status…"
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Filesystem credentials are required."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installation cancelled."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installation failed."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installing…"
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Not installed. You can try again."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Shop"
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The action is still running. Check its status again."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The request could not be completed. Check the plugin status before trying again."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The requirements below describe the offered release."
+msgstr ""
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Tools"
 msgstr ""

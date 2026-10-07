@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Daily Scripture 1.0.0\n"
+"Project-Id-Version: Daily Scripture 1.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/deckerweb/daily-scripture/issues\n"
 "Last-Translator: David Decker – DECKERWEB\n"
 "Language-Team: German\n"
@@ -3093,3 +3093,59 @@ msgstr "WordPress"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "You already use one of my plugins. Find selected additions in the deckerweb tab."
 msgstr "Du nutzt bereits ein Plugin von mir. Ausgewählte Ergänzungen findest du im deckerweb-Tab."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Activating…"
+msgstr "Wird aktiviert…"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Another action for this plugin is running. Please wait."
+msgstr "Für dieses Plugin läuft bereits eine Aktion. Bitte warten."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Check status"
+msgstr "Status prüfen"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Checking status…"
+msgstr "Status wird geprüft…"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Filesystem credentials are required."
+msgstr "Zugangsdaten für das Dateisystem werden benötigt."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installation cancelled."
+msgstr "Installation abgebrochen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installation failed."
+msgstr "Installation fehlgeschlagen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installing…"
+msgstr "Wird installiert…"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Not installed. You can try again."
+msgstr "Nicht installiert. Ein erneuter Versuch ist möglich."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Shop"
+msgstr "Shop"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The action is still running. Check its status again."
+msgstr "Die Aktion läuft noch. Bitte den Status erneut prüfen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The request could not be completed. Check the plugin status before trying again."
+msgstr "Die Anfrage konnte nicht abgeschlossen werden. Vor einem erneuten Versuch den Plugin-Status prüfen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The requirements below describe the offered release."
+msgstr "Die folgenden Voraussetzungen beziehen sich auf den angebotenen Release."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Tools"
+msgstr "Werkzeuge"

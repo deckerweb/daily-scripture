@@ -1,6 +1,6 @@
 <?php
 /** Copyright 2026 David Decker – DECKERWEB. SPDX-License-Identifier: GPL-2.0-or-later */
-namespace Deckerweb\PluginLibrary\V0_6_0;
+namespace Deckerweb\PluginLibrary\V0_8_1;
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 /** Structured, escaped local history. One dialog per Library page, no shared host-footer replacement. */
 final class History {
