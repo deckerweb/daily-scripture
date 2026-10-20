@@ -2,6 +2,13 @@
 
 [ English ](English.md) · [ Deutsch ](Changelog-Deutsch.md)
 
+### 1.1.0
+
+- **New:** Current/next-year overview for annual sources, temporary Today/Tomorrow/custom-date previews, and an expanded Site Health report with copyable support diagnostics under Help.
+- **Improved:** Categorized download diagnostics with safe technical codes and a manual-copy fallback; isolated preview assets, more robust dialogs and Manrope lettering in the localized banners.
+- **Fixed:** Losungen downloads can retry a missing-issuer certificate error with verified official intermediate certificates while keeping HTTPS verification enabled. Leading Losungen introduction markers are displayed in italics without visible slashes; wording and stored originals remain unchanged.
+- **Misc:** Bundled deckerweb Library 1.0.0; unchanged Updater V2 2.1.0. Requires PHP 8.1 or later; WordPress 6.6 remains the minimum. Updated English/German documentation and checks for single-site and Multisite installations.
+
 ### 1.0.1
 
 - **Fixed:** Network activation is supported with the bundled Library 0.8.1, including first activation beside an older Library copy.

@@ -8,6 +8,7 @@
 namespace Deckerweb\DailyScripture\Core;
 
 use Deckerweb\DailyScripture\Data\YearStore;
+use Deckerweb\DailyScripture\Downloads\{AnnualPackages, DownloadError};
 
 defined( 'ABSPATH' ) || exit;
 
@@ -99,7 +100,8 @@ final class SiteHealth {
 	 * @return array
 	 */
 	public function information( array $information ): array {
-		$fields = array(
+		$runtime               = $GLOBALS['deckerweb_library_runtime_v1'] ?? null;
+		$fields                = array(
 			'version'  => array(
 				'label' => __( 'Plugin version', 'daily-scripture' ),
 				'value' => DAILY_SCRIPTURE_VERSION,
@@ -113,6 +115,39 @@ final class SiteHealth {
 				'value' => current_datetime()->format( 'Y-m-d' ),
 			),
 		);
+		$fields['environment'] = array(
+			'label' => __( 'WordPress / PHP', 'daily-scripture' ),
+			'value' => get_bloginfo( 'version' ) . ' / ' . PHP_VERSION,
+		);
+		$fields['mode']        = array(
+			'label' => __( 'Installation mode', 'daily-scripture' ),
+			'value' => is_multisite() ? __( 'Multisite', 'daily-scripture' ) : __( 'Single site', 'daily-scripture' ),
+		);
+		$network_plugins       = is_multisite() ? (array) get_site_option( 'active_sitewide_plugins', array() ) : array();
+		$fields['activation']  = array(
+			'label' => __( 'Plugin activation', 'daily-scripture' ),
+			'value' => isset( $network_plugins[ plugin_basename( DAILY_SCRIPTURE_FILE ) ] ) ? __( 'Network-wide', 'daily-scripture' ) : __( 'Current site', 'daily-scripture' ),
+		);
+		$fields['library']     = array(
+			'label' => 'deckerweb Library',
+			'value' => is_object( $runtime ) && defined( get_class( $runtime ) . '::VERSION' ) ? constant( get_class( $runtime ) . '::VERSION' ) : __( 'Not loaded', 'daily-scripture' ),
+		);
+		$fields['updater']     = array(
+			'label' => 'deckerweb Updater V2',
+			'value' => defined( '\Deckerweb\GitHubReleaseUpdater\V2\Updater::IMPLEMENTATION_VERSION' ) ? \Deckerweb\GitHubReleaseUpdater\V2\Updater::IMPLEMENTATION_VERSION : __( 'Not loaded', 'daily-scripture' ),
+		);
+		foreach ( array(
+			'DOM/XML' => class_exists( '\DOMDocument' ),
+			'ZIP'     => class_exists( '\ZipArchive' ),
+			'OpenSSL' => extension_loaded( 'openssl' ),
+			'cURL'    => extension_loaded( 'curl' ),
+		) as $extension => $available ) {
+			$fields[ 'extension_' . sanitize_key( $extension ) ] = array(
+				'label' => $extension,
+				'value' => $available ? __( 'Available', 'daily-scripture' ) : __( 'Unavailable', 'daily-scripture' ),
+			);
+		}
+
 		foreach ( $this->sources() as $source => $label ) {
 			try {
 				$years = ( new YearStore() )->existing_years( $source );
@@ -120,16 +155,61 @@ final class SiteHealth {
 			} catch ( \RuntimeException $error ) {
 				$value = __( 'Storage could not be read', 'daily-scripture' );
 			}
-			$fields[ $source ] = array(
+			$fields[ $source ]            = array(
 				'label' => $label,
 				'value' => $value,
 			);
+			$fields[ $source . '_check' ] = array(
+				/* translators: %s: Annual source name. */
+				'label' => sprintf( __( '%s: cached source check', 'daily-scripture' ), $label ),
+				'value' => $this->source_check( $source ),
+			);
+
 		}
 		$information['daily-scripture'] = array(
 			'label'       => 'Daily Scripture',
-			'description' => __( 'Existing annual files are listed by year. Only the status test validates the current annual data. No verse texts or server paths are included.', 'daily-scripture' ),
+			'description' => __( 'Local support information only. Source checks use the existing temporary cache and may have expired; they do not test a new connection. Only the status test validates current annual data. Verse texts, addresses and server paths are excluded.', 'daily-scripture' ),
 			'fields'      => $fields,
 		);
 		return $information;
+	}
+	/**
+	 * Describe only the existing check cache, never raw provider messages or URLs.
+	 *
+	 * @param string $source Annual provider.
+	 * @return string Localized cache state and optional whitelisted codes.
+	 */
+	private function source_check( string $source ): string {
+		$cached = ( new AnnualPackages() )->catalogue( $source );
+		if ( ! $cached || ! is_int( $cached['checked'] ?? null ) || $cached['checked'] <= 0 || $cached['checked'] > time() ) {
+			return __( 'No cached check (not checked or expired)', 'daily-scripture' );
+		}
+		$state = empty( $cached['error'] ) ? __( 'Successful', 'daily-scripture' ) : __( 'Failed', 'daily-scripture' );
+		$text  = $state . ' · ' . wp_date( 'Y-m-d H:i:s T', $cached['checked'] );
+		if ( ! empty( $cached['error'] ) && is_array( $cached['diagnostic'] ?? null ) ) {
+			$data  = DownloadError::restore( $cached['diagnostic'] )->diagnostic();
+			$text .= ' · ' . $data['reason'];
+			if ( $data['http'] ) {
+				$text .= ' · HTTP ' . $data['http'];
+			}
+			if ( $data['curl'] ) {
+				$text .= ' · cURL ' . $data['curl'];
+			}
+		}
+		return $text;
+	}
+
+	/**
+	 * Reuse the Site Health fields for a copyable, read-only administrator report.
+	 *
+	 * @return string Plain text; no user, domain, credential or content information.
+	 */
+	public function support_text(): string {
+		$section = $this->information( array() )['daily-scripture'];
+		$lines   = array( 'Daily Scripture', $section['description'], '' );
+		foreach ( $section['fields'] as $field ) {
+			$lines[] = $field['label'] . ': ' . $field['value'];
+		}
+		return implode( "\n", $lines );
 	}
 }

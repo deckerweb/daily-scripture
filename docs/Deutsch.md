@@ -1,4 +1,4 @@
-# Anleitung · Daily Scripture 1.0.1
+# Anleitung · Daily Scripture 1.1.0
 
 [English](English.md) · [Home](Home.md)
 
@@ -36,7 +36,7 @@ Von der ersten Lesung bis zur passenden Gestaltung: Nutze das Inhaltsverzeichnis
 
 ## Installation und Einstieg
 
-Benötigt werden WordPress ab 6.6, PHP ab 8.0 und DOM/XML. Für ZIP-Pakete ist die PHP-Erweiterung ZipArchive erforderlich. Elementor und Bricks sind optional.
+Benötigt werden WordPress ab 6.6, PHP ab 8.1 und DOM/XML. Für ZIP-Pakete ist die PHP-Erweiterung ZipArchive erforderlich. Elementor und Bricks sind optional.
 
 1. Das Plugin-ZIP unter **Plugins → Installieren → Plugin hochladen** installieren und aktivieren.
 2. Unter **Daily Scripture → Datenquellen** die Downloadquelle prüfen, ein Jahrespaket wählen und nach Prüfung der Nutzungsbedingungen importieren. Alternativ eine offizielle XML-/TWD-Datei oder das zugehörige ZIP hochladen.
@@ -186,4 +186,19 @@ Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
 
 
-Falls ein älterer Library-Katalog die Karte bei der ersten Netzwerkaktivierung noch sperrt, öffne **Network Admin → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Dabei übernimmt die neue Library. Hosts mit Library 0.8.1 bieten die Aktivierung direkt im Katalog an.
+Falls ein älterer Library-Katalog die Karte bei der ersten Netzwerkaktivierung noch sperrt, öffne **Network Admin → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Dabei übernimmt die neue Library. Hosts mit Library 1.0.0 bieten die Aktivierung direkt im Katalog an.
+
+
+## Losungen-Download und Zertifikatsfehler
+
+Bei einem Zertifikatsfehler wegen eines fehlenden Ausstellers versucht Daily Scripture den freigegebenen Losungen-Abruf einmal mit mitgelieferten offiziellen Zwischenzertifikaten erneut. Diese müssen sich gegen die aktuellen WordPress-Vertrauensanker prüfen lassen. HTTPS- und Hostnamenprüfung bleiben aktiv. Für andere Anbieter, abgelaufene Zertifikate und andere Fehler gilt dieser Fallback nicht. Schlägt die Prüfung weiterhin fehl, lade das offizielle Paket manuell hoch oder lasse die Verbindung vom Hoster prüfen.
+
+## Jahresübersicht, Download-Diagnose und Vorschaudatum
+
+Unter **Daily Scripture → Datenquellen** zeigt die Übersicht beide Jahresstände je Quelle. Nur die Quellen, die du verwendest, benötigen Daten. Verfügbare Pakete und fehlende Dateien sind mit der zugehörigen Quellenprüfung verknüpft. „Bei der letzten Quellenprüfung noch nicht aufgeführt“ ist eine Information zum gespeicherten Prüfergebnis, keine sichere Aussage über den aktuellen Veröffentlichungsstand des Anbieters. Die Übersicht selbst löst keinen Abruf aus.
+
+Bei einem fehlgeschlagenen Abruf nennt das Plugin die Fehlerart. **Technische Details** enthält ausschließlich begrenzte Diagnosecodes, HTTP-/cURL-Nummern und die Pluginversion. **Diagnose kopieren** übernimmt diese Angaben; ohne JavaScript oder Zwischenablagezugriff lässt sich das Textfeld manuell markieren. Es werden keine Rohantworten, Serverpfade oder Zugangsdaten in der Diagnose gespeichert. Die vorhandenen kurzlebigen Prüf-/Hinweiscaches werden verwendet, kein zusätzliches Dauerprotokoll. Die Zertifikatsprüfung bleibt aktiv.
+
+In der Gestaltungsvorschau wählst du **Heute**, **Morgen** oder **Datum wählen**. Für frei gewählte Termine und morgen werden ausschließlich vorhandene lokale Jahresdaten angezeigt. Fehlen sie oder liegt das Datum außerhalb des zulässigen Quellenbereichs, zeigt die Vorschau einen Hinweis. Nur die heutige Standardvorschau darf ein deutlich beschriftetes Gestaltungsbeispiel verwenden. Die Website-Zeitzone gilt; Datumswahl und Vorschau-Regler ändern weder gespeicherte Einstellungen noch veröffentlichte Verse und starten keinen Download.
+
+Losungen-Einleitungen mit führenden `/…:/`-Markierungen werden kursiv und ohne sichtbare Schrägstriche dargestellt; Wortlaut und gespeicherte Originaldaten bleiben erhalten. Unter **Hilfe → Support-Diagnose** lässt sich ein lokaler technischer Bericht kopieren. Dieselben Angaben stehen unter **Werkzeuge → Website-Zustand → Bericht**: Komponentenstand, Betriebsmodus, Erweiterungen, Jahresbestände und sichere Codes noch zwischengespeicherter Quellenprüfungen. Kein neuer Abruf und kein automatischer Versand. Seit WordPress 6.9 führt die native Befehlspalette automatisch zu den zugänglichen Plugin-Menüs; zusätzliche Daily-Scripture-Befehle sind nicht registriert. In WordPress 6.6–6.8 bleiben die regulären Plugin-Menüs verfügbar.

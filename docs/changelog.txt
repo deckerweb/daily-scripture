@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.1.0 =
+
+* New: Current/next-year overview for annual sources, temporary Today/Tomorrow/custom-date previews, and an expanded Site Health report with copyable support diagnostics under Help.
+* Improved: Categorized download diagnostics with safe technical codes and a manual-copy fallback; isolated preview assets, more robust dialogs and Manrope lettering in the localized banners.
+* Fixed: Losungen downloads can retry a missing-issuer certificate error with verified official intermediate certificates while keeping HTTPS verification enabled. Leading Losungen introduction markers are displayed in italics without visible slashes; wording and stored originals remain unchanged.
+* Misc: Bundled deckerweb Library 1.0.0; unchanged Updater V2 2.1.0. Requires PHP 8.1 or later; WordPress 6.6 remains the minimum. Updated English/German documentation and checks for single-site and Multisite installations.
+
 = 1.0.1 =
 
 * Fixed: Network activation is supported with the bundled Library 0.8.1, including first activation beside an older Library copy.
@@ -29,21 +36,3 @@ Unreleased intermediate version; included in version 1.0.0.
 
 = 0.16.1 =
 * Misc: Explicit GPL-2.0-or-later licensing for the plugin code, with the full license and publication package. Bible text permissions remain separate.
-
-= 0.16.0 =
-* New: Shared deckerweb GitHub Release Updater library, as used by Brand Admin Schemes, with WordPress update notices and release details.
-* Improved: Bounded HTTPS metadata requests, cached results and localized update errors.
-* Improved: Package identity, offered version and actual WordPress/PHP requirements checked before replacing plugin files.
-* Misc: Update URI, library provenance and public GitHub release instructions documented; automatic updates remain a user choice.
-
-= 0.15.0 =
-* New: Changelog dialog beside the version number on every plugin admin page, with German or English release history.
-* Improved: English default readmes and separate German editions, with language-matched documentation links.
-
-= 0.14.0 =
-* New: German translation files for the plugin and block editor.
-* Improved: Concise plugin description covering current features, clearer help and consistent German terminology.
-* Improved: Current readme covering setup, design, shortcodes, data management and all four Bible editions.
-* Fixed: Outdated storage paths and incomplete notes on data removal, JSON exports and dashboard previews.
-* Misc: Complete release history using New, Improved, Fixed and Misc prefixes; refreshed translation template. The plugin name remains Daily Scripture.
-

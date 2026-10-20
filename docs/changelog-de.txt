@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.1.0 =
+
+* Neu: Jahresübersicht für aktuelle und kommende Jahresdaten, temporäre Vorschau für Heute/Morgen/ein frei gewähltes Datum sowie erweiterte Site-Health-Angaben mit kopierbarem Support-Bericht unter Hilfe.
+* Verbessert: Differenzierte Download-Diagnose mit sicheren technischen Codes und manueller Kopieralternative; isolierte Vorschau-Assets, robustere Dialoge und Manrope-Schriftzüge in den lokalisierten Bannern.
+* Behoben: Losungen-Downloads können bei fehlendem Ausstellerzertifikat mit geprüften offiziellen Zwischenzertifikaten erneut versucht werden; die HTTPS-Prüfung bleibt aktiv. Führende Losungen-Einleitungen erscheinen kursiv und ohne sichtbare Slashes; Wortlaut und gespeicherte Originaldaten bleiben unverändert.
+* Sonstiges: Eingebundene deckerweb Library 1.0.0; Updater V2 2.1.0 unverändert. PHP mindestens 8.1; WordPress 6.6 bleibt die Mindestversion. Aktualisierte englische/deutsche Dokumentation und Prüfungen für Einzelinstallationen und Multisite.
+
 = 1.0.1 =
 
 * Behoben: Netzwerkaktivierung wird mit der eingebundenen Library 0.8.1 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie.
@@ -29,21 +36,3 @@ Unveröffentlichte Zwischenversion; in Version 1.0.0 enthalten.
 
 = 0.16.1 =
 * Sonstiges: GPL-2.0-or-later für den Plugin-Code ausdrücklich dokumentiert; vollständige Lizenzdatei und Veröffentlichungspaket ergänzt. Die Nutzungsbedingungen der Bibeltexte bleiben unabhängig davon.
-
-= 0.16.0 =
-* Neu: Gemeinsame deckerweb GitHub Release Updater-Bibliothek wie in Brand Admin Schemes, mit WordPress-Updateanzeige und Release-Details.
-* Verbessert: Begrenzte HTTPS-Metadatenabfragen, zwischengespeicherte Ergebnisse und lokalisierte Updatefehler.
-* Verbessert: Prüfung von Paketidentität, angebotener Version und tatsächlichen WordPress-/PHP-Anforderungen vor dem Austausch der Plugin-Dateien.
-* Sonstiges: Update-URI, Bibliotheksherkunft und Anleitung für öffentliche GitHub-Releases dokumentiert; automatische Updates bleiben eine Benutzerentscheidung.
-
-= 0.15.0 =
-* Neu: Changelog-Dialog neben der Versionsnummer auf allen Plugin-Adminseiten, mit deutscher oder englischer Versionshistorie.
-* Verbessert: Englische Standard-Readmes und separate deutsche Fassungen; Verweise passend zur jeweiligen Sprache.
-
-= 0.14.0 =
-* Neu: Deutsche Sprachdateien für Plugin und Block-Editor.
-* Verbessert: Kürzere Plugin-Beschreibung mit dem aktuellen Funktionsumfang; verständlichere Hilfen und einheitliche deutsche Begriffe.
-* Verbessert: Readme als aktuelle Anleitung mit Einrichtung, Gestaltung, Shortcodes, Datenpflege und allen vier Bibelausgaben.
-* Behoben: Veraltete Speicherpfade und unvollständige Hinweise zu Datenlöschung, JSON-Export und Dashboard-Vorschau berichtigt.
-* Sonstiges: Vollständige Versionshistorie mit den Präfixen New, Improved, Fixed und Misc; Übersetzungsvorlage aktualisiert. Der Pluginname bleibt Daily Scripture.
-

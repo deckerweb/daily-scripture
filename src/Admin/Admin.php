@@ -151,9 +151,10 @@ final class Admin {
 		<div class="wrap ds-admin">
 		<?php PageChrome::header( 'daily-scripture-data', __( 'Data sources and annual data', 'daily-scripture' ), __( 'Ready for the year: download daily readings, check your sources and manage annual packages.', 'daily-scripture' ) ); ?>
 		<?php if ( is_array( $notice ) ) : ?>
-			<div class="notice <?php echo ! empty( $notice['error'] ) ? 'notice-error' : 'notice-success'; ?>"><p><?php echo esc_html( $notice['message'] ); ?></p></div>
+			<div class="notice <?php echo ! empty( $notice['error'] ) ? 'notice-error' : 'notice-success'; ?>"><p><?php echo esc_html( $notice['message'] ); ?></p><?php DownloadDiagnostics::render( is_array( $notice['diagnostic'] ?? null ) ? $notice['diagnostic'] : array() ); ?></div>
 		<?php endif; ?>
 		<p><?php esc_html_e( 'Verse data is stored exclusively under wp-content/uploads/daily-scripture/. One edition is stored per source and year. Existing years are replaced only when explicitly selected.', 'daily-scripture' ); ?></p>
+		<?php ( new DataDownloads() )->readiness(); ?>
 		<h2><?php esc_html_e( 'Installed years', 'daily-scripture' ); ?></h2>
 		<?php foreach ( $this->sources() as $source => $label ) : ?>
 			<h3><?php echo esc_html( $label ); ?></h3>
@@ -184,13 +185,6 @@ final class Admin {
 			<?php endforeach; ?>
 			</tbody></table></div>
 		<?php endforeach; ?>
-		<h2><?php esc_html_e( 'Ready for the new year?', 'daily-scripture' ); ?></h2><ul>
-		<?php foreach ( ( new Lifecycle() )->status() as $source => $years ) : ?>
-			<?php foreach ( $years as $year => $status ) : ?>
-				<li><?php echo esc_html( $this->sources()[ $source ] . ' · ' . $year . ': ' . $status ); ?></li>
-			<?php endforeach; ?>
-		<?php endforeach; ?>
-		</ul>
 		<?php ( new DataDownloads() )->annual(); ?>
 		<h2><?php esc_html_e( 'Import an official annual file', 'daily-scripture' ); ?></h2>
 		<p><a href="https://www.losungen.de/download/">Die Losungen: <?php esc_html_e( 'Download', 'daily-scripture' ); ?></a> · <a href="https://bible2.net/de/downloadtheword">Bible 2.0: <?php esc_html_e( 'Download', 'daily-scripture' ); ?></a> · <a href="https://bible2.net/service/TheWord/twd11/current?format=html"><?php esc_html_e( 'Bible 2.0 file directory (alternative)', 'daily-scripture' ); ?></a></p>

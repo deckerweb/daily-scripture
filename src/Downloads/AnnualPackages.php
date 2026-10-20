@@ -30,6 +30,13 @@ final class AnnualPackages {
 		$key = self::PREFIX . $source . '_' . wp_date( 'Y' );
 		if ( ! $refresh ) {
 			$value = get_transient( $key );
+			// Old failed checks lack safe codes; refresh them rather than reusing a stale translated message.
+			if ( is_array( $value ) && ! empty( $value['error'] ) && ( empty( $value['diagnostic'] ) || ! is_array( $value['diagnostic'] ) ) ) {
+				return null;
+			}
+			if ( is_array( $value ) && ! empty( $value['diagnostic'] ) && is_array( $value['diagnostic'] ) ) {
+				$value['error'] = DownloadError::restore( $value['diagnostic'] )->getMessage();
+			}
 			return is_array( $value ) ? $value : null;
 		}
 		$result = array(
@@ -41,7 +48,9 @@ final class AnnualPackages {
 			$url             = 'herrnhuter' === $source ? 'https://www.losungen.de/download/' : 'https://bible2.net/service/TheWord/twd11/current?format=json';
 			$result['items'] = $this->decode( $source, Remote::get( $url ) );
 		} catch ( \RuntimeException $error ) {
-			$result['error'] = $error->getMessage();
+			$failure              = $error instanceof DownloadError ? $error : new DownloadError( 'content' );
+			$result['error']      = $failure->getMessage();
+			$result['diagnostic'] = $failure->diagnostic();
 		}
 		set_transient( $key, $result, '' === $result['error'] ? 6 * HOUR_IN_SECONDS : 5 * MINUTE_IN_SECONDS );
 		return $result;
@@ -123,7 +132,8 @@ final class AnnualPackages {
 	 * @param string $id Catalogue key, never an arbitrary URL.
 	 * @param bool   $replace Explicit replacement permission.
 	 * @return void
-	 * @throws \RuntimeException On unavailable or invalid data.
+	 * @throws \RuntimeException On unavailable package metadata or storage failure.
+	 * @throws DownloadError On a transport or annual-content failure.
 	 */
 	public function install( string $source, string $id, bool $replace ): void {
 		$catalogue = $this->catalogue( $source );
@@ -143,7 +153,11 @@ final class AnnualPackages {
 				throw new \RuntimeException( esc_html__( 'The download could not be stored temporarily.', 'daily-scripture' ) );
 			}
 			chmod( $file, 0600 );
-			$record = ( new Importer() )->parse( $file, $source, $item['year'] );
+			try {
+				$record = ( new Importer() )->parse( $file, $source, $item['year'] );
+			} catch ( \RuntimeException $error ) {
+				throw new DownloadError( 'content' );
+			}
 			( new YearStore() )->save( $record, $replace );
 		} finally {
 			if ( is_file( $file ) ) {

@@ -29,6 +29,21 @@ final class Renderer {
 	}
 
 	/**
+	 * Interpret a publisher's leading introduction markers without changing stored text.
+	 * Only a complete leading /introduction:/ is formatted; other slashes stay literal.
+	 *
+	 * @param string $text Original imported verse text.
+	 * @param string $source Provider identifier.
+	 * @return string HTML with every text fragment escaped.
+	 */
+	private function verse_text( string $text, string $source ): string {
+		if ( 'herrnhuter' === $source && preg_match( '~\A(\s*)/([^/\r\n]+:)/(?=\s|$)~u', $text, $match ) ) {
+			return esc_html( $match[1] ) . '<em class="daily-scripture__intro">' . esc_html( $match[2] ) . '</em>' . esc_html( substr( $text, strlen( $match[0] ) ) );
+		}
+		return esc_html( $text );
+	}
+
+	/**
 	 * Render validated provider envelopes with the same markup in previews.
 	 *
 	 * @param array     $sets Validated source envelopes or clearly labelled preview samples.
@@ -56,7 +71,7 @@ final class Renderer {
 				if ( ! empty( $item['intro'] ) ) {
 					echo '<p class="daily-scripture__text">' . esc_html( $item['intro'] ) . '</p>';
 				}
-				echo '<p class="daily-scripture__text">' . esc_html( $item['text'] ) . '</p>';
+				echo '<p class="daily-scripture__text">' . $this->verse_text( $item['text'], $set['source'] ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- verse_text escapes every source fragment.
 				echo '<cite class="daily-scripture__reference"><a href="' . esc_url( ReferenceLink::url( $item['reference'], (string) ( $display['bibleserver_translation'] ?? '' ) ) ) . '">' . esc_html( $item['reference'] ) . '</a></cite></blockquote>';
 			}
 			echo '</div><footer class="daily-scripture__meta">';

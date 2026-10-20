@@ -3,9 +3,9 @@
  * Plugin Name: Daily Scripture
  * Plugin URI: https://github.com/deckerweb/daily-scripture
  * Description: Daily readings and selected local Bible passages for WordPress websites, including Multisite. Flexible design, live previews, Gutenberg, Elementor, Bricks, shortcodes, personal dashboard widgets and JSON settings transfer.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Requires at least: 6.6
- * Requires PHP: 8.0
+ * Requires PHP: 8.1
  * Author: David Decker – DECKERWEB
  * Author URI: https://github.com/deckerweb
  * License: GPL v2 or later
@@ -23,7 +23,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAILY_SCRIPTURE_VERSION', '1.0.1' );
+define( 'DAILY_SCRIPTURE_VERSION', '1.1.0' );
 define( 'DAILY_SCRIPTURE_FILE', __FILE__ );
 define( 'DAILY_SCRIPTURE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DAILY_SCRIPTURE_URL', plugin_dir_url( __FILE__ ) );

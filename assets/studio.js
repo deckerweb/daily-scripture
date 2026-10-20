@@ -12,6 +12,8 @@ function () {
  var scale = document.getElementById('ds-type_scale');
  var slider = document.getElementById('ds-scale-slider');
  var expert = document.getElementById('ds-expert-toggle');
+ var previewDay = document.getElementById('ds-preview-day');
+ var previewDate = document.getElementById('ds-preview-date');
  var requestId = 0;
  var pending;
  var timer;
@@ -49,6 +51,8 @@ function () {
   });
   document.getElementById('ds-expert-fields').hidden = !expert.checked;
   slider.value = scale.value;
+  document.getElementById('ds-preview-date-control').hidden = previewDay.value !== 'custom';
+  previewDate.disabled = previewDay.value !== 'custom';
   var width = document.getElementById('ds-preview-width').value;
   frame.style.width = width === 'wide' ? '100%' : width + 'px';
  }
@@ -62,10 +66,13 @@ function () {
   var id = requestId;
   if (pending) { pending.abort(); }
   if (!form.checkValidity()) { frame.setAttribute('aria-busy', 'false'); status.textContent = config.invalid; return; }
+  if (previewDay.value === 'custom' && (!previewDate.value || !previewDate.checkValidity())) { frame.setAttribute('aria-busy', 'false'); status.textContent = config.dateError; return; }
   pending = new AbortController();
   var data = new URLSearchParams();
   data.set('action', 'daily_scripture_preview');
   data.set('nonce', config.nonce);
+  data.set('preview_day', previewDay.value);
+  if (previewDay.value === 'custom') { data.set('preview_date', previewDate.value); }
   data.set('context', document.getElementById('ds-preview-context').value);
   data.set('stress', document.getElementById('ds-preview-stress').checked ? '1' : '0');
   new FormData(form).forEach(/**
@@ -94,7 +101,7 @@ function () {
     */
    function (result) {
     if (id !== requestId) { return; }
-    if (!result.success || !result.data.document) { throw new Error(config.error); }
+    if (!result.success || !result.data.document) { var failure = new Error(config.error); failure.previewMessage = result.data && result.data.message ? result.data.message : config.error; throw failure; }
     frame.srcdoc = result.data.document;
     frame.parentElement.scrollTop = 0;
     status.textContent = config.ready;
@@ -104,7 +111,7 @@ function () {
     * @param {Error} error Rejected asynchronous operation.
     * @returns {void} No return value.
     */
-   function (error) { if (error.name !== 'AbortError' && id === requestId) { status.textContent = config.error; } })
+   function (error) { if (error.name !== 'AbortError' && id === requestId) { status.textContent = error.previewMessage || config.error; } })
    .finally(/**
     * Clear the latest preview busy state.
     * @returns {void} No return value.
@@ -115,7 +122,12 @@ function () {
   * Mark changes and debounce the next preview.
   * @returns {void} No return value.
   */
- function schedule() { document.getElementById('ds-save-status').textContent = config.dirty; clearTimeout(timer); timer = setTimeout(preview, 300); updateControls(); }
+ function schedule() { document.getElementById('ds-save-status').textContent = config.dirty; queuePreview(); }
+ /**
+  * Refresh preview-only controls without marking website settings as changed.
+  * @returns {void} No return value.
+  */
+ function queuePreview() { clearTimeout(timer); timer = setTimeout(preview, 300); updateControls(); }
  document.querySelectorAll('[data-ds-scale]').forEach(/**
   * Attach a preset scale button to the preview scheduler.
   * @param {HTMLButtonElement} button Copy or preset control.
@@ -133,12 +145,12 @@ function () {
   * @returns {void} No return value.
   */
  function () { scale.value = slider.value; schedule(); });
- ['ds-preview-width', 'ds-preview-context', 'ds-preview-stress'].forEach(/**
+ ['ds-preview-width', 'ds-preview-context', 'ds-preview-stress', 'ds-preview-day', 'ds-preview-date'].forEach(/**
   * Attach one preview-context control to the scheduler.
   * @param {string} id Preview control identifier.
   * @returns {void} No return value.
   */
- function (id) { document.getElementById(id).addEventListener('change', schedule); });
+ function (id) { document.getElementById(id).addEventListener('change', queuePreview); });
  document.getElementById('ds-preview-refresh').addEventListener('click', preview);
  window.addEventListener('message', /**
   * Accept height reports only from this preview frame.

@@ -23,6 +23,15 @@ final class PageChrome {
 			$hooks[] = 'daily-scripture_page_daily-scripture-' . $page;
 		}
 		if ( in_array( $hook, $hooks, true ) ) {
+			wp_enqueue_script( 'daily-scripture-admin-tools', DAILY_SCRIPTURE_URL . 'assets/admin-tools.js', array(), DAILY_SCRIPTURE_VERSION, true );
+			wp_localize_script(
+				'daily-scripture-admin-tools',
+				'dailyScriptureAdminTools',
+				array(
+					'copied' => __( 'Diagnostic copied.', 'daily-scripture' ),
+					'failed' => __( 'Select the diagnostic text and copy it manually.', 'daily-scripture' ),
+				)
+			);
 			wp_enqueue_script( 'daily-scripture-changelog', DAILY_SCRIPTURE_URL . 'assets/changelog.js', array(), DAILY_SCRIPTURE_VERSION, true );
 			wp_enqueue_style( 'daily-scripture-admin', DAILY_SCRIPTURE_URL . 'assets/css/admin.css', array(), DAILY_SCRIPTURE_VERSION );
 		}

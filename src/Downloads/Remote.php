@@ -18,25 +18,27 @@ final class Remote {
 	 * @param int    $limit Maximum body bytes.
 	 * @param int    $redirects Internal bounded SourceForge redirect count.
 	 * @return string
-	 * @throws \RuntimeException On remote or validation failure.
+	 * @throws \RuntimeException On an unapproved download address.
+	 * @throws DownloadError On a categorized transport or response failure.
 	 */
 	public static function get( string $url, int $limit = 2097152, int $redirects = 0 ): string {
 		$parts = wp_parse_url( $url );
 		if ( ! is_array( $parts ) || 'https' !== ( $parts['scheme'] ?? '' ) || ! ( in_array( $parts['host'] ?? '', array( 'www.losungen.de', 'bible2.net', 'ebible.org', 'downloads.sourceforge.net' ), true ) || preg_match( '/^[a-z0-9-]+\.dl\.sourceforge\.net$/D', $parts['host'] ?? '' ) ) || isset( $parts['user'] ) || isset( $parts['pass'] ) || isset( $parts['port'] ) || isset( $parts['fragment'] ) ) {
 			throw new \RuntimeException( esc_html__( 'This download address is not approved.', 'daily-scripture' ) );
 		}
-		$response = wp_safe_remote_get(
-			$url,
-			array(
-				'timeout'             => 25,
-				'redirection'         => 0,
-				'limit_response_size' => $limit + 1,
-				'sslverify'           => true,
-				'headers'             => array( 'Accept' => '*/*' ),
-			)
+		$args     = array(
+			'timeout'             => 25,
+			'redirection'         => 0,
+			'limit_response_size' => $limit + 1,
+			'sslverify'           => true,
+			'headers'             => array( 'Accept' => '*/*' ),
 		);
+		$response = wp_safe_remote_get( $url, $args );
+		if ( is_wp_error( $response ) && 'www.losungen.de' === $parts['host'] ) {
+			$response = LosungenCertificates::retry( $url, $args, $response );
+		}
 		if ( is_wp_error( $response ) ) {
-			throw new \RuntimeException( esc_html__( 'The provider is unreachable or the secure connection failed. Manual upload is still available.', 'daily-scripture' ) );
+			throw DownloadError::transport( $response ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception carries only safe localized categories; output is escaped by the admin renderer.
 		}
 		$status = wp_remote_retrieve_response_code( $response );
 		$body   = wp_remote_retrieve_body( $response );
@@ -48,8 +50,14 @@ final class Remote {
 				return self::get( $location, $limit, $redirects + 1 );
 			}
 		}
-		if ( 200 !== $status || '' === $body || strlen( $body ) > $limit ) {
-			throw new \RuntimeException( esc_html__( 'The download is unavailable, redirected, empty or too large. Please upload manually or check again later.', 'daily-scripture' ) );
+		if ( 200 !== $status ) {
+			throw new DownloadError( 'http', (int) $status );
+		}
+		if ( '' === $body ) {
+			throw new DownloadError( 'empty' );
+		}
+		if ( strlen( $body ) > $limit ) {
+			throw new DownloadError( 'large' );
 		}
 		return $body;
 	}

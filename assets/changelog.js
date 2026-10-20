@@ -6,7 +6,7 @@ function () {
 	'use strict';
 	var dialog = document.getElementById('ds-changelog');
 	var trigger = document.querySelector('[data-ds-changelog]');
-	if (!dialog || !trigger || typeof dialog.showModal !== 'function') { return; }
+	if (!dialog || !trigger || typeof HTMLDialogElement === 'undefined' || typeof HTMLDialogElement.prototype.showModal !== 'function') { return; }
 	var close = dialog.querySelector('[data-ds-changelog-close]');
 	trigger.setAttribute('aria-haspopup', 'dialog');
 	trigger.setAttribute('aria-controls', dialog.id);
@@ -19,22 +19,24 @@ function () {
 		// Preserve normal link behavior for modified clicks and unsupported browsers.
 		if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) { return; }
 		try {
-			dialog.showModal();
+			dialog.hidden = false;
+			HTMLDialogElement.prototype.showModal.call(dialog);
+			if (!dialog.open) { dialog.hidden = true; return; }
 			dialog.querySelector('.ds-changelog__content').scrollTop = 0;
 			event.preventDefault();
-		} catch (error) { /* The original readme link remains the fallback. */ }
+		} catch (error) { dialog.hidden = true; /* Retain the original documentation link. */ }
 	});
 	close.addEventListener('click', /**
 	 * Close the active changelog dialog.
 	 * @returns {void} No return value.
 	 */
-	function () { dialog.close(); });
+	function () { try { HTMLDialogElement.prototype.close.call(dialog); } catch (error) { /* The native dialog form closes independently. */ } });
 	// Native modal dialogs provide focus containment and Escape handling.
 	dialog.addEventListener('close', /**
 	 * Restore keyboard focus to the changelog trigger.
 	 * @returns {void} No return value.
 	 */
-	function () { trigger.focus(); });
+	function () { dialog.hidden = true; trigger.focus(); });
 	dialog.addEventListener('click', /**
 	 * Close the dialog only when clicking its backdrop.
 	 * @param {Event} event Originating DOM event.
@@ -43,7 +45,7 @@ function () {
 	function (event) {
 		var rect = dialog.getBoundingClientRect();
 		if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) {
-			dialog.close();
+			HTMLDialogElement.prototype.close.call(dialog);
 		}
 	});
 })();

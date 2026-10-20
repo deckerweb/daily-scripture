@@ -58,6 +58,7 @@ final class DesignStudio {
 				'error'     => __( 'The preview could not be loaded. Please try again.', 'daily-scripture' ),
 				'imported'  => __( 'Import loaded into the form, but not saved. Please check the preview and settings.', 'daily-scripture' ),
 				'fileError' => __( 'Please select a JSON file up to 64 KiB.', 'daily-scripture' ),
+				'dateError' => __( 'Please choose a valid preview date between 1900 and 2199.', 'daily-scripture' ),
 				'contrast'  => __( 'Low text contrast in the preview. Please check the colors.', 'daily-scripture' ),
 			)
 		);
@@ -104,28 +105,60 @@ final class DesignStudio {
 		$settings = ( new Admin() )->sanitize( $input );
 		$admin    = isset( $_POST['context'] ) && 'dashboard' === $_POST['context'];
 		$stress   = isset( $_POST['stress'] ) && '1' === $_POST['stress'];
+		$mode     = isset( $_POST['preview_day'] ) ? ( is_string( $_POST['preview_day'] ) ? sanitize_key( wp_unslash( $_POST['preview_day'] ) ) : 'invalid' ) : 'today';
+		$value    = isset( $_POST['preview_date'] ) && is_string( $_POST['preview_date'] ) ? sanitize_text_field( wp_unslash( $_POST['preview_date'] ) ) : '';
 		// phpcs:enable WordPress.Security.NonceVerification.Missing
-		wp_send_json_success( array( 'document' => $this->document( $settings, $admin, $stress ) ) );
+		try {
+			$date = self::preview_date( $mode, $value );
+			wp_send_json_success( array( 'document' => $this->document( $settings, $admin, $stress, $date ) ) );
+		} catch ( \RuntimeException $error ) {
+			wp_send_json_error( array( 'message' => $error->getMessage() ), 400 );
+		}
+	}
+
+	/**
+	 * Resolve a temporary preview selection in this website's timezone.
+	 *
+	 * @param string $mode Today, tomorrow or custom.
+	 * @param string $value Exact custom YYYY-MM-DD date, never a relative expression.
+	 * @return \DateTimeImmutable|null Selected local date; null retains today's design-sample fallback.
+	 * @throws \RuntimeException On invalid mode or calendar date.
+	 */
+	public static function preview_date( string $mode, string $value = '' ): ?\DateTimeImmutable {
+		if ( 'today' === $mode ) {
+			return null;
+		}
+		if ( 'tomorrow' === $mode ) {
+			return current_datetime()->setTime( 0, 0 )->modify( '+1 day' );
+		}
+		if ( 'custom' === $mode && preg_match( '/^(?:19|20|21)\d{2}-\d{2}-\d{2}$/D', $value ) ) {
+			$date = \DateTimeImmutable::createFromFormat( '!Y-m-d', $value, wp_timezone() );
+			if ( $date && $date->format( 'Y-m-d' ) === $value ) {
+				return $date;
+			}
+		}
+		throw new \RuntimeException( esc_html__( 'Please choose a valid preview date between 1900 and 2199.', 'daily-scripture' ) );
 	}
 
 	/**
 	 * Build a preview document. Fake text is explicitly labelled and never stored.
 	 *
-	 * @param array $settings Sanitized unsaved settings.
-	 * @param bool  $admin Preview dashboard presentation.
-	 * @param bool  $stress Simulate broad hostile theme selectors.
+	 * @param array                   $settings Sanitized unsaved settings.
+	 * @param bool                    $admin Preview dashboard presentation.
+	 * @param bool                    $stress Simulate broad hostile theme selectors.
+	 * @param \DateTimeImmutable|null $date Temporary local date; missing selected data never becomes a sample.
 	 * @return string Complete escaped document.
 	 */
-	public function document( array $settings, bool $admin = false, bool $stress = false ): string {
+	public function document( array $settings, bool $admin = false, bool $stress = false, ?\DateTimeImmutable $date = null ): string {
 		// Clearing an unsaved site heading previews its language default, not the saved title.
 		foreach ( array( 'herrnhuter', 'bible2' ) as $provider ) {
 			if ( '' === $settings[ 'title_' . $provider ] ) {
 				$settings[ 'title_' . $provider ] = Presentation::default_heading( $provider );
 			}
 		}
-		$sets = ( new DataManager() )->get( $settings['default_source'] );
+		$sets = ( new DataManager() )->get( $settings['default_source'], $date );
 		foreach ( $sets as &$set ) {
-			if ( 'ok' !== $set['status'] ) {
+			if ( null === $date && 'ok' !== $set['status'] ) {
 				$set = array(
 					'source'         => 'bible2',
 					'preview_sample' => true,
@@ -148,12 +181,52 @@ final class DesignStudio {
 			}
 		}
 		unset( $set );
-		$css      = DAILY_SCRIPTURE_URL . 'assets/css/daily-scripture.css?ver=' . DAILY_SCRIPTURE_VERSION;
-		$observer = DAILY_SCRIPTURE_URL . 'assets/preview-frame.js?ver=' . DAILY_SCRIPTURE_VERSION;
-		$js       = DAILY_SCRIPTURE_URL . 'assets/license-dialog.js?ver=' . DAILY_SCRIPTURE_VERSION;
-		$hostile  = $stress ? '.entry-content header,.entry-content footer{margin:100px auto!important;padding:40px!important;min-height:120px!important;max-width:450px!important}.entry-content section{display:flex;justify-content:space-between;min-height:800px}.entry-content blockquote{font-size:60px;margin:80px auto;width:50%}.entry-content p{font-size:40px;margin:60px!important}' : '';
-		// phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet,WordPress.WP.EnqueuedResources.NonEnqueuedScript -- Isolated srcdoc document has no WordPress enqueue lifecycle; URLs reference only registered plugin assets.
-		return '<!doctype html><html lang="' . esc_attr( get_bloginfo( 'language' ) ) . '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="' . esc_url( $css ) . '"><style>html{font-size:16px}body{margin:0;padding:12px;background:#eef1f4}*{box-sizing:border-box}' . $hostile . '</style></head><body><main class="entry-content">' . ( new Renderer() )->render_sets( $sets, $settings, $admin ) . '</main><script src="' . esc_url( $js ) . '"></script><script src="' . esc_url( $observer ) . '"></script></body></html>';
+		$assets = $this->preview_assets( $stress );
+		$locale = str_replace( '_', '-', preg_replace( '/_formal$/', '', determine_locale() ) );
+		return '<!doctype html><html lang="' . esc_attr( $locale ) . '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' . $assets['styles'] . '</head><body><main class="entry-content">' . ( new Renderer() )->render_sets( $sets, $settings, $admin ) . '</main>' . $assets['scripts'] . '</body></html>';
+	}
+
+	/**
+	 * Print only preview assets through isolated WordPress enqueue registries.
+	 *
+	 * Cloned queues keep the srcdoc independent of parent-admin dependencies and
+	 * prevent preview output from marking the parent's assets as already printed.
+	 *
+	 * @param bool $stress Include bounded hostile-theme simulation rules.
+	 * @return array Styles and scripts for the isolated preview document.
+	 */
+	private function preview_assets( bool $stress ): array {
+		$styles_registry        = clone wp_styles();
+		$scripts_registry       = clone wp_scripts();
+		$styles_registry->done  = array();
+		$scripts_registry->done = array();
+		$buffer                 = ob_get_level();
+		try {
+			$styles_registry->add( 'daily-scripture-preview-document', DAILY_SCRIPTURE_URL . 'assets/css/daily-scripture.css', array(), DAILY_SCRIPTURE_VERSION );
+			$styles_registry->enqueue( 'daily-scripture-preview-document' );
+			$css = 'html{font-size:16px}body{margin:0;padding:12px;background:#eef1f4}*{box-sizing:border-box}';
+			if ( $stress ) {
+				$css .= '.entry-content header,.entry-content footer{margin:100px auto!important;padding:40px!important;min-height:120px!important;max-width:450px!important}.entry-content section{display:flex;justify-content:space-between;min-height:800px}.entry-content blockquote{font-size:60px;margin:80px auto;width:50%}.entry-content p{font-size:40px;margin:60px!important}';
+			}
+			$styles_registry->add_inline_style( 'daily-scripture-preview-document', $css );
+			ob_start();
+			$styles_registry->do_items( array( 'daily-scripture-preview-document' ) );
+			$styles = ob_get_clean();
+			$scripts_registry->add( 'daily-scripture-preview-license', DAILY_SCRIPTURE_URL . 'assets/license-dialog.js', array(), DAILY_SCRIPTURE_VERSION );
+			$scripts_registry->add( 'daily-scripture-preview-observer', DAILY_SCRIPTURE_URL . 'assets/preview-frame.js', array(), DAILY_SCRIPTURE_VERSION );
+			$scripts_registry->enqueue( array( 'daily-scripture-preview-license', 'daily-scripture-preview-observer' ) );
+			ob_start();
+			$scripts_registry->do_items( array( 'daily-scripture-preview-license', 'daily-scripture-preview-observer' ) );
+			$scripts = ob_get_clean();
+			return array(
+				'styles'  => $styles,
+				'scripts' => $scripts,
+			);
+		} finally {
+			while ( ob_get_level() > $buffer ) {
+				ob_end_clean();
+			}
+		}
 	}
 
 	/**
@@ -307,9 +380,12 @@ final class DesignStudio {
 		<p class="ds-help"><?php esc_html_e( 'Deactivation preserves data. Day and year changes follow the WordPress timezone; import new years on the data sources page.', 'daily-scripture' ); ?></p></section>
 		</form>
 		<aside class="ds-preview-panel" aria-label="<?php esc_attr_e( 'Live preview', 'daily-scripture' ); ?>"><h2><?php esc_html_e( 'How your verses look', 'daily-scripture' ); ?></h2>
-		<p><?php esc_html_e( 'Today’s original data, when available. Otherwise a clearly labeled design sample.', 'daily-scripture' ); ?></p>
+		<p><?php esc_html_e( 'Local readings for the selected day. Without today’s data, a clearly labeled design sample is shown.', 'daily-scripture' ); ?></p>
 		<div class="ds-preview-controls"><label for="ds-preview-width"><?php esc_html_e( 'Width', 'daily-scripture' ); ?></label><select id="ds-preview-width"><option value="wide"><?php esc_html_e( 'Available space', 'daily-scripture' ); ?></option><option value="390"><?php esc_html_e( 'Mobile · 390 px', 'daily-scripture' ); ?></option><option value="300"><?php esc_html_e( 'Sidebar · 300 px', 'daily-scripture' ); ?></option></select>
 		<label for="ds-preview-context"><?php esc_html_e( 'Context', 'daily-scripture' ); ?></label><select id="ds-preview-context"><option value="frontend"><?php esc_html_e( 'Site', 'daily-scripture' ); ?></option><option value="dashboard"><?php esc_html_e( 'Dashboard colors', 'daily-scripture' ); ?></option></select></div>
+		<div class="ds-preview-controls"><label for="ds-preview-day"><?php esc_html_e( 'Preview day', 'daily-scripture' ); ?></label><select id="ds-preview-day"><option value="today"><?php esc_html_e( 'Today', 'daily-scripture' ); ?></option><option value="tomorrow"><?php esc_html_e( 'Tomorrow', 'daily-scripture' ); ?></option><option value="custom"><?php esc_html_e( 'Choose a date', 'daily-scripture' ); ?></option></select></div>
+		<label id="ds-preview-date-control" hidden for="ds-preview-date"><?php esc_html_e( 'Preview date', 'daily-scripture' ); ?> <input type="date" id="ds-preview-date" min="1900-01-01" max="2199-12-31" value="<?php echo esc_attr( wp_date( 'Y-m-d' ) ); ?>"></label>
+		<p class="ds-help"><?php esc_html_e( 'Preview only: no downloads or saved changes. Missing data for tomorrow or a chosen date is shown as a notice.', 'daily-scripture' ); ?></p>
 		<label class="ds-check"><input id="ds-preview-stress" type="checkbox"> <?php esc_html_e( 'Simulate strict theme rules', 'daily-scripture' ); ?></label>
 		<p class="ds-help"><?php esc_html_e( 'The preview shows the plugin’s design. Your theme may affect the available width. The simulation checks common spacing problems. The dashboard preview shows admin colors; choose your personal reading size in the widget itself.', 'daily-scripture' ); ?></p>
 		<div class="ds-preview-viewport"><iframe id="ds-preview-frame" title="<?php esc_attr_e( 'Daily verse preview', 'daily-scripture' ); ?>" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe></div>

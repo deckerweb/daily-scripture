@@ -13,6 +13,7 @@ Daily Scripture adds daily readings, selected Bible passages and personal dashbo
 - [Editors, links and dashboard](#editors-links-and-dashboard)
 - [Backups and stored data](#backups-and-stored-data)
 - [Updates and troubleshooting](#updates-and-troubleshooting)
+- [Year overview, diagnostics and preview](#year-overview-diagnostics-and-preview)
 
 <a name="getting-started"></a>
 
@@ -20,7 +21,7 @@ Daily Scripture adds daily readings, selected Bible passages and personal dashbo
 
 ### What do I need?
 
-WordPress 6.6 or later, PHP 8.0 or later and DOM/XML. ZIP imports require ZipArchive. The plugin can run without a page builder.
+WordPress 6.6 or later, PHP 8.1 or later and DOM/XML. ZIP imports require ZipArchive. The plugin can run without a page builder.
 
 ### Who can manage sources and settings?
 
@@ -36,7 +37,7 @@ No. Start with an annual package under Data sources or an edition under Bible li
 
 ### Can I use multisite?
 
-Daily Scripture 1.0.1 includes Library 0.8.1 with version-aware network approval and a verified handoff during first activation beside an older Library. Website data remains separate; the Network Admin widget uses the selected reference website.
+Daily Scripture 1.1.0 includes Library 1.0.0 with version-aware network approval and a verified handoff during first activation beside an older Library. Website data remains separate; the Network Admin widget uses the selected reference website.
 
 
 <a name="annual-data-and-downloads"></a>
@@ -198,4 +199,23 @@ The Network Admin widget uses a personally selected active website in the curren
 Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
 
 
-For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 0.8.1 offer activation directly in the catalog.
+For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 1.0.0 offer activation directly in the catalog.
+
+
+## Why does a Losungen download fail while it works in my browser?
+
+A browser may complete an incomplete publisher certificate chain from its cache or by fetching an intermediate certificate. Server-side downloads can reject the same incomplete chain. Daily Scripture retries missing-issuer errors for its approved Losungen endpoints once using official bundled intermediates verified against the WordPress trust roots. It keeps HTTPS verification enabled, uses no external certificate service and removes its temporary certificate bundle after the request. Manual upload remains available if the chain cannot be verified.
+
+<a name="year-overview-diagnostics-and-preview"></a>
+
+## Year overview, diagnostics and preview
+
+### What do the year overview and download diagnostic show?
+
+The year overview reads local data and the last source check. It starts no download and treats missing optional sources as information. For download failures, Technical details provides copyable, sanitized error codes, without raw server messages or credentials.
+
+### Does another preview date change my website?
+
+No. Today, tomorrow and custom dates apply only to the preview. Tomorrow and custom dates need installed local annual data; otherwise a notice appears. Saved settings, annual files and public output remain unchanged.
+
+Leading `/…:/` introduction markers in Die Losungen are displayed in italics without visible slashes; wording and stored originals remain unchanged. **Help → Support diagnostics** offers a copyable local technical report. The same information appears under **Tools → Site Health → Info**: component versions, installation mode, extensions, installed years and safe codes from source checks still in the temporary cache. No new connection is tested and nothing is sent automatically. Since WordPress 6.9, the native Command Palette automatically includes accessible plugin menus; no extra Daily Scripture commands are registered. WordPress 6.6–6.8 retains the regular plugin menus.

@@ -20,7 +20,7 @@ Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewä
 
 ### Was brauche ich?
 
-WordPress ab 6.6, PHP ab 8.0 und DOM/XML. ZIP-Importe benötigen ZipArchive. Das Plugin funktioniert ohne Page Builder.
+WordPress ab 6.6, PHP ab 8.1 und DOM/XML. ZIP-Importe benötigen ZipArchive. Das Plugin funktioniert ohne Page Builder.
 
 ### Wer darf Quellen und Einstellungen verwalten?
 
@@ -36,7 +36,7 @@ Nein. Beginne mit einem Jahrespaket unter Datenquellen oder einer Ausgabe unter 
 
 ### Kann ich Multisite verwenden?
 
-Daily Scripture 1.0.1 enthält Library 0.8.1 mit versionsabhängiger Netzwerkfreigabe und geprüfter Übergabe bei erstmaliger Aktivierung neben einer älteren Library. Website-Daten bleiben getrennt; das Network-Admin-Widget verwendet die gewählte Bezugswebsite.
+Daily Scripture 1.1.0 enthält Library 1.0.0 mit versionsabhängiger Netzwerkfreigabe und geprüfter Übergabe bei erstmaliger Aktivierung neben einer älteren Library. Website-Daten bleiben getrennt; das Network-Admin-Widget verwendet die gewählte Bezugswebsite.
 
 
 <a name="jahresdaten-und-downloads"></a>
@@ -198,4 +198,23 @@ Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
 
 
-Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 0.8.1 bieten die Freigabe direkt im Katalog.
+Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 1.0.0 bieten die Freigabe direkt im Katalog.
+
+
+## Warum scheitert der Losungen-Abruf, obwohl der Download im Browser funktioniert?
+
+Ein Browser kann eine unvollständige Zertifikatskette des Anbieters aus seinem Cache oder durch Nachladen ergänzen. Server-Abrufe können dieselbe Kette ablehnen. Bei einem fehlenden Aussteller wiederholt Daily Scripture den Abruf seiner freigegebenen Losungen-Endpunkte einmal mit offiziellen mitgelieferten Zwischenzertifikaten, die gegen die WordPress-Vertrauensanker geprüft werden. Die HTTPS-Prüfung bleibt aktiv; es wird kein externer Zertifikatsdienst angesprochen. Die temporäre Zertifikatsdatei wird anschließend gelöscht. Ist keine sichere Prüfung möglich, bleibt der manuelle Upload verfügbar.
+
+<a name="jahresuebersicht-diagnose-und-vorschau"></a>
+
+## Jahresübersicht, Diagnose und Vorschau
+
+### Was zeigen Jahresübersicht und Download-Diagnose?
+
+Die Jahresübersicht liest lokale Daten und die letzte Quellenprüfung. Sie startet keinen Download und behandelt fehlende optionale Quellen als Information. Bei Downloadproblemen stehen unter „Technische Details“ kopierbare, bereinigte Fehlercodes bereit; rohe Servermeldungen und Zugangsdaten bleiben draußen.
+
+### Ändert ein anderes Vorschaudatum meine Website?
+
+Nein. Heute, morgen und frei gewählte Termine gelten nur für die Vorschau. Für morgen und andere gewählte Daten müssen die lokalen Jahresdaten vorhanden sein; andernfalls erscheint ein Hinweis. Gespeicherte Einstellungen, Jahresdateien und die öffentliche Ausgabe bleiben unverändert.
+
+Losungen-Einleitungen mit führenden `/…:/`-Markierungen werden kursiv und ohne sichtbare Schrägstriche dargestellt; Wortlaut und gespeicherte Originaldaten bleiben erhalten. Unter **Hilfe → Support-Diagnose** lässt sich ein lokaler technischer Bericht kopieren. Dieselben Angaben stehen unter **Werkzeuge → Website-Zustand → Bericht**: Komponentenstand, Betriebsmodus, Erweiterungen, Jahresbestände und sichere Codes noch zwischengespeicherter Quellenprüfungen. Kein neuer Abruf und kein automatischer Versand. Seit WordPress 6.9 führt die native Befehlspalette automatisch zu den zugänglichen Plugin-Menüs; zusätzliche Daily-Scripture-Befehle sind nicht registriert. In WordPress 6.6–6.8 bleiben die regulären Plugin-Menüs verfügbar.

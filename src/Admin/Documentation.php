@@ -9,6 +9,7 @@ namespace Deckerweb\DailyScripture\Admin;
 
 use Deckerweb\DailyScripture\Bible\TranslationManager;
 use Deckerweb\DailyScripture\Core\Presentation;
+use Deckerweb\DailyScripture\Core\SiteHealth;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -69,12 +70,13 @@ final class Documentation {
 			echo '<section class="ds-docs-card"><h2>' . esc_html( $card[0] ) . '</h2><p>' . esc_html( $card[1] ) . '</p></section>'; }
 		echo '</div><h2>' . esc_html__( 'Troubleshooting', 'daily-scripture' ) . '</h2>';
 		foreach ( array(
-			__( 'The download is unavailable', 'daily-scripture' ) => __( 'Check the source later or manually upload the linked original package. For certificate errors, your hosting provider can check the secure connection. A failed import preserves existing data.', 'daily-scripture' ),
+			__( 'The download is unavailable', 'daily-scripture' ) => __( 'Losungen downloads retry a missing-issuer certificate error once using verified official intermediate certificates. HTTPS checks stay enabled. If the download still fails, upload the original package manually or ask your hosting provider to check the connection. Existing data is preserved.', 'daily-scripture' ),
 			__( 'The Bible passage does not appear', 'daily-scripture' ) => __( 'Is the selected edition installed? Are the chapter and verse range correct? Verse numbering varies. In Menge, select Ezekiel 33:14–15 together. The displayed notice helps identify the issue.', 'daily-scripture' ),
 			__( 'The editor looks different after an update', 'daily-scripture' ) => __( 'Reload the editor completely and clear browser and builder caches if needed. Then check the preview on the site. Normal updates preserve saved blocks and settings.', 'daily-scripture' ),
 			__( 'Reuse a design', 'daily-scripture' ) => __( 'Export your design or plugin settings as JSON in the design section. Save builder styles with the builder’s own templates. JSON settings do not include Bible texts or annual packages.', 'daily-scripture' ),
 		) as $question => $answer ) {
 			echo '<details class="ds-docs-card"><summary>' . esc_html( $question ) . '</summary><p>' . esc_html( $answer ) . '</p></details>'; }
+		echo '<details class="ds-docs-card ds-download-diagnostic" id="ds-support-diagnostics"><summary>' . esc_html__( 'Support diagnostics', 'daily-scripture' ) . '</summary><p>' . esc_html__( 'Copy this local report when asking for support. It contains technical status only, without verse texts, website addresses, user data or server paths. No new connection is tested and no report is sent automatically.', 'daily-scripture' ) . '</p><label for="ds-support-report">' . esc_html__( 'Support report', 'daily-scripture' ) . '</label><textarea id="ds-support-report" class="large-text code" rows="18" readonly spellcheck="false">' . esc_textarea( ( new SiteHealth() )->support_text() ) . '</textarea><button type="button" class="button" data-ds-diagnostic-copy hidden>' . esc_html__( 'Copy support report', 'daily-scripture' ) . '</button><span role="status" aria-live="polite"></span></details>';
 		PageChrome::footer();
 		echo '</div>';
 	}

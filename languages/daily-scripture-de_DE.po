@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Daily Scripture 1.0.1\n"
+"Project-Id-Version: Daily Scripture 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/deckerweb/daily-scripture/issues\n"
 "Last-Translator: David Decker – DECKERWEB\n"
 "Language-Team: German\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-07T09:19:59+00:00\n"
+"POT-Creation-Date: 2026-10-20T05:35:14+00:00\n"
 "PO-Revision-Date: 2026-10-07 12:00+0200\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: daily-scripture\n"
@@ -90,19 +90,19 @@ msgstr "Sieh dir den Release auf GitHub an."
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/Admin/Admin.php:59 src/Admin/Documentation.php:47
+#: src/Admin/Admin.php:59 src/Admin/Documentation.php:48
 msgid "You do not have permission to perform this action."
 msgstr "Keine Berechtigung für diese Aktion."
 
-#: src/Admin/Admin.php:70 src/Admin/PageChrome.php:42
+#: src/Admin/Admin.php:70 src/Admin/PageChrome.php:51
 msgid "Data sources"
 msgstr "Datenquellen"
 
-#: src/Admin/Admin.php:71 src/Admin/PageChrome.php:44
+#: src/Admin/Admin.php:71 src/Admin/PageChrome.php:53
 msgid "Shortcodes"
 msgstr "Shortcodes"
 
-#: src/Admin/Admin.php:72 src/Admin/PageChrome.php:45
+#: src/Admin/Admin.php:72 src/Admin/PageChrome.php:54
 msgid "Help"
 msgstr "Hilfe"
 
@@ -118,140 +118,136 @@ msgstr "Gut versorgt durchs Jahr: Lade neue Tagesverse, behalte deine Quellen im
 msgid "Verse data is stored exclusively under wp-content/uploads/daily-scripture/. One edition is stored per source and year. Existing years are replaced only when explicitly selected."
 msgstr "Versdaten werden ausschließlich unter wp-content/uploads/daily-scripture/ gespeichert. Pro Quelle und Jahr wird eine Ausgabe verwaltet. Vorhandene Jahre werden nur nach ausdrücklicher Auswahl ersetzt."
 
-#: src/Admin/Admin.php:157
+#: src/Admin/Admin.php:158
 msgid "Installed years"
 msgstr "Installierte Jahre"
 
-#: src/Admin/Admin.php:169 src/Admin/Admin.php:208
+#: src/Admin/Admin.php:170 src/Admin/Admin.php:202
 msgid "Year"
 msgstr "Jahr"
 
-#: src/Admin/Admin.php:169
+#: src/Admin/Admin.php:170
 msgid "Edition / days"
 msgstr "Ausgabe / Tage"
 
-#: src/Admin/Admin.php:169
+#: src/Admin/Admin.php:170
 msgid "Imported (UTC)"
 msgstr "Importiert (UTC)"
 
-#: src/Admin/Admin.php:169
+#: src/Admin/Admin.php:170
 msgid "Status"
 msgstr "Status"
 
-#: src/Admin/Admin.php:169
+#: src/Admin/Admin.php:170
 msgid "Action"
 msgstr "Aktion"
 
-#: src/Admin/Admin.php:174
+#: src/Admin/Admin.php:175
 msgid "No annual data is installed yet."
 msgstr "Noch keine Jahresdaten installiert."
 
-#: src/Admin/Admin.php:178
+#: src/Admin/Admin.php:179
 msgid "Complete / available"
 msgstr "Vollständig / verfügbar"
 
-#: src/Admin/Admin.php:178
+#: src/Admin/Admin.php:179
 msgid "Outside the permitted year range; display is blocked. Please delete this year."
 msgstr "Außerhalb des zulässigen Jahresbereichs; Ausgabe gesperrt. Bitte löschen."
 
-#: src/Admin/Admin.php:182
+#: src/Admin/Admin.php:183
 msgid "Confirm deletion"
 msgstr "Löschen bestätigen"
 
-#: src/Admin/Admin.php:183
+#: src/Admin/Admin.php:184
 msgid "Delete year"
 msgstr "Jahr löschen"
 
-#: src/Admin/Admin.php:187
-msgid "Ready for the new year?"
-msgstr "Bereit für den Jahreswechsel?"
-
-#: src/Admin/Admin.php:195
+#: src/Admin/Admin.php:189
 msgid "Import an official annual file"
 msgstr "Offizielle Jahresdatei importieren"
 
-#: src/Admin/Admin.php:196
+#: src/Admin/Admin.php:190
 msgid "Download"
 msgstr "Download"
 
-#: src/Admin/Admin.php:196
+#: src/Admin/Admin.php:190
 msgid "Bible 2.0 file directory (alternative)"
 msgstr "Bible-2.0-Dateiverzeichnis (Alternative)"
 
-#: src/Admin/Admin.php:197
+#: src/Admin/Admin.php:191
 msgid "Supported: official Losungen XML/ZIP and Bible 2.0 TWD 1.1/XML/ZIP, up to 8 MiB. The entire file is checked before saving. No texts are fetched from Bibleserver."
 msgstr "Unterstützt: offizielles Losungen-XML/ZIP und Bible-2.0-TWD 1.1/XML/ZIP, maximal 8 MiB. Die gesamte Datei wird vor dem Speichern geprüft. Es werden keine Texte von Bibleserver abgerufen."
 
-#: src/Admin/Admin.php:198
+#: src/Admin/Admin.php:192
 msgid "Die Losungen: use only original files from losungen.de, unchanged verse pairs, free noncommercial use and the permitted year range. Notify the publisher of publication. Bible 2.0: also observe the rights of the respective Bible edition."
 msgstr "Die Losungen: nur Originaldateien von losungen.de, unveränderte Verspaare, kostenlose nichtkommerzielle Nutzung und zulässiger Jahresbereich. Die Veröffentlichung ist der Herausgeberin zu melden. Bible 2.0: zusätzlich die Rechte der jeweiligen Bibelausgabe beachten."
 
-#: src/Admin/Admin.php:198
+#: src/Admin/Admin.php:192
 msgid "Losungen terms of use"
 msgstr "Losungen-Nutzungsbedingungen"
 
-#: src/Admin/Admin.php:198
+#: src/Admin/Admin.php:192
 msgid "Bible 2.0 license information"
 msgstr "Bible-2.0-Lizenzinformationen"
 
-#: src/Admin/Admin.php:202
+#: src/Admin/Admin.php:196 src/Admin/DataDownloads.php:53
 msgid "Source"
 msgstr "Quelle"
 
-#: src/Admin/Admin.php:209
+#: src/Admin/Admin.php:203
 msgid "Annual file"
 msgstr "Jahresdatei"
 
-#: src/Admin/Admin.php:210
+#: src/Admin/Admin.php:204
 msgid "This file comes from the official provider. I have reviewed the source and Bible edition terms and may publish these texts here."
 msgstr "Die Datei stammt vom offiziellen Anbieter. Ich habe die Nutzungsbedingungen der Quelle und Bibelausgabe geprüft und darf diese Texte hier veröffentlichen."
 
-#: src/Admin/Admin.php:211
+#: src/Admin/Admin.php:205
 msgid "Replace an existing year completely after successful validation."
 msgstr "Ein vorhandenes Jahr nach erfolgreicher Prüfung vollständig ersetzen."
 
-#: src/Admin/Admin.php:212
+#: src/Admin/Admin.php:206
 msgid "Validate and import"
 msgstr "Prüfen und importieren"
 
-#: src/Admin/Admin.php:214
+#: src/Admin/Admin.php:208
 msgid "Install and manage freely licensed Bible editions"
 msgstr "Freie Bibelübersetzungen installieren und verwalten"
 
-#: src/Admin/Admin.php:227 src/Admin/DataDownloads.php:157
+#: src/Admin/Admin.php:221 src/Admin/DataDownloads.php:213
 msgid "Please use the corresponding form."
 msgstr "Bitte das zugehörige Formular verwenden."
 
-#: src/Admin/Admin.php:235
+#: src/Admin/Admin.php:229
 msgid "Please enter a four-digit year."
 msgstr "Bitte eine vierstellige Jahreszahl angeben."
 
-#: src/Admin/Admin.php:254
+#: src/Admin/Admin.php:248
 msgid "Please confirm the source and permission to use the texts."
 msgstr "Bitte Herkunft und Nutzungsrechte bestätigen."
 
-#: src/Admin/Admin.php:258
+#: src/Admin/Admin.php:252
 msgid "Upload failed. Please choose a file and check the PHP upload limits."
 msgstr "Upload fehlgeschlagen. Bitte eine Datei auswählen und die PHP-Uploadgrenzen prüfen."
 
-#: src/Admin/Admin.php:262
+#: src/Admin/Admin.php:256
 msgid "The complete year was imported successfully."
 msgstr "Das vollständige Jahr wurde erfolgreich importiert."
 
-#: src/Admin/Admin.php:280
+#: src/Admin/Admin.php:274
 msgid "Please confirm deletion of this year."
 msgstr "Bitte das Löschen dieses Jahres bestätigen."
 
-#: src/Admin/Admin.php:283
+#: src/Admin/Admin.php:277
 msgid "The annual data was deleted."
 msgstr "Die Jahresdaten wurden gelöscht."
 
-#: src/Admin/Changelog.php:103 src/Core/Renderer.php:68
+#: src/Admin/Changelog.php:103 src/Core/Renderer.php:83
 #: assets/color-picker.js:102
 msgid "Close"
 msgstr "Schließen"
 
-#: src/Admin/Changelog.php:104 src/Admin/PageChrome.php:61
+#: src/Admin/Changelog.php:104 src/Admin/PageChrome.php:70
 msgid "Changelog"
 msgstr "Changelog"
 
@@ -372,7 +368,7 @@ msgstr "Kompakt · Verse 16 px (empfohlen)"
 msgid "Comfortable reading · 18 px verses"
 msgstr "Bequem lesen · Verse 18 px"
 
-#: src/Admin/DashboardWidget.php:263 src/Admin/DesignStudio.php:265
+#: src/Admin/DashboardWidget.php:263 src/Admin/DesignStudio.php:338
 msgid "Spacing"
 msgstr "Abstände"
 
@@ -437,8 +433,8 @@ msgstr "Vorherige Websites"
 msgid "More websites"
 msgstr "Weitere Websites"
 
-#: src/Admin/DashboardWidget.php:374 src/Admin/DataDownloads.php:83
-#: src/Admin/DataDownloads.php:155 src/Admin/DesignStudio.php:73
+#: src/Admin/DashboardWidget.php:374 src/Admin/DataDownloads.php:137
+#: src/Admin/DataDownloads.php:211 src/Admin/DesignStudio.php:74
 #: src/Admin/SettingsTransfer.php:109
 msgid "You do not have permission."
 msgstr "Keine Berechtigung."
@@ -451,168 +447,214 @@ msgstr "Bitte das Formular im Dashboard verwenden."
 msgid "This website is not available in the current network."
 msgstr "Diese Website ist im aktuellen Netzwerk nicht verfügbar."
 
-#: src/Admin/DataDownloads.php:27 src/Admin/DataDownloads.php:85
-#: src/Admin/PageChrome.php:43
+#: src/Admin/DataDownloads.php:28 src/Admin/DataDownloads.php:139
+#: src/Admin/PageChrome.php:52
 msgid "Bible library"
 msgstr "Bibelbibliothek"
 
-#: src/Admin/DataDownloads.php:45
+#: src/Admin/DataDownloads.php:53
+msgid "Your annual data at a glance"
+msgstr "Deine Jahresdaten auf einen Blick"
+
+#: src/Admin/DataDownloads.php:53
+msgid "Only the sources you use need annual data. This overview reads local files and the last source check; it does not download anything."
+msgstr "Nur verwendete Quellen benötigen Jahresdaten. Diese Übersicht liest lokale Dateien und die letzte Quellenprüfung; sie lädt nichts herunter."
+
+#: src/Admin/DataDownloads.php:53
+msgid "Readiness for the current and next year"
+msgstr "Datenstand für das aktuelle und nächste Jahr"
+
+#: src/Admin/DataDownloads.php:64
+msgid "Installed and complete"
+msgstr "Vollständig installiert"
+
+#: src/Admin/DataDownloads.php:64
+msgid "Not installed"
+msgstr "Nicht installiert"
+
+#: src/Admin/DataDownloads.php:73
+msgid "Available in the last source check"
+msgstr "Bei der letzten Quellenprüfung verfügbar"
+
+#: src/Admin/DataDownloads.php:74
+msgid "Select package"
+msgstr "Paket auswählen"
+
+#: src/Admin/DataDownloads.php:76
+msgid "Not listed in the last source check"
+msgstr "Bei der letzten Quellenprüfung noch nicht aufgeführt"
+
+#: src/Admin/DataDownloads.php:78 src/Admin/DataDownloads.php:82
+msgid "Check source or upload"
+msgstr "Quelle prüfen oder Datei hochladen"
+
+#: src/Admin/DataDownloads.php:81
+msgid "Check the local annual file"
+msgstr "Lokale Jahresdatei prüfen"
+
+#. translators: 1: action, 2: source name, 3: year.
+#: src/Admin/DataDownloads.php:87
+#, php-format
+msgid "%1$s: %2$s, %3$d"
+msgstr "%1$s: %2$s, %3$d"
+
+#: src/Admin/DataDownloads.php:98
 msgid "Annual packages directly from the provider"
 msgstr "Jahrespakete direkt vom Anbieter"
 
-#: src/Admin/DataDownloads.php:45
+#: src/Admin/DataDownloads.php:98
 msgid "Check the official directory, then download and import an available package. Results are cached for six hours; a download may still be temporarily unavailable. Manual upload is always available."
 msgstr "Ein Klick prüft das offizielle Verzeichnis. Verfügbare Pakete kannst du anschließend direkt laden und importieren. Die Anzeige wird sechs Stunden gespeichert; ein Download kann trotzdem vorübergehend ausfallen. Der manuelle Upload bleibt jederzeit möglich."
 
-#: src/Admin/DataDownloads.php:52
+#: src/Admin/DataDownloads.php:105
 msgid "Not checked yet / check expired"
 msgstr "Noch nicht geprüft / Prüfung abgelaufen"
 
-#: src/Admin/DataDownloads.php:52
+#: src/Admin/DataDownloads.php:105
 msgid "Download currently unavailable"
 msgstr "Download derzeit nicht verfügbar"
 
-#: src/Admin/DataDownloads.php:52
+#: src/Admin/DataDownloads.php:105
 msgid "Available in the official directory"
 msgstr "Verfügbar im offiziellen Verzeichnis"
 
-#: src/Admin/DataDownloads.php:60
+#: src/Admin/DataDownloads.php:114
 msgid "Check download source"
 msgstr "Downloadquelle prüfen"
 
-#: src/Admin/DataDownloads.php:64
+#: src/Admin/DataDownloads.php:118
 msgid "Annual package"
 msgstr "Jahrespaket"
 
-#: src/Admin/DataDownloads.php:67
+#: src/Admin/DataDownloads.php:121
 msgid "I have reviewed the source and Bible edition terms and may publish these texts here."
 msgstr "Ich habe die Nutzungsbedingungen der Quelle und Bibelausgabe geprüft und darf diese Texte hier veröffentlichen."
 
-#: src/Admin/DataDownloads.php:68
+#: src/Admin/DataDownloads.php:122
 msgid "Open terms of use"
 msgstr "Nutzungsbedingungen öffnen"
 
-#: src/Admin/DataDownloads.php:70
+#: src/Admin/DataDownloads.php:124
 msgid "Download & import"
 msgstr "Herunterladen & importieren"
 
-#: src/Admin/DataDownloads.php:73
+#: src/Admin/DataDownloads.php:127
 msgid "Missing next year? Once the provider publishes it, it appears after another check."
 msgstr "Fehlt das Folgejahr? Sobald es der Anbieter veröffentlicht, erscheint es nach einer erneuten Prüfung."
 
-#: src/Admin/DataDownloads.php:78
+#: src/Admin/DataDownloads.php:132
 msgid "Replace existing data only after successful validation."
 msgstr "Vorhandene Daten erst nach erfolgreicher Prüfung ersetzen."
 
-#: src/Admin/DataDownloads.php:85
+#: src/Admin/DataDownloads.php:139
 msgid "Install historical translations and display selected Bible passages on your site."
 msgstr "Installiere historische Übersetzungen und zeige ausgewählte Bibelstellen auf deiner Website."
 
-#: src/Admin/DataDownloads.php:87
+#: src/Admin/DataDownloads.php:141
 msgid "Four historical, freely usable editions for selected passages. They are installed only on request and stored entirely locally. Official Losungen and Bible 2.0 daily readings stay unchanged."
 msgstr "Vier historische, frei nutzbare Textfassungen für deine eigenen Bibelstellen. Sie werden nur auf Wunsch installiert und vollständig lokal gespeichert. Die offiziellen Losungen und Bible-2.0-Tagesverse bleiben unverändert."
 
-#: src/Admin/DataDownloads.php:87
+#: src/Admin/DataDownloads.php:141
 msgid "Each edition includes the 66 books of the Old and New Testaments. Additional apocrypha and editorial headings are not imported. Verse numbering may differ between translations."
 msgstr "Enthalten sind jeweils die 66 Bücher des Alten und Neuen Testaments. Zusätzliche Apokryphen und redaktionelle Überschriften werden in dieser Ausgabe nicht importiert. Die Verszählung kann sich zwischen Übersetzungen unterscheiden."
 
-#: src/Admin/DataDownloads.php:92
+#: src/Admin/DataDownloads.php:146
 msgid "Installed locally"
 msgstr "Lokal installiert"
 
-#: src/Admin/DataDownloads.php:92
+#: src/Admin/DataDownloads.php:146
 msgid "Not installed yet"
 msgstr "Noch nicht installiert"
 
-#: src/Admin/DataDownloads.php:94
+#: src/Admin/DataDownloads.php:148
 msgid "Verse positions"
 msgstr "Verspositionen"
 
-#: src/Admin/DataDownloads.php:98
+#: src/Admin/DataDownloads.php:152
 msgid "Source & package"
 msgstr "Quelle & Paket"
 
-#: src/Admin/DataDownloads.php:98
+#: src/Admin/DataDownloads.php:152
 msgid "Download original package"
 msgstr "Originalpaket herunterladen"
 
-#: src/Admin/DataDownloads.php:101
+#: src/Admin/DataDownloads.php:155
 msgid "This source file leaves Matthew 21:44 empty and numbers the following verses differently. Selecting the empty verse displays a notice."
 msgstr "Diese Quelldatei lässt Matthäus 21,44 leer und kennzeichnet die folgenden Verse mit abweichenden Versnummern. Bei Auswahl der leeren Stelle erscheint ein Hinweis."
 
-#: src/Admin/DataDownloads.php:104
+#: src/Admin/DataDownloads.php:158
 msgid "This edition combines Ezekiel 33:14–15. Please select both verses together; verse parts are joined in full."
 msgstr "Diese Textfassung fasst Hesekiel 33,14–15 zusammen. Beide Verse bitte gemeinsam wählen; Teilverse werden vollständig zusammengeführt."
 
-#: src/Admin/DataDownloads.php:105
+#: src/Admin/DataDownloads.php:159
 msgid "Public-domain notice for the Zefania edition"
 msgstr "Nachweis zur gemeinfreien Zefania-Textfassung"
 
-#: src/Admin/DataDownloads.php:105
+#: src/Admin/DataDownloads.php:159
 msgid "CrossWire: Menge 1939 / public domain"
 msgstr "CrossWire: Menge 1939 / gemeinfrei"
 
-#: src/Admin/DataDownloads.php:108
+#: src/Admin/DataDownloads.php:162
 msgid "Optional: upload the original package manually"
 msgstr "Optional: Originalpaket manuell hochladen"
 
-#: src/Admin/DataDownloads.php:108
+#: src/Admin/DataDownloads.php:162
 msgid "Without an uploaded file, the package is downloaded from the linked source. ZIP or its original TXT/XML file, up to 10 MB. Only the verified text revision is accepted; other revisions are rejected safely."
 msgstr "Ohne Datei laden wir direkt von der verlinkten Quelle. ZIP oder darin enthaltene Original-TXT/XML, maximal 10 MB. Nur der geprüfte Textstand wird akzeptiert; andere Revisionen werden sicher abgewiesen."
 
-#: src/Admin/DataDownloads.php:110
+#: src/Admin/DataDownloads.php:164
 msgid "Install edition"
 msgstr "Ausgabe installieren"
 
-#: src/Admin/DataDownloads.php:113
+#: src/Admin/DataDownloads.php:167
 msgid "Confirm deletion of this local edition"
 msgstr "Löschen dieser lokalen Ausgabe bestätigen"
 
-#: src/Admin/DataDownloads.php:113
+#: src/Admin/DataDownloads.php:167
 msgid "Delete edition"
 msgstr "Ausgabe löschen"
 
-#: src/Admin/DataDownloads.php:115
+#: src/Admin/DataDownloads.php:169
 msgid "Your first Bible passage"
 msgstr "Deine erste Bibelstelle"
 
-#: src/Admin/DataDownloads.php:115
+#: src/Admin/DataDownloads.php:169
 msgid "In Gutenberg, Elementor and Bricks, choose “Bible passage · Daily Scripture”. Select your edition and passage. Source notices stay visible; presentation follows your settings."
 msgstr "In Gutenberg, Elementor und Bricks findest du „Bibelstelle · Daily Scripture“. Wähle dort deine Übersetzung und Bibelstelle. Eigene Quellenhinweise bleiben sichtbar; die Gestaltung folgt deinen Vorgaben."
 
-#: src/Admin/DataDownloads.php:115
+#: src/Admin/DataDownloads.php:169
 msgid "Shortcodes & examples to copy"
 msgstr "Shortcodes & kopierbare Beispiele"
 
-#: src/Admin/DataDownloads.php:168
+#: src/Admin/DataDownloads.php:225
 msgid "Download source checked. Available packages are ready to select."
 msgstr "Downloadquelle geprüft. Die verfügbaren Pakete stehen zur Auswahl."
 
-#: src/Admin/DataDownloads.php:171
+#: src/Admin/DataDownloads.php:228
 msgid "Please confirm permission to use the texts."
 msgstr "Bitte die Nutzungsrechte bestätigen."
 
-#: src/Admin/DataDownloads.php:173
+#: src/Admin/DataDownloads.php:230
 msgid "Annual package validated and installed locally."
 msgstr "Jahrespaket geprüft und lokal installiert."
 
-#: src/Admin/DataDownloads.php:179
+#: src/Admin/DataDownloads.php:236
 msgid "File upload failed."
 msgstr "Dateiupload fehlgeschlagen."
 
-#: src/Admin/DataDownloads.php:183
+#: src/Admin/DataDownloads.php:240
 msgid "The verified Bible edition is now available locally."
 msgstr "Die geprüfte Bibelausgabe ist jetzt lokal verfügbar."
 
-#: src/Admin/DataDownloads.php:186
+#: src/Admin/DataDownloads.php:243
 msgid "Please confirm deletion."
 msgstr "Bitte das Löschen bestätigen."
 
-#: src/Admin/DataDownloads.php:188
+#: src/Admin/DataDownloads.php:245
 msgid "The local Bible edition was deleted."
 msgstr "Die lokale Bibelausgabe wurde gelöscht."
 
-#: src/Admin/DataDownloads.php:190
+#: src/Admin/DataDownloads.php:247
 msgid "Unknown action."
 msgstr "Unbekannte Aktion."
 
@@ -648,665 +690,729 @@ msgstr "Import ins Formular übernommen – noch nicht gespeichert. Bitte Vorsch
 msgid "Please select a JSON file up to 64 KiB."
 msgstr "Bitte eine JSON-Datei bis 64 KiB auswählen."
 
-#: src/Admin/DesignStudio.php:61
+#: src/Admin/DesignStudio.php:61 src/Admin/DesignStudio.php:140
+msgid "Please choose a valid preview date between 1900 and 2199."
+msgstr "Bitte wähle ein gültiges Vorschaudatum zwischen 1900 und 2199."
+
+#: src/Admin/DesignStudio.php:62
 msgid "Low text contrast in the preview. Please check the colors."
 msgstr "Niedriger Textkontrast in der Vorschau. Bitte Farben prüfen."
 
-#: src/Admin/DesignStudio.php:132
+#: src/Admin/DesignStudio.php:165
 msgid "Design sample"
 msgstr "Gestaltungsbeispiel"
 
-#: src/Admin/DesignStudio.php:135
+#: src/Admin/DesignStudio.php:168
 msgid "Sample text, not a Bible translation"
 msgstr "Beispieltext – keine Bibelübersetzung"
 
-#: src/Admin/DesignStudio.php:136
+#: src/Admin/DesignStudio.php:169
 msgid "The imported source’s complete copyright and license notices will appear here."
 msgstr "Hier stehen später die vollständigen Copyright- und Lizenzhinweise der importierten Quelle."
 
-#: src/Admin/DesignStudio.php:139
+#: src/Admin/DesignStudio.php:172
 msgid "A quiet moment for the word of the day. See how longer lines and their spacing look in your chosen layout."
 msgstr "Ein ruhiger Moment für das Wort des Tages. So wirken längere Zeilen und ihre Abstände in deinem gewählten Layout."
 
-#: src/Admin/DesignStudio.php:140
+#: src/Admin/DesignStudio.php:173
 msgid "Sample Bible reference"
 msgstr "Beispiel einer Bibelstellenangabe"
 
-#: src/Admin/DesignStudio.php:143
+#: src/Admin/DesignStudio.php:176
 msgid "The second text has its own place too. Both texts stay together as a pair."
 msgstr "Auch der zweite Text hat seinen festen Platz. Beide Texte bleiben als Paar zusammen."
 
-#: src/Admin/DesignStudio.php:144
+#: src/Admin/DesignStudio.php:177
 msgid "Second reference"
 msgstr "Zweite Stellenangabe"
 
-#: src/Admin/DesignStudio.php:221
+#: src/Admin/DesignStudio.php:294
 msgid "A good place for the daily word."
 msgstr "Ein guter Platz für das tägliche Wort."
 
-#: src/Admin/DesignStudio.php:221
+#: src/Admin/DesignStudio.php:294
 msgid "Daily readings for your WordPress website, also in Multisite. Choose your sources, shape the design and preview the result."
 msgstr "Tägliche Lesungen für deine WordPress-Website, auch in Multisite. Wähle deine Quellen, gestalte die Ausgabe und prüfe die Vorschau."
 
-#: src/Admin/DesignStudio.php:222
+#: src/Admin/DesignStudio.php:295
 msgid "Your daily word. Your style."
 msgstr "Dein tägliches Wort. Dein Stil."
 
-#: src/Admin/DesignStudio.php:222
+#: src/Admin/DesignStudio.php:295
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-#: src/Admin/DesignStudio.php:224
+#: src/Admin/DesignStudio.php:297
 msgid "Settings sections"
 msgstr "Einstellungsbereiche"
 
-#: src/Admin/DesignStudio.php:227
+#: src/Admin/DesignStudio.php:300
 msgid "Sources"
 msgstr "Quellen"
 
-#: src/Admin/DesignStudio.php:228 src/Integrations/BuilderSettings.php:46
+#: src/Admin/DesignStudio.php:301 src/Integrations/BuilderSettings.php:46
 #: src/Integrations/PassageSettings.php:71 assets/block.js:85
 #: assets/passage-block.js:47
 msgid "Layout"
 msgstr "Layout"
 
-#: src/Admin/DesignStudio.php:229
+#: src/Admin/DesignStudio.php:302
 msgid "Typography"
 msgstr "Schrift"
 
-#: src/Admin/DesignStudio.php:230
+#: src/Admin/DesignStudio.php:303
 msgid "Colors"
 msgstr "Farben"
 
-#: src/Admin/DesignStudio.php:231
+#: src/Admin/DesignStudio.php:304
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/Admin/DesignStudio.php:232
+#: src/Admin/DesignStudio.php:305
 msgid "Other settings"
 msgstr "Sonstiges"
 
-#: src/Admin/DesignStudio.php:233
+#: src/Admin/DesignStudio.php:306
 msgid "Import / Export"
 msgstr "Import / Export"
 
-#: src/Admin/DesignStudio.php:241
+#: src/Admin/DesignStudio.php:314
 msgid "1 · Sources & daily readings"
 msgstr "1 · Quellen & Tagesauswahl"
 
-#: src/Admin/DesignStudio.php:241
+#: src/Admin/DesignStudio.php:314
 msgid "Which words will accompany your visitors? Original texts stay unchanged in every design."
 msgstr "Welche Worte begleiten deine Besucher? Die Originaltexte bleiben bei jeder Gestaltung unverändert."
 
-#: src/Admin/DesignStudio.php:245
+#: src/Admin/DesignStudio.php:318
 msgid "Default source"
 msgstr "Standardquelle"
 
-#: src/Admin/DesignStudio.php:249 src/Integrations/BuilderSettings.php:30
+#: src/Admin/DesignStudio.php:322 src/Integrations/BuilderSettings.php:30
 #: assets/block.js:78
 msgid "Both sources"
 msgstr "Beide Quellen"
 
-#: src/Admin/DesignStudio.php:254 src/Integrations/BuilderSettings.php:36
+#: src/Admin/DesignStudio.php:327 src/Integrations/BuilderSettings.php:36
 #: assets/block.js:81
 msgid "Heading for Die Losungen"
 msgstr "Überschrift für Die Losungen"
 
-#: src/Admin/DesignStudio.php:255 src/Integrations/BuilderSettings.php:37
+#: src/Admin/DesignStudio.php:328 src/Integrations/BuilderSettings.php:37
 #: assets/block.js:82
 msgid "Heading for Bible 2.0"
 msgstr "Überschrift für Bible 2.0"
 
-#: src/Admin/DesignStudio.php:256
+#: src/Admin/DesignStudio.php:329
 msgid "Leave blank to use the displayed default. These headings apply to the dashboard and serve as defaults for Gutenberg and shortcodes. Blocks can use their own headings. Source and license notices stay visible."
 msgstr "Leer verwendet den angezeigten Standard. Diese Überschriften gelten im Dashboard und als Vorgabe für Gutenberg und Shortcodes. Im Block kannst du eigene Texte wählen. Die Quellen- und Lizenzhinweise bleiben erhalten."
 
-#: src/Admin/DesignStudio.php:257
+#: src/Admin/DesignStudio.php:330
 msgid "Translation when opening a Bibleserver link"
 msgstr "Übersetzung beim Öffnen eines Bibleserver-Links"
 
-#: src/Admin/DesignStudio.php:258
+#: src/Admin/DesignStudio.php:331
 msgid "Changes only the link destination, never the displayed text."
 msgstr "Betrifft nur das Linkziel, niemals den angezeigten Text."
 
-#: src/Admin/DesignStudio.php:259
+#: src/Admin/DesignStudio.php:332
 msgid "Import and manage annual data →"
 msgstr "Jahresdaten importieren und verwalten →"
 
-#: src/Admin/DesignStudio.php:260
+#: src/Admin/DesignStudio.php:333
 msgid "2 · A layout that fits"
 msgstr "2 · Ein Layout, das zu dir passt"
 
-#: src/Admin/DesignStudio.php:260
+#: src/Admin/DesignStudio.php:333
 msgid "From quiet and simple to a distinctive reading card. Every layout keeps both verses together."
 msgstr "Von klar und zurückhaltend bis zur markanten Lesekarte. Jede Variante hält beide Verse zusammen."
 
-#: src/Admin/DesignStudio.php:261
+#: src/Admin/DesignStudio.php:334
 msgid "Choose layout"
 msgstr "Layout auswählen"
 
-#: src/Admin/DesignStudio.php:266
+#: src/Admin/DesignStudio.php:339
 msgid "Compact reduces space while keeping text readable. Good for sidebars and footers. Gutenberg blocks can override the layout for each placement."
 msgstr "Kompakt reduziert den Freiraum – nicht die Lesbarkeit. Gut für Seitenleiste und Fußbereich. Im Gutenberg-Block kannst du das Layout je Platzierung überschreiben."
 
-#: src/Admin/DesignStudio.php:267
+#: src/Admin/DesignStudio.php:340
 msgid "3 · Typography with a steady rhythm"
 msgstr "3 · Schrift mit gutem Rhythmus"
 
-#: src/Admin/DesignStudio.php:267
+#: src/Admin/DesignStudio.php:340
 msgid "One slider keeps everything in proportion: move right for larger type, left for smaller. Headings, verses and notices scale together with balanced size ratios."
 msgstr "Ein Regler, alles im Einklang: Schiebe nach rechts für größere Schrift, nach links für kleinere. Überschrift, Verse und Hinweise wachsen gemeinsam – ihre ausgewogenen Größenverhältnisse bleiben erhalten."
 
-#: src/Admin/DesignStudio.php:268
+#: src/Admin/DesignStudio.php:341
 msgid "Overall size · 100% is the recommended starting point"
 msgstr "Gesamtgröße · 100 % ist die empfohlene Ausgangsgröße"
 
-#: src/Admin/DesignStudio.php:269
+#: src/Admin/DesignStudio.php:342
 msgid "Try the overall size continuously"
 msgstr "Gesamtgröße stufenlos ausprobieren"
 
-#: src/Admin/DesignStudio.php:270
+#: src/Admin/DesignStudio.php:343
 msgid "Try font size"
 msgstr "Schriftgröße ausprobieren"
 
-#: src/Admin/DesignStudio.php:270
+#: src/Admin/DesignStudio.php:343
 msgid "A · Smaller"
 msgstr "A · Kleiner"
 
-#: src/Admin/DesignStudio.php:270
+#: src/Admin/DesignStudio.php:343
 msgid "Aa · Balanced"
 msgstr "Aa · Ausgewogen"
 
-#: src/Admin/DesignStudio.php:270
+#: src/Admin/DesignStudio.php:343
 msgid "Aa · Larger"
 msgstr "Aa · Größer"
 
-#: src/Admin/DesignStudio.php:271
+#: src/Admin/DesignStudio.php:344
 msgid "Choose a size → check the preview → save at the top. At 120%, all type is one fifth larger. You can return to 100% at any time."
 msgstr "So einfach geht’s: Größe wählen → Vorschau ansehen → oben speichern. Bei 120 % ist jede Schrift ein Fünftel größer. Du kannst jederzeit zu 100 % zurückkehren."
 
-#: src/Admin/DesignStudio.php:272
+#: src/Admin/DesignStudio.php:345
 msgid "Custom date format (optional)"
 msgstr "Eigenes Datumsformat (optional)"
 
-#: src/Admin/DesignStudio.php:273
+#: src/Admin/DesignStudio.php:346
 msgid "Leave blank to use WordPress. Examples: m/d/Y or F j, Y. The preview shows the result."
 msgstr "Leer übernimmt WordPress. Beispiele: d.m.Y oder j. F Y. Die Vorschau zeigt das Ergebnis."
 
-#: src/Admin/DesignStudio.php:274
+#: src/Admin/DesignStudio.php:347
 msgid "Expert mode: adjust individual sizes and colors"
 msgstr "Expertenmodus: einzelne Größen und Farben fein abstimmen"
 
-#: src/Admin/DesignStudio.php:275
+#: src/Admin/DesignStudio.php:348
 msgid "Set each text size separately. Blank fields keep your previous pixel size. Examples: 28px, 1.75rem, 1.2em, 110%, or var(--text-xxl, 28px). These values are also multiplied by the overall size. Blank color fields inherit the color scheme."
 msgstr "Hier bestimmst du jede Schrift einzeln. Leer behält deine bisherige Pixelgröße. Beispiele: 28px, 1.75rem, 1.2em, 110% oder var(--text-xxl, 28px). Auch diese Werte werden mit der Gesamtgröße multipliziert. Ein leeres Farbfeld übernimmt das Farbschema."
 
-#: src/Admin/DesignStudio.php:278 src/Integrations/BuilderStyles.php:22
+#: src/Admin/DesignStudio.php:351 src/Integrations/BuilderStyles.php:22
 msgid "Heading"
 msgstr "Überschrift"
 
-#: src/Admin/DesignStudio.php:279
+#: src/Admin/DesignStudio.php:352
 msgid "Bible verse"
 msgstr "Bibelvers"
 
-#: src/Admin/DesignStudio.php:280
+#: src/Admin/DesignStudio.php:353
 msgid "Bible passage"
 msgstr "Bibelstelle"
 
-#: src/Admin/DesignStudio.php:281 src/Integrations/BuilderStyles.php:26
+#: src/Admin/DesignStudio.php:354 src/Integrations/BuilderStyles.php:26
 msgid "License & additional information"
 msgstr "Lizenz & Zusatzinfos"
 
-#: src/Admin/DesignStudio.php:282 src/Integrations/BuilderStyles.php:23
+#: src/Admin/DesignStudio.php:355 src/Integrations/BuilderStyles.php:23
 msgid "Date"
 msgstr "Datum"
 
-#: src/Admin/DesignStudio.php:285
+#: src/Admin/DesignStudio.php:358
 msgid "Size with unit or CSS variable"
 msgstr "Größe mit Einheit oder CSS-Variable"
 
-#: src/Admin/DesignStudio.php:285
+#: src/Admin/DesignStudio.php:358
 msgid "Color (#RRGGBB or blank)"
 msgstr "Farbe (#RRGGBB oder leer)"
 
-#: src/Admin/DesignStudio.php:286
+#: src/Admin/DesignStudio.php:359
 msgid "Which unit fits?"
 msgstr "Welche Einheit passt zu dir?"
 
-#: src/Admin/DesignStudio.php:286
+#: src/Admin/DesignStudio.php:359
 msgid "px: a fixed starting size, the familiar choice."
 msgstr "px: eine feste Ausgangsgröße – der vertraute Klassiker."
 
-#: src/Admin/DesignStudio.php:286
+#: src/Admin/DesignStudio.php:359
 msgid "rem: follows your site’s base font size. At 16 px, 1.5rem = 24 px."
 msgstr "rem: folgt der Grundschrift deiner Website. Bei 16 px Grundschrift sind 1.5rem = 24 px."
 
-#: src/Admin/DesignStudio.php:286
+#: src/Admin/DesignStudio.php:359
 msgid "em and %: refer to the inherited font size of the surrounding element."
 msgstr "em und %: beziehen sich auf die geerbte Schriftgröße des umgebenden Elements."
 
-#: src/Admin/DesignStudio.php:286
+#: src/Admin/DesignStudio.php:359
 msgid "var(--text-xxl): uses an existing theme or builder CSS variable. Set a fallback with var(--text-xxl, 28px)."
 msgstr "var(--text-xxl): verwendet eine vorhandene CSS-Variable deines Themes oder Builders. Mit var(--text-xxl, 28px) legst du einen Ersatzwert fest."
 
-#: src/Admin/DesignStudio.php:286
+#: src/Admin/DesignStudio.php:359
 msgid "The CSS variable must contain a valid font size. Relative units adapt to their surroundings but do not automatically shrink at narrower widths. A responsive CSS variable can do that. The isolated preview does not load Bricks or framework variables and shows their fallback instead. Check these values on your site too. The dashboard widget uses its own font sizes."
 msgstr "Die CSS-Variable muss eine gültige Schriftgröße enthalten. Relative Einheiten sind anpassungsfähig, werden aber nicht automatisch je Bildschirmbreite kleiner. Eine responsive CSS-Variable kann das übernehmen. Die isolierte Vorschau lädt keine Bricks- oder Framework-Variablen und zeigt daher deren Ersatzwert. Prüfe solche Werte zusätzlich auf deiner Website. Das Dashboard-Widget verwendet seine eigenen Schriftgrößen."
 
-#: src/Admin/DesignStudio.php:287
+#: src/Admin/DesignStudio.php:360
 msgid "4 · Colors with atmosphere"
 msgstr "4 · Farben mit Atmosphäre"
 
-#: src/Admin/DesignStudio.php:288
+#: src/Admin/DesignStudio.php:361
 msgid "Site color scheme"
 msgstr "Farbschema der Website"
 
-#: src/Admin/DesignStudio.php:292 src/Integrations/Bricks/BricksStyles.php:63
+#: src/Admin/DesignStudio.php:365 src/Integrations/Bricks/BricksStyles.php:63
 #: src/Integrations/Elementor/ElementorStyles.php:103
 msgid "Background"
 msgstr "Hintergrund"
 
-#: src/Admin/DesignStudio.php:293
+#: src/Admin/DesignStudio.php:366
 msgid "Text"
 msgstr "Text"
 
-#: src/Admin/DesignStudio.php:294
+#: src/Admin/DesignStudio.php:367
 msgid "Links & accent"
 msgstr "Links & Akzent"
 
-#: src/Admin/DesignStudio.php:299
+#: src/Admin/DesignStudio.php:372
 msgid "Custom colors apply in the custom scheme. Automatic follows the device’s light or dark mode. The dashboard keeps the WordPress surface and your personal admin accent."
 msgstr "Eigene Farben wirken im gleichnamigen Schema. Automatisch folgt dem hellen oder dunklen Gerätemodus. Im Dashboard bleibt die WordPress-Fläche mit deinem persönlichen Admin-Akzent erhalten."
 
-#: src/Admin/DesignStudio.php:300
+#: src/Admin/DesignStudio.php:373
 msgid "5 · Dashboard readings"
 msgstr "5 · Dashboard-Lesungen"
 
-#: src/Admin/DesignStudio.php:301
+#: src/Admin/DesignStudio.php:374
 msgid "Also display daily verses in the dashboard"
 msgstr "Die täglichen Verse auch im Dashboard anzeigen"
 
-#: src/Admin/DesignStudio.php:303
+#: src/Admin/DesignStudio.php:376
 msgid "Save your settings first. Then choose your personal readings and their order in the dashboard widget."
 msgstr "Speichere zuerst die Einstellungen. Wähle anschließend im Dashboard-Widget deine persönlichen Lesungen und ihre Reihenfolge."
 
-#: src/Admin/DesignStudio.php:304
+#: src/Admin/DesignStudio.php:377
 msgid "Open dashboard (new tab)"
 msgstr "Dashboard öffnen (neuer Tab)"
 
-#: src/Admin/DesignStudio.php:305
+#: src/Admin/DesignStudio.php:378
 msgid "6 · Other settings & data cleanup"
 msgstr "6 · Sonstiges & Datenpflege"
 
-#: src/Admin/DesignStudio.php:306
+#: src/Admin/DesignStudio.php:379
 msgid "Delete this site’s settings, personal dashboard preferences, annual data and Bible editions when uninstalling"
 msgstr "Beim Deinstallieren Einstellungen, persönliche Dashboard-Werte, Jahresdaten und Bibelausgaben dieser Website löschen"
 
-#: src/Admin/DesignStudio.php:307
+#: src/Admin/DesignStudio.php:380
 msgid "Deactivation preserves data. Day and year changes follow the WordPress timezone; import new years on the data sources page."
 msgstr "Deaktivieren behält die Daten. Der Tages- und Jahreswechsel folgt der WordPress-Zeitzone; neue Jahre importierst du in der Datenverwaltung."
 
-#: src/Admin/DesignStudio.php:309
+#: src/Admin/DesignStudio.php:382
 msgid "Live preview"
 msgstr "Live-Vorschau"
 
-#: src/Admin/DesignStudio.php:309
+#: src/Admin/DesignStudio.php:382
 msgid "How your verses look"
 msgstr "So wirken deine Verse"
 
-#: src/Admin/DesignStudio.php:310
-msgid "Today’s original data, when available. Otherwise a clearly labeled design sample."
-msgstr "Originaldaten von heute, sofern verfügbar. Sonst ein klar gekennzeichnetes Gestaltungsbeispiel."
+#: src/Admin/DesignStudio.php:383
+msgid "Local readings for the selected day. Without today’s data, a clearly labeled design sample is shown."
+msgstr "Lokale Lesungen für den gewählten Tag. Fehlen die Daten für heute, erscheint ein klar gekennzeichnetes Gestaltungsbeispiel."
 
-#: src/Admin/DesignStudio.php:311
+#: src/Admin/DesignStudio.php:384
 msgid "Width"
 msgstr "Breite"
 
-#: src/Admin/DesignStudio.php:311
+#: src/Admin/DesignStudio.php:384
 msgid "Available space"
 msgstr "Verfügbarer Platz"
 
-#: src/Admin/DesignStudio.php:311
+#: src/Admin/DesignStudio.php:384
 msgid "Mobile · 390 px"
 msgstr "Mobil · 390 px"
 
-#: src/Admin/DesignStudio.php:311
+#: src/Admin/DesignStudio.php:384
 msgid "Sidebar · 300 px"
 msgstr "Seitenleiste · 300 px"
 
-#: src/Admin/DesignStudio.php:312
+#: src/Admin/DesignStudio.php:385
 msgid "Context"
 msgstr "Bereich"
 
-#: src/Admin/DesignStudio.php:312
+#: src/Admin/DesignStudio.php:385
 msgid "Site"
 msgstr "Website"
 
-#: src/Admin/DesignStudio.php:312
+#: src/Admin/DesignStudio.php:385
 msgid "Dashboard colors"
 msgstr "Dashboard-Farben"
 
-#: src/Admin/DesignStudio.php:313
+#: src/Admin/DesignStudio.php:386
+msgid "Preview day"
+msgstr "Vorschautag"
+
+#: src/Admin/DesignStudio.php:386
+msgid "Today"
+msgstr "Heute"
+
+#: src/Admin/DesignStudio.php:386
+msgid "Tomorrow"
+msgstr "Morgen"
+
+#: src/Admin/DesignStudio.php:386
+msgid "Choose a date"
+msgstr "Datum wählen"
+
+#: src/Admin/DesignStudio.php:387
+msgid "Preview date"
+msgstr "Vorschaudatum"
+
+#: src/Admin/DesignStudio.php:388
+msgid "Preview only: no downloads or saved changes. Missing data for tomorrow or a chosen date is shown as a notice."
+msgstr "Nur Vorschau: kein Download, keine Speicherung. Fehlen Daten für morgen oder ein gewähltes Datum, erscheint ein Hinweis."
+
+#: src/Admin/DesignStudio.php:389
 msgid "Simulate strict theme rules"
 msgstr "Strenge Theme-Regeln simulieren"
 
-#: src/Admin/DesignStudio.php:314
+#: src/Admin/DesignStudio.php:390
 msgid "The preview shows the plugin’s design. Your theme may affect the available width. The simulation checks common spacing problems. The dashboard preview shows admin colors; choose your personal reading size in the widget itself."
 msgstr "Die Vorschau zeigt die Gestaltung des Plugins. Dein Theme kann die verfügbare Breite beeinflussen. Die Simulation prüft typische Abstandsprobleme. Die Dashboard-Vorschau zeigt die Admin-Farben; deine persönliche Lesegröße wählst du direkt im Widget."
 
-#: src/Admin/DesignStudio.php:315
+#: src/Admin/DesignStudio.php:391
 msgid "Daily verse preview"
 msgstr "Vorschau der täglichen Verse"
 
-#: src/Admin/DesignStudio.php:316
+#: src/Admin/DesignStudio.php:392
 msgid "Refresh preview"
 msgstr "Vorschau aktualisieren"
 
-#: src/Admin/DesignStudio.php:317
+#: src/Admin/DesignStudio.php:393
 msgid "Live preview and JSON import require JavaScript. Settings can also be saved without JavaScript."
 msgstr "Live-Vorschau und JSON-Übernahme benötigen JavaScript. Die Einstellungen lassen sich auch ohne JavaScript speichern."
 
-#: src/Admin/DesignStudio.php:319
+#: src/Admin/DesignStudio.php:395
 msgid "7 · Transfer, back up, reuse"
 msgstr "7 · Mitnehmen, sichern, wiederverwenden"
 
-#: src/Admin/DesignStudio.php:319
+#: src/Admin/DesignStudio.php:395
 msgid "A design includes layout, colors, font sizes and date format. A full backup also includes the source selection and other site settings. Bible texts, annual packages, personal dashboard preferences and builder styles are not included."
 msgstr "Ein Design enthält Layout, Farben, Schriftgrößen und Datumsformat. Die vollständige Sicherung enthält zusätzlich Quellenwahl und weitere Website-Einstellungen. Bibeltexte, Jahrespakete, persönliche Dashboard-Einstellungen und Builder-Stile sind nicht enthalten."
 
-#: src/Admin/DesignStudio.php:321
+#: src/Admin/DesignStudio.php:397
 msgid "Saved design as JSON"
 msgstr "Gespeichertes Design als JSON"
 
-#: src/Admin/DesignStudio.php:321
+#: src/Admin/DesignStudio.php:397
 msgid "All saved settings as JSON"
 msgstr "Alle gespeicherten Einstellungen als JSON"
 
-#: src/Admin/DesignStudio.php:322
+#: src/Admin/DesignStudio.php:398
 msgid "Import JSON file (up to 64 KiB)"
 msgstr "JSON-Datei übernehmen (bis 64 KiB)"
 
-#: src/Admin/DesignStudio.php:322
+#: src/Admin/DesignStudio.php:398
 msgid "Validate & load into form"
 msgstr "Prüfen & ins Formular übernehmen"
 
-#: src/Admin/DesignStudio.php:323
+#: src/Admin/DesignStudio.php:399
 msgid "Imports load into the form first. Review them before saving. Full imports can also change the uninstall deletion option."
 msgstr "Der Import wird zuerst ins Formular geladen. Prüfe ihn in Ruhe und speichere erst danach. Vollständige Importe können auch die Löschoption bei Deinstallation ändern."
 
-#: src/Admin/Documentation.php:32
+#: src/Admin/Documentation.php:33
 msgid "Copied, ready to paste!"
 msgstr "Kopiert – bereit zum Einfügen!"
 
-#: src/Admin/Documentation.php:33
+#: src/Admin/Documentation.php:34
 msgid "Please copy the highlighted shortcode with Ctrl+C or ⌘C."
 msgstr "Bitte den markierten Shortcode mit Strg+C oder ⌘C kopieren."
 
-#: src/Admin/Documentation.php:57
+#: src/Admin/Documentation.php:58
 msgid "Help, tips & ideas"
 msgstr "Hilfe, Tipps & gute Ideen"
 
-#: src/Admin/Documentation.php:57
+#: src/Admin/Documentation.php:58
 msgid "Set it up once and enjoy daily readings. Find the steps for your daily verse display here."
 msgstr "Einmal einrichten, jeden Tag freuen. Hier findest du die passenden Handgriffe für deine tägliche Versausgabe."
 
-#: src/Admin/Documentation.php:59
+#: src/Admin/Documentation.php:60
 msgid "Ready in three steps"
 msgstr "In drei Schritten startklar"
 
-#: src/Admin/Documentation.php:59
+#: src/Admin/Documentation.php:60
 msgid "1. Check the download source and import an annual package under Data sources, or upload an official annual file. 2. Choose a layout under Design. 3. Insert the “Daily Scripture” block or builder element. The dashboard uses the same daily data."
 msgstr "1. Unter Datenquellen die Downloadquelle prüfen und das gewünschte Jahrespaket importieren. Alternativ eine offizielle Jahresdatei hochladen. 2. Unter Gestaltung dein Layout wählen. 3. Den Block oder das Builder-Element „Daily Scripture“ einfügen. Das Dashboard verwendet dieselben Tagesdaten."
 
-#: src/Admin/Documentation.php:60
+#: src/Admin/Documentation.php:61
 msgid "Your selected Bible passage"
 msgstr "Deine eigene Bibelstelle"
 
-#: src/Admin/Documentation.php:60
+#: src/Admin/Documentation.php:61
 msgid "Install an edition in the Bible library first. Then insert “Bible passage · Daily Scripture” in Gutenberg, Elementor or Bricks. Choose edition, book, chapter and verse range. Up to 50 verses within one chapter are supported. A blank heading displays the Bible reference."
 msgstr "Installiere zuerst eine Übersetzung in der Bibelbibliothek. Füge anschließend „Bibelstelle · Daily Scripture“ in Gutenberg, Elementor oder Bricks ein. Wähle Übersetzung, Buch, Kapitel und Versbereich. Bis zu 50 Verse innerhalb eines Kapitels sind möglich. Eine leere Überschrift zeigt die Bibelstellenangabe."
 
-#: src/Admin/Documentation.php:61
+#: src/Admin/Documentation.php:62
 msgid "Design with confidence"
 msgstr "Gestalten mit gutem Gefühl"
 
-#: src/Admin/Documentation.php:61
+#: src/Admin/Documentation.php:62
 msgid "Start with a layout and adjust the overall size to keep type balanced. Use compact spacing for sidebars and footers. Check light and dark surfaces in the preview. Expert mode lets you fine-tune individual text areas."
 msgstr "Beginne mit einem Layout und passe die Gesamtgröße an: So bleibt die Schrift ausgewogen. Für Seitenleiste und Fußbereich eignet sich die kompakte Ansicht. Prüfe helle und dunkle Flächen in der Vorschau. Im Expertenmodus kannst du die einzelnen Textbereiche genauer abstimmen."
 
-#: src/Admin/Documentation.php:62
+#: src/Admin/Documentation.php:63
 msgid "Design with Elementor and Bricks"
 msgstr "Gestalten mit Elementor und Bricks"
 
-#: src/Admin/Documentation.php:62
+#: src/Admin/Documentation.php:63
 msgid "Elementor and Bricks have native typography, color, border and spacing controls. Blank values inherit plugin defaults; custom values affect only this element. Use device previews for responsive settings. Set outer margins in the general Layout or Advanced section."
 msgstr "Elementor und Bricks bieten eigene Regler für Schriften, Farben, Rahmen und Abstände. Leere Werte folgen den Plugin-Vorgaben; eigene Werte gelten nur für dieses Element. Nutze die Geräteansichten für responsive Anpassungen. Äußere Abstände stellst du im allgemeinen Layout- oder Erweitert-Bereich ein."
 
-#: src/Admin/Documentation.php:63
+#: src/Admin/Documentation.php:64
 msgid "The right verses each morning"
 msgstr "Jeden Morgen die richtigen Verse"
 
-#: src/Admin/Documentation.php:63
+#: src/Admin/Documentation.php:64
 msgid "Dates and year changes follow the WordPress timezone. Check that next year is installed in time. Refresh page and CDN caches at the day change. Missing data displays a notice rather than old verses."
 msgstr "Datum und Jahreswechsel folgen der WordPress-Zeitzone. Prüfe rechtzeitig, ob das nächste Jahr installiert ist. Leere Seiten- und CDN-Caches zum Tageswechsel. Fehlende Daten werden als Hinweis angezeigt, nicht durch alte Verse ersetzt."
 
-#: src/Admin/Documentation.php:64
+#: src/Admin/Documentation.php:65
 msgid "Plugin updates through GitHub"
 msgstr "Plugin-Updates über GitHub"
 
-#: src/Admin/Documentation.php:64
+#: src/Admin/Documentation.php:65
 msgid "Daily Scripture uses the deckerweb Updater. New public GitHub releases appear in standard WordPress update management. Automatic updates are not enabled automatically. Successful checks are cached for up to 30 minutes, failures for 10 minutes. If no release is available, the installed version stays usable; manual ZIP updates remain possible."
 msgstr "Daily Scripture verwendet den deckerweb-Updater. Neue öffentliche GitHub-Releases erscheinen in der normalen WordPress-Updateverwaltung. Automatische Updates werden nicht von selbst aktiviert. Prüfungen werden bis zu 30 Minuten zwischengespeichert, Fehler für 10 Minuten. Ohne verfügbares Release bleibt die installierte Version nutzbar; ein ZIP-Update ist weiterhin möglich."
 
-#: src/Admin/Documentation.php:65
+#: src/Admin/Documentation.php:66
 msgid "Texts with attribution"
 msgstr "Texte mit Herkunft"
 
-#: src/Admin/Documentation.php:65
+#: src/Admin/Documentation.php:66
 msgid "Losung and Lehrtext belong together and remain unchanged. Source and license notices stay accessible. Observe the edition’s terms. The freely licensed Bible library is independent of official daily readings. Bibleserver is linked only; its target translation can be chosen separately."
 msgstr "Losung und Lehrtext gehören zusammen und bleiben unverändert. Quellen- und Lizenzhinweise bleiben zugänglich. Beachte die Bedingungen der jeweiligen Ausgabe. Die freie Bibelbibliothek ist unabhängig von den offiziellen Tagesversen. Bibleserver wird nur verlinkt; seine Zielübersetzung lässt sich separat wählen."
 
-#: src/Admin/Documentation.php:70
+#: src/Admin/Documentation.php:71
 msgid "Troubleshooting"
 msgstr "Wenn etwas hakt"
 
-#: src/Admin/Documentation.php:72
+#: src/Admin/Documentation.php:73
 msgid "The download is unavailable"
 msgstr "Der Download ist nicht verfügbar"
 
-#: src/Admin/Documentation.php:72
-msgid "Check the source later or manually upload the linked original package. For certificate errors, your hosting provider can check the secure connection. A failed import preserves existing data."
-msgstr "Prüfe die Quelle später erneut oder verwende den manuellen Upload des verlinkten Originalpakets. Bei Zertifikatsfehlern kann dein Hosting die sichere Verbindung prüfen. Vorhandene Daten bleiben bei einem fehlgeschlagenen Import erhalten."
-
 #: src/Admin/Documentation.php:73
+msgid "Losungen downloads retry a missing-issuer certificate error once using verified official intermediate certificates. HTTPS checks stay enabled. If the download still fails, upload the original package manually or ask your hosting provider to check the connection. Existing data is preserved."
+msgstr "Losungen-Downloads werden bei einem fehlenden Zertifikatsaussteller einmal mit geprüften offiziellen Zwischenzertifikaten wiederholt. Die HTTPS-Prüfung bleibt aktiv. Scheitert der Abruf weiterhin, lade das Originalpaket manuell hoch oder lasse die Verbindung vom Hoster prüfen. Vorhandene Daten bleiben erhalten."
+
+#: src/Admin/Documentation.php:74
 msgid "The Bible passage does not appear"
 msgstr "Die Bibelstelle erscheint nicht"
 
-#: src/Admin/Documentation.php:73
+#: src/Admin/Documentation.php:74
 msgid "Is the selected edition installed? Are the chapter and verse range correct? Verse numbering varies. In Menge, select Ezekiel 33:14–15 together. The displayed notice helps identify the issue."
 msgstr "Ist die gewählte Übersetzung installiert? Stimmen Kapitel und Versbereich? Verszählungen unterscheiden sich. In der Menge-Ausgabe müssen Hesekiel 33,14–15 gemeinsam gewählt werden. Der angezeigte Hinweis hilft dir weiter."
 
-#: src/Admin/Documentation.php:74
+#: src/Admin/Documentation.php:75
 msgid "The editor looks different after an update"
 msgstr "Nach einem Update sieht der Editor anders aus"
 
-#: src/Admin/Documentation.php:74
+#: src/Admin/Documentation.php:75
 msgid "Reload the editor completely and clear browser and builder caches if needed. Then check the preview on the site. Normal updates preserve saved blocks and settings."
 msgstr "Lade den Editor vollständig neu und leere gegebenenfalls Browser- und Builder-Caches. Prüfe anschließend die Vorschau auf der Website. Gespeicherte Blöcke und Einstellungen bleiben bei einem normalen Update erhalten."
 
-#: src/Admin/Documentation.php:75
+#: src/Admin/Documentation.php:76
 msgid "Reuse a design"
 msgstr "Ein gelungenes Design wiederverwenden"
 
-#: src/Admin/Documentation.php:75
+#: src/Admin/Documentation.php:76
 msgid "Export your design or plugin settings as JSON in the design section. Save builder styles with the builder’s own templates. JSON settings do not include Bible texts or annual packages."
 msgstr "Exportiere dein Design oder die Plugin-Einstellungen im Gestaltungsbereich als JSON. Builder-Stile speicherst du mit den Vorlagen des jeweiligen Builders. Die JSON-Einstellungen enthalten keine Bibeltexte oder Jahrespakete."
 
-#: src/Admin/Documentation.php:91
+#: src/Admin/Documentation.php:79
+msgid "Support diagnostics"
+msgstr "Support-Diagnose"
+
+#: src/Admin/Documentation.php:79
+msgid "Copy this local report when asking for support. It contains technical status only, without verse texts, website addresses, user data or server paths. No new connection is tested and no report is sent automatically."
+msgstr "Kopiere diesen lokalen Bericht bei einer Support-Anfrage. Er enthält ausschließlich technische Statusangaben, ohne Versinhalte, Website-Adressen, Benutzerdaten oder Serverpfade. Eine neue Verbindung wird nicht geprüft und kein Bericht automatisch versendet."
+
+#: src/Admin/Documentation.php:79
+msgid "Support report"
+msgstr "Support-Bericht"
+
+#: src/Admin/Documentation.php:79
+msgid "Copy support report"
+msgstr "Support-Bericht kopieren"
+
+#: src/Admin/Documentation.php:93
 msgid "Copy"
 msgstr "Kopieren"
 
-#: src/Admin/Documentation.php:99
+#: src/Admin/Documentation.php:101
 msgid "Shortcodes to copy"
 msgstr "Shortcodes zum Kopieren"
 
-#: src/Admin/Documentation.php:99
+#: src/Admin/Documentation.php:101
 msgid "Paste the code into a WordPress Shortcode block or your builder’s shortcode element. You can also select and copy it directly in the field."
 msgstr "Füge den kopierten Code in einen WordPress-Shortcode-Block oder das Shortcode-Element deines Builders ein. Du kannst ihn auch direkt im Feld markieren und kopieren."
 
-#: src/Admin/Documentation.php:100
+#: src/Admin/Documentation.php:102
 msgid "Daily verses"
 msgstr "Tägliche Verse"
 
-#: src/Admin/Documentation.php:101
+#: src/Admin/Documentation.php:103
 msgid "The basic form"
 msgstr "Die einfache Grundform"
 
-#: src/Admin/Documentation.php:101
+#: src/Admin/Documentation.php:103
 msgid "Uses the source and presentation from your plugin settings."
 msgstr "Verwendet die Quelle und Gestaltung aus deinen Plugin-Einstellungen."
 
-#: src/Admin/Documentation.php:102
+#: src/Admin/Documentation.php:104
 msgid "All daily verse options"
 msgstr "Alle Optionen für Tagesverse"
 
-#: src/Admin/Documentation.php:102
+#: src/Admin/Documentation.php:104
 msgid "Choose a source and presentation for this output."
 msgstr "Quelle und Darstellung gezielt für diese Ausgabe festlegen."
 
-#: src/Admin/Documentation.php:103
+#: src/Admin/Documentation.php:105
 msgid "Compact Die Losungen"
 msgstr "Die Losungen kompakt"
 
-#: src/Admin/Documentation.php:103
+#: src/Admin/Documentation.php:105
 msgid "Losung and Lehrtext together with less spacing, for example in a sidebar."
 msgstr "Losung und Lehrtext zusammen, mit weniger Abstand – etwa für die Seitenleiste."
 
-#: src/Admin/Documentation.php:104
+#: src/Admin/Documentation.php:106
 msgid "The Word for Today in dark mode"
 msgstr "Das Wort für heute in Dunkel"
 
-#: src/Admin/Documentation.php:104
+#: src/Admin/Documentation.php:106
 msgid "Bible 2.0 with a dark color scheme. Inherits the global heading."
 msgstr "Bible 2.0 mit dunklem Farbschema. Die globale Überschrift wird übernommen."
 
-#: src/Admin/Documentation.php:105
+#: src/Admin/Documentation.php:107
 msgid "Selected Bible passages"
 msgstr "Eigene Bibelstellen"
 
-#: src/Admin/Documentation.php:105
+#: src/Admin/Documentation.php:107
 msgid "The selected edition must be installed in the Bible library. Up to 50 verses within one chapter."
 msgstr "Voraussetzung: Die gewünschte Ausgabe ist in der Bibelbibliothek installiert. Maximal 50 Verse innerhalb eines Kapitels."
 
-#: src/Admin/Documentation.php:106
+#: src/Admin/Documentation.php:108
 msgid "The basic passage form"
 msgstr "Die einfache Bibelstellen-Grundform"
 
-#: src/Admin/Documentation.php:106
+#: src/Admin/Documentation.php:108
 msgid "Displays John 3:16 from Luther 1912 with your global design."
 msgstr "Zeigt Johannes 3,16 aus Luther 1912 mit deiner globalen Gestaltung."
 
-#: src/Admin/Documentation.php:107
+#: src/Admin/Documentation.php:109
 msgid "All passage options"
 msgstr "Alle Optionen für eine Bibelstelle"
 
-#: src/Admin/Documentation.php:107
+#: src/Admin/Documentation.php:109
 msgid "Choose an edition, passage, heading and presentation."
 msgstr "Passe Übersetzung, Stelle, Überschrift und Darstellung nach deinen Wünschen an."
 
-#: src/Admin/Documentation.php:108
+#: src/Admin/Documentation.php:110
 msgid "Psalm 23 from Elberfelder 1905"
 msgstr "Psalm 23 aus Elberfelder 1905"
 
-#: src/Admin/Documentation.php:108
+#: src/Admin/Documentation.php:110
 msgid "Without a custom title, the Bible reference is used as the heading."
 msgstr "Ohne eigenen Titel erscheint die Bibelstelle als Überschrift."
 
-#: src/Admin/Documentation.php:109
+#: src/Admin/Documentation.php:111
 msgid "Schlachter 1951 with attribution"
 msgstr "Schlachter 1951 mit Quellenhinweis"
 
-#: src/Admin/Documentation.php:109
+#: src/Admin/Documentation.php:111
 msgid "Freely usable under CC BY 4.0. Author, source and license notices appear automatically in the output."
 msgstr "Frei nutzbar unter CC BY 4.0. Urheber-, Quellen- und Lizenzhinweise erscheinen automatisch bei der Ausgabe."
 
-#: src/Admin/Documentation.php:110
+#: src/Admin/Documentation.php:112
 msgid "Menge 1939 in the footer"
 msgstr "Menge 1939 im Fußbereich"
 
-#: src/Admin/Documentation.php:110
+#: src/Admin/Documentation.php:112
 msgid "Without “to”, only the verse selected with “from” is displayed."
 msgstr "Ohne „to“ wird nur der unter „from“ gewählte Vers angezeigt."
 
-#: src/Admin/Documentation.php:111
+#: src/Admin/Documentation.php:113
 msgid "Parameters at a glance"
 msgstr "Parameter auf einen Blick"
 
-#: src/Admin/Documentation.php:111
+#: src/Admin/Documentation.php:113
 msgid "Parameter"
 msgstr "Parameter"
 
-#: src/Admin/Documentation.php:111
+#: src/Admin/Documentation.php:113
 msgid "Values and effects"
 msgstr "Werte und Wirkung"
 
-#: src/Admin/Documentation.php:113
+#: src/Admin/Documentation.php:115
 msgid "Daily verses only: herrnhuter = Die Losungen, bible2 = Bible 2.0, both = both sources. Without a value, the plugin setting applies."
 msgstr "Nur Tagesverse: herrnhuter = Die Losungen, bible2 = Bible 2.0, both = beide Quellen. Ohne Angabe gilt die Plugin-Einstellung."
 
-#: src/Admin/Documentation.php:114
+#: src/Admin/Documentation.php:116
 msgid "Passages only: luther-1912 (default), elberfelder-1905, menge-1939, or schlachter-1951 (CC BY 4.0)."
 msgstr "Nur Bibelstellen: luther-1912 (Standard), elberfelder-1905, menge-1939 oder schlachter-1951 (CC BY 4.0)."
 
-#: src/Admin/Documentation.php:115
+#: src/Admin/Documentation.php:117
 msgid "Passages only: book code, chapter, first and last verse. Default: JOH / 3 / 16 / 16. Without “to”, the last verse equals the first."
 msgstr "Nur Bibelstellen: Buchkürzel, Kapitel, erster und letzter Vers. Standard: JOH / 3 / 16 / 16. Ohne „to“ entspricht der letzte dem ersten Vers."
 
-#: src/Admin/Documentation.php:116
+#: src/Admin/Documentation.php:118
 msgid "Passages only: custom heading up to 160 characters. Blank displays the Bible reference. Daily verses inherit global source headings."
 msgstr "Nur Bibelstellen: eigene Überschrift bis 160 Zeichen. Leer zeigt die Bibelstellenangabe. Tagesverse übernehmen die globalen Quellenüberschriften."
 
-#: src/Admin/Documentation.php:117
+#: src/Admin/Documentation.php:119
 msgid "standard or compact. Without a value, the site setting applies."
 msgstr "standard oder compact. Ohne Angabe gilt die Website-Einstellung."
 
-#: src/Admin/Documentation.php:118
+#: src/Admin/Documentation.php:120
 msgid "light, dark, auto (device setting), or custom (custom colors). Without a value, the site setting applies."
 msgstr "light = hell, dark = dunkel, auto = Geräteeinstellung, custom = eigene Farben. Ohne Angabe gilt die Website-Einstellung."
 
-#: src/Admin/Documentation.php:136
+#: src/Admin/Documentation.php:138
 msgid "Look up all book codes"
 msgstr "Alle Buchkürzel nachschlagen"
 
-#: src/Admin/Documentation.php:139
+#: src/Admin/Documentation.php:141
 msgid "Tip: omit presentation options to inherit later changes to your global design."
 msgstr "Tipp: Lasse Darstellungsoptionen weg, wenn spätere Änderungen deiner globalen Gestaltung auch hier gelten sollen."
 
-#: src/Admin/PageChrome.php:41
+#: src/Admin/DownloadDiagnostics.php:36
+msgid "Technical details"
+msgstr "Technische Details"
+
+#: src/Admin/DownloadDiagnostics.php:36
+msgid "Download diagnostic codes"
+msgstr "Diagnosecodes zum Download"
+
+#: src/Admin/DownloadDiagnostics.php:36
+msgid "Copy diagnostic"
+msgstr "Diagnose kopieren"
+
+#: src/Admin/PageChrome.php:31
+msgid "Diagnostic copied."
+msgstr "Diagnose kopiert."
+
+#: src/Admin/PageChrome.php:32
+msgid "Select the diagnostic text and copy it manually."
+msgstr "Markiere den Diagnosetext und kopiere ihn manuell."
+
+#: src/Admin/PageChrome.php:50
 msgid "Design"
 msgstr "Gestaltung"
 
-#: src/Admin/PageChrome.php:48
+#: src/Admin/PageChrome.php:57
 msgid "Daily Scripture – sections"
 msgstr "Daily Scripture – Bereiche"
 
-#: src/Admin/PageChrome.php:61
+#: src/Admin/PageChrome.php:70
 msgid "About the plugin"
 msgstr "Über das Plugin"
 
-#: src/Admin/PageChrome.php:61
+#: src/Admin/PageChrome.php:70
 msgid "Version"
 msgstr "Version"
 
-#: src/Admin/PageChrome.php:61
+#: src/Admin/PageChrome.php:70
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: src/Admin/PageChrome.php:61
+#: src/Admin/PageChrome.php:70
 msgid "Words to brighten your day."
 msgstr "Worte, die den Tag erhellen."
 
-#: src/Admin/PageChrome.php:61
+#: src/Admin/PageChrome.php:70
 msgid "Plugin website"
 msgstr "Plugin-Website"
 
@@ -1867,81 +1973,139 @@ msgstr "Groß"
 msgid "Extra large"
 msgstr "Sehr groß"
 
-#: src/Core/Presentation.php:187 src/Core/SiteHealth.php:40
+#: src/Core/Presentation.php:187 src/Core/SiteHealth.php:41
 msgid "Die Losungen"
 msgstr "Die Losungen"
 
-#: src/Core/Renderer.php:50
+#: src/Core/Renderer.php:65
 msgid "No approved local data is available for this date."
 msgstr "Für dieses Datum sind keine freigegebenen lokalen Daten verfügbar."
 
-#: src/Core/Renderer.php:64
+#: src/Core/Renderer.php:79
 msgid "Find more information here."
 msgstr "Weitere Informationen findest du hier."
 
-#: src/Core/Renderer.php:68
+#: src/Core/Renderer.php:83
 msgid "Copyright and license notices"
 msgstr "Copyright und Lizenzhinweise"
 
-#: src/Core/Renderer.php:70
+#: src/Core/Renderer.php:85
 msgid "Bible references compiled by the “Bible 2.0” project"
 msgstr "Zusammenstellung der Bibelstellen durch das Projekt „Bible 2.0“"
 
-#: src/Core/Renderer.php:70
+#: src/Core/Renderer.php:85
 msgid "License information"
 msgstr "Lizenzinformationen"
 
-#: src/Core/SiteHealth.php:30
+#: src/Core/SiteHealth.php:31
 msgid "Daily Scripture annual data"
 msgstr "Daily Scripture: Jahresdaten"
 
-#: src/Core/SiteHealth.php:71
+#: src/Core/SiteHealth.php:72
 msgid "The installed annual sources contain valid data for today. Optional sources and Bible editions are not checked."
 msgstr "Die installierten Jahresquellen enthalten gültige Daten für heute. Optionale Quellen und Bibelausgaben werden nicht geprüft."
 
-#: src/Core/SiteHealth.php:72
+#: src/Core/SiteHealth.php:73
 msgid "No annual sources are installed. There is nothing to check; using only the Bible library is fine."
 msgstr "Es sind keine Jahresquellen installiert. Es gibt nichts zu prüfen; die Bibelbibliothek kann auch allein genutzt werden."
 
-#: src/Core/SiteHealth.php:74
+#: src/Core/SiteHealth.php:75
 msgid "Daily Scripture: no annual data issues found"
 msgstr "Daily Scripture: Keine Probleme mit Jahresdaten festgestellt"
 
-#: src/Core/SiteHealth.php:85
+#: src/Core/SiteHealth.php:86
 msgid "Check the annual data for Daily Scripture"
 msgstr "Die Jahresdaten von Daily Scripture prüfen"
 
-#: src/Core/SiteHealth.php:87
+#: src/Core/SiteHealth.php:88
 msgid "An installed source has missing or unreadable data for today. Check its current annual package on the data sources page."
 msgstr "Bei einer installierten Quelle fehlen gültige Daten für heute oder sie lassen sich nicht lesen. Bitte das aktuelle Jahrespaket unter „Datenquellen“ prüfen."
 
-#: src/Core/SiteHealth.php:89
+#: src/Core/SiteHealth.php:90
 msgid "Manage annual data"
 msgstr "Jahresdaten verwalten"
 
-#: src/Core/SiteHealth.php:104
+#: src/Core/SiteHealth.php:106
 msgid "Plugin version"
 msgstr "Plugin-Version"
 
-#: src/Core/SiteHealth.php:108
+#: src/Core/SiteHealth.php:110
 msgid "Site timezone"
 msgstr "Zeitzone der Website"
 
-#: src/Core/SiteHealth.php:112
+#: src/Core/SiteHealth.php:114
 msgid "Local date"
 msgstr "Lokales Tagesdatum"
 
 #: src/Core/SiteHealth.php:119
+msgid "WordPress / PHP"
+msgstr "WordPress / PHP"
+
+#: src/Core/SiteHealth.php:123
+msgid "Installation mode"
+msgstr "Installationsart"
+
+#: src/Core/SiteHealth.php:124
+msgid "Multisite"
+msgstr "Multisite"
+
+#: src/Core/SiteHealth.php:124
+msgid "Single site"
+msgstr "Einzelinstallation"
+
+#: src/Core/SiteHealth.php:128
+msgid "Plugin activation"
+msgstr "Plugin-Aktivierung"
+
+#: src/Core/SiteHealth.php:129
+msgid "Network-wide"
+msgstr "Netzwerkweit"
+
+#: src/Core/SiteHealth.php:129
+msgid "Current site"
+msgstr "Aktuelle Website"
+
+#: src/Core/SiteHealth.php:133 src/Core/SiteHealth.php:137
+msgid "Not loaded"
+msgstr "Nicht geladen"
+
+#: src/Core/SiteHealth.php:147
+msgid "Available"
+msgstr "Verfügbar"
+
+#: src/Core/SiteHealth.php:147
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
+#: src/Core/SiteHealth.php:154
 msgid "None"
 msgstr "Keine"
 
-#: src/Core/SiteHealth.php:121
+#: src/Core/SiteHealth.php:156
 msgid "Storage could not be read"
 msgstr "Datenspeicher nicht lesbar"
 
-#: src/Core/SiteHealth.php:130
-msgid "Existing annual files are listed by year. Only the status test validates the current annual data. No verse texts or server paths are included."
-msgstr "Aufgelistet sind die vorhandenen Jahresdateien. Die Prüfung im Reiter „Status“ kontrolliert die aktuellen Jahresdaten. Versinhalte und Serverpfade sind nicht enthalten."
+#. translators: %s: Annual source name.
+#: src/Core/SiteHealth.php:164
+#, php-format
+msgid "%s: cached source check"
+msgstr "%s: zwischengespeicherte Quellenprüfung"
+
+#: src/Core/SiteHealth.php:171
+msgid "Local support information only. Source checks use the existing temporary cache and may have expired; they do not test a new connection. Only the status test validates current annual data. Verse texts, addresses and server paths are excluded."
+msgstr "Ausschließlich lokale Support-Informationen. Quellenprüfungen nutzen den vorhandenen temporären Zwischenspeicher und können bereits abgelaufen sein; eine neue Verbindung wird nicht geprüft. Nur der Statustest validiert aktuelle Jahresdaten. Versinhalte, Adressen und Serverpfade sind nicht enthalten."
+
+#: src/Core/SiteHealth.php:185
+msgid "No cached check (not checked or expired)"
+msgstr "Keine zwischengespeicherte Prüfung (noch nicht geprüft oder abgelaufen)"
+
+#: src/Core/SiteHealth.php:187
+msgid "Successful"
+msgstr "Erfolgreich"
+
+#: src/Core/SiteHealth.php:187
+msgid "Failed"
+msgstr "Fehlgeschlagen"
 
 #: src/Data/Importer.php:34
 msgid "Die Losungen may only be imported for the previous, current and next year."
@@ -2179,41 +2343,61 @@ msgstr "Ein Tagesdatum fehlt oder enthält kein vollständiges Verspaar."
 msgid "Invalid day record."
 msgstr "Ungültiger Tagesdatensatz."
 
-#: src/Downloads/AnnualPackages.php:62
+#: src/Downloads/AnnualPackages.php:71
 msgid "DOM/XML is required."
 msgstr "DOM/XML wird benötigt."
 
-#: src/Downloads/AnnualPackages.php:86
+#: src/Downloads/AnnualPackages.php:95
 msgid "The provider directory is unreadable."
 msgstr "Das Anbieter-Verzeichnis ist nicht lesbar."
 
-#: src/Downloads/AnnualPackages.php:115
+#: src/Downloads/AnnualPackages.php:124
 msgid "No matching annual packages were found in the provider directory. Manual upload is still available."
 msgstr "Keine passenden Jahrespakete im Anbieter-Verzeichnis gefunden. Manueller Upload bleibt möglich."
 
-#: src/Downloads/AnnualPackages.php:132
+#: src/Downloads/AnnualPackages.php:142
 msgid "Please check the download source first and choose an available package."
 msgstr "Bitte zuerst die Downloadquelle prüfen und ein verfügbares Paket wählen."
 
-#: src/Downloads/AnnualPackages.php:137
+#: src/Downloads/AnnualPackages.php:147
 msgid "The package is no longer approved."
 msgstr "Das Paket ist nicht mehr freigegeben."
 
-#: src/Downloads/AnnualPackages.php:143
+#: src/Downloads/AnnualPackages.php:153
 msgid "The download could not be stored temporarily."
 msgstr "Download konnte nicht zwischengespeichert werden."
 
-#: src/Downloads/Remote.php:26
+#: src/Downloads/DownloadError.php:37
+msgid "The provider did not respond in time. Try again later or upload the file manually."
+msgstr "Der Anbieter hat nicht rechtzeitig geantwortet. Versuche es später erneut oder lade die Datei manuell hoch."
+
+#: src/Downloads/DownloadError.php:38
+msgid "The secure connection could not be verified. Certificate checks remain enabled; manual upload is still available."
+msgstr "Die sichere Verbindung konnte nicht bestätigt werden. Die Zertifikatsprüfung bleibt aktiv; ein manueller Upload ist weiterhin möglich."
+
+#: src/Downloads/DownloadError.php:39
+msgid "The provider returned an unexpected HTTP response. Try again later or upload the file manually."
+msgstr "Der Anbieter hat mit einem unerwarteten HTTP-Status geantwortet. Versuche es später erneut oder lade die Datei manuell hoch."
+
+#: src/Downloads/DownloadError.php:40
+msgid "The provider returned an empty file. Please try again later or upload the original file manually."
+msgstr "Der Anbieter hat eine leere Datei geliefert. Versuche es später erneut oder lade die Originaldatei manuell hoch."
+
+#: src/Downloads/DownloadError.php:41
+msgid "The download exceeds the permitted size. Please check the original package before uploading it manually."
+msgstr "Der Download überschreitet die zulässige Größe. Prüfe das Originalpaket vor einem manuellen Upload."
+
+#: src/Downloads/DownloadError.php:42
+msgid "The downloaded content is not a supported provider directory or annual file. Existing data has not been replaced."
+msgstr "Der heruntergeladene Inhalt ist kein unterstütztes Anbieterverzeichnis oder keine unterstützte Jahresdatei. Vorhandene Daten wurden nicht ersetzt."
+
+#: src/Downloads/DownloadError.php:43
+msgid "The provider could not be reached. Check the server connection or upload the file manually."
+msgstr "Der Anbieter ist nicht erreichbar. Prüfe die Serververbindung oder lade die Datei manuell hoch."
+
+#: src/Downloads/Remote.php:27
 msgid "This download address is not approved."
 msgstr "Diese Downloadadresse ist nicht freigegeben."
-
-#: src/Downloads/Remote.php:39
-msgid "The provider is unreachable or the secure connection failed. Manual upload is still available."
-msgstr "Anbieter nicht erreichbar oder sichere Verbindung fehlgeschlagen. Manueller Upload bleibt möglich."
-
-#: src/Downloads/Remote.php:52
-msgid "The download is unavailable, redirected, empty or too large. Please upload manually or check again later."
-msgstr "Download nicht verfügbar, umgeleitet, leer oder zu groß. Bitte manuell hochladen oder später erneut prüfen."
 
 #: src/Integrations/Bricks/BricksStyles.php:31
 msgid "Verse surface & spacing"
@@ -2439,6 +2623,10 @@ msgid "%s supports activation per site only."
 msgstr "%s unterstützt nur die Aktivierung je Website."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Action cancelled."
+msgstr "Vorgang abgebrochen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Activate"
 msgstr "Aktivieren"
 
@@ -2447,8 +2635,24 @@ msgid "Activate Bricks QuickNav per site after selecting the Bricks parent or ch
 msgstr "Bricks QuickNav bitte je Website aktivieren, nachdem das Bricks-Theme oder ein Child-Theme ausgewählt wurde."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Activating…"
+msgstr "Wird aktiviert…"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Active"
+msgstr "Aktiv"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Active filters: "
+msgstr "Aktive Filter: "
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Admin"
 msgstr "Administration"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Affected features remain paused until their requirements are met."
+msgstr "Betroffene Funktionen pausieren, bis ihre Voraussetzungen erfüllt sind."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "All"
@@ -2457,6 +2661,22 @@ msgstr "Alle"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Already active"
 msgstr "Bereits aktiv"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Already up to date."
+msgstr "Bereits aktuell."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Another action for this plugin is running. Please wait."
+msgstr "Für dieses Plugin läuft bereits eine Aktion. Bitte warten."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Another component interrupted the request. If Git Updater is active, temporarily deactivate it and retry."
+msgstr "Eine andere Komponente hat die Anfrage unterbrochen. Falls Git Updater aktiv ist, deaktiviere ihn vorübergehend und wiederhole den Vorgang."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Another updater provides a different release. Refresh updates before continuing."
+msgstr "Ein anderer Updater bietet einen abweichenden Release an. Bitte die Updateinformationen vor dem Fortfahren aktualisieren."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Apr"
@@ -2495,6 +2715,14 @@ msgid "Builder"
 msgstr "Builder"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Bundled catalog"
+msgstr "Mitgelieferter Katalog"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Cached or bundled catalog"
+msgstr "Gespeicherter oder mitgelieferter Katalog"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Cannot create temporary file."
 msgstr "Temporäre Datei konnte nicht erstellt werden."
 
@@ -2519,6 +2747,18 @@ msgid "Catalog URL"
 msgstr "Katalog-URL"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Catalog refreshed."
+msgstr "Katalog aktualisiert."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Check status"
+msgstr "Status prüfen"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Checking status…"
+msgstr "Status wird geprüft…"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Commerce"
 msgstr "Commerce"
 
@@ -2529,6 +2769,14 @@ msgstr "Nur passende Ergänzungen"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Content"
 msgstr "Inhalte"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Copied."
+msgstr "Kopiert."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Copy diagnostic information"
+msgstr "Diagnoseinformationen kopieren"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Dec"
@@ -2551,8 +2799,16 @@ msgid "Discover more plugins by deckerweb"
 msgstr "Weitere Plugins von deckerweb entdecken"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Discover randomly"
+msgstr "Zufällig entdecken"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Dismiss permanently"
 msgstr "Dauerhaft schließen"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Done. The plugin is active."
@@ -2579,6 +2835,14 @@ msgid "February"
 msgstr "Februar"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Filesystem credentials are required."
+msgstr "Zugangsdaten für das Dateisystem werden benötigt."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Filesystem credentials are required. Use the catalog with JavaScript enabled or the native Plugins screen."
+msgstr "Dateisystem-Zugangsdaten sind erforderlich. Bitte den Katalog mit aktiviertem JavaScript oder die WordPress-Pluginverwaltung verwenden."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Filter"
 msgstr "Filtern"
 
@@ -2597,6 +2861,10 @@ msgstr "Fr"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Friday"
 msgstr "Freitag"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Git Updater is active. If a deckerweb installation or update fails, temporarily deactivate Git Updater and retry. Reactivate it afterwards if other plugins or themes need it. Only leave it disabled when those extensions have another reliable update provider."
+msgstr "Git Updater ist aktiv. Falls eine deckerweb-Installation oder Aktualisierung fehlschlägt, deaktiviere Git Updater vorübergehend und wiederhole den Vorgang. Aktiviere ihn danach wieder, wenn andere Plugins oder Themes ihn benötigen. Lasse ihn nur dauerhaft deaktiviert, wenn diese Erweiterungen einen anderen zuverlässigen Updateweg besitzen."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "GitHub Stars"
@@ -2623,12 +2891,28 @@ msgid "Install now"
 msgstr "Jetzt installieren"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installation cancelled."
+msgstr "Installation abgebrochen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installation failed."
+msgstr "Installation fehlgeschlagen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Installed"
 msgstr "Installiert"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installed · inactive"
+msgstr "Installiert · inaktiv"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Installed: "
 msgstr "Installiert: "
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Installing…"
+msgstr "Wird installiert…"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Invalid ZIP archive."
@@ -2703,6 +2987,10 @@ msgid "Invalid plugin series."
 msgstr "Ungültige Plugin-Serie."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Invalid sort order."
+msgstr "Ungültige Sortierung."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Invalid star count."
 msgstr "Ungültige Anzahl der GitHub-Sterne."
 
@@ -2733,6 +3021,10 @@ msgstr "Jun"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "June"
 msgstr "Juni"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Last successful check: "
+msgstr "Zuletzt erfolgreich geprüft: "
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Library"
@@ -2795,12 +3087,20 @@ msgid "More by deckerweb"
 msgstr "Mehr von deckerweb"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Multisite"
-msgstr "Multisite"
+msgid "Name A–Z"
+msgstr "Name A–Z"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Name Z–A"
+msgstr "Name Z–A"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Network activate"
 msgstr "Netzwerkweit aktivieren"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Network active"
+msgstr "Netzwerkweit aktiv"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Network permission denied."
@@ -2813,6 +3113,10 @@ msgstr "Neu"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "No approved plugins match this selection."
 msgstr "Keine freigegebenen Plugins passen zu dieser Auswahl."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Not installed. You can try again."
+msgstr "Nicht installiert. Ein erneuter Versuch ist möglich."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Nov"
@@ -2867,6 +3171,10 @@ msgid "Permission denied."
 msgstr "Keine Berechtigung."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Permission denied. Reload the page and check your permissions."
+msgstr "Zugriff verweigert. Lade die Seite neu und prüfe deine Berechtigungen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Planned: "
 msgstr "Geplant: "
 
@@ -2887,6 +3195,10 @@ msgid "Product website"
 msgstr "Produktwebsite"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Recently updated"
+msgstr "Zuletzt aktualisiert"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Refresh catalog"
 msgstr "Katalog aktualisieren"
 
@@ -2905,6 +3217,10 @@ msgstr "Release in Vorbereitung"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Release must contain exactly the approved plugin directory."
 msgstr "Das Release muss genau das freigegebene Plugin-Verzeichnis enthalten."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Remove filter: "
+msgstr "Filter entfernen: "
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Repository & documentation"
@@ -2931,6 +3247,10 @@ msgid "Reset filters"
 msgstr "Filter zurücksetzen"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Reset view"
+msgstr "Ansicht zurücksetzen"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Retrieve approved catalog updates online"
 msgstr "Katalogfreigaben online aktualisieren"
 
@@ -2951,6 +3271,10 @@ msgid "Search this catalog"
 msgstr "Diesen Katalog durchsuchen"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Select and copy the text."
+msgstr "Text markieren und kopieren."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Selected by deckerweb · Installed from GitHub releases"
 msgstr "Von deckerweb ausgewählt · Installation aus GitHub-Releases"
 
@@ -2963,6 +3287,14 @@ msgid "September"
 msgstr "September"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Shop"
+msgstr "Shop"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Show deckerweb under Add Plugins"
 msgstr "deckerweb unter „Plugins hinzufügen“ anzeigen"
 
@@ -2971,8 +3303,16 @@ msgid "Shows plugins whose platform and dependency requirements are met in this 
 msgstr "Zeigt Plugins, deren Plattform- und Abhängigkeitsanforderungen auf dieser Website oder im Netzwerk erfüllt sind. Ohne diesen Filter bleiben Plugins mit fehlenden Voraussetzungen sichtbar."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Shuffle again"
+msgstr "Neu mischen"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Small plugins. Practical improvements."
 msgstr "Kleine Plugins. Konkrete Verbesserungen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Sort by"
+msgstr "Sortieren nach"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Source: GitHub"
@@ -2987,8 +3327,20 @@ msgid "Sunday"
 msgstr "Sonntag"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Technical information"
+msgstr "Technische Informationen"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "The GitHub release could not be downloaded."
 msgstr "Das GitHub-Release konnte nicht heruntergeladen werden."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The action is still running. Check its status again."
+msgstr "Die Aktion läuft noch. Bitte den Status erneut prüfen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The approved package could not be verified."
+msgstr "Das freigegebene Paket konnte nicht geprüft werden."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "The approved release changed. Refresh updates first."
@@ -3015,6 +3367,14 @@ msgid "The catalog is hidden."
 msgstr "Der Katalog ist ausgeblendet."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The deckerweb catalog could not load. Check platform requirements and the complete Library integration in the host plugin."
+msgstr "Der deckerweb-Katalog konnte nicht geladen werden. Bitte PHP-/WordPress-Anforderungen und die vollständige Library-Einbindung im Host-Plugin prüfen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The installed plugin identity could not be verified for this catalog update."
+msgstr "Die Identität des installierten Plugins konnte für dieses Katalogupdate nicht bestätigt werden."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "The online catalog is unavailable. Showing cached or bundled entries; online approval is checked again before installation."
 msgstr "Der Online-Katalog ist nicht erreichbar. Angezeigt wird der gespeicherte oder mitgelieferte Katalog; vor der Installation wird die Online-Freigabe erneut geprüft."
 
@@ -3025,6 +3385,22 @@ msgstr "Die Online-Katalogquelle ist nicht vertrauenswürdig."
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "The release checksum does not match. Installation stopped."
 msgstr "Die Prüfsumme des Releases stimmt nicht überein. Installation gestoppt."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The request could not be completed. Check the plugin status before trying again."
+msgstr "Die Anfrage konnte nicht abgeschlossen werden. Vor einem erneuten Versuch den Plugin-Status prüfen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The requirements below describe the offered release."
+msgstr "Die folgenden Voraussetzungen beziehen sich auf den angebotenen Release."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "The update has not been confirmed. You can try again."
+msgstr "Die Aktualisierung wurde nicht bestätigt. Du kannst es erneut versuchen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "These details contain component versions and catalog status, without credentials or site content."
+msgstr "Diese Angaben enthalten Komponentenversionen und den Katalogstatus, keine Zugangsdaten oder Website-Inhalte."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "This catalog requires a newer Library."
@@ -3051,6 +3427,10 @@ msgid "Thursday"
 msgstr "Donnerstag"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Tue"
 msgstr "Di"
 
@@ -3069,6 +3449,26 @@ msgstr "Nicht vertrauenswürdige Release-URL."
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Update %1$s to version %2$s or newer."
 msgstr "%1$s bitte auf Version %2$s oder neuer aktualisieren."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Update available"
+msgstr "Update verfügbar"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Update failed."
+msgstr "Aktualisierung fehlgeschlagen."
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Update to %s"
+msgstr "Auf %s aktualisieren"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: includes/deckerweb-plugin-library/src/I18n.php
+msgid "Updating…"
+msgstr "Wird aktualisiert…"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "View plugins"
@@ -3093,59 +3493,3 @@ msgstr "WordPress"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "You already use one of my plugins. Find selected additions in the deckerweb tab."
 msgstr "Du nutzt bereits ein Plugin von mir. Ausgewählte Ergänzungen findest du im deckerweb-Tab."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Activating…"
-msgstr "Wird aktiviert…"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Another action for this plugin is running. Please wait."
-msgstr "Für dieses Plugin läuft bereits eine Aktion. Bitte warten."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Check status"
-msgstr "Status prüfen"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Checking status…"
-msgstr "Status wird geprüft…"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Filesystem credentials are required."
-msgstr "Zugangsdaten für das Dateisystem werden benötigt."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Installation cancelled."
-msgstr "Installation abgebrochen."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Installation failed."
-msgstr "Installation fehlgeschlagen."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Installing…"
-msgstr "Wird installiert…"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Not installed. You can try again."
-msgstr "Nicht installiert. Ein erneuter Versuch ist möglich."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Shop"
-msgstr "Shop"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "The action is still running. Check its status again."
-msgstr "Die Aktion läuft noch. Bitte den Status erneut prüfen."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "The request could not be completed. Check the plugin status before trying again."
-msgstr "Die Anfrage konnte nicht abgeschlossen werden. Vor einem erneuten Versuch den Plugin-Status prüfen."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "The requirements below describe the offered release."
-msgstr "Die folgenden Voraussetzungen beziehen sich auf den angebotenen Release."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Tools"
-msgstr "Werkzeuge"

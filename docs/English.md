@@ -1,4 +1,4 @@
-# User guide · Daily Scripture 1.0.1
+# User guide · Daily Scripture 1.1.0
 
 [Deutsch](Deutsch.md) · [Home](Home.md)
 
@@ -23,7 +23,7 @@ From your first reading to a design that fits: use the contents to jump straight
 
 ## Installation and first steps
 
-Requires WordPress 6.6 or later, PHP 8.0 or later and DOM/XML. ZIP packages require the PHP ZipArchive extension. Elementor and Bricks are optional.
+Requires WordPress 6.6 or later, PHP 8.1 or later and DOM/XML. ZIP packages require the PHP ZipArchive extension. Elementor and Bricks are optional.
 
 1. Install and activate the plugin ZIP through **Plugins → Add Plugin → Upload Plugin**.
 2. Under **Daily Scripture → Data sources** (data sources), check the download source, select an annual package, review its terms and import it. Alternatively, upload an official XML/TWD file or its ZIP package.
@@ -173,4 +173,19 @@ The Network Admin widget uses a personally selected active website in the curren
 Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
 
 
-For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 0.8.1 offer activation directly in the catalog.
+For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 1.0.0 offer activation directly in the catalog.
+
+
+## Losungen download and certificate errors
+
+For a missing-issuer certificate error, Daily Scripture retries the approved Losungen download once using bundled official intermediate certificates. These intermediates must validate against the current WordPress trust roots. HTTPS and hostname verification remain enabled. Other providers, expired certificates and unrelated failures do not use this fallback. If verification still fails, manually upload the official package or ask your hosting provider to inspect the connection.
+
+## Year overview, download diagnostics and preview date
+
+Under **Daily Scripture → Data sources**, the overview shows both years per source. Only sources you use need data. Available packages and missing files link to their source check. “Not listed in the last source check” describes a cached result rather than claiming that the provider has not published the package. Opening this overview makes no provider requests.
+
+A failed download now identifies its category. **Technical details** contains only bounded reason codes, HTTP/cURL numbers and the plugin version. **Copy diagnostic** copies those values; without JavaScript or clipboard access the text remains manually selectable. No raw responses, server paths or credentials enter the diagnostic. Existing short-lived check/notice caches are reused, with no additional persistent log. Certificate verification remains enabled.
+
+In the design preview choose **Today**, **Tomorrow** or **Choose a date**. Tomorrow and custom dates display only installed local annual data. Missing data or a date outside the source’s allowed range produces a notice. Only today’s default preview may use a clearly labeled design sample. The website timezone applies; the date and other preview controls change neither saved settings nor published readings and start no download.
+
+Leading `/…:/` introduction markers in Die Losungen are displayed in italics without visible slashes; wording and stored originals remain unchanged. **Help → Support diagnostics** offers a copyable local technical report. The same information appears under **Tools → Site Health → Info**: component versions, installation mode, extensions, installed years and safe codes from source checks still in the temporary cache. No new connection is tested and nothing is sent automatically. Since WordPress 6.9, the native Command Palette automatically includes accessible plugin menus; no extra Daily Scripture commands are registered. WordPress 6.6–6.8 retains the regular plugin menus.

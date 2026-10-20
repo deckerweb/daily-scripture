@@ -122,3 +122,8 @@
 .daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__meta { font-size:var(--ds-meta-size)!important; line-height:1.5!important; font-weight:400!important; font-style:normal!important; }
 .daily-scripture[data-ds-component]:not([data-ds-builder]) .daily-scripture__meta :is(p,details,summary) { font-size:inherit!important; line-height:inherit!important; font-weight:400!important; }
 .daily-scripture[data-ds-component]:not([data-ds-builder]).daily-scripture--layout-quiet .daily-scripture__item :is(p,cite) { text-align:center!important; }
+
+.daily-scripture-license-dialog:not([open]),.daily-scripture-license-dialog[hidden]{display:none!important}
+
+/* Publisher introduction markers are typography, never a text rewrite. */
+.daily-scripture[data-ds-component] .daily-scripture__intro { font-style:italic; }

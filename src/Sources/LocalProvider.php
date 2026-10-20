@@ -54,7 +54,7 @@ abstract class LocalProvider implements SourceInterface {
 			return $result;
 		}
 		try {
-			$record = ( new YearStore() )->read( $this->id(), $year );
+			$record = ( new YearStore() )->read( $this->id(), $year, false );
 			if ( $record ) {
 				$result['items']     = $record['days'][ $result['date'] ] ?? array();
 				$result['edition']   = $record['edition'];

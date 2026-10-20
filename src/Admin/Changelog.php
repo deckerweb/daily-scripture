@@ -101,7 +101,7 @@ final class Changelog {
 			return;
 		}
 		$close = __( 'Close', 'daily-scripture' );
-		echo '<dialog id="ds-changelog" class="ds-changelog" aria-labelledby="ds-changelog-title"><header class="ds-changelog__header"><h2 id="ds-changelog-title">Daily Scripture · ' . esc_html__( 'Changelog', 'daily-scripture' ) . '</h2><button type="button" class="button" data-ds-changelog-close autofocus>' . esc_html( $close ) . '</button></header><div class="ds-changelog__content" tabindex="0">';
+		echo '<dialog id="ds-changelog" class="ds-changelog" hidden aria-labelledby="ds-changelog-title"><header class="ds-changelog__header"><h2 id="ds-changelog-title">Daily Scripture · ' . esc_html__( 'Changelog', 'daily-scripture' ) . '</h2><form method="dialog"><button type="submit" class="button" data-ds-changelog-close autofocus>' . esc_html( $close ) . '</button></form></header><div class="ds-changelog__content" tabindex="0">';
 		echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- content() escapes every text node; only fixed heading, list and paragraph markup is emitted.
 		echo '</div><p class="ds-changelog__readme"><a href="' . esc_url( self::url() ) . '">' . esc_html( self::filename() ) . '</a></p></dialog>';
 	}

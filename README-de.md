@@ -8,7 +8,7 @@
 
 Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewählte Bibelstellen und persönliche Dashboard-Widgets. Wähle deine Quellen, gestalte die Ausgabe und zeige Lesungen mit Gutenberg, Shortcodes, Elementor oder Bricks an. Die Website-Funktionen sind auch in Multisite nutzbar, ergänzt um eine Leseansicht im Network Admin.
 
-**Version:** 1.0.1 · **Voraussetzungen:** WordPress 6.6+ / PHP 8.0+ · **Lizenz:** GPL-2.0-or-later
+**Version:** 1.1.0 · **Voraussetzungen:** WordPress 6.6+ / PHP 8.1+ · **Lizenz:** GPL-2.0-or-later
 
 [Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deutsch) · [English](README.md)
 
@@ -21,6 +21,8 @@ Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewä
 - [Editoren, Shortcodes und Dashboard](#editoren-shortcodes-und-dashboard)
 - [Daten und Einstellungstransfer](#daten-und-einstellungstransfer)
 - [Updates und Dokumentation](#updates-und-dokumentation)
+- [Dashboard-Lesungen und Farbwähler](#dashboard-lesungen-und-farbwähler)
+- [Einstellungen im Überblick](#einstellungen-im-überblick)
 - [Häufige Fragen](#haeufige-fragen)
 - [Changelog](#changelog)
 - [Autor und Projekt](#autor-und-projekt)
@@ -47,7 +49,7 @@ Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewä
 4. Wähle unter **Gestaltung** ein Layout, passe die Gesamtgröße an und prüfe die Vorschau. Speichere mit dem Button oben.
 5. Füge den Block, das Builder-Element oder den Shortcode **Daily Scripture** ein. Für eigene Bibelstellen installierst du vorher eine Ausgabe unter **Bibelbibliothek**.
 
-Vorausgesetzt werden WordPress 6.6+, PHP 8.0+ und DOM/XML. ZIP-Pakete benötigen ZipArchive. Elementor und Bricks sind optional. Der Pluginname bleibt auch auf Deutsch **Daily Scripture**.
+Vorausgesetzt werden WordPress 6.6+, PHP 8.1+ und DOM/XML. ZIP-Pakete benötigen ZipArchive. Elementor und Bricks sind optional. Der Pluginname bleibt auch auf Deutsch **Daily Scripture**.
 
 <a name="tagesverse-und-bibelbibliothek"></a>
 
@@ -81,6 +83,8 @@ Im Dashboard kann jeder Benutzer über **Ansicht anpassen** kompakte Abstände u
 
 ## Daten und Einstellungstransfer
 
+Die Datenquellen-Seite zeigt den Stand des aktuellen und nächsten Jahres mit direkten Wegen zur Paketwahl oder zum Upload. Downloadfehler unterscheiden Zeitüberschreitung, sichere Verbindung, HTTP-Antwort und ungeeigneten Inhalt; aufklappbare Diagnosecodes lassen sich kopieren. Die Gestaltungsvorschau bietet heute, morgen oder ein frei gewähltes Datum aus lokalen Jahresdaten – ohne Download oder Speicherung.
+
 Du startest die Jahresdownloads selbst. Die Quellenprüfung zeigt verfügbare Pakete, installiert aber nicht automatisch das Folgejahr. Der Import prüft vollständige Jahre und Verspaare vor dem Ersetzen lokaler Daten. Installiere das nächste Jahr rechtzeitig und aktualisiere Seiten- oder CDN-Caches zum Tageswechsel.
 
 Alle verwalteten Textdateien bleiben unter `wp-content/uploads/daily-scripture/`. JSON-Exporte enthalten die gespeicherte Gestaltung oder Website-Einstellungen, aber keine Bibeltexte, Jahrespakete, persönlichen Dashboard-Werte oder Builder-Stile. Importierte Einstellungen erscheinen zunächst zur Prüfung im Formular und gelten nach dem Speichern. Nimm die Textdateien in dein normales Website-Backup auf.
@@ -94,6 +98,25 @@ Updates kommen direkt aus dem [DECKERWEB-Repository auf GitHub](https://github.c
 Die [deutsche Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deutsch), die [englische Anleitung](https://github.com/deckerweb/daily-scripture/wiki/English) und die thematischen FAQs erklären Einstellungen, Quellen und häufige Fragen. Eine [lokale Kopie](docs/Deutsch.md) liegt im Plugin. Im Admin-Footer findest du die Dokumentation und den Changelog-Dialog. Zwischengespeicherte Updateprüfungen können ein neues Angebot bis zu 30 Minuten verzögern; ein manuelles ZIP-Update ist ebenfalls möglich.
 
 <a name="haeufige-fragen"></a>
+
+## Dashboard-Lesungen und Farbwähler
+
+Lege unter **Daily Scripture → Dashboard-Lesungen** die angebotenen Lesungen fest: Die Losungen, Bible 2.0 und bis zu sechs Bibelstellen aus lokal installierten Ausgaben (bis zu 50 Verse innerhalb eines Kapitels). Speichere die Website-Einstellungen und öffne im Widget **Ansicht anpassen**. Wähle eine oder mehrere Lesungen und ändere ihre Reihenfolge mit **Nach oben / Nach unten**. Ohne JavaScript stehen Positionsfelder bereit. Ohne eingerichtete Lesungen erscheint ein zurückhaltender Hinweis; fehlende Jahresdaten oder Bibelausgaben werden je Lesung angezeigt. Persönliche Auswahl und Reihenfolge ändern die öffentliche Ausgabe nicht. Vollständige JSON-Sicherungen enthalten die Lesungsdefinitionen; reine Designs und ältere Sicherungen lassen sie unverändert. Installiere benötigte Ausgaben auf der Zielwebsite, bevor du importierte Bibelstellen speicherst.
+
+Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des aktuellen Netzwerks und nennt diese sichtbar. Ist nur die Hauptwebsite aktiv, wird sie automatisch verwendet. Bei mehreren aktiven Websites oder Netzwerkaktivierung kannst du die Bezugswebsite wählen: Speichere nach dem Wechsel einmal, um deren Lesungen zu laden, und triff danach deine persönliche Auswahl. Ist die bisherige Website nicht mehr verfügbar, folgt ein Hinweis und eine Ersatzwebsite. Das Widget steht im Network Admin bei Aktivierung auf der Hauptwebsite oder im Netzwerk bereit; eine ausschließliche Unterwebsite-Aktivierung lädt es dort nicht. Der Website-Widget-Schalter betrifft das Dashboard dieser Website; die Netzwerk-Leseansicht ist unabhängig. Die Website-Auswahl wird in Gruppen von 50 angeboten. Es entsteht keine zusätzliche Netzwerk-Bibeltextdatenhaltung.
+
+Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
+
+Netzwerkaktivierung wird mit der eingebundenen Library 1.0.0 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie. Seiten-/CDN-Caches sollten nach Mitternacht in der Website-Zeitzone erneuert werden.
+
+## Einstellungen im Überblick
+
+![Dashboard-Quellen und eine klar gekennzeichnete Gestaltungsvorschau auf einer WordPress-Website.](assets/screenshots/settings-de.png)
+
+Dashboard-Quellen und eine klar gekennzeichnete Gestaltungsvorschau auf einer WordPress-Website.
+
+
+Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 1.0.0 bieten die Freigabe direkt im Katalog.
 
 ## Häufige Fragen
 
@@ -113,13 +136,19 @@ Die [deutsche Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deuts
 
 [Alle Fragen nach Themen](https://github.com/deckerweb/daily-scripture/wiki/FAQ-Deutsch)
 
+
+
+
 <a name="changelog"></a>
 
-
-### Netzwerk-Dashboard und Seiten-Caches
-
-
 ## Changelog
+
+### 1.1.0
+
+- **Neu:** Jahresübersicht für aktuelle und kommende Jahresdaten, temporäre Vorschau für Heute/Morgen/ein frei gewähltes Datum sowie erweiterte Site-Health-Angaben mit kopierbarem Support-Bericht unter Hilfe.
+- **Verbessert:** Differenzierte Download-Diagnose mit sicheren technischen Codes und manueller Kopieralternative; isolierte Vorschau-Assets, robustere Dialoge und Manrope-Schriftzüge in den lokalisierten Bannern.
+- **Behoben:** Losungen-Downloads können bei fehlendem Ausstellerzertifikat mit geprüften offiziellen Zwischenzertifikaten erneut versucht werden; die HTTPS-Prüfung bleibt aktiv. Führende Losungen-Einleitungen erscheinen kursiv und ohne sichtbare Slashes; Wortlaut und gespeicherte Originaldaten bleiben unverändert.
+- **Sonstiges:** Eingebundene deckerweb Library 1.0.0; Updater V2 2.1.0 unverändert. PHP mindestens 8.1; WordPress 6.6 bleibt die Mindestversion. Aktualisierte englische/deutsche Dokumentation und Prüfungen für Einzelinstallationen und Multisite.
 
 ### 1.0.1
 
@@ -149,26 +178,6 @@ Unveröffentlichte Zwischenversion; in Version 1.0.0 enthalten.
 ### 0.16.1
 - **Sonstiges:** GPL-2.0-or-later für den Plugin-Code ausdrücklich dokumentiert; vollständige Lizenzdatei und Veröffentlichungspaket ergänzt. Die Nutzungsbedingungen der Bibeltexte bleiben unabhängig davon.
 
-### 0.16.0
-- **Neu:** Gemeinsame deckerweb GitHub Release Updater-Bibliothek wie in Brand Admin Schemes, mit WordPress-Updateanzeige und Release-Details.
-- **Verbessert:** Begrenzte HTTPS-Metadatenabfragen, zwischengespeicherte Ergebnisse und lokalisierte Updatefehler.
-- **Verbessert:** Prüfung von Paketidentität, angebotener Version und tatsächlichen WordPress-/PHP-Anforderungen vor dem Austausch der Plugin-Dateien.
-- **Sonstiges:** Update-URI, Bibliotheksherkunft und Anleitung für öffentliche GitHub-Releases dokumentiert; automatische Updates bleiben eine Benutzerentscheidung.
-
-### 0.15.0
-- **Neu:** Changelog-Dialog neben der Versionsnummer auf allen Plugin-Adminseiten, mit deutscher oder englischer Versionshistorie.
-- **Verbessert:** Englische Standard-Readmes und separate deutsche Fassungen; Verweise passend zur jeweiligen Sprache.
-
-### 0.14.0
-- **Neu:** Deutsche Sprachdateien für Plugin und Block-Editor.
-- **Verbessert:** Kürzere Plugin-Beschreibung mit dem aktuellen Funktionsumfang; verständlichere Hilfen und einheitliche deutsche Begriffe.
-- **Verbessert:** Readme als aktuelle Anleitung mit Einrichtung, Gestaltung, Shortcodes, Datenpflege und allen vier Bibelausgaben.
-- **Behoben:** Veraltete Speicherpfade und unvollständige Hinweise zu Datenlöschung, JSON-Export und Dashboard-Vorschau berichtigt.
-- **Sonstiges:** Vollständige Versionshistorie mit den Präfixen New, Improved, Fixed und Misc; Übersetzungsvorlage aktualisiert. Der Pluginname bleibt Daily Scripture.
-
-[Vollständiger Änderungsverlauf im Wiki](https://github.com/deckerweb/daily-scripture/wiki/Changelog-Deutsch) · [Lokale Historie](docs/Changelog-Deutsch.md) · [Releases](https://github.com/deckerweb/daily-scripture/releases)
-
-<a name="ueber-das-plugin"></a>
 
 ## Autor und Projekt
 
@@ -180,23 +189,8 @@ Vertrauliche Sicherheitsmeldungen: [Sicherheitsmeldeweg](SECURITY-de.md). Unters
 
 Der Plugin-Code steht unter **GPL-2.0-or-later**. Für Bibeltexte und Jahrespakete gelten eigene Bedingungen. © 2026 David Decker – DECKERWEB · [Lizenz](LICENSE)
 
-Gemeinsame Komponenten: deckerweb Library 0.8.1 und Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Herkunft und Verhalten: [Komponenten](UPDATER-de.md).
+Gemeinsame Komponenten: deckerweb Library 1.0.0 und Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Herkunft und Verhalten: [Komponenten](UPDATER-de.md).
 
-## Dashboard-Lesungen und Farbwähler
+Banner-Schrift: **Manrope**, Copyright 2018 The Manrope Project Authors, [SIL Open Font License 1.1](resources/licenses/Manrope-OFL.txt). Die SVG-Banner verwenden Schriftpfade und enthalten keine eingebetteten Rasterbilder oder externen Schriftressourcen.
 
-Lege unter **Daily Scripture → Dashboard-Lesungen** die angebotenen Lesungen fest: Die Losungen, Bible 2.0 und bis zu sechs Bibelstellen aus lokal installierten Ausgaben (bis zu 50 Verse innerhalb eines Kapitels). Speichere die Website-Einstellungen und öffne im Widget **Ansicht anpassen**. Wähle eine oder mehrere Lesungen und ändere ihre Reihenfolge mit **Nach oben / Nach unten**. Ohne JavaScript stehen Positionsfelder bereit. Ohne eingerichtete Lesungen erscheint ein zurückhaltender Hinweis; fehlende Jahresdaten oder Bibelausgaben werden je Lesung angezeigt. Persönliche Auswahl und Reihenfolge ändern die öffentliche Ausgabe nicht. Vollständige JSON-Sicherungen enthalten die Lesungsdefinitionen; reine Designs und ältere Sicherungen lassen sie unverändert. Installiere benötigte Ausgaben auf der Zielwebsite, bevor du importierte Bibelstellen speicherst.
-
-Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des aktuellen Netzwerks und nennt diese sichtbar. Ist nur die Hauptwebsite aktiv, wird sie automatisch verwendet. Bei mehreren aktiven Websites oder Netzwerkaktivierung kannst du die Bezugswebsite wählen: Speichere nach dem Wechsel einmal, um deren Lesungen zu laden, und triff danach deine persönliche Auswahl. Ist die bisherige Website nicht mehr verfügbar, folgt ein Hinweis und eine Ersatzwebsite. Das Widget steht im Network Admin bei Aktivierung auf der Hauptwebsite oder im Netzwerk bereit; eine ausschließliche Unterwebsite-Aktivierung lädt es dort nicht. Der Website-Widget-Schalter betrifft das Dashboard dieser Website; die Netzwerk-Leseansicht ist unabhängig. Die Website-Auswahl wird in Gruppen von 50 angeboten. Es entsteht keine zusätzliche Netzwerk-Bibeltextdatenhaltung.
-
-Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
-
-Netzwerkaktivierung wird mit der eingebundenen Library 0.8.1 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie. Seiten-/CDN-Caches sollten nach Mitternacht in der Website-Zeitzone erneuert werden.
-
-## Einstellungen im Überblick
-
-![Dashboard-Quellen und eine klar gekennzeichnete Gestaltungsvorschau auf einer WordPress-Website.](assets/screenshots/settings-de.png)
-
-Dashboard-Quellen und eine klar gekennzeichnete Gestaltungsvorschau auf einer WordPress-Website.
-
-
-Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 0.8.1 bieten die Freigabe direkt im Katalog.
+Losungen-Einleitungen mit führenden `/…:/`-Markierungen werden kursiv und ohne sichtbare Schrägstriche dargestellt; Wortlaut und gespeicherte Originaldaten bleiben erhalten. Unter **Hilfe → Support-Diagnose** lässt sich ein lokaler technischer Bericht kopieren. Dieselben Angaben stehen unter **Werkzeuge → Website-Zustand → Bericht**: Komponentenstand, Betriebsmodus, Erweiterungen, Jahresbestände und sichere Codes noch zwischengespeicherter Quellenprüfungen. Kein neuer Abruf und kein automatischer Versand. Seit WordPress 6.9 führt die native Befehlspalette automatisch zu den zugänglichen Plugin-Menüs; zusätzliche Daily-Scripture-Befehle sind nicht registriert. In WordPress 6.6–6.8 bleiben die regulären Plugin-Menüs verfügbar.

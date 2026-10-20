@@ -8,7 +8,7 @@
 
 Daily Scripture adds daily readings, selected Bible passages and personal dashboard widgets to your WordPress website. Choose your sources, shape the design and display readings with Gutenberg, shortcodes, Elementor or Bricks. Website features also work in Multisite, with an additional Network Admin reading view.
 
-**Version:** 1.0.1 · **Requires:** WordPress 6.6+ / PHP 8.0+ · **License:** GPL-2.0-or-later
+**Version:** 1.1.0 · **Requires:** WordPress 6.6+ / PHP 8.1+ · **License:** GPL-2.0-or-later
 
 [Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [User guide](https://github.com/deckerweb/daily-scripture/wiki/English) · [Deutsch](README-de.md)
 
@@ -21,6 +21,8 @@ Daily Scripture adds daily readings, selected Bible passages and personal dashbo
 - [Editors, shortcodes and dashboard](#editors-shortcodes-and-dashboard)
 - [Data and settings transfer](#data-and-settings-transfer)
 - [Updates and documentation](#updates-and-documentation)
+- [Dashboard readings and color picker](#dashboard-readings-and-color-picker)
+- [Settings at a glance](#settings-at-a-glance)
 - [FAQ](#faq)
 - [Changelog](#changelog)
 - [Author and project](#author-and-project)
@@ -47,7 +49,7 @@ Daily Scripture adds daily readings, selected Bible passages and personal dashbo
 4. Under **Design**, choose a layout, adjust the overall size and check the preview. Save with the button at the top.
 5. Add the **Daily Scripture** block, builder element or shortcode. For selected passages, install an edition under **Bible library** first.
 
-WordPress 6.6+, PHP 8.0+ and DOM/XML are required. ZIP packages need ZipArchive. Elementor and Bricks are optional. The interface is available in English, German and formal German.
+WordPress 6.6+, PHP 8.1+ and DOM/XML are required. ZIP packages need ZipArchive. Elementor and Bricks are optional. The interface is available in English, German and formal German.
 
 <a name="daily-readings-and-bible-library"></a>
 
@@ -81,6 +83,8 @@ Each dashboard user can choose compact spacing and a 14, 16 or 18 px verse size 
 
 ## Data and settings transfer
 
+The data sources page summarizes the current and next year, with direct links to package selection or upload. Download failures distinguish timeouts, secure connections, HTTP responses and unsupported content; collapsed diagnostic codes can be copied. The design preview supports today, tomorrow or a custom date using local annual data, without downloading or saving anything.
+
 Annual downloads are started by you. The source check shows available packages; it does not install the next year automatically. Import validates complete years and verse pairs before replacing local data. Install next year’s package in advance and refresh page or CDN caches at the daily changeover.
 
 All managed text files stay under `wp-content/uploads/daily-scripture/`. JSON exports contain saved design or site settings, not Bible texts, annual packages, personal dashboard choices or builder styles. Imported settings appear in the form for review and apply only when saved. Include local text files in your normal website backup.
@@ -94,6 +98,28 @@ Updates come directly from the [DECKERWEB repository on GitHub](https://github.c
 The [English guide](https://github.com/deckerweb/daily-scripture/wiki/English), [German guide](https://github.com/deckerweb/daily-scripture/wiki/Deutsch) and themed FAQs explain settings, sources and common problems. A [local copy](docs/English.md) is included in the plugin. The admin footer links to the documentation and opens the changelog in a dialog. Cached update checks can delay a new offer by up to 30 minutes; a manual ZIP update is also available.
 
 <a name="faq"></a>
+
+## Dashboard readings and color picker
+
+Define available readings in **Daily Scripture → Dashboard readings**: Die Losungen, Bible 2.0 and up to six passages from installed local Bible editions (up to 50 verses in one chapter). Save the website settings, then open **Display options** in the widget. Select one or more readings and use **Move up / Move down** to order them. Without JavaScript, numeric positions remain available. No configured readings produces a quiet notice; missing yearly data or an unavailable edition is reported per reading. Personal choices do not change website output. Full JSON settings exports include the reading definitions; design-only and older exports leave them unchanged. Install the required editions on the destination website before saving imported passage definitions.
+
+The Network Admin widget uses a personally selected active website in the current network and visibly names it. When only the main website is active, it is used automatically. With multiple active websites or network activation, select the source website; save once after changing it to load its configured readings, then choose your personal selection. An unavailable previous website falls back with a notice. The network widget is available when the plugin is active on the main website or network-wide; activation only on a subsite does not load it in Network Admin. The website widget switch affects that website's dashboard; the network reading view is independent. Website choices are paginated in groups of 50. No separate network Bible storage is created.
+
+Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
+
+### Network dashboard and page caches
+
+The Network Admin widget reads the selected active website’s local texts and timezone. Its personal display options are separate from website dashboards. New websites initialize their own defaults and annual checks when the plugin is network active. Network activation is supported with the bundled Library 1.0.0, including first activation beside an older Library copy. Refresh full-page/CDN caches after midnight in each website’s timezone so daily readings stay current.
+
+
+## Settings at a glance
+
+![Dashboard sources and a clearly labelled design preview on a WordPress website.](assets/screenshots/settings-en.png)
+
+Dashboard sources and a clearly labelled design preview on a WordPress website.
+
+
+For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 1.0.0 offer activation directly in the catalog.
 
 ## FAQ
 
@@ -113,14 +139,17 @@ The [English guide](https://github.com/deckerweb/daily-scripture/wiki/English), 
 
 [More answers by topic](https://github.com/deckerweb/daily-scripture/wiki/FAQ-English)
 
+
 <a name="changelog"></a>
 
-
-### Network dashboard and page caches
-
-The Network Admin widget reads the selected active website’s local texts and timezone. Its personal display options are separate from website dashboards. New websites initialize their own defaults and annual checks when the plugin is network active. Network activation is supported with the bundled Library 0.8.1, including first activation beside an older Library copy. Refresh full-page/CDN caches after midnight in each website’s timezone so daily readings stay current.
-
 ## Changelog
+
+### 1.1.0
+
+- **New:** Current/next-year overview for annual sources, temporary Today/Tomorrow/custom-date previews, and an expanded Site Health report with copyable support diagnostics under Help.
+- **Improved:** Categorized download diagnostics with safe technical codes and a manual-copy fallback; isolated preview assets, more robust dialogs and Manrope lettering in the localized banners.
+- **Fixed:** Losungen downloads can retry a missing-issuer certificate error with verified official intermediate certificates while keeping HTTPS verification enabled. Leading Losungen introduction markers are displayed in italics without visible slashes; wording and stored originals remain unchanged.
+- **Misc:** Bundled deckerweb Library 1.0.0; unchanged Updater V2 2.1.0. Requires PHP 8.1 or later; WordPress 6.6 remains the minimum. Updated English/German documentation and checks for single-site and Multisite installations.
 
 ### 1.0.1
 
@@ -150,26 +179,6 @@ Unreleased intermediate version; included in version 1.0.0.
 ### 0.16.1
 - **Misc:** Explicit GPL-2.0-or-later licensing for the plugin code, with the full license and publication package. Bible text permissions remain separate.
 
-### 0.16.0
-- **New:** Shared deckerweb GitHub Release Updater library, as used by Brand Admin Schemes, with WordPress update notices and release details.
-- **Improved:** Bounded HTTPS metadata requests, cached results and localized update errors.
-- **Improved:** Package identity, offered version and actual WordPress/PHP requirements checked before replacing plugin files.
-- **Misc:** Update URI, library provenance and public GitHub release instructions documented; automatic updates remain a user choice.
-
-### 0.15.0
-- **New:** Changelog dialog beside the version number on every plugin admin page, with German or English release history.
-- **Improved:** English default readmes and separate German editions, with language-matched documentation links.
-
-### 0.14.0
-- **New:** German translation files for the plugin and block editor.
-- **Improved:** Concise plugin description covering current features, clearer help and consistent German terminology.
-- **Improved:** Current readme covering setup, design, shortcodes, data management and all four Bible editions.
-- **Fixed:** Outdated storage paths and incomplete notes on data removal, JSON exports and dashboard previews.
-- **Misc:** Complete release history using New, Improved, Fixed and Misc prefixes; refreshed translation template. The plugin name remains Daily Scripture.
-
-[Full changelog in the wiki](https://github.com/deckerweb/daily-scripture/wiki/Changelog-English) · [Local history](docs/Changelog-English.md) · [Releases](https://github.com/deckerweb/daily-scripture/releases)
-
-<a name="author-and-project"></a>
 
 ## Author and project
 
@@ -181,21 +190,8 @@ Report vulnerabilities privately through [the security policy](SECURITY.md). Sup
 
 Plugin code is licensed under **GPL-2.0-or-later**. Bible texts and annual packages have separate terms. © 2026 David Decker – DECKERWEB · [License](LICENSE)
 
-Shared components: deckerweb Library 0.8.1 and Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Provenance and behavior: [Components](UPDATER.md).
+Shared components: deckerweb Library 1.0.0 and Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Provenance and behavior: [Components](UPDATER.md).
 
-## Dashboard readings and color picker
+Banner typeface: **Manrope**, Copyright 2018 The Manrope Project Authors, [SIL Open Font License 1.1](resources/licenses/Manrope-OFL.txt). SVG banners use outlined lettering with no embedded raster images or external font resources.
 
-Define available readings in **Daily Scripture → Dashboard readings**: Die Losungen, Bible 2.0 and up to six passages from installed local Bible editions (up to 50 verses in one chapter). Save the website settings, then open **Display options** in the widget. Select one or more readings and use **Move up / Move down** to order them. Without JavaScript, numeric positions remain available. No configured readings produces a quiet notice; missing yearly data or an unavailable edition is reported per reading. Personal choices do not change website output. Full JSON settings exports include the reading definitions; design-only and older exports leave them unchanged. Install the required editions on the destination website before saving imported passage definitions.
-
-The Network Admin widget uses a personally selected active website in the current network and visibly names it. When only the main website is active, it is used automatically. With multiple active websites or network activation, select the source website; save once after changing it to load its configured readings, then choose your personal selection. An unavailable previous website falls back with a notice. The network widget is available when the plugin is active on the main website or network-wide; activation only on a subsite does not load it in Network Admin. The website widget switch affects that website's dashboard; the network reading view is independent. Website choices are paginated in groups of 50. No separate network Bible storage is created.
-
-Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
-
-## Settings at a glance
-
-![Dashboard sources and a clearly labelled design preview on a WordPress website.](assets/screenshots/settings-en.png)
-
-Dashboard sources and a clearly labelled design preview on a WordPress website.
-
-
-For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 0.8.1 offer activation directly in the catalog.
+Leading `/…:/` introduction markers in Die Losungen are displayed in italics without visible slashes; wording and stored originals remain unchanged. **Help → Support diagnostics** offers a copyable local technical report. The same information appears under **Tools → Site Health → Info**: component versions, installation mode, extensions, installed years and safe codes from source checks still in the temporary cache. No new connection is tested and nothing is sent automatically. Since WordPress 6.9, the native Command Palette automatically includes accessible plugin menus; no extra Daily Scripture commands are registered. WordPress 6.6–6.8 retains the regular plugin menus.

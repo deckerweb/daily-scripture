@@ -7,7 +7,8 @@
 
 namespace Deckerweb\DailyScripture\Admin;
 
-use Deckerweb\DailyScripture\Downloads\AnnualPackages;
+use Deckerweb\DailyScripture\Downloads\{AnnualPackages, DownloadError};
+use Deckerweb\DailyScripture\Data\YearStore;
 use Deckerweb\DailyScripture\Bible\{TranslationManager, Library, Passage};
 defined( 'ABSPATH' ) || exit;
 
@@ -40,6 +41,58 @@ final class DataDownloads {
 		echo '<form method="post" enctype="multipart/form-data" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '"><input type="hidden" name="action" value="daily_scripture_packages"><input type="hidden" name="operation" value="' . esc_attr( $operation ) . '"><input type="hidden" name="id" value="' . esc_attr( $id ) . '">';
 		wp_nonce_field( 'daily_scripture_packages_' . $operation . '_' . $id );
 	}
+	/**
+	 * Show current/next-year readiness using local files and existing catalog caches.
+	 *
+	 * This view never refreshes a provider, saves data or announces missing optional sources.
+	 *
+	 * @return void
+	 */
+	public function readiness(): void {
+		$year = (int) wp_date( 'Y' );
+		echo '<section class="ds-year-readiness"><h2>' . esc_html__( 'Your annual data at a glance', 'daily-scripture' ) . '</h2><p>' . esc_html__( 'Only the sources you use need annual data. This overview reads local files and the last source check; it does not download anything.', 'daily-scripture' ) . '</p><div class="ds-admin-table"><table class="widefat striped"><caption class="screen-reader-text">' . esc_html__( 'Readiness for the current and next year', 'daily-scripture' ) . '</caption><thead><tr><th scope="col">' . esc_html__( 'Source', 'daily-scripture' ) . '</th><th scope="col">' . esc_html( (string) $year ) . '</th><th scope="col">' . esc_html( (string) ( $year + 1 ) ) . '</th></tr></thead><tbody>';
+		foreach ( array(
+			'herrnhuter' => 'Die Losungen',
+			'bible2'     => 'Bible 2.0',
+		) as $source => $label ) {
+			$catalogue = ( new AnnualPackages() )->catalogue( $source );
+			echo '<tr><th scope="row">' . esc_html( $label ) . '</th>';
+			foreach ( array( $year, $year + 1 ) as $target ) {
+				$action = '';
+				try {
+					$record = ( new YearStore() )->read( $source, $target, false );
+					$status = $record ? __( 'Installed and complete', 'daily-scripture' ) : __( 'Not installed', 'daily-scripture' );
+					if ( ! $record ) {
+						$available = false;
+						foreach ( $catalogue['items'] ?? array() as $item ) {
+							if ( ( $item['year'] ?? null ) === $target ) {
+								$available = true;
+								break; }
+						}
+						if ( $available && empty( $catalogue['error'] ) ) {
+							$status = __( 'Available in the last source check', 'daily-scripture' );
+							$action = __( 'Select package', 'daily-scripture' );
+						} elseif ( $target > $year && $catalogue && empty( $catalogue['error'] ) ) {
+							$status = __( 'Not listed in the last source check', 'daily-scripture' );
+						}
+						$action = $action ? $action : __( 'Check source or upload', 'daily-scripture' );
+					}
+				} catch ( \RuntimeException $error ) {
+					$status = __( 'Check the local annual file', 'daily-scripture' );
+					$action = __( 'Check source or upload', 'daily-scripture' );
+				}
+				echo '<td><span>' . esc_html( $status ) . '</span>';
+				if ( $action ) {
+					/* translators: 1: action, 2: source name, 3: year. */
+					$labelled = sprintf( __( '%1$s: %2$s, %3$d', 'daily-scripture' ), $action, $label, $target );
+					echo '<br><a href="#ds-download-' . esc_attr( $source ) . '" aria-label="' . esc_attr( $labelled ) . '">' . esc_html( $action ) . '</a>';
+				}
+				echo '</td>';
+			}
+			echo '</tr>';
+		}
+		echo '</tbody></table></div></section>';
+	}
 	/** Render the annual catalogue panel within the existing data page. @return void */
 	public function annual(): void {
 		echo '<h2>' . esc_html__( 'Annual packages directly from the provider', 'daily-scripture' ) . '</h2><p>' . esc_html__( 'Check the official directory, then download and import an available package. Results are cached for six hours; a download may still be temporarily unavailable. Manual upload is always available.', 'daily-scripture' ) . '</p>';
@@ -48,13 +101,14 @@ final class DataDownloads {
 			'bible2'     => 'Bible 2.0',
 		) as $source => $label ) {
 			$catalogue = ( new AnnualPackages() )->catalogue( $source );
-			echo '<section class="card"><h3>' . esc_html( $label ) . '</h3>';
+			echo '<section class="card" id="ds-download-' . esc_attr( $source ) . '"><h3>' . esc_html( $label ) . '</h3>';
 			$status = ! $catalogue ? __( 'Not checked yet / check expired', 'daily-scripture' ) : ( $catalogue['error'] ? __( 'Download currently unavailable', 'daily-scripture' ) : __( 'Available in the official directory', 'daily-scripture' ) );
 			echo '<p><strong>' . esc_html( $status ) . '</strong></p>';
 			if ( $catalogue ) {
 				echo '<p>' . esc_html( wp_date( get_option( 'date_format' ) . ' H:i', $catalogue['checked'] ) ) . '</p>';
 				if ( $catalogue['error'] ) {
-					echo '<p>' . esc_html( $catalogue['error'] ) . '</p>'; }
+					echo '<p>' . esc_html( $catalogue['error'] ) . '</p>';
+					DownloadDiagnostics::render( is_array( $catalogue['diagnostic'] ?? null ) ? $catalogue['diagnostic'] : array() ); }
 			}
 			$this->form( 'check', $source );
 			submit_button( __( 'Check download source', 'daily-scripture' ), 'secondary', 'check_' . $source, false );
@@ -132,7 +186,9 @@ final class DataDownloads {
 		$notice = get_transient( $key );
 		delete_transient( $key );
 		if ( is_array( $notice ) ) {
-			echo '<div class="notice ' . esc_attr( $notice['error'] ? 'notice-error' : 'notice-success' ) . '"><p>' . esc_html( $notice['message'] ) . '</p></div>'; }
+			echo '<div class="notice ' . esc_attr( $notice['error'] ? 'notice-error' : 'notice-success' ) . '"><p>' . esc_html( $notice['message'] ) . '</p>';
+			DownloadDiagnostics::render( is_array( $notice['diagnostic'] ?? null ) ? $notice['diagnostic'] : array() );
+			echo '</div>'; }
 	}
 	/**
 	 * Scalar POST reader used only after nonce validation for action data.
@@ -158,8 +214,9 @@ final class DataDownloads {
 		$operation = $this->field( 'operation' );
 		$id        = $this->field( 'id' );
 		check_admin_referer( 'daily_scripture_packages_' . $operation . '_' . $id );
-		$is_bible = in_array( $operation, array( 'bible_install', 'bible_delete' ), true );
-		$error    = false;
+		$is_bible   = in_array( $operation, array( 'bible_install', 'bible_delete' ), true );
+		$error      = false;
+		$diagnostic = array();
 		try {
 			if ( 'check' === $operation ) {
 				$result = ( new AnnualPackages() )->catalogue( $id, true );
@@ -189,13 +246,15 @@ final class DataDownloads {
 			} else {
 				throw new \RuntimeException( esc_html__( 'Unknown action.', 'daily-scripture' ) ); }
 		} catch ( \RuntimeException $exception ) {
-			$error   = true;
-			$message = $exception->getMessage(); }
+			$error      = true;
+			$message    = $exception->getMessage();
+			$diagnostic = $exception instanceof DownloadError ? $exception->diagnostic() : array(); }
 		set_transient(
 			( $is_bible ? 'daily_scripture_library_notice_' : 'daily_scripture_notice_' ) . get_current_user_id(),
 			array(
-				'message' => $message,
-				'error'   => $error,
+				'message'    => $message,
+				'error'      => $error,
+				'diagnostic' => $diagnostic,
 			),
 			MINUTE_IN_SECONDS
 		);

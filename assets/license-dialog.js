@@ -39,6 +39,9 @@ function () {
 		var dialog = document.createElement('dialog');
 		var heading = document.createElement('h2');
 		var close = document.createElement('button');
+		var closeForm = document.createElement('form');
+		closeForm.method = 'dialog';
+		dialog.hidden = true;
 		do {
 			sequence += 1;
 			heading.id = 'daily-scripture-license-title-' + sequence;
@@ -55,12 +58,13 @@ function () {
 			dialog.style.setProperty(key, palette.getPropertyValue(key));
 		});
 		dialog.setAttribute('aria-labelledby', heading.id);
-		close.type = 'button';
+		close.type = 'submit';
 		close.className = 'daily-scripture-license-dialog__close';
 		close.textContent = details.getAttribute('data-close-label');
 		close.autofocus = true;
 		dialog.appendChild(heading);
-		dialog.appendChild(close);
+		closeForm.appendChild(close);
+		dialog.appendChild(closeForm);
 		Object.keys(typography).forEach(/**
 		 * Apply captured typography to the notice content.
 		 * @param {string} key Selected property or setting identifier.
@@ -84,7 +88,7 @@ function () {
 		 * Close the license dialog.
 		 * @returns {void} No return value.
 		 */
-		function () { dialog.close(); });
+		function () { HTMLDialogElement.prototype.close.call(dialog); });
 		// Native dialog provides Escape handling, focus containment and inert backdrop.
 		dialog.addEventListener('close', /**
 		 * Restore content and focus and remove the temporary dialog.
@@ -105,12 +109,14 @@ function () {
 			var rect = dialog.getBoundingClientRect();
 			if (click.target === dialog && (click.clientX < rect.left || click.clientX > rect.right ||
 				click.clientY < rect.top || click.clientY > rect.bottom)) {
-				dialog.close();
+				HTMLDialogElement.prototype.close.call(dialog);
 			}
 		});
 
 		try {
-			dialog.showModal();
+			dialog.hidden = false;
+			HTMLDialogElement.prototype.showModal.call(dialog);
+			if (!dialog.open) { restore(); return; }
 			details.open = false;
 			event.preventDefault();
 		} catch (error) {

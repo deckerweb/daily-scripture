@@ -2,6 +2,13 @@
 
 [ Deutsch ](Deutsch.md) · [ English ](Changelog-English.md)
 
+### 1.1.0
+
+- **Neu:** Jahresübersicht für aktuelle und kommende Jahresdaten, temporäre Vorschau für Heute/Morgen/ein frei gewähltes Datum sowie erweiterte Site-Health-Angaben mit kopierbarem Support-Bericht unter Hilfe.
+- **Verbessert:** Differenzierte Download-Diagnose mit sicheren technischen Codes und manueller Kopieralternative; isolierte Vorschau-Assets, robustere Dialoge und Manrope-Schriftzüge in den lokalisierten Bannern.
+- **Behoben:** Losungen-Downloads können bei fehlendem Ausstellerzertifikat mit geprüften offiziellen Zwischenzertifikaten erneut versucht werden; die HTTPS-Prüfung bleibt aktiv. Führende Losungen-Einleitungen erscheinen kursiv und ohne sichtbare Slashes; Wortlaut und gespeicherte Originaldaten bleiben unverändert.
+- **Sonstiges:** Eingebundene deckerweb Library 1.0.0; Updater V2 2.1.0 unverändert. PHP mindestens 8.1; WordPress 6.6 bleibt die Mindestversion. Aktualisierte englische/deutsche Dokumentation und Prüfungen für Einzelinstallationen und Multisite.
+
 ### 1.0.1
 
 - **Behoben:** Netzwerkaktivierung wird mit der eingebundenen Library 0.8.1 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie.

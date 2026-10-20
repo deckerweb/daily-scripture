@@ -31,7 +31,7 @@
 }
 
 /* The release history shares the admin shell, with an independently scrolling body. */
-.ds-changelog:not([open]) { display: none; }
+.ds-changelog:not([open]), .ds-changelog[hidden] { display: none !important; }
 .ds-changelog[open] { display: flex; flex-direction: column; }
 .ds-changelog { box-sizing: border-box; width: min(780px, calc(100vw - 32px)); max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); margin: auto; padding: 0; overflow: hidden; color: #202b36; background: #fff; border: 1px solid #c3ccd5; border-radius: 12px; box-shadow: 0 18px 64px #0004; }
 .ds-changelog::backdrop { background: #101c2aaa; }
@@ -45,3 +45,7 @@
 @media (max-width: 480px) { .ds-changelog__header { align-items: flex-start; padding: 14px; gap: 10px; } .ds-changelog__header h2 { font-size: 18px; } .ds-changelog__content { padding-inline: 16px; } }
 
 .ds-changelog__category{display:inline-block;font-weight:700;padding:.1em .45em;border-radius:3px;color:#153f48;background:#e6f1ed}.ds-changelog__category--improved{color:#174f76;background:#e6f0f8}.ds-changelog__category--fixed{color:#704500;background:#fff2d9}.ds-changelog__category--misc{color:#42454c;background:#eeeef1}
+
+.ds-admin .ds-admin-logo{border-radius:20%}.ds-changelog__header form{margin:0}
+
+.ds-download-diagnostic [role="status"] { margin-inline-start:.5em; }
