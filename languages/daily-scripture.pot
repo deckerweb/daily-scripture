@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Daily Scripture 1.1.0\n"
+"Project-Id-Version: Daily Scripture 1.1.1\n"
 "Report-Msgid-Bugs-To: https://github.com/deckerweb/daily-scripture/issues\n"
 "Last-Translator: David Decker – DECKERWEB\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-20T05:35:14+00:00\n"
+"POT-Creation-Date: 2026-10-21T14:21:03+00:00\n"
 "PO-Revision-Date: \n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: daily-scripture\n"
@@ -82,6 +82,34 @@ msgstr ""
 
 #: includes/updater-translations.php:39
 msgid "See the release on GitHub."
+msgstr ""
+
+#: includes/updater-translations.php:41
+msgid "Git Updater is active. If a deckerweb installation or update fails, temporarily deactivate Git Updater and retry. Reactivate it afterwards if other plugins or themes need it. Only leave it disabled when those extensions have another reliable update provider."
+msgstr ""
+
+#: includes/updater-translations.php:43
+msgid "Manage installed plugins"
+msgstr ""
+
+#: includes/updater-translations.php:45
+msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/updater-translations.php:47
+msgid "Permission denied."
+msgstr ""
+
+#: includes/updater-translations.php:49
+msgid "Public catalog callbacks require both providers and cannot be used in private mode."
+msgstr ""
+
+#: includes/updater-translations.php:51
+msgid "The approved release could not be verified."
+msgstr ""
+
+#: includes/updater-translations.php:53
+msgid "The approved release changed. Refresh updates first."
 msgstr ""
 
 #: src/Admin/Admin.php:47
@@ -2805,10 +2833,6 @@ msgid "Dismiss permanently"
 msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Dismiss this notice"
-msgstr ""
-
-#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Done. The plugin is active."
 msgstr ""
 
@@ -2858,10 +2882,6 @@ msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Friday"
-msgstr ""
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Git Updater is active. If a deckerweb installation or update fails, temporarily deactivate Git Updater and retry. Reactivate it afterwards if other plugins or themes need it. Only leave it disabled when those extensions have another reliable update provider."
 msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
@@ -3045,10 +3065,6 @@ msgid "Manage Content"
 msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Manage installed plugins"
-msgstr ""
-
-#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Mar"
 msgstr ""
 
@@ -3162,10 +3178,6 @@ msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "POST required."
-msgstr ""
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Permission denied."
 msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
@@ -3338,14 +3350,6 @@ msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "The approved package could not be verified."
-msgstr ""
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "The approved release changed. Refresh updates first."
-msgstr ""
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "The approved release could not be verified."
 msgstr ""
 
 #: includes/deckerweb-plugin-library/src/I18n.php

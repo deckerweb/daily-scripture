@@ -36,7 +36,7 @@ Nein. Beginne mit einem Jahrespaket unter Datenquellen oder einer Ausgabe unter 
 
 ### Kann ich Multisite verwenden?
 
-Daily Scripture 1.1.0 enthält Library 1.0.0 mit versionsabhängiger Netzwerkfreigabe und geprüfter Übergabe bei erstmaliger Aktivierung neben einer älteren Library. Website-Daten bleiben getrennt; das Network-Admin-Widget verwendet die gewählte Bezugswebsite.
+Daily Scripture 1.1.1 enthält Library 1.1.0 mit versionsabhängiger Netzwerkfreigabe und geprüfter Übergabe bei erstmaliger Aktivierung neben einer älteren Library. Website-Daten bleiben getrennt; das Network-Admin-Widget verwendet die gewählte Bezugswebsite.
 
 
 <a name="jahresdaten-und-downloads"></a>
@@ -198,7 +198,7 @@ Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
 
 
-Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 1.0.0 bieten die Freigabe direkt im Katalog.
+Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 1.1.0 bieten die Freigabe direkt im Katalog.
 
 
 ## Warum scheitert der Losungen-Abruf, obwohl der Download im Browser funktioniert?

@@ -37,7 +37,7 @@ No. Start with an annual package under Data sources or an edition under Bible li
 
 ### Can I use multisite?
 
-Daily Scripture 1.1.0 includes Library 1.0.0 with version-aware network approval and a verified handoff during first activation beside an older Library. Website data remains separate; the Network Admin widget uses the selected reference website.
+Daily Scripture 1.1.1 includes Library 1.1.0 with version-aware network approval and a verified handoff during first activation beside an older Library. Website data remains separate; the Network Admin widget uses the selected reference website.
 
 
 <a name="annual-data-and-downloads"></a>
@@ -199,7 +199,7 @@ The Network Admin widget uses a personally selected active website in the curren
 Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
 
 
-For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 1.0.0 offer activation directly in the catalog.
+For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 1.1.0 offer activation directly in the catalog.
 
 
 ## Why does a Losungen download fail while it works in my browser?

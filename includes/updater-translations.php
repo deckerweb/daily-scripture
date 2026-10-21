@@ -1,16 +1,16 @@
 <?php
 /**
- * Translate shared updater messages through the Daily Scripture text domain.
+ * Translate shared updater messages through the Daily Scripture host domain.
  *
  * @package DailyScripture
  */
 
 defined( 'ABSPATH' ) || exit;
 /**
- * Resolve an engine message in the current host locale.
+ * Resolve an updater source string in the host textdomain.
  *
- * @param string $message Fixed English engine message.
- * @return string Localized message or its English fallback.
+ * @param string $message English updater message.
+ * @return string Translated host message, or original source text.
  */
 return static function ( string $message ): string {
 	// Literal calls let the host's normal translation extractor collect every source string.
@@ -37,6 +37,20 @@ return static function ( string $message ): string {
 			return __( 'Could not prepare the GitHub release package.', 'daily-scripture' );
 		case 'See the release on GitHub.':
 			return __( 'See the release on GitHub.', 'daily-scripture' );
+		case 'Git Updater is active. If a deckerweb installation or update fails, temporarily deactivate Git Updater and retry. Reactivate it afterwards if other plugins or themes need it. Only leave it disabled when those extensions have another reliable update provider.':
+			return __( 'Git Updater is active. If a deckerweb installation or update fails, temporarily deactivate Git Updater and retry. Reactivate it afterwards if other plugins or themes need it. Only leave it disabled when those extensions have another reliable update provider.', 'daily-scripture' );
+		case 'Manage installed plugins':
+			return __( 'Manage installed plugins', 'daily-scripture' );
+		case 'Dismiss this notice':
+			return __( 'Dismiss this notice', 'daily-scripture' );
+		case 'Permission denied.':
+			return __( 'Permission denied.', 'daily-scripture' );
+		case 'Public catalog callbacks require both providers and cannot be used in private mode.':
+			return __( 'Public catalog callbacks require both providers and cannot be used in private mode.', 'daily-scripture' );
+		case 'The approved release could not be verified.':
+			return __( 'The approved release could not be verified.', 'daily-scripture' );
+		case 'The approved release changed. Refresh updates first.':
+			return __( 'The approved release changed. Refresh updates first.', 'daily-scripture' );
 		default:
 			return $message;
 	}

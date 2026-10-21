@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 1.1.1 =
+
+* Improved: Updated shared plugin management and GitHub updates with deckerweb Library 1.1.0 and Updater V2 2.2.0, including clearer guidance when Git Updater is active.
+* Misc: Refreshed component translations and documentation; WordPress 6.6 and PHP 8.1 remain the minimum requirements.
+
 = 1.1.0 =
 
 * New: Current/next-year overview for annual sources, temporary Today/Tomorrow/custom-date previews, and an expanded Site Health report with copyable support diagnostics under Help.
@@ -33,6 +38,3 @@ Unreleased intermediate version; included in version 1.0.0.
 = 0.16.2 =
 
 * Improved: Bilingual guides, topic FAQs and directly accessible documentation on all plugin admin pages.
-
-= 0.16.1 =
-* Misc: Explicit GPL-2.0-or-later licensing for the plugin code, with the full license and publication package. Bible text permissions remain separate.

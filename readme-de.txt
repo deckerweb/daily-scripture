@@ -1,9 +1,10 @@
 === Daily Scripture ===
 Contributors: deckerweb
 Tags: bible, scripture, daily, shortcode, block
+Tested up to: 7.1
 Requires at least: 6.6
 Requires PHP: 8.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +16,7 @@ Tägliche Verse und eigene Bibelstellen. Lokal gespeichert, mit Vorschau, zehn L
 
 Daily Scripture ergänzt deine WordPress-Website um tägliche Lesungen, ausgewählte Bibelstellen und persönliche Dashboard-Widgets. Wähle deine Quellen, gestalte die Ausgabe und zeige Lesungen mit Gutenberg, Shortcodes, Elementor oder Bricks an. Die Website-Funktionen sind auch in Multisite nutzbar, ergänzt um eine Leseansicht im Network Admin.
 
-**Version:** 1.1.0 · **Voraussetzungen:** WordPress 6.6+ / PHP 8.1+ · **Lizenz:** GPL-2.0-or-later
+**Version:** 1.1.1 · **Voraussetzungen:** WordPress 6.6+ / PHP 8.1+ · **Lizenz:** GPL-2.0-or-later
 
 [Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [Anleitung](https://github.com/deckerweb/daily-scripture/wiki/Deutsch) · [English](README.md)
 
@@ -98,7 +99,7 @@ Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des
 
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
 
-Netzwerkaktivierung wird mit der eingebundenen Library 1.0.0 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie. Seiten-/CDN-Caches sollten nach Mitternacht in der Website-Zeitzone erneuert werden.
+Netzwerkaktivierung wird mit der eingebundenen Library 1.1.0 unterstützt, auch bei erstmaliger Aktivierung neben einer älteren Library-Kopie. Seiten-/CDN-Caches sollten nach Mitternacht in der Website-Zeitzone erneuert werden.
 
 == Einstellungen im Überblick ==
 
@@ -107,7 +108,7 @@ Netzwerkaktivierung wird mit der eingebundenen Library 1.0.0 unterstützt, auch 
 Dashboard-Quellen und eine klar gekennzeichnete Gestaltungsvorschau auf einer WordPress-Website.
 
 
-Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 1.0.0 bieten die Freigabe direkt im Katalog.
+Für die erste Netzwerkaktivierung neben einem älteren, noch sperrenden Library-Katalog öffne **Netzwerkverwaltung → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Die neue Library wird bei dieser nativen Aktivierung übernommen. Bereits aktivierte Hosts mit Library 1.1.0 bieten die Freigabe direkt im Katalog.
 
 == Frequently Asked Questions ==
 
@@ -146,12 +147,17 @@ Der enthaltene deckerweb-Updater liefert öffentliche GitHub-Releases über die 
 
 == Changelog ==
 
+= 1.1.1 =
+
+* **Verbessert:** Gemeinsame Plugin-Verwaltung und GitHub-Updates mit deckerweb Library 1.1.0 und Updater V2 2.2.0 aktualisiert, einschließlich klarerer Hinweise bei aktivem Git Updater.
+* **Sonstiges:** Komponentenübersetzungen und Dokumentation aktualisiert; WordPress 6.6 und PHP 8.1 bleiben die Mindestanforderungen.
+
 = 1.1.0 =
 
 * **Neu:** Jahresübersicht für aktuelle und kommende Jahresdaten, temporäre Vorschau für Heute/Morgen/ein frei gewähltes Datum sowie erweiterte Site-Health-Angaben mit kopierbarem Support-Bericht unter Hilfe.
 * **Verbessert:** Differenzierte Download-Diagnose mit sicheren technischen Codes und manueller Kopieralternative; isolierte Vorschau-Assets, robustere Dialoge und Manrope-Schriftzüge in den lokalisierten Bannern.
 * **Behoben:** Losungen-Downloads können bei fehlendem Ausstellerzertifikat mit geprüften offiziellen Zwischenzertifikaten erneut versucht werden; die HTTPS-Prüfung bleibt aktiv. Führende Losungen-Einleitungen erscheinen kursiv und ohne sichtbare Slashes; Wortlaut und gespeicherte Originaldaten bleiben unverändert.
-* **Sonstiges:** Eingebundene deckerweb Library 1.0.0; Updater V2 2.1.0 unverändert. PHP mindestens 8.1; WordPress 6.6 bleibt die Mindestversion. Aktualisierte englische/deutsche Dokumentation und Prüfungen für Einzelinstallationen und Multisite.
+* **Sonstiges:** Eingebundene deckerweb Library 1.1.0; Updater V2 2.1.0 unverändert. PHP mindestens 8.1; WordPress 6.6 bleibt die Mindestversion. Aktualisierte englische/deutsche Dokumentation und Prüfungen für Einzelinstallationen und Multisite.
 
 = 1.0.1 =
 
@@ -178,9 +184,6 @@ Unveröffentlichte Zwischenversion; in Version 1.0.0 enthalten.
 
 * **Verbessert:** Zweisprachige Anleitungen, thematische FAQ und direkt erreichbare Dokumentation in allen Plugin-Adminseiten.
 
-= 0.16.1 =
-* **Sonstiges:** GPL-2.0-or-later für den Plugin-Code ausdrücklich dokumentiert; vollständige Lizenzdatei und Veröffentlichungspaket ergänzt. Die Nutzungsbedingungen der Bibeltexte bleiben unabhängig davon.
-
 
 == Autor und Projekt ==
 
@@ -192,7 +195,7 @@ Vertrauliche Sicherheitsmeldungen: [Sicherheitsmeldeweg](SECURITY-de.md). Unters
 
 Der Plugin-Code steht unter **GPL-2.0-or-later**. Für Bibeltexte und Jahrespakete gelten eigene Bedingungen. © 2026 David Decker – DECKERWEB · [Lizenz](LICENSE)
 
-Gemeinsame Komponenten: deckerweb Library 1.0.0 und Updater 2.1.0, David Decker – DECKERWEB, GPL-2.0-or-later. Herkunft und Verhalten: [Komponenten](UPDATER-de.md).
+Gemeinsame Komponenten: deckerweb Library 1.1.0 und Updater 2.2.0, David Decker – DECKERWEB, GPL-2.0-or-later. Herkunft und Verhalten: [Komponenten](UPDATER-de.md).
 
 Banner-Schrift: **Manrope**, Copyright 2018 The Manrope Project Authors, [SIL Open Font License 1.1](resources/licenses/Manrope-OFL.txt). Die SVG-Banner verwenden Schriftpfade und enthalten keine eingebetteten Rasterbilder oder externen Schriftressourcen.
 

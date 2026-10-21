@@ -1,4 +1,4 @@
-# Anleitung · Daily Scripture 1.1.0
+# Anleitung · Daily Scripture 1.1.1
 
 [English](English.md) · [Home](Home.md)
 
@@ -15,9 +15,9 @@ Von der ersten Lesung bis zur passenden Gestaltung: Nutze das Inhaltsverzeichnis
 - [Daten, Downloads und Jahreswechsel](#daten-downloads-und-jahreswechsel)
 - [Bibelbibliothek und Quellen](#bibelbibliothek-und-quellen)
 - [Sicherung und Deinstallation](#sicherung-und-deinstallation)
-- [Plugin-Updates über GitHub](#plugin-updates-ueber-github)
+- [Plugin-Updates über GitHub](#plugin-updates-über-github)
 - [Lizenz](#lizenz)
-- [Häufige Fragen](#faq)
+- [Häufige Fragen](#häufige-fragen)
 - [Changelog](#changelog)
 
 <a name="das-steckt-drin"></a>
@@ -186,7 +186,7 @@ Das Network-Admin-Widget verwendet eine persönlich gewählte aktive Website des
 Farben wählst du über den modernen WordPress-Farbwähler in einem WordPress-Modal; direkte Hex-Eingabe und geerbte Textfarben bleiben möglich. Änderungen werden erst mit dem Speichern der Einstellungen wirksam.
 
 
-Falls ein älterer Library-Katalog die Karte bei der ersten Netzwerkaktivierung noch sperrt, öffne **Network Admin → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Dabei übernimmt die neue Library. Hosts mit Library 1.0.0 bieten die Aktivierung direkt im Katalog an.
+Falls ein älterer Library-Katalog die Karte bei der ersten Netzwerkaktivierung noch sperrt, öffne **Network Admin → Plugins → Daily Scripture → Netzwerkweit aktivieren**. Dabei übernimmt die neue Library. Hosts mit Library 1.1.0 bieten die Aktivierung direkt im Katalog an.
 
 
 ## Losungen-Download und Zertifikatsfehler

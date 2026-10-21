@@ -2,6 +2,11 @@
 
 [ English ](English.md) · [ Deutsch ](Changelog-Deutsch.md)
 
+### 1.1.1
+
+- **Improved:** Updated shared plugin management and GitHub updates with deckerweb Library 1.1.0 and Updater V2 2.2.0, including clearer guidance when Git Updater is active.
+- **Misc:** Refreshed component translations and documentation; WordPress 6.6 and PHP 8.1 remain the minimum requirements.
+
 ### 1.1.0
 
 - **New:** Current/next-year overview for annual sources, temporary Today/Tomorrow/custom-date previews, and an expanded Site Health report with copyable support diagnostics under Help.

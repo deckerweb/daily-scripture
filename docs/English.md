@@ -1,4 +1,4 @@
-# User guide · Daily Scripture 1.1.0
+# User guide · Daily Scripture 1.1.1
 
 [Deutsch](Deutsch.md) · [Home](Home.md)
 
@@ -173,7 +173,7 @@ The Network Admin widget uses a personally selected active website in the curren
 Color controls use the modern WordPress color picker in a WordPress modal, with direct hex entry and optional text-color inheritance. Changes remain in the form until you save the settings.
 
 
-For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 1.0.0 offer activation directly in the catalog.
+For first network activation beside an older Library catalog that still blocks its card, open **Network Admin → Plugins → Daily Scripture → Network Activate**. The new Library takes over during that native activation. Hosts already running Library 1.1.0 offer activation directly in the catalog.
 
 
 ## Losungen download and certificate errors

@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Daily Scripture 1.1.0\n"
+"Project-Id-Version: Daily Scripture 1.1.1\n"
 "Report-Msgid-Bugs-To: https://github.com/deckerweb/daily-scripture/issues\n"
 "Last-Translator: David Decker – DECKERWEB\n"
 "Language-Team: German\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-20T05:35:14+00:00\n"
+"POT-Creation-Date: 2026-10-21T14:21:03+00:00\n"
 "PO-Revision-Date: 2026-10-07 12:00+0200\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: daily-scripture\n"
@@ -85,6 +85,34 @@ msgstr "Das GitHub-Release-Paket konnte nicht vorbereitet werden."
 #: includes/updater-translations.php:39
 msgid "See the release on GitHub."
 msgstr "Sieh dir den Release auf GitHub an."
+
+#: includes/updater-translations.php:41
+msgid "Git Updater is active. If a deckerweb installation or update fails, temporarily deactivate Git Updater and retry. Reactivate it afterwards if other plugins or themes need it. Only leave it disabled when those extensions have another reliable update provider."
+msgstr "Git Updater ist aktiv. Wenn eine deckerweb-Installation oder ein Update fehlschlägt, deaktiviere Git Updater vorübergehend und versuche es erneut. Aktiviere ihn danach wieder, wenn andere Plugins oder Themes ihn benötigen. Lass ihn nur dauerhaft deaktiviert, wenn diese Erweiterungen einen anderen zuverlässigen Updateweg besitzen."
+
+#: includes/updater-translations.php:43
+msgid "Manage installed plugins"
+msgstr "Installierte Plugins verwalten"
+
+#: includes/updater-translations.php:45
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
+
+#: includes/updater-translations.php:47
+msgid "Permission denied."
+msgstr "Zugriff verweigert."
+
+#: includes/updater-translations.php:49
+msgid "Public catalog callbacks require both providers and cannot be used in private mode."
+msgstr "Öffentliche Katalog-Callbacks benötigen beide Anbieter und können nicht im Private-Modus verwendet werden."
+
+#: includes/updater-translations.php:51
+msgid "The approved release could not be verified."
+msgstr "Die freigegebene Version konnte nicht geprüft werden."
+
+#: includes/updater-translations.php:53
+msgid "The approved release changed. Refresh updates first."
+msgstr "Die freigegebene Version hat sich geändert. Suche zuerst erneut nach Updates."
 
 #: src/Admin/Admin.php:47
 msgid "Settings"
@@ -2807,10 +2835,6 @@ msgid "Dismiss permanently"
 msgstr "Dauerhaft schließen"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Dismiss this notice"
-msgstr "Diesen Hinweis ausblenden"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Done. The plugin is active."
 msgstr "Erledigt. Das Plugin ist aktiv."
 
@@ -2861,10 +2885,6 @@ msgstr "Fr"
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Friday"
 msgstr "Freitag"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Git Updater is active. If a deckerweb installation or update fails, temporarily deactivate Git Updater and retry. Reactivate it afterwards if other plugins or themes need it. Only leave it disabled when those extensions have another reliable update provider."
-msgstr "Git Updater ist aktiv. Falls eine deckerweb-Installation oder Aktualisierung fehlschlägt, deaktiviere Git Updater vorübergehend und wiederhole den Vorgang. Aktiviere ihn danach wieder, wenn andere Plugins oder Themes ihn benötigen. Lasse ihn nur dauerhaft deaktiviert, wenn diese Erweiterungen einen anderen zuverlässigen Updateweg besitzen."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "GitHub Stars"
@@ -3047,10 +3067,6 @@ msgid "Manage Content"
 msgstr "Inhalte verwalten"
 
 #: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Manage installed plugins"
-msgstr "Installierte Plugins verwalten"
-
-#: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Mar"
 msgstr "Mär"
 
@@ -3165,10 +3181,6 @@ msgstr "PHP-ZIP-Unterstützung wird benötigt."
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "POST required."
 msgstr "Eine POST-Anfrage ist erforderlich."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "Permission denied."
-msgstr "Keine Berechtigung."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "Permission denied. Reload the page and check your permissions."
@@ -3341,14 +3353,6 @@ msgstr "Die Aktion läuft noch. Bitte den Status erneut prüfen."
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "The approved package could not be verified."
 msgstr "Das freigegebene Paket konnte nicht geprüft werden."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "The approved release changed. Refresh updates first."
-msgstr "Das freigegebene Release hat sich geändert. Bitte zuerst die Updates aktualisieren."
-
-#: includes/deckerweb-plugin-library/src/I18n.php
-msgid "The approved release could not be verified."
-msgstr "Der freigegebene Release konnte nicht geprüft werden."
 
 #: includes/deckerweb-plugin-library/src/I18n.php
 msgid "The catalog URL is not an allowed first-party HTTPS endpoint."
