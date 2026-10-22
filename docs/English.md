@@ -1,4 +1,4 @@
-# User guide · Daily Scripture 1.1.1
+# User guide · Daily Scripture 1.1.2
 
 [Deutsch](Deutsch.md) · [Home](Home.md)
 

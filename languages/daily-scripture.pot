@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Daily Scripture 1.1.1\n"
+"Project-Id-Version: Daily Scripture 1.1.2\n"
 "Report-Msgid-Bugs-To: https://github.com/deckerweb/daily-scripture/issues\n"
 "Last-Translator: David Decker – DECKERWEB\n"
 "Language-Team: \n"

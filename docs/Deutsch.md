@@ -1,4 +1,4 @@
-# Anleitung · Daily Scripture 1.1.1
+# Anleitung · Daily Scripture 1.1.2
 
 [English](English.md) · [Home](Home.md)
 

@@ -2,6 +2,10 @@
 
 [Readme](README.md) · [Deutsch](docs/Changelog-Deutsch.md)
 
+### 1.1.2
+
+- **Fixed:** Pinned deckerweb Updater 2.2.1 remains effective when another plugin loads an older updater first; update caches stay separate and are cleaned during uninstall.
+
 ### 1.1.1
 
 - **Improved:** Updated shared plugin management and GitHub updates with deckerweb Library 1.1.0 and Updater V2 2.2.0, including clearer guidance when Git Updater is active.

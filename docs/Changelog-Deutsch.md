@@ -2,6 +2,10 @@
 
 [ Deutsch ](Deutsch.md) · [ English ](Changelog-English.md)
 
+### 1.1.2
+
+- **Behoben:** Der eingebettete deckerweb Updater 2.2.1 bleibt auch dann wirksam, wenn ein anderes Plugin zuerst einen älteren Updater lädt; Update-Caches bleiben getrennt und werden bei der Deinstallation bereinigt.
+
 ### 1.1.1
 
 - **Verbessert:** Gemeinsame Plugin-Verwaltung und GitHub-Updates mit deckerweb Library 1.1.0 und Updater V2 2.2.0 aktualisiert, einschließlich klarerer Hinweise bei aktivem Git Updater.

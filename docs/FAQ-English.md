@@ -37,7 +37,7 @@ No. Start with an annual package under Data sources or an edition under Bible li
 
 ### Can I use multisite?
 
-Daily Scripture 1.1.1 includes Library 1.1.0 with version-aware network approval and a verified handoff during first activation beside an older Library. Website data remains separate; the Network Admin widget uses the selected reference website.
+Daily Scripture 1.1.2 includes Library 1.1.0 with version-aware network approval and a verified handoff during first activation beside an older Library. Website data remains separate; the Network Admin widget uses the selected reference website.
 
 
 <a name="annual-data-and-downloads"></a>

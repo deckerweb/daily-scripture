@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.1.2 =
+
+* Fixed: Pinned deckerweb Updater 2.2.1 remains effective when another plugin loads an older updater first; update caches stay separate and are cleaned during uninstall.
+
 = 1.1.1 =
 
 * Improved: Updated shared plugin management and GitHub updates with deckerweb Library 1.1.0 and Updater V2 2.2.0, including clearer guidance when Git Updater is active.
@@ -34,7 +38,3 @@ Unreleased intermediate version; included in version 1.0.0.
 = 0.16.4 =
 
 * New: Shows local icons and localized banners in WordPress update offers and version details.
-
-= 0.16.2 =
-
-* Improved: Bilingual guides, topic FAQs and directly accessible documentation on all plugin admin pages.

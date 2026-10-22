@@ -4,7 +4,7 @@
 
 This documentation applies to Daily Scripture on single-site WordPress installations and websites in Multisite.
 
-Daily Scripture embeds [deckerweb Updater 2.2.0](https://github.com/deckerweb/deckerweb-updater/tree/v2.2.0) in `includes/deckerweb-github-release-updater-v2.php` (SHA-256 `09556b7c8713bbe9287a5b2dbec4818ce80520b3db4be21490cf019ad205c743`), GPL-2.0-or-later, by David Decker – DECKERWEB. It derives from the updater supplied with Brand Admin Schemes. The V2 namespace is guarded; a loaded older copy without host-translation support stops this update integration with an administrator notice. The original V1 copy remains for compatibility and is not loaded by Daily Scripture.
+Daily Scripture embeds [deckerweb Updater 2.2.1](https://github.com/deckerweb/deckerweb-updater/tree/v2.2.1) in `includes/deckerweb-github-release-updater-v2.php` (SHA-256 `0504cedd092804f289fbb0c985475fea69a9dabc0ccde31be5abb5d1ab886645`), GPL-2.0-or-later, by David Decker – DECKERWEB. It derives from the updater supplied with Brand Admin Schemes. The adapter uses the class returned by the pinned runtime, including when an older V2 class is already loaded. Other hosts and their hooks remain unchanged. The original V1 copy remains for compatibility and is not loaded by Daily Scripture.
 
 Only stable public releases from `https://github.com/deckerweb/daily-scripture` are offered. Public hosts require no credentials. The host adapter supplies translated engine messages through `daily-scripture`, local SVG/PNG icons and German/English low/high-resolution banners. Automatic updates remain the administrator’s choice.
 

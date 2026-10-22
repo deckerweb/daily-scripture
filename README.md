@@ -8,7 +8,7 @@
 
 Daily Scripture adds daily readings, selected Bible passages and personal dashboard widgets to your WordPress website. Choose your sources, shape the design and display readings with Gutenberg, shortcodes, Elementor or Bricks. Website features also work in Multisite, with an additional Network Admin reading view.
 
-**Version:** 1.1.1 · **Requires:** WordPress 6.6+ / PHP 8.1+ · **License:** GPL-2.0-or-later
+**Version:** 1.1.2 · **Requires:** WordPress 6.6+ / PHP 8.1+ · **License:** GPL-2.0-or-later
 
 [Download](https://github.com/deckerweb/daily-scripture/releases/latest) · [User guide](https://github.com/deckerweb/daily-scripture/wiki/English) · [Deutsch](README-de.md)
 
@@ -144,6 +144,10 @@ For first network activation beside an older Library catalog that still blocks i
 
 ## Changelog
 
+### 1.1.2
+
+- **Fixed:** Pinned deckerweb Updater 2.2.1 remains effective when another plugin loads an older updater first; update caches stay separate and are cleaned during uninstall.
+
 ### 1.1.1
 
 - **Improved:** Updated shared plugin management and GitHub updates with deckerweb Library 1.1.0 and Updater V2 2.2.0, including clearer guidance when Git Updater is active.
@@ -176,10 +180,6 @@ Unreleased intermediate version; included in version 1.0.0.
 ### 0.16.4
 
 - **New:** Shows local icons and localized banners in WordPress update offers and version details.
-
-### 0.16.2
-
-- **Improved:** Bilingual guides, topic FAQs and directly accessible documentation on all plugin admin pages.
 
 
 ## Author and project

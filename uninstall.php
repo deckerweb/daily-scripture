@@ -29,7 +29,11 @@ spl_autoload_register(
 Deckerweb\DailyScripture\Core\Cleanup::sites( array( Deckerweb\DailyScripture\Core\Cleanup::class, 'site' ), true );
 
 // A repository-specific update cache belongs to each network, not to each site.
-$daily_scripture_cache = 'ddw_ghru_' . substr( md5( 'https://github.com/deckerweb/daily-scripture' ), 0, 24 );
+$daily_scripture_updater_class = require __DIR__ . '/includes/deckerweb-github-release-updater-v2.php';
+$daily_scripture_updater_class::clear_repository_cache( 'https://github.com/deckerweb/daily-scripture' );
+$daily_scripture_cache        = 'ddw_ghru_' . substr( md5( 'https://github.com/deckerweb/daily-scripture' ), 0, 24 );
+$daily_scripture_pinned_cache = 'ddw_ghru_' . substr( md5( 'https://github.com/deckerweb/daily-scripture|' . $daily_scripture_updater_class::IMPLEMENTATION_VERSION ), 0, 24 );
+$daily_scripture_caches       = array( $daily_scripture_cache, $daily_scripture_cache . '_private', $daily_scripture_pinned_cache, $daily_scripture_pinned_cache . '_private' );
 if ( is_multisite() ) {
 	$daily_scripture_offset = 0;
 	do {
@@ -43,13 +47,17 @@ if ( is_multisite() ) {
 			)
 		);
 		foreach ( $daily_scripture_networks as $daily_scripture_network ) {
-			delete_network_option( $daily_scripture_network, '_site_transient_' . $daily_scripture_cache );
-			delete_network_option( $daily_scripture_network, '_site_transient_timeout_' . $daily_scripture_cache );
+			foreach ( $daily_scripture_caches as $daily_scripture_key ) {
+				delete_network_option( $daily_scripture_network, '_site_transient_' . $daily_scripture_key );
+				delete_network_option( $daily_scripture_network, '_site_transient_timeout_' . $daily_scripture_key );
+			}
 		}
 		$daily_scripture_count   = count( $daily_scripture_networks );
 		$daily_scripture_offset += $daily_scripture_count;
 	} while ( 100 === $daily_scripture_count );
-	wp_cache_delete( $daily_scripture_cache, 'site-transient' );
+	foreach ( $daily_scripture_caches as $daily_scripture_key ) {
+		wp_cache_delete( $daily_scripture_key, 'site-transient' );
+	}
 } else {
 	delete_site_transient( $daily_scripture_cache );
 }

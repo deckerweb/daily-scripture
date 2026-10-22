@@ -36,7 +36,7 @@ Nein. Beginne mit einem Jahrespaket unter Datenquellen oder einer Ausgabe unter 
 
 ### Kann ich Multisite verwenden?
 
-Daily Scripture 1.1.1 enthält Library 1.1.0 mit versionsabhängiger Netzwerkfreigabe und geprüfter Übergabe bei erstmaliger Aktivierung neben einer älteren Library. Website-Daten bleiben getrennt; das Network-Admin-Widget verwendet die gewählte Bezugswebsite.
+Daily Scripture 1.1.2 enthält Library 1.1.0 mit versionsabhängiger Netzwerkfreigabe und geprüfter Übergabe bei erstmaliger Aktivierung neben einer älteren Library. Website-Daten bleiben getrennt; das Network-Admin-Widget verwendet die gewählte Bezugswebsite.
 
 
 <a name="jahresdaten-und-downloads"></a>
